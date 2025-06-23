@@ -58,12 +58,14 @@ export class IDF {
     for (const [classNameLower, idfClass] of Object.entries(this.objects)) {
       outputString += `${classIndent}${idd[classNameLower]}\n`;
       for (const idfObject of idfClass.idfObjects) {
-        // Object.entries(idfObject).forEach(([fieldName, fieldVal], fieldIndex) => {});
-        for (const [fieldName, fieldVal] of Object.entries(idfObject)) {
+        Object.entries(idfObject).forEach(([fieldName, fieldVal], fieldIndex) => {
           const fieldPaddingLength = fieldSize - String(fieldVal).length;
           const fieldPadding = " ".repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
-          outputString += `${fieldIndent}${fieldPadding}${fieldVal},  !- ${fieldName}\n`;
-        }
+
+          const closingSymbol = (fieldIndex == Object.keys(idfObject).length - 1)? ";" : ",";
+
+          outputString += `${fieldIndent}${fieldPadding}${fieldVal}${closingSymbol}  !- ${fieldName}\n`;
+        });
       }
     }
 
