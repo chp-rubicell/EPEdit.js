@@ -1,4 +1,5 @@
 import { readIDD } from "./idd";
+import { IDF } from "./idf";
 
 
 const exampleIDD: string = `

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const idf_1 = require("./idf");
 const exampleIDD = `
 \\group Simulation Parameters
 
@@ -186,3 +187,5 @@ Building,
        \\default 1
 `;
 const exampleJSON = "";
+let test = new idf_1.IDF();
+test.addObject("test", "f1");
