@@ -17,12 +17,22 @@ type IDFFields = Record<string, IDFFieldValue>;
 //? —— IDFObject ——————
 
 class IDFObject {
-  fields: IDFFields;
+  // className: string;
+  private fields: IDFFields;
 
   constructor(fields: IDFFields) {
     this.fields = lowercaseKeys(fields);
   }
 
+  getFields() : IDFFields {
+    return this.fields;
+  }
+  
+  /**
+   * Change the value of a field in an IDFObject.
+   * @param fieldName Name of the field to edit.
+   * @param value Value to set the field.
+   */
   set(fieldName: string, value: IDFFieldValue) {
     this.fields[fieldName.toLowerCase()] = value;
   }
@@ -89,11 +99,11 @@ export class IDF {
     for (const [classNameLower, idfClass] of Object.entries(this.objects)) {
       outputString += `${classIndent}${idd[classNameLower]}\n`;
       for (const idfObject of idfClass.idfObjects) {
-        Object.entries(idfObject.fields).forEach(([fieldName, fieldVal], fieldIndex) => {
+        Object.entries(idfObject.getFields()).forEach(([fieldName, fieldVal], fieldIndex) => {
           const fieldPaddingLength = fieldSize - String(fieldVal).length;
           const fieldPadding = " ".repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
 
-          const closingSymbol = (fieldIndex == Object.keys(idfObject.fields).length - 1) ? ";" : ",";
+          const closingSymbol = (fieldIndex == Object.keys(idfObject.getFields()).length - 1) ? ";" : ",";
 
           outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}\n`;
         });
