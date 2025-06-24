@@ -31,6 +31,7 @@ export class IDF {
     this.objects = {};
   }
 
+  //? —— Manage IDF ——————
   /**
    * Returns an IDFClass object with the corresponding className
    * @param className IDF class name (case insensitive)
@@ -45,13 +46,21 @@ export class IDF {
     return this.objects[classNameLower];
   }
 
+  //? —— Edit IDF ——————
+  /**
+   * Adds a new IDF object for the given IDF class based on the given fields
+   * @param className IDF class name (case insensitive)
+   * @param fields 
+   */
   addObject(className: string, fields: IDFObject) {
     this.getIDFClass(className).idfObjects.push(fields);
   }
 
+  //? —— Export as String ——————
+
   toString(classIndentSize: number = 2, fieldIndentSize: number = 4, fieldSize: number = 22): string {
-    const classIndent = " ".repeat(classIndentSize);
-    const fieldIndent = " ".repeat(fieldIndentSize);
+    const classIndent = " ".repeat(Math.floor(classIndentSize));
+    const fieldIndent = " ".repeat(Math.floor(fieldIndentSize));
 
     let outputString = "";
 
