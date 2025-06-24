@@ -51,6 +51,7 @@ function toTitleCase(str: string, re: RegExp = /[ ]/): string {
   re = new RegExp(re.source, 'g'); // change regexp to global
 
   const separators: string[] = str.match(re) ?? [];
+  console.log(separators)
   const words = str
     .toLowerCase()
     .split(re) // split the string into an array of words
@@ -63,13 +64,13 @@ export function fieldNameToKey(fieldName: string): string {
   //TODO get info from idd
   let fieldKey = fieldName;
   fieldKey = fieldKey.replace(/\s*{.*}/, ''); // remove units
-  fieldKey = toTitleCase(fieldKey, /[ -]/); // make it title case
+  fieldKey = toTitleCase(fieldKey, /[ \-_]/); // make it title case
   fieldKey = fieldKey.replace(/[-]/g, ''); // remove illegal characters
   fieldKey = fieldKey.replace(' ', '_');
   return fieldKey;
 }
 
-const testName = 'U--Factor-tEst value {W/m2-K}';
-// const testName = 'UFAc';
-console.log(`'${testName}'`);
-console.log(`'${fieldNameToKey(testName)}'`);
+// const testName = 'U--Factor-tEst value {W/m2-K}';
+// console.log(`'${testName}'`);
+// console.log(`'${fieldNameToKey(testName)}'`);
+// console.log(`'${fieldNameToKey(fieldNameToKey(testName))}'`);
