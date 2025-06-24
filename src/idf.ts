@@ -1,4 +1,4 @@
-import { lowercaseKeys } from './utilities';
+import { lowerCaseKeys, fieldNameToKey } from './utilities';
 
 //! TEMP
 const idd: Record<string, string> = {
@@ -22,7 +22,7 @@ class IDFObject {
 
   constructor(className: string, fields: IDFFields) {
     this.className = className.toLowerCase();
-    this.fields = lowercaseKeys(fields);
+    this.fields = lowerCaseKeys(fields);
   }
 
   getFields(): IDFFields {
