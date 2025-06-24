@@ -2,8 +2,8 @@ import { lowerCaseKeys, fieldNameToKey } from './utilities';
 
 //! TEMP
 const idd: Record<string, string> = {
-  "timestep": "Timestep",
-  "buildingsurface:detailed": "BuildingSurface:Detailed"
+  'timestep': 'Timestep',
+  'buildingsurface:detailed': 'BuildingSurface:Detailed'
 }
 
 // interface IDFObject {
@@ -60,7 +60,7 @@ class IDFClass {
     this.name = className.toLowerCase();
     this.idfObjects = [];
     this.fieldNames = {
-      "number of timesteps per hour": "Number of Timesteps per Hour"
+      'number of timesteps per hour': 'Number of Timesteps per Hour'
     }; // TODO
   }
 }
@@ -104,19 +104,19 @@ export class IDF {
   //? —— Export as String ——————
 
   toString(classIndentSize: number = 2, fieldIndentSize: number = 4, fieldSize: number = 22): string {
-    const classIndent = " ".repeat(Math.floor(classIndentSize));
-    const fieldIndent = " ".repeat(Math.floor(fieldIndentSize));
+    const classIndent = ' '.repeat(Math.floor(classIndentSize));
+    const fieldIndent = ' '.repeat(Math.floor(fieldIndentSize));
 
-    let outputString = "";
+    let outputString = '';
 
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       outputString += `${classIndent}${idd[classNameLower]}\n`;
       for (const idfObject of idfClass.idfObjects) {
         Object.entries(idfObject.getFields()).forEach(([fieldName, fieldVal], fieldIndex) => {
           const fieldPaddingLength = fieldSize - String(fieldVal).length;
-          const fieldPadding = " ".repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
+          const fieldPadding = ' '.repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
 
-          const closingSymbol = (fieldIndex == Object.keys(idfObject.getFields()).length - 1) ? ";" : ",";
+          const closingSymbol = (fieldIndex == Object.keys(idfObject.getFields()).length - 1) ? ';' : ',';
 
           outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}\n`;
         });
@@ -135,9 +135,9 @@ function writeIDF(epts: any) { }
 
 let idf = new IDF();
 
-idf.addObject("Timestep", { "Number of Timesteps per Hour": 4 });
+idf.addObject('Timestep', { 'Number of Timesteps per Hour': 4 });
 
 
-// console.log(idf.objects["Timestep"]);
+// console.log(idf.objects['Timestep']);
 
 console.log(idf.toString())
