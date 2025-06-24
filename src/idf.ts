@@ -10,7 +10,7 @@ const idd: Record<string, string> = {
 //   name: string;
 //   [key: string]: number | string;
 // }
-type IDFFieldValue = string | number | boolean;
+type IDFFieldValue = string | number | boolean | null;
 type IDFFields = Record<string, IDFFieldValue>;
 
 
@@ -52,9 +52,9 @@ class IDFObject {
 //? —— IDF Class ——————
 
 class IDFClass {
-  name: string;
+  name: string; // class name
   idfObjects: IDFObject[];
-  fieldNames: Record<string, string>
+  fieldNames: Record<string, string>; // for mapping capitalization
 
   constructor(className: string) {
     this.name = className.toLowerCase();
@@ -62,6 +62,10 @@ class IDFClass {
     this.fieldNames = {
       'number of timesteps per hour': 'Number of Timesteps per Hour'
     }; // TODO
+  }
+
+  getObjectsFields() {
+    return this.idfObjects.map((item) => item.getFields());
   }
 }
 
@@ -101,6 +105,14 @@ export class IDF {
     this.getIDFClass(className).idfObjects.push(new IDFObject(className, fields));
   }
 
+  getObjects(className: string) {
+    /*
+    TODO add try-catch
+    TODO add optional filter variable
+    */
+    return this.getIDFClass(className).getObjectsFields();
+  }
+
   //? —— Export as String ——————
 
   toString(classIndentSize: number = 2, fieldIndentSize: number = 4, fieldSize: number = 22): string {
@@ -135,9 +147,16 @@ function writeIDF(epts: any) { }
 
 let idf = new IDF();
 
-idf.addObject('Timestep', { 'Number of Timesteps per Hour': 4 });
+idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
+idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': null });
 
+console.log(idf.toString());
+
+for (const obj of idf.getObjects('Timestep')) {
+  if (!obj.test_a) obj.test_a = obj.test_b;
+  obj.test_b = 3;
+}
 
 // console.log(idf.objects['Timestep']);
 
-console.log(idf.toString())
+console.log(idf.toString());
