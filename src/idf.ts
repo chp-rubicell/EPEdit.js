@@ -17,23 +17,34 @@ type IDFFields = Record<string, IDFFieldValue>;
 //? —— IDFObject ——————
 
 class IDFObject {
-  // className: string;
+  className: string;
   private fields: IDFFields;
 
-  constructor(fields: IDFFields) {
+  constructor(className: string, fields: IDFFields) {
+    this.className = className.toLowerCase();
     this.fields = lowercaseKeys(fields);
   }
 
-  getFields() : IDFFields {
+  getFields(): IDFFields {
     return this.fields;
   }
-  
+
+  /**
+   * Get the value of a field in an IDFObject.
+   * @param fieldName Name of the field to edit (case insensitive).
+   * @returns Value of the field.
+   */
+  get(fieldName: string) {
+    //TODO add try-catch
+    return this.fields[fieldName.toLowerCase()];
+  }
   /**
    * Change the value of a field in an IDFObject.
-   * @param fieldName Name of the field to edit.
+   * @param fieldName Name of the field to edit (case insensitive).
    * @param value Value to set the field.
    */
   set(fieldName: string, value: IDFFieldValue) {
+    //TODO check validity
     this.fields[fieldName.toLowerCase()] = value;
   }
 }
@@ -48,7 +59,9 @@ class IDFClass {
   constructor(className: string) {
     this.name = className.toLowerCase();
     this.idfObjects = [];
-    this.fieldNames = {}; // TODO
+    this.fieldNames = {
+      "number of timesteps per hour": "Number of Timesteps per Hour"
+    }; // TODO
   }
 }
 
@@ -57,10 +70,10 @@ export class IDF {
   // whether to check validity when modifying the IDF object
   CHECKVALID: boolean = false;
   // contains IDFClasses
-  objects: Record<string, IDFClass>;
+  private idfClasses: Record<string, IDFClass>;
 
   constructor() {
-    this.objects = {};
+    this.idfClasses = {};
   }
 
   //? —— Manage IDF ——————
@@ -71,11 +84,11 @@ export class IDF {
    */
   private getIDFClass(className: string): IDFClass {
     const classNameLower: string = className.toLowerCase();
-    if (!(classNameLower in this.objects)) {
+    if (!(classNameLower in this.idfClasses)) {
       // 만약 해당 class가 한 번도 한 생겼다면
-      this.objects[classNameLower] = new IDFClass(classNameLower);
+      this.idfClasses[classNameLower] = new IDFClass(classNameLower);
     }
-    return this.objects[classNameLower];
+    return this.idfClasses[classNameLower];
   }
 
   //? —— Edit IDF ——————
@@ -85,7 +98,7 @@ export class IDF {
    * @param fields TODO
    */
   addObject(className: string, fields: IDFFields) {
-    this.getIDFClass(className).idfObjects.push(new IDFObject(fields));
+    this.getIDFClass(className).idfObjects.push(new IDFObject(className, fields));
   }
 
   //? —— Export as String ——————
@@ -96,7 +109,7 @@ export class IDF {
 
     let outputString = "";
 
-    for (const [classNameLower, idfClass] of Object.entries(this.objects)) {
+    for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       outputString += `${classIndent}${idd[classNameLower]}\n`;
       for (const idfObject of idfClass.idfObjects) {
         Object.entries(idfObject.getFields()).forEach(([fieldName, fieldVal], fieldIndex) => {
