@@ -1,3 +1,4 @@
+//? —— Field Key and Name Related ——————
 /**
  * Creates a new record with all keys converted to lowercase.
  * @param obj The input record.
@@ -74,3 +75,28 @@ export function fieldNameToKey(fieldName: string): string {
 // console.log(`'${testName}'`);
 // console.log(`'${fieldNameToKey(testName)}'`);
 // console.log(`'${fieldNameToKey(fieldNameToKey(testName))}'`);
+
+//? —— Field Index Related ——————
+/**
+ * Finds the last index in a Record where the corresponding value is not null.
+ *
+ * @param record The Record to search through.
+ * @returns The last index with a non-null value, or -1 if none is found.
+ */
+export function findLastFieldIndex<T>(record: Record<string, T | null>): number {
+  // Get an array of the record's keys.
+  const keys = Object.keys(record);
+
+  // Iterate backward from the end of the keys array.
+  for (let i = keys.length - 1; i >= 0; i--) {
+    const key = keys[i];
+    // Check if the value for the current key is not null.
+    if (record[key] !== null) {
+      // If it's not null, this is the last one. Return the key.
+      return i;
+    }
+  }
+
+  // If the loop finishes, no non-null value was found.
+  return -1;
+}

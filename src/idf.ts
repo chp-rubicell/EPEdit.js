@@ -1,4 +1,7 @@
-import { lowerCaseKeys, fieldNameToKey } from './utilities';
+/*
+TODO apply fieldNameToKey
+*/
+import { lowerCaseKeys, fieldNameToKey, findLastFieldIndex } from './utilities';
 
 //! TEMP
 const idd: Record<string, string> = {
@@ -122,13 +125,25 @@ export class IDF {
     let outputString = '';
 
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
-      outputString += `${classIndent}${idd[classNameLower]}\n`;
       for (const idfObject of idfClass.idfObjects) {
+        const lastFieldIndex = findLastFieldIndex(idfObject.getFields());
+        if (lastFieldIndex < 0) continue; // skip object if all fields are null
+
+        // add className
+        outputString += `\n${classIndent}${idd[classNameLower]}\n`;
+
+        // add fields
         Object.entries(idfObject.getFields()).forEach(([fieldName, fieldVal], fieldIndex) => {
+          if (fieldIndex > lastFieldIndex) return; // skip trailing null fields (considered as empty)
+
+          // update fieldVal for null|undefinded
+          fieldVal = fieldVal ?? '';
+
+          // compute paddings
           const fieldPaddingLength = fieldSize - String(fieldVal).length;
           const fieldPadding = ' '.repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
 
-          const closingSymbol = (fieldIndex == Object.keys(idfObject.getFields()).length - 1) ? ';' : ',';
+          const closingSymbol = fieldIndex == lastFieldIndex ? ';' : ',';
 
           outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}\n`;
         });
@@ -148,7 +163,8 @@ function writeIDF(epts: any) { }
 let idf = new IDF();
 
 idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
-idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': null });
+idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': false });
+idf.addObject('Timestep', { 'test_a': null, 'Number of Timesteps per Hour': null });
 
 console.log(idf.toString());
 
