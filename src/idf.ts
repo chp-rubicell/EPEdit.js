@@ -1,3 +1,5 @@
+import { lowercaseKeys } from './utilities';
+
 //! TEMP
 const idd: Record<string, string> = {
   "timestep": "Timestep",
@@ -8,15 +10,35 @@ const idd: Record<string, string> = {
 //   name: string;
 //   [key: string]: number | string;
 // }
-type IDFObject = Record<string, string | number | boolean>;
+type IDFFieldValue = string | number | boolean;
+type IDFFields = Record<string, IDFFieldValue>;
+
+
+//? —— IDFObject ——————
+
+class IDFObject {
+  fields: IDFFields;
+
+  constructor(fields: IDFFields) {
+    this.fields = lowercaseKeys(fields);
+  }
+
+  set(fieldName: string, value: IDFFieldValue) {
+    this.fields[fieldName.toLowerCase()] = value;
+  }
+}
+
+//? —— IDF Class ——————
 
 class IDFClass {
   name: string;
   idfObjects: IDFObject[];
+  fieldNames: Record<string, string>
 
   constructor(className: string) {
     this.name = className.toLowerCase();
     this.idfObjects = [];
+    this.fieldNames = {}; // TODO
   }
 }
 
@@ -33,9 +55,9 @@ export class IDF {
 
   //? —— Manage IDF ——————
   /**
-   * Returns an IDFClass object with the corresponding className
-   * @param className IDF class name (case insensitive)
-   * @returns IDFClass
+   * Returns an IDFClass object with the corresponding className.
+   * @param className IDF class name (case insensitive).
+   * @returns IDFClass.
    */
   private getIDFClass(className: string): IDFClass {
     const classNameLower: string = className.toLowerCase();
@@ -48,12 +70,12 @@ export class IDF {
 
   //? —— Edit IDF ——————
   /**
-   * Adds a new IDF object for the given IDF class based on the given fields
-   * @param className IDF class name (case insensitive)
-   * @param fields 
+   * Adds a new IDF object for the given IDF class based on the given fields.
+   * @param className IDF class name (case insensitive).
+   * @param fields TODO
    */
-  addObject(className: string, fields: IDFObject) {
-    this.getIDFClass(className).idfObjects.push(fields);
+  addObject(className: string, fields: IDFFields) {
+    this.getIDFClass(className).idfObjects.push(new IDFObject(fields));
   }
 
   //? —— Export as String ——————
@@ -67,13 +89,13 @@ export class IDF {
     for (const [classNameLower, idfClass] of Object.entries(this.objects)) {
       outputString += `${classIndent}${idd[classNameLower]}\n`;
       for (const idfObject of idfClass.idfObjects) {
-        Object.entries(idfObject).forEach(([fieldName, fieldVal], fieldIndex) => {
+        Object.entries(idfObject.fields).forEach(([fieldName, fieldVal], fieldIndex) => {
           const fieldPaddingLength = fieldSize - String(fieldVal).length;
           const fieldPadding = " ".repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
 
-          const closingSymbol = (fieldIndex == Object.keys(idfObject).length - 1)? ";" : ",";
+          const closingSymbol = (fieldIndex == Object.keys(idfObject.fields).length - 1) ? ";" : ",";
 
-          outputString += `${fieldIndent}${fieldPadding}${fieldVal}${closingSymbol}  !- ${fieldName}\n`;
+          outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}\n`;
         });
       }
     }
