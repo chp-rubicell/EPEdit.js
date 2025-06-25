@@ -1,3 +1,30 @@
+//? —— RegExp ——————
+/**
+ * Converts a regular expression into a "strict" version that must match the entire string.
+ *
+ * @param regex The original RegExp object.
+ * @returns A new RegExp object anchored with `^` and `$`.
+ * @throws {Error} if the regex has the multiline 'm' flag.
+ */
+export function strictRegex(regex: RegExp): RegExp {
+  // The 'm' flag changes how `^` and `$` work, so we prevent it.
+  if (regex.multiline) {
+    throw new Error(
+      'Cannot make a regex strict if it uses the multiline \'m\' flag.',
+    );
+  }
+
+  // Note: This simple version doesn't check if the source already
+  // contains anchors, which could lead to `^^...$$`. This is
+  // usually harmless but worth noting for complex cases.
+
+  const strictPattern = `^${regex.source}$`;
+  return new RegExp(strictPattern, regex.flags);
+}
+
+// console.log(/name\d/.test('name1a'));
+// console.log(strictRegex(/name\d/).test('name1a'));
+
 //? —— Field Key and Name Related ——————
 /**
  * Creates a new record with all keys converted to lowercase.

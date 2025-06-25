@@ -1,7 +1,7 @@
 /*
 TODO apply fieldNameToKey
 */
-import { lowerCaseKeys, fieldNameToKey, findLastFieldIndex } from './utilities';
+import * as utils from './utilities';
 
 //! TEMP
 const idd: Record<string, string> = {
@@ -22,10 +22,12 @@ type IDFFields = Record<string, IDFFieldValue>;
 class IDFObject {
   className: string;
   private fields: IDFFields;
+  name: string | null;
 
   constructor(className: string, fields: IDFFields) {
     this.className = className.toLowerCase();
-    this.fields = lowerCaseKeys(fields);
+    this.fields = utils.lowerCaseKeys(fields);
+    this.name = 'test'; // TODO
   }
 
   getFields(): IDFFields {
@@ -58,6 +60,7 @@ class IDFClass {
   name: string; // class name
   idfObjects: IDFObject[];
   fieldNames: Record<string, string>; // for mapping capitalization
+  hasNameField: boolean; // whether this class have a 'Name' field
 
   constructor(className: string) {
     this.name = className.toLowerCase();
@@ -65,10 +68,19 @@ class IDFClass {
     this.fieldNames = {
       'number of timesteps per hour': 'Number of Timesteps per Hour'
     }; // TODO
+    this.hasNameField = true; // TODO
   }
 
-  getObjectsFields() {
-    return this.idfObjects.map((item) => item.getFields());
+  getObjectsFields(re?: RegExp | undefined) {
+    //TODO add try-catch
+    if (this.hasNameField && re !== undefined) {
+      return this.idfObjects
+        .filter((item) => re.test(item.name??''))
+        .map((item) => item.getFields());
+    }
+    else {
+      return this.idfObjects.map((item) => item.getFields());
+    }
   }
 }
 
@@ -108,12 +120,15 @@ export class IDF {
     this.getIDFClass(className).idfObjects.push(new IDFObject(className, fields));
   }
 
-  getObjects(className: string) {
+  getObjects(className: string, re?: RegExp | undefined) {
     /*
-    TODO add try-catch
     TODO add optional filter variable
     */
-    return this.getIDFClass(className).getObjectsFields();
+    const classNameLower: string = className.toLowerCase();
+    if (!(classNameLower in this.idfClasses)) {
+      throw new RangeError(`"${className}" not this idf!`);
+    }
+    return this.getIDFClass(className).getObjectsFields(re);
   }
 
   //? —— Export as String ——————
@@ -126,7 +141,7 @@ export class IDF {
 
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       for (const idfObject of idfClass.idfObjects) {
-        const lastFieldIndex = findLastFieldIndex(idfObject.getFields());
+        const lastFieldIndex = utils.findLastFieldIndex(idfObject.getFields());
         if (lastFieldIndex < 0) continue; // skip object if all fields are null
 
         // add className
@@ -168,9 +183,15 @@ idf.addObject('Timestep', { 'test_a': null, 'Number of Timesteps per Hour': null
 
 console.log(idf.toString());
 
+console.log('without filter');
 for (const obj of idf.getObjects('Timestep')) {
-  if (!obj.test_a) obj.test_a = obj.test_b;
-  obj.test_b = 3;
+  // if (!obj.test_a) obj.test_a = obj.test_b;
+  // obj.test_b = 3;
+  console.log(obj)
+}
+console.log('with filter');
+for (const obj of idf.getObjects('Timestep', /test\d/)) {
+  console.log(obj)
 }
 
 // console.log(idf.objects['Timestep']);
