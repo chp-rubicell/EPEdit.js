@@ -1,5 +1,5 @@
 /*
-TODO apply fieldNameToKey
+TODO apply fieldDictionary when creating IDFClasses
 */
 import { dataDictionary } from './epjson-schema';
 import * as utils from './utilities';
