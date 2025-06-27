@@ -1,14 +1,8 @@
 /*
 TODO apply fieldNameToKey
 */
-import { fieldDictionary } from './epjson-schema';
+import { dataDictionary } from './epjson-schema';
 import * as utils from './utilities';
-
-//! TEMP
-const idd: Record<string, string> = {
-  'timestep': 'Timestep',
-  'buildingsurface:detailed': 'BuildingSurface:Detailed'
-}
 
 // interface IDFObject {
 //   name: string;
@@ -27,8 +21,9 @@ class IDFObject {
 
   constructor(className: string, fields: IDFFields) {
     this.className = className.toLowerCase();
-    this.fields = utils.lowerCaseKeys(fields);
-    this.name = 'test'; // TODO
+    this.fields = utils.renameFieldNamesToKeys(fields);
+    console.log(this.fields)
+    this.name = 'test'; //TODO
   }
 
   getFields(): IDFFields {
@@ -42,7 +37,7 @@ class IDFObject {
    */
   get(fieldName: string) {
     //TODO add try-catch
-    return this.fields[fieldName.toLowerCase()];
+    return this.fields[utils.fieldNameToKey(fieldName)];
   }
   /**
    * Change the value of a field in an IDFObject.
@@ -51,24 +46,23 @@ class IDFObject {
    */
   set(fieldName: string, value: IDFFieldValue) {
     //TODO check validity
-    this.fields[fieldName.toLowerCase()] = value;
+    this.fields[utils.fieldNameToKey(fieldName)] = value;
   }
 }
 
 //? —— IDF Class ——————
 
 class IDFClass {
-  name: string; // class name
+  readonly name: string; // class name
   idfObjects: IDFObject[];
-  fieldNames: Record<string, string>; // for mapping capitalization
-  hasNameField: boolean; // whether this class have a 'Name' field
+  readonly fieldNames: Record<string, string>; // for mapping capitalization
+  readonly hasNameField: boolean; // whether this class have a 'Name' field
 
   constructor(className: string) {
-    this.name = className.toLowerCase();
+    const classDataDictionary = dataDictionary[className.toLowerCase()];
+    this.name = classDataDictionary.className;
     this.idfObjects = [];
-    this.fieldNames = {
-      'number of timesteps per hour': 'Number of Timesteps per Hour'
-    }; // TODO
+    this.fieldNames = classDataDictionary.fieldNames;
     this.hasNameField = true; // TODO
   }
 
@@ -140,18 +134,24 @@ export class IDF {
 
     let outputString = '';
 
+    //TODO 순서가 idd와 다를 경우??
+
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       for (const idfObject of idfClass.idfObjects) {
         const lastFieldIndex = utils.findLastFieldIndex(idfObject.getFields());
         if (lastFieldIndex < 0) continue; // skip object if all fields are null
 
-        // add className
-        outputString += `\n${classIndent}${idd[classNameLower]}\n`;
-
-        // add fields
-        Object.entries(idfObject.getFields()).forEach(([fieldName, fieldVal], fieldIndex) => {
+        //? add className
+        outputString += `\n${classIndent}${idfClass.name}\n`;
+        
+        // field name capitalization
+        const fieldNames = idfClass.fieldNames;
+        //? add fields
+        Object.entries(idfObject.getFields()).forEach(([fieldKey, fieldVal], fieldIndex) => {
           if (fieldIndex > lastFieldIndex) return; // skip trailing null fields (considered as empty)
 
+          // update fieldKey
+          const fieldName = fieldNames[fieldKey] ?? fieldKey;
           // update fieldVal for null|undefinded
           fieldVal = fieldVal ?? '';
 

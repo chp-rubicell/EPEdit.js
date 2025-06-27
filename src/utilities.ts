@@ -31,9 +31,19 @@ export function strictRegex(regex: RegExp): RegExp {
  * @param obj The input record.
  * @returns A new record with lowercase keys.
  */
-export function lowerCaseKeys<T>(obj: Record<string, T>): Record<string, T> {
+function lowerCaseKeys<T>(obj: Record<string, T>): Record<string, T> {
   return Object.fromEntries(
     Object.entries(obj).map(([key, value]) => [key.toLowerCase(), value]),
+  );
+}
+/**
+ * Creates a new record with all keys converted to lowercase.
+ * @param obj The input record.
+ * @returns A new record with lowercase keys.
+ */
+export function renameFieldNamesToKeys<T>(obj: Record<string, T>): Record<string, T> {
+  return Object.fromEntries(
+    Object.entries(obj).map(([fieldName, value]) => [fieldNameToKey(fieldName), value]),
   );
 }
 
@@ -88,21 +98,25 @@ function toTitleCase(str: string, re: RegExp = /[ ]/): string {
   return alternateMerge(words, separators).join('');
 }
 
-export function fieldNameToKey(fieldName: string, fromJSON: boolean = false): string {
+function fieldNameToKeyIDD(fieldName: string): string {
   //TODO get info from idd
   let fieldKey = fieldName;
-  if (!fromJSON) {
-    // schema.epJSON does not have units
-    fieldKey = fieldKey.replace(/\s*{.*}/, ''); // remove units
-  }
+  fieldKey = fieldKey.replace(/\s*{.*}/, ''); // remove units
   fieldKey = toTitleCase(fieldKey, /[ \-_]/); // make it title case
   fieldKey = fieldKey.replace(/[-]/g, ''); // remove illegal characters
   fieldKey = fieldKey.replace(/ /g, '_');
   return fieldKey;
 }
 
+export function fieldNameToKey(fieldName: string): string {
+  let fieldKey = fieldName;
+  fieldKey = fieldKey.replace(/[-]/g, ''); // remove illegal characters
+  fieldKey = fieldKey.replace(/ /g, '_');
+  return fieldKey;
+}
+
 // const testName = 'U--Factor-tEst value {W/m2-K}';
-// const testName = 'Do Zone Sizing Calculation';
+// const testName = 'Do-Zone Sizing Calculation';
 // console.log(`'${testName}'`);
 // console.log(`'${fieldNameToKey(testName)}'`);
 // console.log(`'${fieldNameToKey(fieldNameToKey(testName))}'`);

@@ -21,12 +21,12 @@ interface classProps {
 }
 type classFields = Record<string, classProps>;
 
-export const fieldDictionary: classFields = Object.fromEntries(
+export const dataDictionary: classFields = Object.fromEntries(
   Object.entries(schema.properties).map(([className, propData]: [string, any]) => {
     const props: any = propData;
     const fieldNames: string[] = Object.values(props.legacy_idd.field_info).map((field_info: any) => field_info.field_name);
     const fieldKeyNameDict = Object.fromEntries(
-      Object.values(fieldNames).map((fieldName) => [fieldNameToKey(fieldName, true), fieldName])
+      Object.values(fieldNames).map((fieldName) => [fieldNameToKey(fieldName), fieldName])
     )
     const classProps: classProps = {
       className: className,
@@ -36,8 +36,9 @@ export const fieldDictionary: classFields = Object.fromEntries(
   })
 )
 
-// console.log(fieldDictionary);
-// console.log(fieldDictionary['WindowMaterial:SimpleGlazingSystem'.toLowerCase()]);
+// console.log(dataDictionary);
+// console.log(dataDictionary['WindowMaterial:SimpleGlazingSystem'.toLowerCase()]);
+// console.log(dataDictionary['Building'.toLowerCase()]);
 
 
 // for (let key of Object.keys(schema.properties)) {
