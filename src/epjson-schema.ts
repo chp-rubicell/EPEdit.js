@@ -1,5 +1,6 @@
 import { fieldNameToKey } from './utilities';
-import * as schemaData from './idds/v23-2.schema-mini.json'; //!TEMP
+import { default as schemaData } from './idds/v23-2.schema-mini.json'; //!TEMP
+// to prevent "default": {...} key in JSON
 
 // for export
 export interface classPropsMini {
@@ -32,6 +33,7 @@ type classFields = Record<string, classProps>;
 
 export const dataDictionary: classFields = Object.fromEntries(
   Object.entries(dataDictionaryImported).map(([className, props]: [string, classPropsMini]) => {
+    if (!('fields' in props)) console.log(className)
     const fieldKeyNameDict = Object.fromEntries(
       Object.values(props.fields).map((fieldName) => [fieldNameToKey(fieldName), fieldName])
     );
@@ -39,9 +41,6 @@ export const dataDictionary: classFields = Object.fromEntries(
       className: className,
       fieldNames: fieldKeyNameDict
     };
-    console.log([className.toLowerCase(), classProps])
     return [className.toLowerCase(), classProps];
   })
 )
-
-console.log(dataDictionary['WindowMaterial:SimpleGlazingSystem'.toLowerCase()]);
