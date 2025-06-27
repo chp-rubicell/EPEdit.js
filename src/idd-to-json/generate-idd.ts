@@ -33,7 +33,7 @@ interface classPropsExport {
 // type classFields = Record<string, classProps>;
 type classFieldsExport = Record<string, classPropsExport>;
 
-export const fieldDictionary: classFieldsExport = Object.fromEntries(
+export const dataDictionaryExport: classFieldsExport = Object.fromEntries(
   Object.entries(schema.properties).map(([className, propData]: [string, any]) => {
     const props: any = propData;
     const fieldNames: string[] = Object.values(props.legacy_idd.field_info).map((field_info: any) => field_info.field_name);
@@ -54,8 +54,8 @@ export const fieldDictionary: classFieldsExport = Object.fromEntries(
   })
 )
 
-// console.log(fieldDictionary);
-// console.log(fieldDictionary['WindowMaterial:SimpleGlazingSystem'.toLowerCase()]);
+// console.log(dataDictionaryExport);
+// console.log(dataDictionaryExport['WindowMaterial:SimpleGlazingSystem'.toLowerCase()]);
 
 
 // for (let key of Object.keys(schema.properties)) {
@@ -93,4 +93,4 @@ async function exportRecordToJsonFile(
   }
 }
 
-exportRecordToJsonFile(fieldDictionary, './src/idd-to-json/jsons/test-mini.json');
+exportRecordToJsonFile(dataDictionaryExport, './src/idd-to-json/jsons/test-mini.json');
