@@ -168,12 +168,6 @@ export class IDF {
   }
 }
 
-
-function readIDF(idfString: string, idd: string) { }
-
-function writeIDF(epts: any) { }
-
-
 let idf = new IDF();
 
 idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
