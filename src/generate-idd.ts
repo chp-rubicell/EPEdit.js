@@ -1,3 +1,5 @@
+/** Generate IDD from schema.epJSON */
+
 import { fieldNameToKey } from './utilities';
 // import * as schema from './idds/v23-2-light.schema.json';
 import * as schemaData from './idds/v23-2.schema.json';
