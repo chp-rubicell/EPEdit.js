@@ -1,7 +1,7 @@
 /*
 TODO apply fieldDictionary when creating IDFClasses
 */
-import { fieldDictionary } from './generate-idd';
+// import { fieldDictionary } from './generate-idd';
 import * as utils from './utilities';
 
 //! TEMP
