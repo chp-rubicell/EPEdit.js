@@ -16,18 +16,12 @@ type IDFFields = Record<string, IDFFieldValue>;
 
 class IDFObject {
   className: string;
-  private fields: IDFFields;
-  name: string | null;
+  fields: IDFFields;
 
   constructor(className: string, fields: IDFFields) {
     this.className = className.toLowerCase();
     this.fields = utils.renameFieldNamesToKeys(fields);
     console.log(this.fields)
-    this.name = 'test'; //TODO
-  }
-
-  getFields(): IDFFields {
-    return this.fields;
   }
 
   /**
@@ -63,18 +57,22 @@ class IDFClass {
     this.name = classDataDictionary.className;
     this.idfObjects = [];
     this.fieldNames = classDataDictionary.fieldNames;
-    this.hasNameField = true; // TODO
+    // whether the class have a 'Name' field
+    this.hasNameField = Object.keys(classDataDictionary.fieldNames)['0'] == 'Name';
   }
 
   getObjectsFields(re?: RegExp | undefined) {
     //TODO add try-catch
     if (this.hasNameField && re !== undefined) {
       return this.idfObjects
-        .filter((item) => re.test(item.name??''))
-        .map((item) => item.getFields());
+        // test Name on the given RegExp
+        // if there is no Name in fields, use ''
+        .filter((item) => re.test(String(item.fields.Name ?? '')))
+        // return the fields and not the IDFObject
+        .map((item) => item.fields);
     }
     else {
-      return this.idfObjects.map((item) => item.getFields());
+      return this.idfObjects.map((item) => item.fields);
     }
   }
 }
@@ -138,20 +136,20 @@ export class IDF {
 
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       for (const idfObject of idfClass.idfObjects) {
-        const lastFieldIndex = utils.findLastFieldIndex(idfObject.getFields());
+        const lastFieldIndex = utils.findLastFieldIndex(idfObject.fields);
         if (lastFieldIndex < 0) continue; // skip object if all fields are null
 
         //? add className
         outputString += `\n${classIndent}${idfClass.name}\n`;
-        
+
         // field name capitalization
         const fieldNames = idfClass.fieldNames;
         //? add fields
-        Object.entries(idfObject.getFields()).forEach(([fieldKey, fieldVal], fieldIndex) => {
+        Object.entries(idfObject.fields).forEach(([fieldKey, fieldVal], fieldIndex) => {
           if (fieldIndex > lastFieldIndex) return; // skip trailing null fields (considered as empty)
 
-          // update fieldKey
-          const fieldName = fieldNames[fieldKey] ?? fieldKey;
+          // update fieldKey (if there is no matching fieldName, add '?' to the end of the fieldKey)
+          const fieldName = fieldNames[fieldKey] ?? `${fieldKey}?`;
           // update fieldVal for null|undefinded
           fieldVal = fieldVal ?? '';
 
@@ -180,7 +178,9 @@ let idf = new IDF();
 
 idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
 idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': false });
+idf.addObject('PythonPlugin:TrendVariable', { 'Name': 'asdf', 'Name of a Python Plugin Variable': 'a' });
 idf.addObject('Timestep', { 'test_a': null, 'Number of Timesteps per Hour': null });
+
 
 console.log(idf.toString());
 
@@ -198,3 +198,4 @@ for (const obj of idf.getObjects('Timestep', /test\d/)) {
 // console.log(idf.objects['Timestep']);
 
 console.log(idf.toString());
+
