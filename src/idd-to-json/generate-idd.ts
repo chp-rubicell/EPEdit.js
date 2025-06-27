@@ -3,8 +3,9 @@
 
 // import { fieldNameToKey } from '../utilities';
 // import * as schema from './idds/v23-2-light.schema.json';
-import { classPropsMini, classFieldsMini } from '../epjson-schema'
-import * as schemaData from './idds/v23-2.schema.json';
+import { classPropsMini, classFieldsMini } from '../epjson-schema';
+import { default as schemaData } from './idds/v23-2.schema.json';
+import { exportDataToJson } from '../dev-utils';
 
 //? —— Parse Schema File ——————
 
@@ -45,7 +46,7 @@ const dataDictionaryExport: classFieldsMini = Object.fromEntries(
 // }
 
 //? —— Export Parsed Record File as JSON ——————
-
+/*
 import { promises as fs } from 'fs';
 // import * as path from 'path';
 
@@ -76,3 +77,5 @@ async function exportRecordToJsonFile(
 }
 
 exportRecordToJsonFile(dataDictionaryExport, './src/idds/v23-2.schema-mini.json');
+*/
+exportDataToJson(dataDictionaryExport, './src/idds/v23-2.schema-test.json', true);

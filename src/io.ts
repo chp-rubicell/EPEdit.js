@@ -1,6 +1,6 @@
 /** Read .idf file and create an IDF object */
 import { dataDictionary } from './epjson-schema';
-import { IDF } from './IDF'
+import { IDF } from './idf';
 
 
 function readIDF(idfString: string, idd: string) { }

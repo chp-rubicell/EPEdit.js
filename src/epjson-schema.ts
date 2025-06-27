@@ -12,11 +12,11 @@ const dataDictionaryImported: classFieldsMini = schemaData;
 // console.log(Object.entries(dataDictionaryImported).slice(0, 10));
 // console.log(Object.entries(dataDictionaryImported).filter(([className, props]) => props == null));
 
-interface classProps {
+export interface classProps {
   className: string;
   fieldNames: Record<string, string>;
 }
-type classFields = Record<string, classProps>;
+export type classFields = Record<string, classProps>;
 
 // console.log(
 //   Object.entries(dataDictionaryImported).filter(([className, props]) => {
@@ -44,3 +44,9 @@ export const dataDictionary: classFields = Object.fromEntries(
     return [className.toLowerCase(), classProps];
   })
 )
+
+
+//? —— Export dataDictonary as JSON (for debugging) ——————
+
+import { exportDataToJson } from './dev-utils';
+exportDataToJson(dataDictionary, './src/idds/v23-2.schema-expanded.json');

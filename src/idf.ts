@@ -1,7 +1,7 @@
 /*
 TODO apply fieldDictionary when creating IDFClasses
 */
-import { dataDictionary } from './epjson-schema';
+import { dataDictionary, classFields, classProps } from './epjson-schema';
 import * as utils from './utilities';
 
 // interface IDFObject {
@@ -47,18 +47,19 @@ class IDFObject {
 //? —— IDF Class ——————
 
 class IDFClass {
+  private readonly classDictionary: classProps; // class dataDictionary
   readonly name: string; // class name
   idfObjects: IDFObject[];
   readonly fieldNames: Record<string, string>; // for mapping capitalization
   readonly hasNameField: boolean; // whether this class have a 'Name' field
 
-  constructor(className: string) {
-    const classDataDictionary = dataDictionary[className.toLowerCase()];
-    this.name = classDataDictionary.className;
+  constructor(classDictionary: classProps) {
+    this.classDictionary = classDictionary;
+    this.name = classDictionary.className;
     this.idfObjects = [];
-    this.fieldNames = classDataDictionary.fieldNames;
+    this.fieldNames = classDictionary.fieldNames;
     // whether the class have a 'Name' field
-    this.hasNameField = Object.keys(classDataDictionary.fieldNames)['0'] == 'Name';
+    this.hasNameField = Object.keys(classDictionary.fieldNames)['0'] == 'Name';
   }
 
   getObjectsFields(re?: RegExp | undefined) {
@@ -82,9 +83,11 @@ export class IDF {
   // whether to check validity when modifying the IDF object
   CHECKVALID: boolean = false;
   // contains IDFClasses
+  private readonly dictionary: classFields;
   private idfClasses: Record<string, IDFClass>;
 
-  constructor() {
+  constructor(dataDictionary: classFields) {
+    this.dictionary = dataDictionary;
     this.idfClasses = {};
   }
 
@@ -98,7 +101,8 @@ export class IDF {
     const classNameLower: string = className.toLowerCase();
     if (!(classNameLower in this.idfClasses)) {
       // 만약 해당 class가 한 번도 한 생겼다면
-      this.idfClasses[classNameLower] = new IDFClass(classNameLower);
+      const classDictionary = this.dictionary[classNameLower];
+      this.idfClasses[classNameLower] = new IDFClass(classDictionary);
     }
     return this.idfClasses[classNameLower];
   }
@@ -168,7 +172,7 @@ export class IDF {
   }
 }
 
-let idf = new IDF();
+let idf = new IDF(dataDictionary);
 
 idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
 idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': false });
