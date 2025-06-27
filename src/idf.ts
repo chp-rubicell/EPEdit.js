@@ -1,6 +1,7 @@
 /*
 TODO apply fieldNameToKey
 */
+import { fieldDictionary } from './epjson-schema';
 import * as utils from './utilities';
 
 //! TEMP

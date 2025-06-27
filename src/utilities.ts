@@ -79,7 +79,7 @@ function toTitleCase(str: string, re: RegExp = /[ ]/): string {
   re = new RegExp(re.source, 'g'); // change regexp to global
 
   const separators: string[] = str.match(re) ?? [];
-  console.log(separators)
+  // console.log(separators);
   const words = str
     .toLowerCase()
     .split(re) // split the string into an array of words
@@ -88,17 +88,21 @@ function toTitleCase(str: string, re: RegExp = /[ ]/): string {
   return alternateMerge(words, separators).join('');
 }
 
-export function fieldNameToKey(fieldName: string): string {
+export function fieldNameToKey(fieldName: string, fromJSON: boolean = false): string {
   //TODO get info from idd
   let fieldKey = fieldName;
-  fieldKey = fieldKey.replace(/\s*{.*}/, ''); // remove units
+  if (!fromJSON) {
+    // schema.epJSON does not have units
+    fieldKey = fieldKey.replace(/\s*{.*}/, ''); // remove units
+  }
   fieldKey = toTitleCase(fieldKey, /[ \-_]/); // make it title case
   fieldKey = fieldKey.replace(/[-]/g, ''); // remove illegal characters
-  fieldKey = fieldKey.replace(' ', '_');
+  fieldKey = fieldKey.replace(/ /g, '_');
   return fieldKey;
 }
 
 // const testName = 'U--Factor-tEst value {W/m2-K}';
+// const testName = 'Do Zone Sizing Calculation';
 // console.log(`'${testName}'`);
 // console.log(`'${fieldNameToKey(testName)}'`);
 // console.log(`'${fieldNameToKey(fieldNameToKey(testName))}'`);
