@@ -1,4 +1,4 @@
-import { readIDD } from "./idd";
+// import { readIDD } from "./idd";
 import { IDF } from "./idf";
 
 
