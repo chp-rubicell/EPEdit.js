@@ -123,7 +123,7 @@ export class IDF {
     */
     const classNameLower: string = className.toLowerCase();
     if (!(classNameLower in this.idfClasses)) {
-      throw new RangeError(`"${className}" not this idf!`);
+      throw new RangeError(`"${className}" not in this idf!`);
     }
     return this.getIDFClass(className).getObjectsFields(re);
   }
