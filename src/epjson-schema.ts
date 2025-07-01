@@ -1,16 +1,10 @@
 import { fieldNameToKey } from './utilities';
-import { default as schemaData } from './idds/v23-2.schema-mini.json'; //!TEMP
-// to prevent "default": {...} key in JSON
 
 // for export
 export interface classPropsMini {
   fields: string[];
 }
 export type classFieldsMini = Record<string, classPropsMini>;
-
-const dataDictionaryImported: classFieldsMini = schemaData;
-// console.log(Object.entries(dataDictionaryImported).slice(0, 10));
-// console.log(Object.entries(dataDictionaryImported).filter(([className, props]) => props == null));
 
 export interface classProps {
   className: string;
@@ -28,7 +22,7 @@ export async function loadString(code: string): Promise<string> {
   return idd;
 }
 
-export class IDD {
+export class IDDManager {
   private iddCache: Record<string, classFields> // consider using Map?
 
   constructor() {
@@ -72,9 +66,14 @@ export class IDD {
    */
   fromIDD(iddString: string) { }
 }
-
-const idd = new IDD();
-console.log(await idd.getVersion('23-2.1'));
+/*
+async function main() {
+  const idd = new IDD();
+  const i = await idd.getVersion('23.2');
+  console.log(i['WindowMaterial:SimpleGlazingSystem'.toLowerCase()]);
+}
+main();
+*/
 
 //? —— Export dataDictonary as JSON (for debugging) ——————
 /*

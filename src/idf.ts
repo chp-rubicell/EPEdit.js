@@ -1,7 +1,7 @@
 /*
-TODO apply fieldDictionary when creating IDFClasses
+TODO account for extendable inputs
 */
-import { dataDictionary, classFields, classProps } from './epjson-schema';
+import { IDDManager, classFields, classProps } from './epjson-schema';
 import * as utils from './utilities';
 
 // interface IDFObject {
@@ -21,7 +21,6 @@ class IDFObject {
   constructor(className: string, fields: IDFFields) {
     this.className = className.toLowerCase();
     this.fields = utils.renameFieldNamesToKeys(fields);
-    console.log(this.fields)
   }
 
   /**
@@ -91,6 +90,55 @@ export class IDF {
     this.idfClasses = {};
   }
 
+  //? —— Define IDF from String ——————
+
+  static async fromString(idfString: string, globalIDDManager?: IDDManager) {
+    //TODO add type casting for inputs
+    if (idfString.length <= 0) throw RangeError('Not a valid IDF string!');
+
+    //? parse string and split into objects
+
+    // remove comments
+    idfString = idfString.replace(/!.*\s*/g, '');
+    // remove whitespaces
+    idfString = idfString.replace(/,\s*/g, ',').replace(/;\s*/g, ';').trim();
+
+    //? get version info
+    const versionMatch = idfString.match(/version,(\S+?);/i);
+    if (versionMatch == null) throw RangeError('No version info!');
+    // const version = '23.2';
+    const version = versionMatch[1];
+
+    //? load IDD
+    let idd: classFields;
+    if (globalIDDManager == null) {
+      idd = await new IDDManager().getVersion(version);
+    }
+    else {
+      idd = await globalIDDManager.getVersion(version);
+    }
+    const idf = new IDF(idd);
+
+    //? add objects
+
+    // split into objects
+    const objectList = idfString.split(';');
+
+    for (let i = 0; i < objectList.length; i++) {
+      const obj = objectList[i];
+      if (obj.length <= 0) continue;
+
+      const fieldList = obj.split(',');
+      const className = fieldList.shift() ?? ''; // get and remove first element.
+      const keys = Object.values(idf.dictionary[className.toLowerCase()].fieldNames);
+      const entries = fieldList.map((value, index) => [keys[index], value]);
+      const fields = Object.fromEntries(entries) as IDFFields;
+      idf.addObject(className, fields)
+    }
+
+    return idf;
+  }
+
   //? —— Manage IDF ——————
   /**
    * Returns an IDFClass object with the corresponding className.
@@ -98,6 +146,9 @@ export class IDF {
    * @returns IDFClass.
    */
   private getIDFClass(className: string): IDFClass {
+    // if (this.dictionary == null) {
+    //   throw ReferenceError('IDD is not yet defined!');
+    // }
     const classNameLower: string = className.toLowerCase();
     if (!(classNameLower in this.idfClasses)) {
       // 만약 해당 class가 한 번도 한 생겼다면
@@ -172,28 +223,75 @@ export class IDF {
   }
 }
 
-let idf = new IDF(dataDictionary);
+/*
+const idfString = `! U.S. Department of Energy Commercial Reference Building Models of the National Building Stock.
+! Washington, DC: U.S. Department of Energy, Energy Efficiency and
+! Renewable Energy, Office of Building Technologies.
+! ***GENERAL SIMULATION PARAMETERS***
+! Number of Zones: 18
 
-idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
-idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': false });
-idf.addObject('PythonPlugin:TrendVariable', { 'Name': 'asdf', 'Name of a Python Plugin Variable': 'a' });
-idf.addObject('Timestep', { 'test_a': null, 'Number of Timesteps per Hour': null });
+Version,
+  23.2;                    !- Test
 
+SimulationControl,
+  YES,                     !- Do Zone Sizing Calculation
+  YES,                     !- Do System Sizing Calculation
+  ,                        !- Do Plant Sizing Calculation
+  YES,                     !- Run Simulation for Sizing Periods
+  NO,                      !- Run Simulation for Weather File Run Periods
+  No,                      !- Do HVAC Sizing Simulation for Sizing Periods
+  1;                       !- Maximum Number of HVAC Sizing Simulation Passes
 
-console.log(idf.toString());
+Building,
+  Ref Bldg Medium Office New2004_v1.3_5.0,  !- Name
+  0.0000,                  !- North Axis {deg}
+  City,                    !- Terrain
+  0.0400,                  !- Loads Convergence Tolerance Value {W}
+  0.2000,                  !- Temperature Convergence Tolerance Value {deltaC}
+  FullInteriorAndExterior, !- Solar Distribution
+  25,                      !- Maximum Number of Warmup Days
+  6;                       !- Minimum Number of Warmup Days
+`;
 
-console.log('without filter');
-for (const obj of idf.getObjects('Timestep')) {
-  // if (!obj.test_a) obj.test_a = obj.test_b;
-  // obj.test_b = 3;
-  console.log(obj)
+async function main() {
+  console.time('readIDF');
+  const idf = await IDF.fromString(idfString);
+  console.timeEnd('readIDF');
+  // console.log(idf.toString());
 }
-console.log('with filter');
-for (const obj of idf.getObjects('Timestep', /test\d/)) {
-  console.log(obj)
+main();
+*/
+
+/*
+async function main() {
+
+  const idd = await new IDDManager().getVersion('23.2');
+  let idf = new IDF(idd);
+
+  idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
+  idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': false });
+  idf.addObject('PythonPlugin:TrendVariable', { 'Name': 'asdf', 'Name of a Python Plugin Variable': 'a' });
+  idf.addObject('Timestep', { 'test_a': null, 'Number of Timesteps per Hour': null });
+
+
+  console.log(idf.toString());
+
+  console.log('without filter');
+  for (const obj of idf.getObjects('Timestep')) {
+    // if (!obj.test_a) obj.test_a = obj.test_b;
+    // obj.test_b = 3;
+    console.log(obj)
+  }
+  console.log('with filter');
+  for (const obj of idf.getObjects('Timestep', /test\d/)) {
+    console.log(obj)
+  }
+
+  // console.log(idf.objects['Timestep']);
+
+  console.log(idf.toString());
 }
+main();
+*/
 
-// console.log(idf.objects['Timestep']);
-
-console.log(idf.toString());
 
