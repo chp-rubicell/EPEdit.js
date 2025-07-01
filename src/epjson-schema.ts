@@ -18,25 +18,52 @@ export interface classProps {
 }
 export type classFields = Record<string, classProps>;
 
+/**
+ * Load an IDD string from a typescript file corresponding to the given version.
+ * @param code Version code (e.g., '24-2')
+ * @returns IDD string (e.g., from 'v24-2.ts')
+ */
+export async function loadString(code: string): Promise<string> {
+  const { idd } = await import(`./idds/v${code}`);
+  return idd;
+}
 
 export class IDD {
   private iddCache: Record<string, classFields> // consider using Map?
+
   constructor() {
     this.iddCache = {};
   }
 
-  getVersion(version: string) {
+  async getVersion(version: string) {
     const versionMatch = version.match(/\d+[\-.]\d+/);
     if (versionMatch == null) {
       throw new RangeError(`'${version}' is not a valid version format!`);
     }
     version = versionMatch[0].replace(/[.]/g, '-'); // '24-2' format
     // check if version is already in the cache
-    if (version in this.iddCache) {
-      return this.iddCache[version];
-    }
+    if (!(version in this.iddCache)) {
 
-    const {loadedString} = await import('./idds/v23-2');
+      const loadedString: string = await loadString(version);
+      const dataDictionaryImported: classFieldsMini = JSON.parse(loadedString) as classFieldsMini;
+
+      const dataDictionary: classFields = Object.fromEntries(
+        Object.entries(dataDictionaryImported).map(([className, props]: [string, classPropsMini]) => {
+          if (!('fields' in props)) console.log(className)
+          const fieldKeyNameDict = Object.fromEntries(
+            Object.values(props.fields).map((fieldName) => [fieldNameToKey(fieldName), fieldName])
+          );
+          const classProps: classProps = {
+            className: className,
+            fieldNames: fieldKeyNameDict
+          };
+          return [className.toLowerCase(), classProps];
+        })
+      )
+
+      this.iddCache[version] = dataDictionary;
+    }
+    return this.iddCache[version];
   }
 
   /**
@@ -45,23 +72,9 @@ export class IDD {
    */
   fromIDD(iddString: string) { }
 }
-const version = '23-2.1';
-console.log((version.match(/\d+[\-.]\d+/)??['23-2'])[0].replace(/[\-]/g, '.'));
-/*
-export const dataDictionary: classFields = Object.fromEntries(
-  Object.entries(dataDictionaryImported).map(([className, props]: [string, classPropsMini]) => {
-    if (!('fields' in props)) console.log(className)
-    const fieldKeyNameDict = Object.fromEntries(
-      Object.values(props.fields).map((fieldName) => [fieldNameToKey(fieldName), fieldName])
-    );
-    const classProps: classProps = {
-      className: className,
-      fieldNames: fieldKeyNameDict
-    };
-    return [className.toLowerCase(), classProps];
-  })
-)
-*/
+
+const idd = new IDD();
+console.log(await idd.getVersion('23-2.1'));
 
 //? —— Export dataDictonary as JSON (for debugging) ——————
 /*
