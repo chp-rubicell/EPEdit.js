@@ -5,6 +5,9 @@ import { idfString } from './idfs/RefBldgMediumOfficeNew2004_Chicago';
 
 async function main() {
   console.log();
+  console.log('< RefBldgMediumOfficeNew2004_Chicago.idf >')
+  console.log();
+
   console.time('read IDF');
   const idf = await IDF.fromString(idfString);
   console.timeEnd('read IDF');
@@ -16,7 +19,8 @@ async function main() {
     surf.Outside_Boundary_Condition = 'adiabatic';
   }
   console.timeEnd('iterate objects');
-  console.log(`  num. of total surfaces: ${_.length}`);
+  console.log(`  - num. of total surfaces: ${_.length}`);
+  console.log('  - updated surface boundary conditions.');
   console.log();
 
   console.time('write IDF')
@@ -25,5 +29,6 @@ async function main() {
   console.log();
 
   console.log(idf.getObjects('BuildingSurface:Detailed')[10]);
+  console.log();
 }
 main();
