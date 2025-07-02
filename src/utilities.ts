@@ -98,19 +98,9 @@ function toTitleCase(str: string, re: RegExp = /[ ]/): string {
   return alternateMerge(words, separators).join('');
 }
 
-function fieldNameToKeyIDD(fieldName: string): string {
-  //TODO get info from idd
-  let fieldKey = fieldName;
-  fieldKey = fieldKey.replace(/\s*{.*}/, ''); // remove units
-  fieldKey = toTitleCase(fieldKey, /[ \-_]/); // make it title case
-  fieldKey = fieldKey.replace(/[-]/g, ''); // remove illegal characters
-  fieldKey = fieldKey.replace(/ /g, '_');
-  return fieldKey;
-}
-
 export function fieldNameToKey(fieldName: string): string {
   let fieldKey = fieldName;
-  fieldKey = fieldKey.replace(/[-]/g, ''); // remove illegal characters
+  fieldKey = fieldKey.replace(/[-/*()]/g, ''); // remove illegal characters
   fieldKey = fieldKey.replace(/ /g, '_');
   return fieldKey;
 }

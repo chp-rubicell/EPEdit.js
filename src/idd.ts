@@ -35,38 +35,68 @@ Version,
 export interface fieldProps {
   name: string;
   type: 'string' | 'number';
+  units: 'string' | null;
 }
+
+type extensibleFieldName = [string, string]; // prefix, suffix -> (prefix)(n)(suffix)
+
 export interface classProps {
   className: string;
-  fields: Record<string, fieldProps>; // fieldKey: fieldProps
+  extensibleFieldStart?: number; // start index of the extensible fields
+  extensibleFields?: extensibleFieldName[];
+  fields: Record<string, fieldProps>; // fieldKey: fieldProps (excluding extensibles)
 }
 export type classFields = Record<string, classProps>; // classKey: classProps
 
 
 //? —— Parse IDD File ——————
 
-function parseIDD(iddString: string) {
+function parseIDDClassString(classString: string) {}
+
+/**
+ * Preprocess the .idd file (not intended for live parsing)
+ * @param iddString A string containing the idd information
+ */
+function preprocessIDD(iddString: string) {
   const classMatches = iddString.matchAll(/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g);
 
   for (const classMatch of classMatches) {
     const classString: string = classMatch[0];
-    // console.log(`'${classString.slice(0, 4)}'`);
-    const className = (classString.match(/(\S+),/) ?? [])[1]; // e.g., Version
-    const fieldMatches = classString.matchAll(/(?: *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g);
-    console.log(className)
+    
+    //? get top-level class info
+    const classInfoString = (classString.match(/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+/) ?? [''])[0]; // Version, \~~, \~~
+    const className = (classInfoString.match(/(\S+),/) ?? [])[1]; // e.g., Version
+    const classKey = className.toLowerCase();
+
+    //? get field info
+    const fieldMatches = classString.matchAll(/ *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+/g);
+    
     for (const fieldMatch of fieldMatches) {
       const fieldString: string = fieldMatch[0];
       const fieldName = (fieldString.match(/\\field (.+)(?:\r\n|\r|\n)/) ?? [])[1];
       const fieldKey = fieldNameToKey(fieldName);
-      console.log(fieldKey)
-      break
+      const fieldTypeRaw = (fieldString.match(/\\type (\S+)(?:\r\n|\r|\n)/) ?? [])[1];
+      // integer, real, alpha, choice, object-list, external-list, node
+      let fieldType: string;
+      switch (fieldTypeRaw) {
+        case 'integer':
+          fieldType = 'int';
+          break;
+
+        case 'real':
+          fieldType = 'float';
+          break;
+      
+        default:
+          fieldType = 'string';
+          break;
+      }
     }
     console.log()
-    break
   }
 }
 
-parseIDD(iddString)
+preprocessIDD(iddString)
 
 
 
