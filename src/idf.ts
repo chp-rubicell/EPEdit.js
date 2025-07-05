@@ -21,6 +21,10 @@ class IDFObject {
   constructor(className: string, fields: IDFFields) {
     this.className = className.toLowerCase();
     this.fields = utils.renameFieldNamesToKeys(fields);
+    //TODO!!
+    // const newFields = Object.fromEntries(
+    //   Object.entries(fields).map(([fieldName, value]) => [utils.fieldNameToKey(fieldName), value]),
+    // );
   }
 
   /**
@@ -49,7 +53,8 @@ class IDFClass {
   readonly classIDD: classProps; // class dataDictionary
   readonly name: string; // class name
   idfObjects: IDFObject[];
-  readonly fieldKeys: string[]; // excluding extensible fields
+  readonly fieldKeys: string[]; // field keys excluding extensible fields
+  readonly fieldSize: number; // number of fields excluding extensible fields
   readonly hasNameField: boolean; // whether this class have a 'Name' field
   readonly hasExtensible: boolean; // whether this class have extensible fields
   readonly extensibleStartIdx: number;
@@ -74,9 +79,10 @@ class IDFClass {
       this.extensibleStartIdx = -1;
       this.extensibleSize = 0;
     }
+    this.fieldSize = this.fieldKeys.length;
   }
 
-  getFieldIdxFromKey(fieldKey: string) {
+  getFieldIdxFromKey(fieldKey: string): number {
     const fieldIdx = this.fieldKeys.indexOf(fieldKey);
     if (fieldIdx >= 0) {
       return fieldIdx;
@@ -94,36 +100,79 @@ class IDFClass {
         }
       }
       if (extensibleIdx <= 0) {
-        console.error(`'${this.name}' has no '${fieldKey}' field!`);
-        return null;
+        throw new RangeError(`'${this.name}' has no '${fieldKey}' field!`);
       }
       return this.extensibleStartIdx
         + this.extensibleSize * extensibleGroupIdx
         + extensibleIdx;
     }
     else {
-      console.error(`'${this.name}' has no '${fieldKey}' field!`);
-      return null;
+      throw new RangeError(`'${this.name}' has no '${fieldKey}' field!`);
     }
   }
 
-  getFieldNameFromIdx(fieldIdx: number) {
+  getFieldNameFromIdx(fieldIdx: number): string {
+    if (fieldIdx < this.fieldSize) {
+      return Object.values(this.classIDD.fields)[fieldIdx].name;
+    }
+    else if (this.hasExtensible) {
+      const extensibleIdx = (fieldIdx - this.fieldSize) % this.extensibleSize;
+      const extensibleGroupIdx = Math.floor((fieldIdx - this.fieldSize) / this.extensibleSize);
+      const [prefix, suffix] = (this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ['', '']);
+      return `${prefix}${extensibleGroupIdx + 1}${suffix}`;
+    }
+    else {
+      throw new RangeError(`Index ${fieldIdx} is out of bound for '${this.name}'!`);
+    }
   }
 
-  getFieldPropFromIdx(fieldIdx: number) {
-    if (fieldIdx < this.fieldKeys.length) {
+  /**
+   * Create an array of field key in one loop.
+   * @param length Desired length of the field key array.
+   * @returns 
+   */
+  getFieldKeys(length: number): string[] {
+    if (length <= this.fieldSize) {
+      return this.fieldKeys.slice(0, length);
+    }
+    else if (this.hasExtensible) {
+      let keys = [...this.fieldKeys];
+
+      for (let i = 0; i < length - this.fieldSize; i++) {
+        const extensibleIdx = i % this.extensibleSize;
+        const extensibleGroupIdx = Math.floor(i / this.extensibleSize);
+
+        const [prefix, suffix] = (this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ['', '']);
+
+        keys.push(utils.fieldNameToKey(`${prefix}${extensibleGroupIdx + 1}${suffix}`));
+      }
+
+      return keys;
+    }
+    else {
+      throw new RangeError(`Length ${length} is out of bound for '${this.name}'!`);
+    }
+  }
+
+  getFieldPropFromIdx(fieldIdx: number): fieldProps {
+    if (fieldIdx < this.fieldSize) {
       return Object.values(this.classIDD.fields)[fieldIdx];
     }
     else if (this.hasExtensible) {
-      const extensibleIdx = Math.floor((fieldIdx - this.fieldKeys.length) / this.classIDD.;
-      const extensibleGroupIdx;
+      const extensibleIdx = (fieldIdx - this.fieldSize) % this.extensibleSize;
+      const extensibleGroupIdx = Math.floor((fieldIdx - this.fieldSize) / this.extensibleSize);
+      const [prefix, suffix] = (this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ['', '']);
+      const fieldName = `${prefix}${extensibleGroupIdx + 1}${suffix}`;
+      const templateFieldProp = Object.values(this.classIDD.fields)[this.extensibleStartIdx + extensibleIdx]
+      return {
+        name: fieldName,
+        type: templateFieldProp.type,
+        units: templateFieldProp.units
+      } as fieldProps;
     }
-    
-    // const fieldProp: fieldProps = {
-    //   name: fieldName,
-    //   type: fieldType,
-    //   units: fieldUnits
-    // }
+    else {
+      throw new RangeError(`Index ${fieldIdx} is out of bound for '${this.name}'!`);
+    }
   }
 
   getFieldNameFromKey(fieldKey: string) {
@@ -151,8 +200,9 @@ export class IDF {
   // whether to check validity when modifying the IDF object
   CHECKVALID: boolean = false;
   // contains IDFClasses
-  private readonly IDD: IDD;
-  private idfClasses: Record<string, IDFClass>;
+  readonly IDD: IDD;
+  //!!!! private
+  idfClasses: Record<string, IDFClass>;
 
   constructor(idd: IDD) {
     this.IDD = idd;
@@ -193,20 +243,17 @@ export class IDF {
     // split into objects
     const objectList = idfString.split(';');
 
-    /*
-    !!!!TEMP!!!!!!!!
     for (let i = 0; i < objectList.length; i++) {
       const obj = objectList[i];
       if (obj.length <= 0) continue;
 
       const fieldList = obj.split(',');
       const className = fieldList.shift() ?? ''; // get and remove first element.
-      const keys = Object.values(idf.IDD[className.toLowerCase()].fieldNames);
+      const keys = idf.getIDFClass(className).getFieldKeys(fieldList.length);
       const entries = fieldList.map((value, index) => [keys[index], value]);
       const fields = Object.fromEntries(entries) as IDFFields;
       idf.addObject(className, fields)
     }
-      */
 
     return idf;
   }
@@ -247,7 +294,7 @@ export class IDF {
     */
     const classNameLower: string = className.toLowerCase();
     if (!(classNameLower in this.idfClasses)) {
-      throw new RangeError(`"${className}" not in this idf!`);
+      throw new RangeError(`'${className}' not in this idf!`);
     }
     return this.getIDFClass(className).getObjectsFields(re);
   }
@@ -369,13 +416,15 @@ async function main() {
 main();
 */
 
-
+/*
 async function main() {
 
   const idd = await new IDDManager().getVersion('23.2');
   let idf = new IDF(idd);
-  console.log(idf.getIDFClass('buildingsurface:detailed'))
-  // console.log(idf.getIDFClass('buildingsurface:detailed').getFieldIdxFromKey('Vertex_3_Ycoordinate'))
-  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldPropFromIdx(0))
+  // console.log(idf.getIDFClass('buildingsurface:detailed'))
+  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldIdxFromKey('Vertex_3_Ycoordinate'));
+  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldPropFromIdx(19));
+  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldKeys(30));
 }
 main();
+*/
