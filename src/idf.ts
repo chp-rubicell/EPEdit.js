@@ -105,7 +105,8 @@ class IDFClass {
     if (fieldIdx < this.fieldKeys.length) {
       return Object.values(this.classIDD.fields)[fieldIdx];
     }
-    else if (this.hasExtensible)
+    //TODO
+    else if (this.hasExtensible) {}
     
     // const fieldProp: fieldProps = {
     //   name: fieldName,
