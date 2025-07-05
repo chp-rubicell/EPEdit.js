@@ -7,7 +7,6 @@
 import { fieldNameToKey, findLastFieldIndex } from './utilities';
 
 
-//TODO move these?
 export interface fieldProps {
   name: string;
   type: 'string' | 'int' | 'float';
@@ -157,4 +156,47 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
   }
 
   return classProp;
+}
+
+//? —— Load and Manage IDDs ——————
+
+/**
+ * Load an IDD string from a typescript file corresponding to the given version.
+ * @param code Version code (e.g., '24-2')
+ * @returns IDD string (e.g., from 'v24-2.ts')
+ */
+export async function loadString(code: string): Promise<string> {
+  const { iddString } = await import(`./idds/v${code}-idd`);
+  return iddString;
+}
+
+export class IDDManager {
+  private iddCache: Record<string, IDD> // consider using Map?
+
+  constructor() {
+    this.iddCache = {};
+  }
+
+  async getVersion(version: string) {
+    const versionMatch = version.match(/\d+[\-.]\d+/);
+    if (versionMatch == null) {
+      throw new RangeError(`'${version}' is not a valid version format!`);
+    }
+    version = versionMatch[0].replace(/[.]/g, '-'); // '24-2' format
+    // check if version is already in the cache
+    if (!(version in this.iddCache)) {
+
+      const loadedString: string = await loadString(version);
+      const idd: IDD = JSON.parse(loadedString) as IDD;
+
+      this.iddCache[version] = idd;
+    }
+    return this.iddCache[version];
+  }
+
+  /**
+   * Read self-supplied .idd file.
+   * @param iddString A string read from an .idd file.
+   */
+  static fromIDD(iddString: string) { }
 }

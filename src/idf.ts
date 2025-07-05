@@ -1,7 +1,7 @@
 /*
 TODO account for extendable inputs
 */
-import { IDDManager, classFields, classProps } from './epjson-schema';
+import { IDDManager, IDD, classProps } from './idd';
 import * as utils from './utilities';
 
 // interface IDFObject {
@@ -46,20 +46,38 @@ class IDFObject {
 //? —— IDF Class ——————
 
 class IDFClass {
-  private readonly classDictionary: classProps; // class dataDictionary
+  readonly classIDD: classProps; // class dataDictionary
   readonly name: string; // class name
   idfObjects: IDFObject[];
-  readonly fieldNames: Record<string, string>; // for mapping capitalization
+  readonly fieldKeys: string[]; // excluding extensible fields
   readonly hasNameField: boolean; // whether this class have a 'Name' field
 
-  constructor(classDictionary: classProps) {
-    this.classDictionary = classDictionary;
-    this.name = classDictionary.className;
+  constructor(classIDD: classProps) {
+    this.classIDD = classIDD;
+    this.name = classIDD.className;
     this.idfObjects = [];
-    this.fieldNames = classDictionary.fieldNames;
+    this.fieldKeys = Object.keys(classIDD.fields);
+    // exclude extensible fields
+    if (classIDD.extensibleFieldStart ?? -1 > 0) {
+      this.fieldKeys = this.fieldKeys.slice(0, classIDD.extensibleFieldStart);
+    }
     // whether the class have a 'Name' field
-    this.hasNameField = Object.keys(classDictionary.fieldNames)['0'] == 'Name';
+    this.hasNameField = Object.keys(this.fieldKeys)[0] == 'Name';
   }
+  
+  getFieldIdxFromKey(fieldKey: string) {
+    const fieldIdx = this.fieldKeys.indexOf(fieldKey);
+    if (fieldIdx >= 0) return fieldIdx;
+    else {
+      for 
+    }
+  }
+  
+  getFieldNameFromIdx(fieldIdx: number) { }
+
+  getFieldNameFromKey(fieldKey: string) {
+  }
+
 
   getObjectsFields(re?: RegExp | undefined) {
     //TODO add try-catch
@@ -82,11 +100,11 @@ export class IDF {
   // whether to check validity when modifying the IDF object
   CHECKVALID: boolean = false;
   // contains IDFClasses
-  private readonly dictionary: classFields;
+  private readonly IDD: IDD;
   private idfClasses: Record<string, IDFClass>;
 
-  constructor(dataDictionary: classFields) {
-    this.dictionary = dataDictionary;
+  constructor(idd: IDD) {
+    this.IDD = idd;
     this.idfClasses = {};
   }
 
@@ -110,7 +128,7 @@ export class IDF {
     const version = versionMatch[1];
 
     //? load IDD
-    let idd: classFields;
+    let idd: IDD;
     if (globalIDDManager == null) {
       idd = await new IDDManager().getVersion(version);
     }
@@ -124,17 +142,20 @@ export class IDF {
     // split into objects
     const objectList = idfString.split(';');
 
+    /*
+    !!!!TEMP!!!!!!!!
     for (let i = 0; i < objectList.length; i++) {
       const obj = objectList[i];
       if (obj.length <= 0) continue;
 
       const fieldList = obj.split(',');
       const className = fieldList.shift() ?? ''; // get and remove first element.
-      const keys = Object.values(idf.dictionary[className.toLowerCase()].fieldNames);
+      const keys = Object.values(idf.IDD[className.toLowerCase()].fieldNames);
       const entries = fieldList.map((value, index) => [keys[index], value]);
       const fields = Object.fromEntries(entries) as IDFFields;
       idf.addObject(className, fields)
     }
+      */
 
     return idf;
   }
@@ -145,15 +166,16 @@ export class IDF {
    * @param className IDF class name (case insensitive).
    * @returns IDFClass.
    */
-  private getIDFClass(className: string): IDFClass {
+    //!!!private
+    getIDFClass(className: string): IDFClass {
     // if (this.dictionary == null) {
     //   throw ReferenceError('IDD is not yet defined!');
     // }
     const classNameLower: string = className.toLowerCase();
     if (!(classNameLower in this.idfClasses)) {
       // 만약 해당 class가 한 번도 한 생겼다면
-      const classDictionary = this.dictionary[classNameLower];
-      this.idfClasses[classNameLower] = new IDFClass(classDictionary);
+      const classIDD = this.IDD[classNameLower];
+      this.idfClasses[classNameLower] = new IDFClass(classIDD);
     }
     return this.idfClasses[classNameLower];
   }
@@ -188,7 +210,8 @@ export class IDF {
     let outputString = '';
 
     //TODO 순서가 idd와 다를 경우??
-
+    /*
+    !!!!TEMP!!!!!!!!
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       for (const idfObject of idfClass.idfObjects) {
         const lastFieldIndex = utils.findLastFieldIndex(idfObject.fields);
@@ -218,6 +241,7 @@ export class IDF {
         });
       }
     }
+    */
 
     return outputString;
   }
@@ -295,3 +319,10 @@ main();
 */
 
 
+async function main() {
+
+  const idd = await new IDDManager().getVersion('23.2');
+  let idf = new IDF(idd);
+  console.log(idf.getIDFClass('buildingsurface:detailed').classIDD.extensibleFields)
+}
+main();

@@ -60,7 +60,7 @@ Version,
  * Preprocess the .idd file (not intended for live parsing)
  * @param versionCode e.g., 23-2
  */
-function preprocessIDD(versionCode: string) {
+function preprocessIDD(versionCode: string, test: boolean = false) {
   const filePath = `./src/idds-preprocess/idds/V${versionCode}-0-Energy+.idd`;
   let iddString = '';
   try {
@@ -86,12 +86,17 @@ function preprocessIDD(versionCode: string) {
   // console.log(idd);
   // console.log(idd['buildingsurface:detailed']);
 
-  exportIDDToTs(idd, `./src/idds/v${versionCode}-idd.ts`, true);
+  if (!test) {
+    exportIDDToTs(idd, `./src/idds/v${versionCode}-idd.ts`, true);
+  }
+  else {
+    exportIDDToTs(idd, `./src/idds-preprocess/test-v${versionCode}-idd.ts`, false);
+  }
 }
 
 //? —— Run Preprocess ——————
 
-// preprocessIDD('23-2');
+preprocessIDD('23-2', true);
 
 const versionList = [
   '8-9',
@@ -111,8 +116,8 @@ const versionList = [
   '25-1',
 ]
 
-for (const versionCode of versionList) {
-  console.log(`—— ${versionCode} ——————`);
-  preprocessIDD(versionCode);
-  console.log();
-}
+// for (const versionCode of versionList) {
+//   console.log(`—— ${versionCode} ——————`);
+//   preprocessIDD(versionCode);
+//   console.log();
+// }
