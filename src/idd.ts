@@ -5,8 +5,8 @@
 // import * as schema from './idds/v23-2-light.schema.json';
 // import { classPropsMini, classFieldsMini } from '../epjson-schema';
 import { fieldNameToKey, findLastFieldIndex } from './utilities';
-// import { exportDataToJson } from '../dev-utils';
-import { iddString } from './idds/v23-2-idd'
+import { exportDataToJson } from './dev-utils';
+import { promises as fs } from 'fs';
 
 /*
 ? RegExp Pattern
@@ -144,7 +144,8 @@ function parseIDDClassString(classString: string): classProps {
  * Preprocess the .idd file (not intended for live parsing)
  * @param iddString A string containing the idd information
  */
-function preprocessIDD(iddString: string) {
+async function preprocessIDD(iddCode: string) {
+  const { iddString } = await import(`./idds/v${iddCode}-idd`);
 
   let idd: IDD = {};
 
@@ -160,12 +161,40 @@ function preprocessIDD(iddString: string) {
   }
 
   // console.log(idd);
-  console.log(idd['buildingsurface:detailed']);
+  // console.log(idd['buildingsurface:detailed']);
+
+  exportDataToJson(idd, `./idds/v${iddCode}-idd.json`, true);
 }
 
 preprocessIDD(iddString)
 
 
+// Create an async function to handle the export
+export async function exportDataToJson(
+  data: Record<string, any>,
+  filePath: string,
+  mini: boolean = false
+) {
+  try {
+    //? Serialize the object to a JSON string
+    // Minified output
+    // const jsonString = JSON.stringify(data);
+    // The 'null, 2' arguments pretty-print the JSON with 2-space indentation
+    // const jsonString = JSON.stringify(data, null, 2);
+    const jsonString = mini ? JSON.stringify(data) : JSON.stringify(data, null, 2);
+
+    //? Define the output file path
+    // path.join ensures the path is correct for any operating system
+    // const filePath = path.join(__dirname, fileName);
+
+    //? Write the string to a file
+    await fs.writeFile(filePath, jsonString, "utf-8");
+
+    console.log(`Successfully exported data to ${filePath}`);
+  } catch (err) {
+    console.error("Error writing file:", err);
+  }
+}
 
 
 
