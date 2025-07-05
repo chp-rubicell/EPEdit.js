@@ -1,10 +1,10 @@
 import { IDD, parseIDDClassString } from '../idd';
-import { promises as fs } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 //? —— Export ——————
 
 // Export process IDD to .ts file.
-export async function exportIDDToTs(
+function exportIDDToTs(
   idd: IDD,
   filePath: string,
   mini: boolean = false
@@ -23,7 +23,7 @@ export async function exportIDDToTs(
     // const filePath = path.join(__dirname, fileName);
 
     //? Write the string to a file
-    await fs.writeFile(filePath, jsonString, 'utf-8');
+    writeFileSync(filePath, jsonString, 'utf-8');
 
     console.log(`Successfully exported data to ${filePath}`);
   } catch (err) {
@@ -37,35 +37,42 @@ export async function exportIDDToTs(
 /(?:\r\n|\r|\n)/
 
 #head#
-/\S+,#linebreak#(?: *\\.*#linebreak#)+/
+/[^\s,]+,#linebreak#(?: *\\.*#linebreak#)+/
 Version,
       \memo Specifies the EnergyPlus version of the IDF file.
       \unique-object
       \format singleLine
 
 #field#
-/ *\S+ *[,;](?: *\\.*#linebreak#)+/
+/ *[^\s,]+ *[,;](?: *\\.*#linebreak#)+/
   A1 ; \field Version Identifier
       \default 23.2
 
 #head#(#field#)+
-/\S+,#linebreak#(?: *\\.*#linebreak#)+(?: *\S+ *[,;](?: *\\.*#linebreak#)+)+/g
+/[^\s,]+,#linebreak#(?: *\\.*#linebreak#)+(?: *[^\s,]+ *[,;](?: *\\.*#linebreak#)+)+/g
  ^head                                ^fields
-/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g
+/[^\s,]+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *[^\s,]+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g
 */
 
 //? —— Parse IDD File ——————
 
 /**
  * Preprocess the .idd file (not intended for live parsing)
- * @param iddString A string containing the idd information
+ * @param versionCode e.g., 23-2
  */
-async function preprocessIDD(iddCode: string) {
-  const { iddString } = await import(`./v${iddCode}-idd`);
+function preprocessIDD(versionCode: string) {
+  const filePath = `./src/idds-preprocess/idds/V${versionCode}-0-Energy+.idd`;
+  let iddString = '';
+  try {
+    iddString = readFileSync(filePath, 'utf8');
+  } catch (err) {
+    // console.error('Error reading the file:', err);
+    throw new Error(`Error reading the file '${filePath}'`);
+  }
 
   let idd: IDD = {};
 
-  const classMatches = iddString.matchAll(/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g);
+  const classMatches = iddString.matchAll(/[^\s,]+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *[^\s,]+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g);
 
   for (const classMatch of classMatches) {
     const classString: string = classMatch[0];
@@ -79,9 +86,33 @@ async function preprocessIDD(iddCode: string) {
   // console.log(idd);
   // console.log(idd['buildingsurface:detailed']);
 
-  exportIDDToTs(idd, `./src/idds/v${iddCode}-idd.ts`, true);
+  exportIDDToTs(idd, `./src/idds/v${versionCode}-idd.ts`, true);
 }
 
 //? —— Run Preprocess ——————
 
-preprocessIDD('23-2');
+// preprocessIDD('23-2');
+
+const versionList = [
+  '8-9',
+  '9-0',
+  '9-1',
+  '9-2',
+  '9-3',
+  '9-4',
+  '9-5',
+  '9-6',
+  '22-1',
+  '22-2',
+  '23-1',
+  '23-2',
+  '24-1',
+  '24-2',
+  '25-1',
+]
+
+for (const versionCode of versionList) {
+  console.log(`—— ${versionCode} ——————`);
+  preprocessIDD(versionCode);
+  console.log();
+}

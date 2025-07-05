@@ -26,6 +26,30 @@ export interface classProps {
 
 export type IDD = Record<string, classProps>; // classKey: classProps
 
+//? —— RegExp Pattern ——————
+/*
+#linebreak#
+/(?:\r\n|\r|\n)/
+
+#head#
+/[^\s,]+,#linebreak#(?: *\\.*#linebreak#)+/
+Version,
+      \memo Specifies the EnergyPlus version of the IDF file.
+      \unique-object
+      \format singleLine
+
+#field#
+/ *[^\s,]+ *[,;](?: *\\.*#linebreak#)+/
+  A1 ; \field Version Identifier
+      \default 23.2
+
+#head#(#field#)+
+/[^\s,]+,#linebreak#(?: *\\.*#linebreak#)+(?: *[^\s,]+ *[,;](?: *\\.*#linebreak#)+)+/g
+ ^head                                ^fields
+/[^\s,]+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *[^\s,]+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g
+*/
+
+//? —— Parse ——————
 
 /**
  * Parse a class idd string and creates a classProps object. (for preprocess and realtime)
@@ -35,8 +59,8 @@ export type IDD = Record<string, classProps>; // classKey: classProps
 export function parseIDDClassString(classString: string, verbose: boolean = false): classProps {
 
   //? get top-level class info
-  const classInfoString = (classString.match(/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+/) ?? [''])[0]; // Version, \~~, \~~
-  const className = (classInfoString.match(/(\S+),/) ?? [])[1]; // e.g., Version
+  const classInfoString = (classString.match(/[^\s,]+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+/) ?? [''])[0]; // Version, \~~, \~~
+  const className = (classInfoString.match(/([^\s,]+),/) ?? [])[1]; // e.g., Version
 
   //? create classProps instance for this class
   let classProp: classProps = {
@@ -53,7 +77,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
   }
 
   //? get field info
-  const fieldMatches = classString.matchAll(/ *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+/g);
+  const fieldMatches = classString.slice(classInfoString.length).matchAll(/ *[^\s,]+ *[,;](?: *\\.*(?:\r\n|\r|\n))*/g);
 
   let fieldIdx = 0;
   for (const fieldMatch of fieldMatches) {
@@ -64,11 +88,25 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     ) break;
     const fieldString: string = fieldMatch[0];
 
-    const fieldName = (fieldString.match(/\\field (.+)(?:\r\n|\r|\n)/) ?? [])[1];
-    const fieldKey = fieldNameToKey(fieldName);
+    let fieldName = (fieldString.match(/\\field (.+)(?:\r\n|\r|\n)/) ?? [])[1];
+    let fieldKey = '';
+    if (fieldName == null) {
+      console.log(`> No fieldName match for '${className}' - ${fieldIdx}!`);
+      const fieldCodeMatch = fieldString.match(/ *([^\s,]+) *[,;]/);
+      let fieldCode = String(fieldIdx);
+      if (fieldCodeMatch) {
+        fieldCode = fieldCodeMatch[1];
+      }
+      fieldName = fieldCode;
+      fieldKey = fieldCode;
+      console.log(`  using '${fieldCode}' instead.`);
+    }
+    else {
+      fieldKey = fieldNameToKey(fieldName);
+    }
 
     //? field type
-    const fieldTypeRaw = (fieldString.match(/\\type (\S+)(?:\r\n|\r|\n)/) ?? [])[1];
+    const fieldTypeRaw = (fieldString.match(/\\type ([^\s,]+)(?:\r\n|\r|\n)/) ?? [])[1];
     //* integer, real, alpha, choice, object-list, external-list, node
     let fieldType: 'string' | 'int' | 'float';
     switch (fieldTypeRaw) {
@@ -87,9 +125,11 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     const fieldUnits = (fieldString.match(/\\units (.+)(?:\r\n|\r|\n)/) ?? [])[1] ?? null;
 
     //? extensible
+    // start of extensible
     if (fieldString.match(/\\begin-extensible/) != null) {
       classProp.extensibleFieldStart = fieldIdx;
     }
+    // if extensible field
     if ((classProp.extensibleFieldStart ?? -1) >= 0) {
       const fieldNameMatch = fieldName.match(/(?<prefix>[^\d]+)\d+(?<suffix>[^\d]*)$/i);
       if (fieldNameMatch && fieldNameMatch.groups) {
