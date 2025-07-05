@@ -96,28 +96,28 @@ function preprocessIDD(versionCode: string, test: boolean = false) {
 
 //? —— Run Preprocess ——————
 
-preprocessIDD('23-2', true);
+// preprocessIDD('23-2', true);
 
 const versionList = [
-  '8-9',
-  '9-0',
-  '9-1',
-  '9-2',
-  '9-3',
-  '9-4',
-  '9-5',
-  '9-6',
-  '22-1',
-  '22-2',
-  '23-1',
+  // '8-9',
+  // '9-0',
+  // '9-1',
+  // '9-2',
+  // '9-3',
+  // '9-4',
+  // '9-5',
+  // '9-6',
+  // '22-1',
+  // '22-2',
+  // '23-1',
   '23-2',
-  '24-1',
-  '24-2',
-  '25-1',
+  // '24-1',
+  // '24-2',
+  // '25-1',
 ]
 
-// for (const versionCode of versionList) {
-//   console.log(`—— ${versionCode} ——————`);
-//   preprocessIDD(versionCode);
-//   console.log();
-// }
+for (const versionCode of versionList) {
+  console.log(`—— ${versionCode} ——————`);
+  preprocessIDD(versionCode);
+  console.log();
+}

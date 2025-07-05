@@ -1,7 +1,7 @@
 /*
 TODO account for extendable inputs
 */
-import { IDDManager, IDD, classProps } from './idd';
+import { IDDManager, IDD, classProps, fieldProps } from './idd';
 import * as utils from './utilities';
 
 // interface IDFObject {
@@ -51,6 +51,7 @@ class IDFClass {
   idfObjects: IDFObject[];
   readonly fieldKeys: string[]; // excluding extensible fields
   readonly hasNameField: boolean; // whether this class have a 'Name' field
+  readonly hasExtensible: boolean; // whether this class have extensible fields
 
   constructor(classIDD: classProps) {
     this.classIDD = classIDD;
@@ -63,17 +64,55 @@ class IDFClass {
     }
     // whether the class have a 'Name' field
     this.hasNameField = Object.keys(this.fieldKeys)[0] == 'Name';
+    this.hasExtensible = (classIDD.extensibleFieldStart ?? -1) >= 0;
   }
-  
+
   getFieldIdxFromKey(fieldKey: string) {
     const fieldIdx = this.fieldKeys.indexOf(fieldKey);
-    if (fieldIdx >= 0) return fieldIdx;
+    if (fieldIdx >= 0) {
+      return fieldIdx;
+    }
+    else if (this.hasExtensible) {
+      let extensibleIdx = -1; // index among extensible fields
+      let extensibleGroupIdx = -1; // index of the extensible group
+      for (let regexpIdx = 0; regexpIdx < (this.classIDD.extensibleFieldKeyExp ?? []).length; regexpIdx++) {
+        const regexp = new RegExp((this.classIDD.extensibleFieldKeyExp ?? [])[regexpIdx]);
+        const regexpMatch = fieldKey.match(regexp);
+        if (regexpMatch) {
+          extensibleIdx = regexpIdx;
+          extensibleGroupIdx = parseInt(regexpMatch[1]) - 1;
+          break;
+        }
+      }
+      if (extensibleIdx <= 0) {
+        console.error(`'${this.name}' has no '${fieldKey}' field!`);
+        return null;
+      }
+      return (this.classIDD.extensibleFieldStart ?? 0)
+        + (this.classIDD.extensibleFieldSize ?? 0) * extensibleGroupIdx
+        + extensibleIdx;
+    }
     else {
-      for 
+      console.error(`'${this.name}' has no '${fieldKey}' field!`);
+      return null;
     }
   }
-  
-  getFieldNameFromIdx(fieldIdx: number) { }
+
+  getFieldNameFromIdx(fieldIdx: number) {
+  }
+
+  getFieldPropFromIdx(fieldIdx: number) {
+    if (fieldIdx < this.fieldKeys.length) {
+      return Object.values(this.classIDD.fields)[fieldIdx];
+    }
+    else if (this.hasExtensible)
+    
+    // const fieldProp: fieldProps = {
+    //   name: fieldName,
+    //   type: fieldType,
+    //   units: fieldUnits
+    // }
+  }
 
   getFieldNameFromKey(fieldKey: string) {
   }
@@ -166,8 +205,8 @@ export class IDF {
    * @param className IDF class name (case insensitive).
    * @returns IDFClass.
    */
-    //!!!private
-    getIDFClass(className: string): IDFClass {
+  //!!!private
+  getIDFClass(className: string): IDFClass {
     // if (this.dictionary == null) {
     //   throw ReferenceError('IDD is not yet defined!');
     // }
@@ -323,6 +362,8 @@ async function main() {
 
   const idd = await new IDDManager().getVersion('23.2');
   let idf = new IDF(idd);
-  console.log(idf.getIDFClass('buildingsurface:detailed').classIDD.extensibleFields)
+  console.log(idf.getIDFClass('buildingsurface:detailed'))
+  // console.log(idf.getIDFClass('buildingsurface:detailed').getFieldIdxFromKey('Vertex_3_Ycoordinate'))
+  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldPropFromIdx(0))
 }
 main();

@@ -19,6 +19,7 @@ export interface classProps {
   className: string;
   extensibleFieldStart?: number; // start index of the extensible fields
   extensibleFieldSize?: number; // size of the extensible fields
+  extensibleFieldKeyExp?: string[]; // RegExp pattern for extensible field search
   extensibleFields?: extensibleFieldName[];
   fields: Record<string, fieldProps>; // fieldKey: fieldProps (excluding extensibles)
 }
@@ -72,6 +73,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
   if (extensibleMatch != null) {
     classProp.extensibleFieldStart = -1; // update during the field parsing
     classProp.extensibleFieldSize = parseInt(extensibleMatch[1]);
+    classProp.extensibleFieldKeyExp = [];
     classProp.extensibleFields = [];
   }
 
@@ -130,19 +132,25 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     }
     // if extensible field
     if ((classProp.extensibleFieldStart ?? -1) >= 0) {
+      let prefix: string;
+      let suffix: string;
       const fieldNameMatch = fieldName.match(/(?<prefix>[^\d]+)\d+(?<suffix>[^\d]*)$/i);
       if (fieldNameMatch && fieldNameMatch.groups) {
-        const { prefix, suffix } = fieldNameMatch.groups;
-        classProp.extensibleFields?.push([prefix, suffix])
+        ({ prefix, suffix } = fieldNameMatch.groups);
       }
       else {
         // if there is no number in the field name
-        // throw RangeError(`No extensible pattern matched for ${className} - '${fieldName}'!`)
+        // throw new RangeError(`No extensible pattern matched for ${className} - '${fieldName}'!`);
+        
         if (verbose) {
           console.log(`> No extensible pattern matched for ${className} - '${fieldName}'!`)
         }
+        prefix = fieldName + ' ';
+        suffix = '';
         classProp.extensibleFields?.push([fieldName + ' ', ''])
       }
+      classProp.extensibleFields?.push([prefix, suffix]);
+      classProp.extensibleFieldKeyExp?.push(`${fieldNameToKey(prefix)}(\\d+)${fieldNameToKey(suffix)}`);
     }
 
     const fieldProp: fieldProps = {
