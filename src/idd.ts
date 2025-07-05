@@ -5,31 +5,7 @@
 // import * as schema from './idds/v23-2-light.schema.json';
 // import { classPropsMini, classFieldsMini } from '../epjson-schema';
 import { fieldNameToKey, findLastFieldIndex } from './utilities';
-import { exportDataToJson } from './dev-utils';
-import { promises as fs } from 'fs';
 
-/*
-? RegExp Pattern
-#linebreak#
-/(?:\r\n|\r|\n)/
-
-#head#
-/\S+,#linebreak#(?: *\\.*#linebreak#)+/
-Version,
-      \memo Specifies the EnergyPlus version of the IDF file.
-      \unique-object
-      \format singleLine
-
-#field#
-/ *\S+ *[,;](?: *\\.*#linebreak#)+/
-  A1 ; \field Version Identifier
-      \default 23.2
-
-#head#(#field#)+
-/\S+,#linebreak#(?: *\\.*#linebreak#)+(?: *\S+ *[,;](?: *\\.*#linebreak#)+)+/g
- ^head                                ^fields
-/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g
-*/
 
 //TODO move these?
 export interface fieldProps {
@@ -51,14 +27,12 @@ export interface classProps {
 export type IDD = Record<string, classProps>; // classKey: classProps
 
 
-//? —— Parse IDD File ——————
-
 /**
  * Parse a class idd string and creates a classProps object. (for preprocess and realtime)
  * @param classString Class idd string.
  * @returns classProps object.
  */
-function parseIDDClassString(classString: string): classProps {
+export function parseIDDClassString(classString: string, verbose: boolean = false): classProps {
 
   //? get top-level class info
   const classInfoString = (classString.match(/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+/) ?? [''])[0]; // Version, \~~, \~~
@@ -123,7 +97,12 @@ function parseIDDClassString(classString: string): classProps {
         classProp.extensibleFields?.push([prefix, suffix])
       }
       else {
-        throw RangeError(`No extensible pattern matched for '${fieldName}'!`)
+        // if there is no number in the field name
+        // throw RangeError(`No extensible pattern matched for ${className} - '${fieldName}'!`)
+        if (verbose) {
+          console.log(`> No extensible pattern matched for ${className} - '${fieldName}'!`)
+        }
+        classProp.extensibleFields?.push([fieldName + ' ', ''])
       }
     }
 
@@ -139,95 +118,3 @@ function parseIDDClassString(classString: string): classProps {
 
   return classProp;
 }
-
-/**
- * Preprocess the .idd file (not intended for live parsing)
- * @param iddString A string containing the idd information
- */
-async function preprocessIDD(iddCode: string) {
-  const { iddString } = await import(`./idds/v${iddCode}-idd`);
-
-  let idd: IDD = {};
-
-  const classMatches = iddString.matchAll(/\S+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *\S+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g);
-
-  for (const classMatch of classMatches) {
-    const classString: string = classMatch[0];
-
-    const classProp = parseIDDClassString(classString);
-    const classKey = classProp.className.toLowerCase();
-
-    idd[classKey] = classProp;
-  }
-
-  // console.log(idd);
-  // console.log(idd['buildingsurface:detailed']);
-
-  exportDataToJson(idd, `./idds/v${iddCode}-idd.json`, true);
-}
-
-preprocessIDD(iddString)
-
-
-// Create an async function to handle the export
-export async function exportDataToJson(
-  data: Record<string, any>,
-  filePath: string,
-  mini: boolean = false
-) {
-  try {
-    //? Serialize the object to a JSON string
-    // Minified output
-    // const jsonString = JSON.stringify(data);
-    // The 'null, 2' arguments pretty-print the JSON with 2-space indentation
-    // const jsonString = JSON.stringify(data, null, 2);
-    const jsonString = mini ? JSON.stringify(data) : JSON.stringify(data, null, 2);
-
-    //? Define the output file path
-    // path.join ensures the path is correct for any operating system
-    // const filePath = path.join(__dirname, fileName);
-
-    //? Write the string to a file
-    await fs.writeFile(filePath, jsonString, "utf-8");
-
-    console.log(`Successfully exported data to ${filePath}`);
-  } catch (err) {
-    console.error("Error writing file:", err);
-  }
-}
-
-
-
-/*
-
-//? —— Parse Schema File ——————
-
-const schema: any = schemaData;
-
-// for export
-// interface classPropsMini {
-//   fields: string[];
-// }
-// type classFieldsMini = Record<string, classPropsMini>;
-
-const dataDictionaryExport: classFieldsMini = Object.fromEntries(
-  Object.entries(schema.properties).map(([className, propData]: [string, any]) => {
-    const props: any = propData;
-    const fieldNames: string[] = Object.values(props.legacy_idd.field_info).map((field_info: any) => field_info.field_name);
-    const classProps: classPropsMini = {
-      fields: fieldNames
-    }
-    return [className, classProps];
-  })
-)
-
-// console.log(dataDictionaryExport);
-// console.log(dataDictionaryExport['WindowMaterial:SimpleGlazingSystem'.toLowerCase()]);
-
-
-// for (let key of Object.keys(schema.properties)) {
-//   console.log(key)
-// }
-
-exportDataToJson(dataDictionaryExport, './src/idds/v23-2.schema-test.json', true);
-*/
