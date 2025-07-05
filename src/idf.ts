@@ -52,19 +52,28 @@ class IDFClass {
   readonly fieldKeys: string[]; // excluding extensible fields
   readonly hasNameField: boolean; // whether this class have a 'Name' field
   readonly hasExtensible: boolean; // whether this class have extensible fields
+  readonly extensibleStartIdx: number;
+  readonly extensibleSize: number;
 
   constructor(classIDD: classProps) {
     this.classIDD = classIDD;
     this.name = classIDD.className;
     this.idfObjects = [];
     this.fieldKeys = Object.keys(classIDD.fields);
-    // exclude extensible fields
-    if (classIDD.extensibleFieldStart ?? -1 > 0) {
-      this.fieldKeys = this.fieldKeys.slice(0, classIDD.extensibleFieldStart);
-    }
     // whether the class have a 'Name' field
     this.hasNameField = Object.keys(this.fieldKeys)[0] == 'Name';
-    this.hasExtensible = (classIDD.extensibleFieldStart ?? -1) >= 0;
+    if (classIDD.extensible) {
+      // exclude extensible fields
+      this.fieldKeys = this.fieldKeys.slice(0, classIDD.extensible.startIdx);
+      this.hasExtensible = true;
+      this.extensibleStartIdx = classIDD.extensible.startIdx;
+      this.extensibleSize = classIDD.extensible.size;
+    }
+    else {
+      this.hasExtensible = false;
+      this.extensibleStartIdx = -1;
+      this.extensibleSize = 0;
+    }
   }
 
   getFieldIdxFromKey(fieldKey: string) {
@@ -75,8 +84,8 @@ class IDFClass {
     else if (this.hasExtensible) {
       let extensibleIdx = -1; // index among extensible fields
       let extensibleGroupIdx = -1; // index of the extensible group
-      for (let regexpIdx = 0; regexpIdx < (this.classIDD.extensibleFieldKeyExp ?? []).length; regexpIdx++) {
-        const regexp = new RegExp((this.classIDD.extensibleFieldKeyExp ?? [])[regexpIdx]);
+      for (let regexpIdx = 0; regexpIdx < (this.classIDD.extensible?.keyRegExps ?? []).length; regexpIdx++) {
+        const regexp = new RegExp((this.classIDD.extensible?.keyRegExps ?? [])[regexpIdx]);
         const regexpMatch = fieldKey.match(regexp);
         if (regexpMatch) {
           extensibleIdx = regexpIdx;
@@ -88,8 +97,8 @@ class IDFClass {
         console.error(`'${this.name}' has no '${fieldKey}' field!`);
         return null;
       }
-      return (this.classIDD.extensibleFieldStart ?? 0)
-        + (this.classIDD.extensibleFieldSize ?? 0) * extensibleGroupIdx
+      return this.extensibleStartIdx
+        + this.extensibleSize * extensibleGroupIdx
         + extensibleIdx;
     }
     else {
@@ -105,8 +114,10 @@ class IDFClass {
     if (fieldIdx < this.fieldKeys.length) {
       return Object.values(this.classIDD.fields)[fieldIdx];
     }
-    //TODO
-    else if (this.hasExtensible) {}
+    else if (this.hasExtensible) {
+      const extensibleIdx = Math.floor((fieldIdx - this.fieldKeys.length) / this.classIDD.;
+      const extensibleGroupIdx;
+    }
     
     // const fieldProp: fieldProps = {
     //   name: fieldName,

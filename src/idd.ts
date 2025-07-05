@@ -17,11 +17,13 @@ type extensibleFieldName = [string, string]; // prefix, suffix -> (prefix)(n)(su
 
 export interface classProps {
   className: string;
-  extensibleFieldStart?: number; // start index of the extensible fields
-  extensibleFieldSize?: number; // size of the extensible fields
-  extensibleFieldKeyExp?: string[]; // RegExp pattern for extensible field search
-  extensibleFields?: extensibleFieldName[];
   fields: Record<string, fieldProps>; // fieldKey: fieldProps (excluding extensibles)
+  extensible?: {
+    startIdx: number; // start index of the extensible fields
+    size: number; // size of the extensible fields
+    keyRegExps: string[]; // RegExp pattern for extensible field search
+    fieldNames: extensibleFieldName[];
+  };
 }
 
 export type IDD = Record<string, classProps>; // classKey: classProps
@@ -71,10 +73,12 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
   //? check extensible
   const extensibleMatch = classInfoString.match(/\\extensible:(\d+)/);
   if (extensibleMatch != null) {
-    classProp.extensibleFieldStart = -1; // update during the field parsing
-    classProp.extensibleFieldSize = parseInt(extensibleMatch[1]);
-    classProp.extensibleFieldKeyExp = [];
-    classProp.extensibleFields = [];
+    classProp.extensible = {
+      startIdx: -1, // update during the field parsing
+      size: parseInt(extensibleMatch[1]),
+      keyRegExps: [],
+      fieldNames: [],
+    }
   }
 
   //? get field info
@@ -84,8 +88,10 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
   for (const fieldMatch of fieldMatches) {
     // skip field if first extensible field set is complete
     if (
-      (classProp.extensibleFieldStart ?? -1) >= 0
-      && fieldIdx >= ((classProp.extensibleFieldStart ?? 0) + (classProp.extensibleFieldSize ?? 0))
+      classProp.extensible
+      && classProp.extensible.startIdx >= 0
+      && fieldIdx >= (classProp.extensible.startIdx
+                      + classProp.extensible.size)
     ) break;
     const fieldString: string = fieldMatch[0];
 
@@ -127,11 +133,11 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
 
     //? extensible
     // start of extensible
-    if (fieldString.match(/\\begin-extensible/) != null) {
-      classProp.extensibleFieldStart = fieldIdx;
+    if (classProp.extensible && fieldString.match(/\\begin-extensible/) != null) {
+      classProp.extensible.startIdx = fieldIdx;
     }
     // if extensible field
-    if ((classProp.extensibleFieldStart ?? -1) >= 0) {
+    if (classProp.extensible && classProp.extensible.startIdx >= 0) {
       let prefix: string;
       let suffix: string;
       const fieldNameMatch = fieldName.match(/(?<prefix>[^\d]+)\d+(?<suffix>[^\d]*)$/i);
@@ -141,16 +147,16 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
       else {
         // if there is no number in the field name
         // throw new RangeError(`No extensible pattern matched for ${className} - '${fieldName}'!`);
-        
+
         if (verbose) {
           console.log(`> No extensible pattern matched for ${className} - '${fieldName}'!`)
         }
         prefix = fieldName + ' ';
         suffix = '';
-        classProp.extensibleFields?.push([fieldName + ' ', ''])
+        classProp.extensible.fieldNames?.push([fieldName + ' ', ''])
       }
-      classProp.extensibleFields?.push([prefix, suffix]);
-      classProp.extensibleFieldKeyExp?.push(`${fieldNameToKey(prefix)}(\\d+)${fieldNameToKey(suffix)}`);
+      classProp.extensible.fieldNames?.push([prefix, suffix]);
+      classProp.extensible.keyRegExps?.push(`${fieldNameToKey(prefix)}(\\d+)${fieldNameToKey(suffix)}`);
     }
 
     const fieldProp: fieldProps = {
