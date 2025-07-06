@@ -106,7 +106,7 @@ declare class IDF {
     readonly IDD: IDD;
     idfClasses: Record<string, IDFClass>;
     constructor(idd: IDD);
-    static fromString(idfString: string, globalIDDManager?: IDDManager, ts?: boolean): Promise<IDF>;
+    static fromString(idfString: string, iddDir?: string, globalIDDManager?: IDDManager, ts?: boolean): Promise<IDF>;
     /**
      * Returns an IDFClass object with the corresponding className.
      * @param className IDF class name (case insensitive).
@@ -116,9 +116,9 @@ declare class IDF {
     /**
      * Adds a new IDF object for the given IDF class based on the given fields.
      * @param className IDF class name (case insensitive).
-     * @param fields TODO
+     * @param fields fieldKeys and values for creating IDF objects
      */
-    addObject(className: string, fields: IDFFields): void;
+    newObject(className: string, fields: IDFFields): void;
     getObjects(className: string, re?: RegExp | undefined): IDFFields[];
     toString(classIndentSize?: number, fieldIndentSize?: number, fieldSize?: number): string;
 }

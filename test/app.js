@@ -1,6 +1,7 @@
 import { IDF, IDDManager } from '../dist/epedit.mjs';
+import { idfString } from './idfs/RefBldgMediumOfficeNew2004_Chicago.js';
 
-async function main() {
+async function test1() {
     const idd = await new IDDManager('../../idds').getVersion('23.2');
     // const iddManager = new IDDManager();
     // await iddManager.loadPreprocessedIDD('../dist/idds/v23-2-idd.js');
@@ -13,5 +14,43 @@ async function main() {
     console.log(surfClass.getFieldKeys(20));
     console.log(surfClass.getFieldProps(20));
     console.log(surfClass.getLastFieldIdxAndKeyFromFields({'Vertex_3_Ycoordinate':1, 'Vertex_3_Zcoordinate':null, 'Name':''}));
+    
+    console.log()
+    idf.newObject('buildingsurface:detailed', {Vertex_3_Ycoordinate: 0});
+    console.log(idf.toString());
 }
-main();
+
+async function test2() {
+  console.log();
+  console.log('< RefBldgMediumOfficeNew2004_Chicago.idf >')
+  console.log();
+
+  console.time('read IDF');
+  const idf = await IDF.fromString(idfString, '../idds');
+  console.timeEnd('read IDF');
+  console.log();
+  
+  console.time('iterate objects');
+  const _ = idf.getObjects('BuildingSurface:Detailed');
+  for (const surf of _) {
+    surf.Outside_Boundary_Condition = 'adiabatic';
+  }
+  console.timeEnd('iterate objects');
+  console.log(`  - num. of total surfaces: ${_.length}`);
+  console.log('  - updated surface boundary conditions.');
+  console.log();
+
+  console.time('write IDF')
+  idf.toString();
+  console.timeEnd('write IDF')
+  console.log();
+
+  console.log(idf.getObjects('BuildingSurface:Detailed')[10]);
+  console.log();
+
+  console.log();
+  console.log(idf.toString().slice(0, 200));
+}
+
+// test1();
+test2();

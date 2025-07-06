@@ -306,7 +306,7 @@ var IDF = class _IDF {
     this.idfClasses = {};
   }
   //? —— Define IDF from String ——————
-  static async fromString(idfString, globalIDDManager, ts = false) {
+  static async fromString(idfString, iddDir = "./idds", globalIDDManager, ts = false) {
     if (idfString.length <= 0) throw RangeError("Not a valid IDF string!");
     idfString = idfString.replace(/!.*\s*/g, "");
     idfString = idfString.replace(/,\s*/g, ",").replace(/;\s*/g, ";").trim();
@@ -315,7 +315,7 @@ var IDF = class _IDF {
     const version = versionMatch[1];
     let idd;
     if (globalIDDManager == null) {
-      idd = await new IDDManager().getVersion(version, ts);
+      idd = await new IDDManager(iddDir).getVersion(version, ts);
     } else {
       idd = await globalIDDManager.getVersion(version, ts);
     }
@@ -329,7 +329,7 @@ var IDF = class _IDF {
       const keys = idf.getIDFClass(className).getFieldKeys(fieldList.length);
       const entries = fieldList.map((value, index) => [keys[index], value]);
       const fields = Object.fromEntries(entries);
-      idf.addObject(className, fields);
+      idf.newObject(className, fields);
     }
     return idf;
   }
@@ -352,9 +352,9 @@ var IDF = class _IDF {
   /**
    * Adds a new IDF object for the given IDF class based on the given fields.
    * @param className IDF class name (case insensitive).
-   * @param fields TODO
+   * @param fields fieldKeys and values for creating IDF objects
    */
-  addObject(className, fields) {
+  newObject(className, fields) {
     const idfClass = this.getIDFClass(className);
     idfClass.idfObjects.push(new IDFObject(idfClass, fields));
   }
@@ -367,12 +367,10 @@ var IDF = class _IDF {
   }
   //? —— Export as String ——————
   toString(classIndentSize = 2, fieldIndentSize = 4, fieldSize = 22) {
-    const classIndent = " ".repeat(Math.floor(classIndentSize));
-    const fieldIndent = " ".repeat(Math.floor(fieldIndentSize));
     let outputString = "";
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       for (const idfObject of idfClass.idfObjects) {
-        outputString += idfObject.toString();
+        outputString += idfObject.toString(classIndentSize, fieldIndentSize, fieldSize);
       }
     }
     return outputString;

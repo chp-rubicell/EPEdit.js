@@ -360,7 +360,7 @@ export class IDF {
 
   //? —— Define IDF from String ——————
 
-  static async fromString(idfString: string, globalIDDManager?: IDDManager, ts: boolean = false) {
+  static async fromString(idfString: string, iddDir: string = './idds', globalIDDManager?: IDDManager, ts: boolean = false) {
     //TODO add type casting for inputs
     if (idfString.length <= 0) throw RangeError('Not a valid IDF string!');
 
@@ -380,7 +380,7 @@ export class IDF {
     //? load IDD
     let idd: IDD;
     if (globalIDDManager == null) {
-      idd = await new IDDManager().getVersion(version, ts);
+      idd = await new IDDManager(iddDir).getVersion(version, ts);
     }
     else {
       idd = await globalIDDManager.getVersion(version, ts);
@@ -401,7 +401,7 @@ export class IDF {
       const keys = idf.getIDFClass(className).getFieldKeys(fieldList.length);
       const entries = fieldList.map((value, index) => [keys[index], value]);
       const fields = Object.fromEntries(entries) as IDFFields;
-      idf.addObject(className, fields)
+      idf.newObject(className, fields);
     }
 
     return idf;
@@ -431,9 +431,9 @@ export class IDF {
   /**
    * Adds a new IDF object for the given IDF class based on the given fields.
    * @param className IDF class name (case insensitive).
-   * @param fields TODO
+   * @param fields fieldKeys and values for creating IDF objects
    */
-  addObject(className: string, fields: IDFFields) {
+  newObject(className: string, fields: IDFFields) {
     const idfClass = this.getIDFClass(className);
     idfClass.idfObjects.push(new IDFObject(idfClass, fields));
   }
@@ -452,14 +452,12 @@ export class IDF {
   //? —— Export as String ——————
 
   toString(classIndentSize: number = 2, fieldIndentSize: number = 4, fieldSize: number = 22): string {
-    const classIndent = ' '.repeat(Math.floor(classIndentSize));
-    const fieldIndent = ' '.repeat(Math.floor(fieldIndentSize));
 
     let outputString = '';
 
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       for (const idfObject of idfClass.idfObjects) {
-        outputString += idfObject.toString();
+        outputString += idfObject.toString(classIndentSize, fieldIndentSize, fieldSize);
       }
     }
 
@@ -507,10 +505,10 @@ async function main() {
   const idd = await new IDDManager().getVersion('23.2');
   let idf = new IDF(idd);
 
-  idf.addObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
-  idf.addObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': false });
-  idf.addObject('PythonPlugin:TrendVariable', { 'Name': 'asdf', 'Name of a Python Plugin Variable': 'a' });
-  idf.addObject('Timestep', { 'test_a': null, 'Number of Timesteps per Hour': null });
+  idf.newObject('Timestep', { 'test_a': null, 'test_b': 1, 'Number of Timesteps per Hour': null });
+  idf.newObject('Timestep', { 'test_a': null, 'test_b': 2, 'Number of Timesteps per Hour': false });
+  idf.newObject('PythonPlugin:TrendVariable', { 'Name': 'asdf', 'Name of a Python Plugin Variable': 'a' });
+  idf.newObject('Timestep', { 'test_a': null, 'Number of Timesteps per Hour': null });
 
 
   console.log(idf.toString());
@@ -536,7 +534,7 @@ main();
 /*
 async function main() {
 
-  const idd = await new IDDManager().getVersion('23.2');
+  const idd = await new IDDManager().getVersion('23.2', true);
   let idf = new IDF(idd);
   const surfClass = idf.getIDFClass('buildingsurface:detailed');
   // console.log(surfClass)
@@ -544,7 +542,11 @@ async function main() {
   console.log(surfClass.getFieldPropByIdx(19));
   console.log(surfClass.getFieldKeys(20));
   console.log(surfClass.getFieldProps(20));
-  console.log(surfClass.getLastFieldIdxFromFields({'Vertex_3_Ycoordinate':1, 'Vertex_3_Zcoordinate':null, 'Name':''}));
+  console.log(surfClass.getLastFieldIdxAndKeyFromFields({'Vertex_3_Ycoordinate':1, 'Vertex_3_Zcoordinate':null, 'Name':''}));
+
+  idf.newObject('buildingsurface:detailed', {Vertex_3_Ycoordinate: 0});
+
+  console.log(idf.toString())
 }
 main();
 */

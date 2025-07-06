@@ -9,7 +9,7 @@ async function main() {
   console.log();
 
   console.time('read IDF');
-  const idf = await IDF.fromString(idfString, undefined, true);
+  const idf = await IDF.fromString(idfString, undefined, undefined, true);
   console.timeEnd('read IDF');
   console.log();
   
@@ -30,5 +30,8 @@ async function main() {
 
   console.log(idf.getObjects('BuildingSurface:Detailed')[10]);
   console.log();
+
+  console.log();
+  console.log(idf.toString().slice(0, 100));
 }
 main();
