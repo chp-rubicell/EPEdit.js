@@ -1,5 +1,6 @@
 /*
-TODO add units
+!TODO Add default values
+TODO toString support for formats (SingleLine, Vertices, CompactSchedule, FluidProperties, ViewFactors, and Spectral)
 */
 import { IDDManager, IDD, classProps, fieldProps } from './idd';
 import * as utils from './utilities';
@@ -32,7 +33,7 @@ class IDFObject {
     // change all the fieldKeys just in case
     fields = utils.renameFieldNamesToKeys(fields);
     // apply fieldType
-    const lastFieldIdx = idfClass.getLastFieldIdxFromFields(fields);
+    const [lastFieldIdx, _] = idfClass.getLastFieldIdxAndKeyFromFields(fields);
     const fieldProps = idfClass.getFieldProps(lastFieldIdx + 1);
     this.fields = Object.fromEntries(
       Object.entries(fields).map(([key, value]) => {
@@ -87,52 +88,35 @@ class IDFObject {
   toString(classIndentSize: number = 2, fieldIndentSize: number = 4, fieldSize: number = 22): string {
     const classIndent = ' '.repeat(Math.floor(classIndentSize));
     const fieldIndent = ' '.repeat(Math.floor(fieldIndentSize));
-    
+
     let outputString = '';
     //TODO 순서가 idd와 다를 경우??
-    /*
-    // get the index of the last field that the value isn't null
-    let lastFieldIndex = -1;
-    for (const [key, val] of Object.entries(this.fields)) {
-      // user is a string, score is a number
-      console.log(`${user} has a score of ${score}.`);
-    }
-    for (let i = keys.length - 1; i >= 0; i--) {
-      const key = keys[i];
-      // Check if the value for the current key is not null.
-      if (record[key] !== null) {
-        // If it's not null, this is the last one. Return the key.
-        return i;
-      }
-    }
 
-    const lastFieldIndex = utils.findLastFieldIndex(idfObject.fields);
-    if (lastFieldIndex < 0) continue; // skip object if all fields are null
+    const [lastFieldIndex, lastFieldKey] = this.class.getLastFieldIdxAndKeyFromFields(this.fields);
+    if (lastFieldIndex < 0) return ''; // skip object if all fields are null
 
     //? add className
-    outputString += `\n${classIndent}${idfClass.name}\n`;
+    outputString += `\n${classIndent}${this.className}\n`;
 
-    // field name capitalization
-    const fieldNames = idfClass.fieldNames;
-    //? add fields
-    Object.entries(idfObject.fields).forEach(([fieldKey, fieldVal], fieldIndex) => {
-      if (fieldIndex > lastFieldIndex) return; // skip trailing null fields (considered as empty)
+    //? prepare fields
+    const fieldProps = this.class.getFieldProps(lastFieldIndex + 1);
 
-      // update fieldKey (if there is no matching fieldName, add '?' to the end of the fieldKey)
-      const fieldName = fieldNames[fieldKey] ?? `${fieldKey}?`;
-      // update fieldVal for null|undefinded
-      fieldVal = fieldVal ?? '';
+    for (const [fieldKey, fieldProp] of Object.entries(fieldProps)) {
+      const fieldName = fieldProp.name;
+      const fieldVal = String(this.fields[fieldKey] ?? '');
 
       // compute paddings
       const fieldPaddingLength = fieldSize - String(fieldVal).length;
       const fieldPadding = ' '.repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
 
-      const closingSymbol = fieldIndex == lastFieldIndex ? ';' : ',';
+      const closingSymbol = fieldKey == lastFieldKey ? ';' : ',';
 
-      outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}\n`;
-    });
+      const fieldUnits = fieldProp.units;
+      const fieldUnitsString = fieldUnits === null ? '' : ` {${fieldUnits}}`;
 
-    */
+      outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}${fieldUnitsString}\n`;
+    }
+
     return outputString;
   }
 }
@@ -183,9 +167,6 @@ class IDFClass {
       for (let regexpIdx = 0; regexpIdx < (this.classIDD.extensible?.keyRegExps ?? []).length; regexpIdx++) {
         const regexp = new RegExp((this.classIDD.extensible?.keyRegExps ?? [])[regexpIdx]);
         const regexpMatch = fieldKey.match(regexp);
-        if (this.name == 'Output:Table:Monthly') {
-          console.log(regexpMatch)
-        }
         if (regexpMatch) {
           extensibleIdx = regexpIdx;
           extensibleGroupIdx = parseInt(regexpMatch[1]) - 1;
@@ -203,7 +184,7 @@ class IDFClass {
       throw new RangeError(`'${this.name}' has no '${fieldKey}' field!`);
     }
   }
-  
+
   /**
    * Get the biggest index in an array of fieldKeys
    * @param fieldKeys An array of fieldKeys
@@ -217,20 +198,24 @@ class IDFClass {
     }
     return lastFieldIdx;
   }
-  
+
   /**
    * Get the biggest index in IDFFields
    * @param fields IDFFields of fieldKey: fieldVal
-   * @returns 
+   * @returns [lastFieldIdx, lastFieldKey]
    */
-  getLastFieldIdxFromFields(fields: IDFFields): number {
+  getLastFieldIdxAndKeyFromFields(fields: IDFFields): [number, string] {
     let lastFieldIdx = -1;
+    let lastFieldKey = '';
     for (const [key, val] of Object.entries(fields)) {
       if (val === null) continue; // if the value is null, skip
       const fieldIdx = this.getFieldIdxByKey(key);
-      if (fieldIdx > lastFieldIdx) lastFieldIdx = fieldIdx;
+      if (fieldIdx > lastFieldIdx) {
+        lastFieldIdx = fieldIdx;
+        lastFieldKey = key;
+      }
     }
-    return lastFieldIdx;
+    return [lastFieldIdx, lastFieldKey];
   }
 
   getFieldNameByIdx(fieldIdx: number): string {
@@ -290,7 +275,7 @@ class IDFClass {
     }
     else if (this.hasExtensible) {
       const extensibleProps = Object.values(this.classIDD.fields).slice(-this.extensibleSize); // get fieldProp objects for extensibles
-      
+
       let fields: Record<string, fieldProps> = { ...this.classIDD.fields };
 
       for (let i = 0; i < length - fieldLength; i++) {
@@ -472,52 +457,18 @@ export class IDF {
 
     let outputString = '';
 
-    //TODO 순서가 idd와 다를 경우??
-    /*
-    !!!!TEMP!!!!!!!!
     for (const [classNameLower, idfClass] of Object.entries(this.idfClasses)) {
       for (const idfObject of idfClass.idfObjects) {
-        const lastFieldIndex = utils.findLastFieldIndex(idfObject.fields);
-        if (lastFieldIndex < 0) continue; // skip object if all fields are null
-
-        //? add className
-        outputString += `\n${classIndent}${idfClass.name}\n`;
-
-        // field name capitalization
-        const fieldNames = idfClass.fieldNames;
-        //? add fields
-        Object.entries(idfObject.fields).forEach(([fieldKey, fieldVal], fieldIndex) => {
-          if (fieldIndex > lastFieldIndex) return; // skip trailing null fields (considered as empty)
-
-          // update fieldKey (if there is no matching fieldName, add '?' to the end of the fieldKey)
-          const fieldName = fieldNames[fieldKey] ?? `${fieldKey}?`;
-          // update fieldVal for null|undefinded
-          fieldVal = fieldVal ?? '';
-
-          // compute paddings
-          const fieldPaddingLength = fieldSize - String(fieldVal).length;
-          const fieldPadding = ' '.repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
-
-          const closingSymbol = fieldIndex == lastFieldIndex ? ';' : ',';
-
-          outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}\n`;
-        });
+        outputString += idfObject.toString();
       }
     }
-    */
 
     return outputString;
   }
 }
 
 /*
-const idfString = `! U.S. Department of Energy Commercial Reference Building Models of the National Building Stock.
-! Washington, DC: U.S. Department of Energy, Energy Efficiency and
-! Renewable Energy, Office of Building Technologies.
-! ***GENERAL SIMULATION PARAMETERS***
-! Number of Zones: 18
-
-Version,
+const idfString = `Version,
   23.2;                    !- Test
 
 SimulationControl,
@@ -544,7 +495,8 @@ async function main() {
   console.time('readIDF');
   const idf = await IDF.fromString(idfString);
   console.timeEnd('readIDF');
-  // console.log(idf.toString());
+  console.log()
+  console.log(idf.toString());
 }
 main();
 */
