@@ -2,9 +2,9 @@
   "name": "epedit.js",
   "version": "1.0.0",
   "description": "JavaScript library for editing EnergyPlus idf files.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/epedit-mini.js",
+  "module": "./dist/epedit-mini.mjs",
+  "types": "./dist/epedit-mini.d.ts",
   "files": [
     "dist"
   ],
