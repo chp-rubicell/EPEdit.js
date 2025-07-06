@@ -18,8 +18,19 @@ interface classProps {
 type IDD = Record<string, classProps>;
 declare class IDDManager {
     private iddCache;
-    constructor();
-    getVersion(version: string): Promise<IDD>;
+    iddDir: string;
+    constructor(iddDir?: string);
+    /**
+     * Load an IDD for the given version.
+     * @param version Version code (e.g., '24-2')
+     * @returns IDD string (e.g., from 'v24-2.ts')
+     */
+    getVersion(version: string, ts?: boolean): Promise<IDD>;
+    /**
+     *
+     * @param iddPath e.g., `${this.iddDir}/v${version}-idd`
+     */
+    loadPreprocessedIDD(iddPath: string): Promise<void>;
     /**
      * Read self-supplied .idd file.
      * @param iddString A string read from an .idd file.
@@ -95,7 +106,7 @@ declare class IDF {
     readonly IDD: IDD;
     idfClasses: Record<string, IDFClass>;
     constructor(idd: IDD);
-    static fromString(idfString: string, globalIDDManager?: IDDManager): Promise<IDF>;
+    static fromString(idfString: string, globalIDDManager?: IDDManager, ts?: boolean): Promise<IDF>;
     /**
      * Returns an IDFClass object with the corresponding className.
      * @param className IDF class name (case insensitive).

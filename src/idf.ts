@@ -360,7 +360,7 @@ export class IDF {
 
   //? —— Define IDF from String ——————
 
-  static async fromString(idfString: string, globalIDDManager?: IDDManager) {
+  static async fromString(idfString: string, globalIDDManager?: IDDManager, ts: boolean = false) {
     //TODO add type casting for inputs
     if (idfString.length <= 0) throw RangeError('Not a valid IDF string!');
 
@@ -380,10 +380,10 @@ export class IDF {
     //? load IDD
     let idd: IDD;
     if (globalIDDManager == null) {
-      idd = await new IDDManager().getVersion(version);
+      idd = await new IDDManager().getVersion(version, ts);
     }
     else {
-      idd = await globalIDDManager.getVersion(version);
+      idd = await globalIDDManager.getVersion(version, ts);
     }
     const idf = new IDF(idd);
 

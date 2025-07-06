@@ -91,7 +91,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
       classProp.extensible
       && classProp.extensible.startIdx >= 0
       && fieldIdx >= (classProp.extensible.startIdx
-                      + classProp.extensible.size)
+        + classProp.extensible.size)
     ) break;
     const fieldString: string = fieldMatch[0];
 
@@ -174,24 +174,28 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
 
 //? —— Load and Manage IDDs ——————
 
-/**
- * Load an IDD string from a typescript file corresponding to the given version.
- * @param code Version code (e.g., '24-2')
- * @returns IDD string (e.g., from 'v24-2.ts')
- */
-export async function loadString(code: string): Promise<string> {
-  const { iddString } = await import(`./idds/v${code}-idd`);
-  return iddString;
+// interface for loading IDD using import
+interface IDDModule {
+  iddVersion: string;
+  iddString: string;
 }
 
 export class IDDManager {
-  private iddCache: Record<string, IDD> // consider using Map?
+  private iddCache: Record<string, IDD>; // consider using Map?
+  iddDir: string;
 
-  constructor() {
+  constructor(iddDir: string = './idds') {
     this.iddCache = {};
+    if (iddDir.endsWith('/')) iddDir = iddDir.slice(0, -1);
+    this.iddDir = iddDir;
   }
 
-  async getVersion(version: string) {
+  /**
+   * Load an IDD for the given version.
+   * @param version Version code (e.g., '24-2')
+   * @returns IDD string (e.g., from 'v24-2.ts')
+   */
+  async getVersion(version: string, ts: boolean = false) {
     const versionMatch = version.match(/\d+[\-.]\d+/);
     if (versionMatch == null) {
       throw new RangeError(`'${version}' is not a valid version format!`);
@@ -199,13 +203,19 @@ export class IDDManager {
     version = versionMatch[0].replace(/[.]/g, '-'); // '24-2' format
     // check if version is already in the cache
     if (!(version in this.iddCache)) {
-
-      const loadedString: string = await loadString(version);
-      const idd: IDD = JSON.parse(loadedString) as IDD;
-
-      this.iddCache[version] = idd;
+      await this.loadPreprocessedIDD(`${this.iddDir}/v${version}-idd${ts ? '' : '.js'}`);
     }
     return this.iddCache[version];
+  }
+
+  /**
+   * 
+   * @param iddPath e.g., `${this.iddDir}/v${version}-idd`
+   */
+  async loadPreprocessedIDD(iddPath: string) {
+    const { iddVersion, iddString } = await import(iddPath) as IDDModule;
+    const idd: IDD = JSON.parse(iddString) as IDD;
+    this.iddCache[iddVersion] = idd;
   }
 
   /**

@@ -4,10 +4,11 @@ import { readFileSync, writeFileSync } from 'fs';
 //? —— Export ——————
 
 // Export process IDD to .ts file.
-function exportIDDToTs(
+function exportIDDToTsJs(
+  versionCode: string,
   idd: IDD,
   filePath: string,
-  mini: boolean = false
+  mini: boolean = false,
 ) {
   try {
     //? Serialize the object to a JSON string
@@ -16,14 +17,15 @@ function exportIDDToTs(
     // The 'null, 2' arguments pretty-print the JSON with 2-space indentation
     // const jsonString = JSON.stringify(data, null, 2);
     let jsonString = mini ? JSON.stringify(idd) : JSON.stringify(idd, null, 2);
-    jsonString = 'export const iddString = String.raw`' + jsonString + '`';
+    let outputString = `export const iddVersion = '${versionCode}';\n`;
+    outputString += 'export const iddString = String.raw`' + jsonString + '`';
 
     //? Define the output file path
     // path.join ensures the path is correct for any operating system
     // const filePath = path.join(__dirname, fileName);
 
     //? Write the string to a file
-    writeFileSync(filePath, jsonString, 'utf-8');
+    writeFileSync(filePath, outputString, 'utf-8');
 
     console.log(`Successfully exported data to ${filePath}`);
   } catch (err) {
@@ -89,10 +91,13 @@ function preprocessIDD(versionCode: string, test: boolean = false) {
   // console.log(idd['buildingsurface:detailed']);
 
   if (!test) {
-    exportIDDToTs(idd, `./src/idds/v${versionCode}-idd.ts`, true);
+    // .ts
+    exportIDDToTsJs(versionCode, idd, `./src/idds/v${versionCode}-idd.ts`, true);
+    // .js
+    exportIDDToTsJs(versionCode, idd, `./dist/idds/v${versionCode}-idd.js`, true);
   }
   else {
-    exportIDDToTs(idd, `./src/idds-preprocess/test-v${versionCode}-idd.ts`, false);
+    exportIDDToTsJs(versionCode, idd, `./src/idds-preprocess/test-v${versionCode}-idd.ts`, false);
   }
 }
 

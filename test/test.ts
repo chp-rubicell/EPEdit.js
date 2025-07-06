@@ -9,7 +9,7 @@ async function main() {
   console.log();
 
   console.time('read IDF');
-  const idf = await IDF.fromString(idfString);
+  const idf = await IDF.fromString(idfString, undefined, true);
   console.timeEnd('read IDF');
   console.log();
   

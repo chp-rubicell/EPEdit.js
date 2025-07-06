@@ -1,9 +1,3 @@
-var __glob = (map) => (path) => {
-  var fn = map[path];
-  if (fn) return fn();
-  throw new Error("Module not found in bundle: " + path);
-};
-
 // src/utilities.ts
 function renameFieldNamesToKeys(obj) {
   return Object.fromEntries(
@@ -17,31 +11,37 @@ function fieldNameToKey(fieldName) {
   return fieldKey;
 }
 
-// import("./idds/v*-idd") in src/idd.ts
-var globImport_idds_v_idd = __glob({});
-
 // src/idd.ts
-async function loadString(code) {
-  const { iddString } = await globImport_idds_v_idd(`./idds/v${code}-idd`);
-  return iddString;
-}
 var IDDManager = class {
-  // consider using Map?
-  constructor() {
+  constructor(iddDir = "./idds") {
     this.iddCache = {};
+    if (iddDir.endsWith("/")) iddDir = iddDir.slice(0, -1);
+    this.iddDir = iddDir;
   }
-  async getVersion(version) {
+  /**
+   * Load an IDD for the given version.
+   * @param version Version code (e.g., '24-2')
+   * @returns IDD string (e.g., from 'v24-2.ts')
+   */
+  async getVersion(version, ts = false) {
     const versionMatch = version.match(/\d+[\-.]\d+/);
     if (versionMatch == null) {
       throw new RangeError(`'${version}' is not a valid version format!`);
     }
     version = versionMatch[0].replace(/[.]/g, "-");
     if (!(version in this.iddCache)) {
-      const loadedString = await loadString(version);
-      const idd = JSON.parse(loadedString);
-      this.iddCache[version] = idd;
+      await this.loadPreprocessedIDD(`${this.iddDir}/v${version}-idd${ts ? "" : ".js"}`);
     }
     return this.iddCache[version];
+  }
+  /**
+   * 
+   * @param iddPath e.g., `${this.iddDir}/v${version}-idd`
+   */
+  async loadPreprocessedIDD(iddPath) {
+    const { iddVersion, iddString } = await import(iddPath);
+    const idd = JSON.parse(iddString);
+    this.iddCache[iddVersion] = idd;
   }
   /**
    * Read self-supplied .idd file.
@@ -306,7 +306,7 @@ var IDF = class _IDF {
     this.idfClasses = {};
   }
   //? —— Define IDF from String ——————
-  static async fromString(idfString, globalIDDManager) {
+  static async fromString(idfString, globalIDDManager, ts = false) {
     if (idfString.length <= 0) throw RangeError("Not a valid IDF string!");
     idfString = idfString.replace(/!.*\s*/g, "");
     idfString = idfString.replace(/,\s*/g, ",").replace(/;\s*/g, ";").trim();
@@ -315,9 +315,9 @@ var IDF = class _IDF {
     const version = versionMatch[1];
     let idd;
     if (globalIDDManager == null) {
-      idd = await new IDDManager().getVersion(version);
+      idd = await new IDDManager().getVersion(version, ts);
     } else {
-      idd = await globalIDDManager.getVersion(version);
+      idd = await globalIDDManager.getVersion(version, ts);
     }
     const idf = new _IDF(idd);
     const objectList = idfString.split(";");
