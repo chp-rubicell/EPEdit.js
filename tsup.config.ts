@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig([
   // default
   {
-    outDir: 'build',
+    outDir: 'dist',
     entry: { 'epedit': 'src/index.ts' },
     // format: ['cjs', 'esm'],
     format: ['esm'],
@@ -15,7 +15,7 @@ export default defineConfig([
   },
   // minified
   {
-    outDir: 'build',
+    outDir: 'dist',
     entry: { 'epedit-mini': 'src/index.ts' },
     // format: ['cjs', 'esm'],
     format: ['esm'],
