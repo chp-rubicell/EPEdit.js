@@ -1,10 +1,7 @@
-// app.js
-// Import your function from the tsup output file
-import { IDF, IDDManager } from '../build/epedit.mjs';
-// import { iddString } from './dist/idds/v23-2-idd';
+import { IDF, IDDManager } from '../dist/epedit.mjs';
 
 async function main() {
-    const idd = await new IDDManager('../../dist/idds').getVersion('23.2');
+    const idd = await new IDDManager('../../idds').getVersion('23.2');
     // const iddManager = new IDDManager();
     // await iddManager.loadPreprocessedIDD('../dist/idds/v23-2-idd.js');
     // const idd = iddManager.getVersion('23.2');
