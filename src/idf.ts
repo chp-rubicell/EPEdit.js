@@ -8,23 +8,59 @@ import * as utils from './utilities';
 //   name: string;
 //   [key: string]: number | string;
 // }
-type IDFFieldValue = string | number | boolean | null;
+type IDFFieldValue = string | number | null;
 type IDFFields = Record<string, IDFFieldValue>;
 
 
 //? —— IDFObject ——————
 
 class IDFObject {
+  class: IDFClass;
   className: string;
+  name: string | null;
   fields: IDFFields;
 
-  constructor(className: string, fields: IDFFields) {
-    this.className = className.toLowerCase();
-    // this.fields = utils.renameFieldNamesToKeys(fields);
-    //TODO add units
-    const newFields = Object.fromEntries(
-      Object.entries(fields).map(([fieldName, value]) => {
-        return [utils.fieldNameToKey(fieldName), value]
+  constructor(idfClass: IDFClass, fields: IDFFields) {
+    this.class = idfClass;
+    this.className = idfClass.name;
+    if (idfClass.hasNameField) {
+      this.name = String(fields['name']);
+    }
+    else {
+      this.name = null;
+    }
+    // change all the fieldKeys just in case
+    fields = utils.renameFieldNamesToKeys(fields);
+    // apply fieldType
+    const lastFieldIdx = idfClass.getLastFieldIdxFromFields(fields);
+    const fieldProps = idfClass.getFieldProps(lastFieldIdx + 1);
+    this.fields = Object.fromEntries(
+      Object.entries(fields).map(([key, value]) => {
+        const fieldType = fieldProps[key].type;
+        // autosize & autocalculate
+        if (typeof value === 'string'
+          && (value.toLowerCase() == 'autosize'
+            || value.toLowerCase() == 'autocalculate')) {
+          value = value.toLowerCase();
+        }
+        else if (value !== null) {
+          switch (fieldType) {
+            case 'int':
+              if (typeof value === 'string') value = parseInt(value);
+              else value = Math.trunc(value);
+              break;
+            case 'float':
+              if (typeof value === 'string') value = parseFloat(value);
+              break;
+            case 'string':
+              value = String(value);
+              break;
+            default:
+              throw new RangeError(`Type '${fieldType}' not supported for ${this.className} - ${this.name}`);
+              break;
+          }
+        }
+        return [key, value];
       })
     );
   }
@@ -46,6 +82,58 @@ class IDFObject {
   set(fieldName: string, value: IDFFieldValue) {
     //TODO check validity
     this.fields[utils.fieldNameToKey(fieldName)] = value;
+  }
+
+  toString(classIndentSize: number = 2, fieldIndentSize: number = 4, fieldSize: number = 22): string {
+    const classIndent = ' '.repeat(Math.floor(classIndentSize));
+    const fieldIndent = ' '.repeat(Math.floor(fieldIndentSize));
+    
+    let outputString = '';
+    //TODO 순서가 idd와 다를 경우??
+    /*
+    // get the index of the last field that the value isn't null
+    let lastFieldIndex = -1;
+    for (const [key, val] of Object.entries(this.fields)) {
+      // user is a string, score is a number
+      console.log(`${user} has a score of ${score}.`);
+    }
+    for (let i = keys.length - 1; i >= 0; i--) {
+      const key = keys[i];
+      // Check if the value for the current key is not null.
+      if (record[key] !== null) {
+        // If it's not null, this is the last one. Return the key.
+        return i;
+      }
+    }
+
+    const lastFieldIndex = utils.findLastFieldIndex(idfObject.fields);
+    if (lastFieldIndex < 0) continue; // skip object if all fields are null
+
+    //? add className
+    outputString += `\n${classIndent}${idfClass.name}\n`;
+
+    // field name capitalization
+    const fieldNames = idfClass.fieldNames;
+    //? add fields
+    Object.entries(idfObject.fields).forEach(([fieldKey, fieldVal], fieldIndex) => {
+      if (fieldIndex > lastFieldIndex) return; // skip trailing null fields (considered as empty)
+
+      // update fieldKey (if there is no matching fieldName, add '?' to the end of the fieldKey)
+      const fieldName = fieldNames[fieldKey] ?? `${fieldKey}?`;
+      // update fieldVal for null|undefinded
+      fieldVal = fieldVal ?? '';
+
+      // compute paddings
+      const fieldPaddingLength = fieldSize - String(fieldVal).length;
+      const fieldPadding = ' '.repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
+
+      const closingSymbol = fieldIndex == lastFieldIndex ? ';' : ',';
+
+      outputString += `${fieldIndent}${fieldVal}${closingSymbol}${fieldPadding}  !- ${fieldName}\n`;
+    });
+
+    */
+    return outputString;
   }
 }
 
@@ -84,7 +172,7 @@ class IDFClass {
     this.fieldSize = this.fieldKeys.length;
   }
 
-  getFieldIdxFromKey(fieldKey: string): number {
+  getFieldIdxByKey(fieldKey: string): number {
     const fieldIdx = this.fieldKeys.indexOf(fieldKey);
     if (fieldIdx >= 0) {
       return fieldIdx;
@@ -95,13 +183,16 @@ class IDFClass {
       for (let regexpIdx = 0; regexpIdx < (this.classIDD.extensible?.keyRegExps ?? []).length; regexpIdx++) {
         const regexp = new RegExp((this.classIDD.extensible?.keyRegExps ?? [])[regexpIdx]);
         const regexpMatch = fieldKey.match(regexp);
+        if (this.name == 'Output:Table:Monthly') {
+          console.log(regexpMatch)
+        }
         if (regexpMatch) {
           extensibleIdx = regexpIdx;
           extensibleGroupIdx = parseInt(regexpMatch[1]) - 1;
           break;
         }
       }
-      if (extensibleIdx <= 0) {
+      if (extensibleIdx < 0) {
         throw new RangeError(`'${this.name}' has no '${fieldKey}' field!`);
       }
       return this.extensibleStartIdx
@@ -112,8 +203,37 @@ class IDFClass {
       throw new RangeError(`'${this.name}' has no '${fieldKey}' field!`);
     }
   }
+  
+  /**
+   * Get the biggest index in an array of fieldKeys
+   * @param fieldKeys An array of fieldKeys
+   * @returns 
+   */
+  getLastFieldIdxByKeys(fieldKeys: string[]): number {
+    let lastFieldIdx = -1;
+    for (const fieldKey of fieldKeys) {
+      const fieldIdx = this.getFieldIdxByKey(fieldKey);
+      if (fieldIdx > lastFieldIdx) lastFieldIdx = fieldIdx;
+    }
+    return lastFieldIdx;
+  }
+  
+  /**
+   * Get the biggest index in IDFFields
+   * @param fields IDFFields of fieldKey: fieldVal
+   * @returns 
+   */
+  getLastFieldIdxFromFields(fields: IDFFields): number {
+    let lastFieldIdx = -1;
+    for (const [key, val] of Object.entries(fields)) {
+      if (val === null) continue; // if the value is null, skip
+      const fieldIdx = this.getFieldIdxByKey(key);
+      if (fieldIdx > lastFieldIdx) lastFieldIdx = fieldIdx;
+    }
+    return lastFieldIdx;
+  }
 
-  getFieldNameFromIdx(fieldIdx: number): string {
+  getFieldNameByIdx(fieldIdx: number): string {
     if (fieldIdx < this.fieldSize) {
       return Object.values(this.classIDD.fields)[fieldIdx].name;
     }
@@ -156,7 +276,49 @@ class IDFClass {
     }
   }
 
-  getFieldPropFromIdx(fieldIdx: number): fieldProps {
+  /**
+   * Create an array of fieldProps in one loop.
+   * @param length Desired length of the field key array.
+   * @returns 
+   */
+  getFieldProps(length: number): Record<string, fieldProps> {
+    const fieldLength = Object.values(this.classIDD.fields).length;
+    if (length <= fieldLength) {
+      return Object.fromEntries(
+        Object.entries(this.classIDD.fields).slice(0, length)
+      );
+    }
+    else if (this.hasExtensible) {
+      const extensibleProps = Object.values(this.classIDD.fields).slice(-this.extensibleSize); // get fieldProp objects for extensibles
+      
+      let fields: Record<string, fieldProps> = { ...this.classIDD.fields };
+
+      for (let i = 0; i < length - fieldLength; i++) {
+        const extensibleIdx = i % this.extensibleSize;
+        const extensibleGroupIdx = Math.floor(i / this.extensibleSize) + 1; // first one is already included
+
+        const templateFieldProp = extensibleProps[extensibleIdx];
+
+        const [prefix, suffix] = (this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ['', '']);
+
+        const fieldName = `${prefix}${extensibleGroupIdx + 1}${suffix}`;
+        const fieldKey = utils.fieldNameToKey(fieldName);
+
+        fields[fieldKey] = {
+          name: fieldName,
+          type: templateFieldProp.type,
+          units: templateFieldProp.units
+        };
+      }
+
+      return fields;
+    }
+    else {
+      throw new RangeError(`Length ${length} is out of bound for '${this.name}'!`);
+    }
+  }
+
+  getFieldPropByIdx(fieldIdx: number): fieldProps {
     if (fieldIdx < this.fieldSize) {
       return Object.values(this.classIDD.fields)[fieldIdx];
     }
@@ -177,7 +339,7 @@ class IDFClass {
     }
   }
 
-  getFieldNameFromKey(fieldKey: string) {
+  getFieldNameByKey(fieldKey: string) {
   }
 
 
@@ -287,7 +449,8 @@ export class IDF {
    * @param fields TODO
    */
   addObject(className: string, fields: IDFFields) {
-    this.getIDFClass(className).idfObjects.push(new IDFObject(className, fields));
+    const idfClass = this.getIDFClass(className);
+    idfClass.idfObjects.push(new IDFObject(idfClass, fields));
   }
 
   getObjects(className: string, re?: RegExp | undefined) {
@@ -423,10 +586,13 @@ async function main() {
 
   const idd = await new IDDManager().getVersion('23.2');
   let idf = new IDF(idd);
-  // console.log(idf.getIDFClass('buildingsurface:detailed'))
-  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldIdxFromKey('Vertex_3_Ycoordinate'));
-  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldPropFromIdx(19));
-  console.log(idf.getIDFClass('buildingsurface:detailed').getFieldKeys(30));
+  const surfClass = idf.getIDFClass('buildingsurface:detailed');
+  // console.log(surfClass)
+  console.log(surfClass.getFieldIdxByKey('Vertex_3_Ycoordinate'));
+  console.log(surfClass.getFieldPropByIdx(19));
+  console.log(surfClass.getFieldKeys(20));
+  console.log(surfClass.getFieldProps(20));
+  console.log(surfClass.getLastFieldIdxFromFields({'Vertex_3_Ycoordinate':1, 'Vertex_3_Zcoordinate':null, 'Name':''}));
 }
 main();
 */

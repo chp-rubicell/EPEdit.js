@@ -70,6 +70,8 @@ function preprocessIDD(versionCode: string, test: boolean = false) {
     throw new Error(`Error reading the file '${filePath}'`);
   }
 
+  iddString = iddString.replace(/!.+(?:\r\n|\r|\n)/g, ''); // remove comments
+
   let idd: IDD = {};
 
   const classMatches = iddString.matchAll(/[^\s,]+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+(?: *[^\s,]+ *[,;](?: *\\.*(?:\r\n|\r|\n))+)+/g);
@@ -121,3 +123,4 @@ for (const versionCode of versionList) {
   preprocessIDD(versionCode);
   console.log();
 }
+

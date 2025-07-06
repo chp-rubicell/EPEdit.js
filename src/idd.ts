@@ -1,5 +1,5 @@
 /** Generate IDD from schema.epJSON */
-//TODO add support for extendible fields
+//TODO (maybe) add autosizable and autocalculatable tags
 
 // import { fieldNameToKey } from '../utilities';
 // import * as schema from './idds/v23-2-light.schema.json';

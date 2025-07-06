@@ -188,14 +188,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Shading Zone Group ",
-        " ZoneList Name"
+    "extensible": {
+      "startIdx": 10,
+      "size": 1,
+      "keyRegExps": [
+        "Shading_Zone_Group_(\\d+)_ZoneList_Name"
+      ],
+      "fieldNames": [
+        [
+          "Shading Zone Group ",
+          " ZoneList Name"
+        ]
       ]
-    ]
+    }
   },
   "surfaceconvectionalgorithm:inside": {
     "className": "SurfaceConvectionAlgorithm:Inside",
@@ -1736,18 +1741,32 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 6,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Wavelength ",
-        ""
+    "extensible": {
+      "startIdx": 6,
+      "size": 2,
+      "keyRegExps": [
+        "Wavelength_(\\d+)",
+        "Spectrum_(\\d+)"
       ],
-      [
-        "Spectrum ",
-        ""
+      "fieldNames": [
+        [
+          "Wavelength ",
+          ""
+        ],
+        [
+          "Wavelength ",
+          ""
+        ],
+        [
+          "Spectrum ",
+          ""
+        ],
+        [
+          "Spectrum ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "scheduletypelimits": {
     "className": "ScheduleTypeLimits",
@@ -1943,18 +1962,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 3,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Time ",
-        ""
+    "extensible": {
+      "startIdx": 3,
+      "size": 2,
+      "keyRegExps": [
+        "Time_(\\d+)",
+        "Value_Until_Time_(\\d+)"
       ],
-      [
-        "Value Until Time ",
-        ""
+      "fieldNames": [
+        [
+          "Time ",
+          ""
+        ],
+        [
+          "Value Until Time ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "schedule:day:list": {
     "className": "Schedule:Day:List",
@@ -1985,14 +2010,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Value ",
-        ""
+    "extensible": {
+      "startIdx": 4,
+      "size": 1,
+      "keyRegExps": [
+        "Value_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Value ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "schedule:week:daily": {
     "className": "Schedule:Week:Daily",
@@ -2083,18 +2113,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "DayType List ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 2,
+      "keyRegExps": [
+        "DayType_List_(\\d+)",
+        "Schedule:Day_Name_(\\d+)"
       ],
-      [
-        "Schedule:Day Name ",
-        ""
+      "fieldNames": [
+        [
+          "DayType List ",
+          ""
+        ],
+        [
+          "Schedule:Day Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "schedule:year": {
     "className": "Schedule:Year",
@@ -2135,30 +2171,39 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 5,
-    "extensibleFields": [
-      [
-        "Schedule:Week Name ",
-        ""
+    "extensible": {
+      "startIdx": 2,
+      "size": 5,
+      "keyRegExps": [
+        "Schedule:Week_Name_(\\d+)",
+        "Start_Month_(\\d+)",
+        "Start_Day_(\\d+)",
+        "End_Month_(\\d+)",
+        "End_Day_(\\d+)"
       ],
-      [
-        "Start Month ",
-        ""
-      ],
-      [
-        "Start Day ",
-        ""
-      ],
-      [
-        "End Month ",
-        ""
-      ],
-      [
-        "End Day ",
-        ""
+      "fieldNames": [
+        [
+          "Schedule:Week Name ",
+          ""
+        ],
+        [
+          "Start Month ",
+          ""
+        ],
+        [
+          "Start Day ",
+          ""
+        ],
+        [
+          "End Month ",
+          ""
+        ],
+        [
+          "End Day ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "schedule:compact": {
     "className": "Schedule:Compact",
@@ -2179,14 +2224,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Field ",
-        ""
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Field_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Field ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "schedule:constant": {
     "className": "Schedule:Constant",
@@ -2637,18 +2687,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Optical Data Temperature ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 2,
+      "keyRegExps": [
+        "Optical_Data_Temperature_(\\d+)",
+        "Window_Material_Glazing_Name_(\\d+)"
       ],
-      [
-        "Window Material Glazing Name ",
-        ""
+      "fieldNames": [
+        [
+          "Optical Data Temperature ",
+          ""
+        ],
+        [
+          "Window Material Glazing Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "windowmaterial:glazing:refractionextinctionmethod": {
     "className": "WindowMaterial:Glazing:RefractionExtinctionMethod",
@@ -5749,26 +5805,34 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 17,
-    "extensibleFieldSize": 4,
-    "extensibleFields": [
-      [
-        "Wavelength ",
-        ""
+    "extensible": {
+      "startIdx": 17,
+      "size": 4,
+      "keyRegExps": [
+        "Wavelength_(\\d+)",
+        "Transmittance_(\\d+)",
+        "Front_Reflectance_(\\d+)",
+        "Back_Reflectance_(\\d+)"
       ],
-      [
-        "Transmittance ",
-        ""
-      ],
-      [
-        "Front Reflectance ",
-        ""
-      ],
-      [
-        "Back Reflectance ",
-        ""
+      "fieldNames": [
+        [
+          "Wavelength ",
+          ""
+        ],
+        [
+          "Transmittance ",
+          ""
+        ],
+        [
+          "Front Reflectance ",
+          ""
+        ],
+        [
+          "Back Reflectance ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "construction": {
     "className": "Construction",
@@ -6349,14 +6413,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 6,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Tag ",
-        ""
+    "extensible": {
+      "startIdx": 6,
+      "size": 1,
+      "keyRegExps": [
+        "Tag_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Tag ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "spacelist": {
     "className": "SpaceList",
@@ -6372,14 +6441,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Space ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Space_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Space ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "zone": {
     "className": "Zone",
@@ -6465,14 +6539,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Zone ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Zone_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Zone ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "zonegroup": {
     "className": "ZoneGroup",
@@ -6568,22 +6647,29 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 11,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Vertex ",
-        " X-coordinate"
+    "extensible": {
+      "startIdx": 11,
+      "size": 3,
+      "keyRegExps": [
+        "Vertex_(\\d+)_Xcoordinate",
+        "Vertex_(\\d+)_Ycoordinate",
+        "Vertex_(\\d+)_Zcoordinate"
       ],
-      [
-        "Vertex ",
-        " Y-coordinate"
-      ],
-      [
-        "Vertex ",
-        " Z-coordinate"
+      "fieldNames": [
+        [
+          "Vertex ",
+          " X-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Y-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Z-coordinate"
+        ]
       ]
-    ]
+    }
   },
   "wall:detailed": {
     "className": "Wall:Detailed",
@@ -6654,22 +6740,29 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Vertex ",
-        " X-coordinate"
+    "extensible": {
+      "startIdx": 10,
+      "size": 3,
+      "keyRegExps": [
+        "Vertex_(\\d+)_Xcoordinate",
+        "Vertex_(\\d+)_Ycoordinate",
+        "Vertex_(\\d+)_Zcoordinate"
       ],
-      [
-        "Vertex ",
-        " Y-coordinate"
-      ],
-      [
-        "Vertex ",
-        " Z-coordinate"
+      "fieldNames": [
+        [
+          "Vertex ",
+          " X-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Y-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Z-coordinate"
+        ]
       ]
-    ]
+    }
   },
   "roofceiling:detailed": {
     "className": "RoofCeiling:Detailed",
@@ -6740,22 +6833,29 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Vertex ",
-        " X-coordinate"
+    "extensible": {
+      "startIdx": 10,
+      "size": 3,
+      "keyRegExps": [
+        "Vertex_(\\d+)_Xcoordinate",
+        "Vertex_(\\d+)_Ycoordinate",
+        "Vertex_(\\d+)_Zcoordinate"
       ],
-      [
-        "Vertex ",
-        " Y-coordinate"
-      ],
-      [
-        "Vertex ",
-        " Z-coordinate"
+      "fieldNames": [
+        [
+          "Vertex ",
+          " X-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Y-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Z-coordinate"
+        ]
       ]
-    ]
+    }
   },
   "floor:detailed": {
     "className": "Floor:Detailed",
@@ -6826,22 +6926,29 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Vertex ",
-        " X-coordinate"
+    "extensible": {
+      "startIdx": 10,
+      "size": 3,
+      "keyRegExps": [
+        "Vertex_(\\d+)_Xcoordinate",
+        "Vertex_(\\d+)_Ycoordinate",
+        "Vertex_(\\d+)_Zcoordinate"
       ],
-      [
-        "Vertex ",
-        " Y-coordinate"
-      ],
-      [
-        "Vertex ",
-        " Z-coordinate"
+      "fieldNames": [
+        [
+          "Vertex ",
+          " X-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Y-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Z-coordinate"
+        ]
       ]
-    ]
+    }
   },
   "wall:exterior": {
     "className": "Wall:Exterior",
@@ -7952,14 +8059,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 16,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Fenestration Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 16,
+      "size": 1,
+      "keyRegExps": [
+        "Fenestration_Surface_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Fenestration Surface ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "windowproperty:frameanddivider": {
     "className": "WindowProperty:FrameAndDivider",
@@ -8335,22 +8447,29 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 3,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Vertex ",
-        " X-coordinate"
+    "extensible": {
+      "startIdx": 3,
+      "size": 3,
+      "keyRegExps": [
+        "Vertex_(\\d+)_Xcoordinate",
+        "Vertex_(\\d+)_Ycoordinate",
+        "Vertex_(\\d+)_Zcoordinate"
       ],
-      [
-        "Vertex ",
-        " Y-coordinate"
-      ],
-      [
-        "Vertex ",
-        " Z-coordinate"
+      "fieldNames": [
+        [
+          "Vertex ",
+          " X-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Y-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Z-coordinate"
+        ]
       ]
-    ]
+    }
   },
   "shading:building:detailed": {
     "className": "Shading:Building:Detailed",
@@ -8386,22 +8505,29 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 3,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Vertex ",
-        " X-coordinate"
+    "extensible": {
+      "startIdx": 3,
+      "size": 3,
+      "keyRegExps": [
+        "Vertex_(\\d+)_Xcoordinate",
+        "Vertex_(\\d+)_Ycoordinate",
+        "Vertex_(\\d+)_Zcoordinate"
       ],
-      [
-        "Vertex ",
-        " Y-coordinate"
-      ],
-      [
-        "Vertex ",
-        " Z-coordinate"
+      "fieldNames": [
+        [
+          "Vertex ",
+          " X-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Y-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Z-coordinate"
+        ]
       ]
-    ]
+    }
   },
   "shading:overhang": {
     "className": "Shading:Overhang",
@@ -8652,22 +8778,29 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Vertex ",
-        " X-coordinate"
+    "extensible": {
+      "startIdx": 4,
+      "size": 3,
+      "keyRegExps": [
+        "Vertex_(\\d+)_Xcoordinate",
+        "Vertex_(\\d+)_Ycoordinate",
+        "Vertex_(\\d+)_Zcoordinate"
       ],
-      [
-        "Vertex ",
-        " Y-coordinate"
-      ],
-      [
-        "Vertex ",
-        " Z-coordinate"
+      "fieldNames": [
+        [
+          "Vertex ",
+          " X-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Y-coordinate"
+        ],
+        [
+          "Vertex ",
+          " Z-coordinate"
+        ]
       ]
-    ]
+    }
   },
   "shadingproperty:reflectance": {
     "className": "ShadingProperty:Reflectance",
@@ -8753,14 +8886,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Surface Name ",
-        ""
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Surface_Name_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Surface Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "surfaceproperty:heattransferalgorithm:construction": {
     "className": "SurfaceProperty:HeatTransferAlgorithm:Construction",
@@ -9051,26 +9189,34 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 17,
-    "extensibleFieldSize": 4,
-    "extensibleFields": [
-      [
-        "Custom Block ",
-        " Material Name"
+    "extensible": {
+      "startIdx": 17,
+      "size": 4,
+      "keyRegExps": [
+        "Custom_Block_(\\d+)_Material_Name",
+        "Custom_Block_(\\d+)_Depth",
+        "Custom_Block_(\\d+)_X_Position",
+        "Custom_Block_(\\d+)_Z_Position"
       ],
-      [
-        "Custom Block ",
-        " Depth"
-      ],
-      [
-        "Custom Block ",
-        " X Position"
-      ],
-      [
-        "Custom Block ",
-        " Z Position"
+      "fieldNames": [
+        [
+          "Custom Block ",
+          " Material Name"
+        ],
+        [
+          "Custom Block ",
+          " Depth"
+        ],
+        [
+          "Custom Block ",
+          " X Position"
+        ],
+        [
+          "Custom Block ",
+          " Z Position"
+        ]
       ]
-    ]
+    }
   },
   "foundation:kiva:settings": {
     "className": "Foundation:Kiva:Settings",
@@ -9166,14 +9312,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Surface Segment ",
-        " Exposed"
+    "extensible": {
+      "startIdx": 4,
+      "size": 1,
+      "keyRegExps": [
+        "Surface_Segment_(\\d+)_Exposed"
+      ],
+      "fieldNames": [
+        [
+          "Surface Segment ",
+          " Exposed"
+        ]
       ]
-    ]
+    }
   },
   "surfaceconvectionalgorithm:inside:adaptivemodelselections": {
     "className": "SurfaceConvectionAlgorithm:Inside:AdaptiveModelSelections",
@@ -9984,14 +10135,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 11,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 11,
+      "size": 1,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "surfaceproperty:solarincidentinside": {
     "className": "SurfaceProperty:SolarIncidentInside",
@@ -10137,22 +10293,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 5,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Surrounding Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 5,
+      "size": 3,
+      "keyRegExps": [
+        "Surrounding_Surface_(\\d+)_Name",
+        "Surrounding_Surface_(\\d+)_View_Factor",
+        "Surrounding_Surface_(\\d+)_Temperature_Schedule_Name"
       ],
-      [
-        "Surrounding Surface ",
-        " View Factor"
-      ],
-      [
-        "Surrounding Surface ",
-        " Temperature Schedule Name"
+      "fieldNames": [
+        [
+          "Surrounding Surface ",
+          " Name"
+        ],
+        [
+          "Surrounding Surface ",
+          " View Factor"
+        ],
+        [
+          "Surrounding Surface ",
+          " Temperature Schedule Name"
+        ]
       ]
-    ]
+    }
   },
   "surfaceproperty:groundsurfaces": {
     "className": "SurfaceProperty:GroundSurfaces",
@@ -10183,26 +10346,34 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 4,
-    "extensibleFields": [
-      [
-        "Ground Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 4,
+      "keyRegExps": [
+        "Ground_Surface_(\\d+)_Name",
+        "Ground_Surface_(\\d+)_View_Factor",
+        "Ground_Surface_(\\d+)_Temperature_Schedule_Name",
+        "Ground_Surface_(\\d+)_Reflectance_Schedule_Name"
       ],
-      [
-        "Ground Surface ",
-        " View Factor"
-      ],
-      [
-        "Ground Surface ",
-        " Temperature Schedule Name"
-      ],
-      [
-        "Ground Surface ",
-        " Reflectance Schedule Name"
+      "fieldNames": [
+        [
+          "Ground Surface ",
+          " Name"
+        ],
+        [
+          "Ground Surface ",
+          " View Factor"
+        ],
+        [
+          "Ground Surface ",
+          " Temperature Schedule Name"
+        ],
+        [
+          "Ground Surface ",
+          " Reflectance Schedule Name"
+        ]
       ]
-    ]
+    }
   },
   "complexfenestrationproperty:solarabsorbedlayers": {
     "className": "ComplexFenestrationProperty:SolarAbsorbedLayers",
@@ -10273,22 +10444,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "From Surface ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 3,
+      "keyRegExps": [
+        "From_Surface_(\\d+)",
+        "To_Surface_(\\d+)",
+        "View_Factor_(\\d+)"
       ],
-      [
-        "To Surface ",
-        ""
-      ],
-      [
-        "View Factor ",
-        ""
+      "fieldNames": [
+        [
+          "From Surface ",
+          ""
+        ],
+        [
+          "To Surface ",
+          ""
+        ],
+        [
+          "View Factor ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "groundheattransfer:control": {
     "className": "GroundHeatTransfer:Control",
@@ -11224,18 +11402,24 @@ export const iddString = String.raw`{
         "units": "deltaC"
       }
     },
-    "extensibleFieldStart": 5,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Pair ",
-        " Zeta Nondimensional Height"
+    "extensible": {
+      "startIdx": 5,
+      "size": 2,
+      "keyRegExps": [
+        "Pair_(\\d+)_Zeta_Nondimensional_Height",
+        "Pair_(\\d+)_Delta_Adjacent_Air_Temperature"
       ],
-      [
-        "Pair ",
-        " Delta Adjacent Air Temperature"
+      "fieldNames": [
+        [
+          "Pair ",
+          " Zeta Nondimensional Height"
+        ],
+        [
+          "Pair ",
+          " Delta Adjacent Air Temperature"
+        ]
       ]
-    ]
+    }
   },
   "roomair:temperaturepattern:surfacemapping": {
     "className": "RoomAir:TemperaturePattern:SurfaceMapping",
@@ -11276,18 +11460,24 @@ export const iddString = String.raw`{
         "units": "deltaC"
       }
     },
-    "extensibleFieldStart": 5,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface Name Pair ",
-        ""
+    "extensible": {
+      "startIdx": 5,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_Name_Pair_(\\d+)",
+        "Delta_Adjacent_Air_Temperature_Pair_(\\d+)"
       ],
-      [
-        "Delta Adjacent Air Temperature Pair ",
-        ""
+      "fieldNames": [
+        [
+          "Surface Name Pair ",
+          ""
+        ],
+        [
+          "Delta Adjacent Air Temperature Pair ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "roomair:node": {
     "className": "RoomAir:Node",
@@ -11703,14 +11893,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "roomair:node:airflownetwork:internalgains": {
     "className": "RoomAir:Node:AirflowNetwork:InternalGains",
@@ -11736,22 +11931,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Internal Gain Object ",
-        " Type"
+    "extensible": {
+      "startIdx": 1,
+      "size": 3,
+      "keyRegExps": [
+        "Internal_Gain_Object_(\\d+)_Type",
+        "Internal_Gain_Object_(\\d+)_Name",
+        "Fraction_of_Gains_to_Node_(\\d+)"
       ],
-      [
-        "Internal Gain Object ",
-        " Name"
-      ],
-      [
-        "Fraction of Gains to Node ",
-        ""
+      "fieldNames": [
+        [
+          "Internal Gain Object ",
+          " Type"
+        ],
+        [
+          "Internal Gain Object ",
+          " Name"
+        ],
+        [
+          "Fraction of Gains to Node ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "roomair:node:airflownetwork:hvacequipment": {
     "className": "RoomAir:Node:AirflowNetwork:HVACEquipment",
@@ -11782,26 +11984,34 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 4,
-    "extensibleFields": [
-      [
-        "ZoneHVAC or Air Terminal Equipment Object Type ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 4,
+      "keyRegExps": [
+        "ZoneHVAC_or_Air_Terminal_Equipment_Object_Type_(\\d+)",
+        "ZoneHVAC_or_Air_Terminal_Equipment_Object_Name_(\\d+)",
+        "Fraction_of_Output_or_Supply_Air_from_HVAC_Equipment_(\\d+)",
+        "Fraction_of_Input_or_Return_Air_to_HVAC_Equipment_(\\d+)"
       ],
-      [
-        "ZoneHVAC or Air Terminal Equipment Object Name ",
-        ""
-      ],
-      [
-        "Fraction of Output or Supply Air from HVAC Equipment ",
-        ""
-      ],
-      [
-        "Fraction of Input or Return Air to HVAC Equipment ",
-        ""
+      "fieldNames": [
+        [
+          "ZoneHVAC or Air Terminal Equipment Object Type ",
+          ""
+        ],
+        [
+          "ZoneHVAC or Air Terminal Equipment Object Name ",
+          ""
+        ],
+        [
+          "Fraction of Output or Supply Air from HVAC Equipment ",
+          ""
+        ],
+        [
+          "Fraction of Input or Return Air to HVAC Equipment ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "roomairsettings:airflownetwork": {
     "className": "RoomAirSettings:AirflowNetwork",
@@ -11827,14 +12037,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 3,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "RoomAirflowNetwork:Node Name ",
-        ""
+    "extensible": {
+      "startIdx": 3,
+      "size": 1,
+      "keyRegExps": [
+        "RoomAirflowNetwork:Node_Name_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "RoomAirflowNetwork:Node Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "people": {
     "className": "People",
@@ -13000,9 +13215,12 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": -1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": []
+    "extensible": {
+      "startIdx": -1,
+      "size": 2,
+      "keyRegExps": [],
+      "fieldNames": []
+    }
   },
   "lights": {
     "className": "Lights",
@@ -14033,22 +14251,29 @@ export const iddString = String.raw`{
         "units": "lux"
       }
     },
-    "extensibleFieldStart": 13,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Daylighting Reference Point ",
-        " Name"
+    "extensible": {
+      "startIdx": 13,
+      "size": 3,
+      "keyRegExps": [
+        "Daylighting_Reference_Point_(\\d+)_Name",
+        "Fraction_of_Lights_Controlled_by_Reference_Point_(\\d+)",
+        "Illuminance_Setpoint_at_Reference_Point_(\\d+)"
       ],
-      [
-        "Fraction of Lights Controlled by Reference Point ",
-        ""
-      ],
-      [
-        "Illuminance Setpoint at Reference Point ",
-        ""
+      "fieldNames": [
+        [
+          "Daylighting Reference Point ",
+          " Name"
+        ],
+        [
+          "Fraction of Lights Controlled by Reference Point ",
+          ""
+        ],
+        [
+          "Illuminance Setpoint at Reference Point ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "daylighting:referencepoint": {
     "className": "Daylighting:ReferencePoint",
@@ -14159,18 +14384,24 @@ export const iddString = String.raw`{
         "units": "m"
       }
     },
-    "extensibleFieldStart": 7,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Transition Zone ",
-        " Name"
+    "extensible": {
+      "startIdx": 7,
+      "size": 2,
+      "keyRegExps": [
+        "Transition_Zone_(\\d+)_Name",
+        "Transition_Zone_(\\d+)_Length"
       ],
-      [
-        "Transition Zone ",
-        " Length"
+      "fieldNames": [
+        [
+          "Transition Zone ",
+          " Name"
+        ],
+        [
+          "Transition Zone ",
+          " Length"
+        ]
       ]
-    ]
+    }
   },
   "daylightingdevice:shelf": {
     "className": "DaylightingDevice:Shelf",
@@ -16961,18 +17192,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 3,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 3,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name",
+        "Surface_(\\d+)_View_Factor"
       ],
-      [
-        "Surface ",
-        " View Factor"
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Surface ",
+          " View Factor"
+        ]
       ]
-    ]
+    }
   },
   "airflownetwork:distribution:ductsizing": {
     "className": "AirflowNetwork:Distribution:DuctSizing",
@@ -22923,18 +23160,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Space ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 2,
+      "keyRegExps": [
+        "Space_(\\d+)_Name",
+        "Space_(\\d+)_Design_Specification_Outdoor_Air_Object_Name"
       ],
-      [
-        "Space ",
-        " Design Specification Outdoor Air Object Name"
+      "fieldNames": [
+        [
+          "Space ",
+          " Name"
+        ],
+        [
+          "Space ",
+          " Design Specification Outdoor Air Object Name"
+        ]
       ]
-    ]
+    }
   },
   "designspecification:zoneairdistribution": {
     "className": "DesignSpecification:ZoneAirDistribution",
@@ -25735,110 +25978,139 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 35,
-    "extensibleFieldSize": 25,
-    "extensibleFields": [
-      [
-        "Mode ",
-        " Name"
+    "extensible": {
+      "startIdx": 35,
+      "size": 25,
+      "keyRegExps": [
+        "Mode_(\\d+)_Name",
+        "Mode_(\\d+)_Supply_Air_Temperature_Lookup_Table_Name",
+        "Mode_(\\d+)_Supply_Air_Humidity_Ratio_Lookup_Table_Name",
+        "Mode_(\\d+)_System_Electric_Power_Lookup_Table_Name",
+        "Mode_(\\d+)_Supply_Fan_Electric_Power_Lookup_Table_Name",
+        "Mode_(\\d+)_External_Static_Pressure_Lookup_Table_Name",
+        "Mode_(\\d+)_System_Second_Fuel_Consumption_Lookup_Table_Name",
+        "Mode_(\\d+)_System_Third_Fuel_Consumption_Lookup_Table_Name",
+        "Mode_(\\d+)_System_Water_Use_Lookup_Table_Name",
+        "Mode_(\\d+)_Minimum_Outdoor_Air_Temperature",
+        "Mode_(\\d+)_Maximum_Outdoor_Air_Temperature",
+        "Mode_(\\d+)_Minimum_Outdoor_Air_Humidity_Ratio",
+        "Mode_(\\d+)_Maximum_Outdoor_Air_Humidity_Ratio",
+        "Mode_(\\d+)_Minimum_Outdoor_Air_Relative_Humidity",
+        "Mode_(\\d+)_Maximum_Outdoor_Air_Relative_Humidity",
+        "Mode_(\\d+)_Minimum_Return_Air_Temperature",
+        "Mode_(\\d+)_Maximum_Return_Air_Temperature",
+        "Mode_(\\d+)_Minimum_Return_Air_Humidity_Ratio",
+        "Mode_(\\d+)_Maximum_Return_Air_Humidity_Ratio",
+        "Mode_(\\d+)_Minimum_Return_Air_Relative_Humidity",
+        "Mode_(\\d+)_Maximum_Return_Air_Relative_Humidity",
+        "Mode_(\\d+)_Minimum_Outdoor_Air_Fraction",
+        "Mode_(\\d+)_Maximum_Outdoor_Air_Fraction",
+        "Mode_(\\d+)_Minimum_Supply_Air_Mass_Flow_Rate_Ratio",
+        "Mode_(\\d+)_Maximum_Supply_Air_Mass_Flow_Rate_Ratio"
       ],
-      [
-        "Mode ",
-        " Supply Air Temperature Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " Supply Air Humidity Ratio Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " System Electric Power Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " Supply Fan Electric Power Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " External Static Pressure Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " System Second Fuel Consumption Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " System Third Fuel Consumption Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " System Water Use Lookup Table Name"
-      ],
-      [
-        "Mode ",
-        " Minimum Outdoor Air Temperature"
-      ],
-      [
-        "Mode ",
-        " Maximum Outdoor Air Temperature"
-      ],
-      [
-        "Mode ",
-        " Minimum Outdoor Air Humidity Ratio"
-      ],
-      [
-        "Mode ",
-        " Maximum Outdoor Air Humidity Ratio"
-      ],
-      [
-        "Mode ",
-        " Minimum Outdoor Air Relative Humidity"
-      ],
-      [
-        "Mode ",
-        " Maximum Outdoor Air Relative Humidity"
-      ],
-      [
-        "Mode ",
-        " Minimum Return Air Temperature"
-      ],
-      [
-        "Mode ",
-        " Maximum Return Air Temperature"
-      ],
-      [
-        "Mode ",
-        " Minimum Return Air Humidity Ratio"
-      ],
-      [
-        "Mode ",
-        " Maximum Return Air Humidity Ratio"
-      ],
-      [
-        "Mode ",
-        " Minimum Return Air Relative Humidity"
-      ],
-      [
-        "Mode ",
-        " Maximum Return Air Relative Humidity"
-      ],
-      [
-        "Mode ",
-        " Minimum Outdoor Air Fraction"
-      ],
-      [
-        "Mode ",
-        " Maximum Outdoor Air Fraction"
-      ],
-      [
-        "Mode ",
-        " Minimum Supply Air Mass Flow Rate Ratio"
-      ],
-      [
-        "Mode ",
-        " Maximum Supply Air Mass Flow Rate Ratio"
+      "fieldNames": [
+        [
+          "Mode ",
+          " Name"
+        ],
+        [
+          "Mode ",
+          " Supply Air Temperature Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " Supply Air Humidity Ratio Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " System Electric Power Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " Supply Fan Electric Power Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " External Static Pressure Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " System Second Fuel Consumption Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " System Third Fuel Consumption Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " System Water Use Lookup Table Name"
+        ],
+        [
+          "Mode ",
+          " Minimum Outdoor Air Temperature"
+        ],
+        [
+          "Mode ",
+          " Maximum Outdoor Air Temperature"
+        ],
+        [
+          "Mode ",
+          " Minimum Outdoor Air Humidity Ratio"
+        ],
+        [
+          "Mode ",
+          " Maximum Outdoor Air Humidity Ratio"
+        ],
+        [
+          "Mode ",
+          " Minimum Outdoor Air Relative Humidity"
+        ],
+        [
+          "Mode ",
+          " Maximum Outdoor Air Relative Humidity"
+        ],
+        [
+          "Mode ",
+          " Minimum Return Air Temperature"
+        ],
+        [
+          "Mode ",
+          " Maximum Return Air Temperature"
+        ],
+        [
+          "Mode ",
+          " Minimum Return Air Humidity Ratio"
+        ],
+        [
+          "Mode ",
+          " Maximum Return Air Humidity Ratio"
+        ],
+        [
+          "Mode ",
+          " Minimum Return Air Relative Humidity"
+        ],
+        [
+          "Mode ",
+          " Maximum Return Air Relative Humidity"
+        ],
+        [
+          "Mode ",
+          " Minimum Outdoor Air Fraction"
+        ],
+        [
+          "Mode ",
+          " Maximum Outdoor Air Fraction"
+        ],
+        [
+          "Mode ",
+          " Minimum Supply Air Mass Flow Rate Ratio"
+        ],
+        [
+          "Mode ",
+          " Maximum Supply Air Mass Flow Rate Ratio"
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:outdoorairunit": {
     "className": "ZoneHVAC:OutdoorAirUnit",
@@ -26299,18 +26571,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 9,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 9,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name",
+        "Fraction_of_Radiant_Energy_to_Surface_(\\d+)"
       ],
-      [
-        "Fraction of Radiant Energy to Surface ",
-        ""
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Fraction of Radiant Energy to Surface ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:baseboard:radiantconvective:steam:design": {
     "className": "ZoneHVAC:Baseboard:RadiantConvective:Steam:Design",
@@ -26406,18 +26684,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 8,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 8,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name",
+        "Fraction_of_Radiant_Energy_to_Surface_(\\d+)"
       ],
-      [
-        "Fraction of Radiant Energy to Surface ",
-        ""
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Fraction of Radiant Energy to Surface ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:baseboard:radiantconvective:electric": {
     "className": "ZoneHVAC:Baseboard:RadiantConvective:Electric",
@@ -26478,18 +26762,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 9,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 9,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name",
+        "Fraction_of_Radiant_Energy_to_Surface_(\\d+)"
       ],
-      [
-        "Fraction of Radiant Energy to Surface ",
-        ""
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Fraction of Radiant Energy to Surface ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:coolingpanel:radiantconvective:water": {
     "className": "ZoneHVAC:CoolingPanel:RadiantConvective:Water",
@@ -26600,18 +26890,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 19,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 19,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name",
+        "Fraction_of_Radiant_Energy_to_Surface_(\\d+)"
       ],
-      [
-        "Fraction of Radiant Energy to Surface ",
-        ""
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Fraction of Radiant Energy to Surface ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:baseboard:convective:water": {
     "className": "ZoneHVAC:Baseboard:Convective:Water",
@@ -27177,18 +27473,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name",
+        "Flow_Fraction_for_Surface_(\\d+)"
       ],
-      [
-        "Flow Fraction for Surface ",
-        ""
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Flow Fraction for Surface ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:hightemperatureradiant": {
     "className": "ZoneHVAC:HighTemperatureRadiant",
@@ -27284,18 +27586,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 16,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 16,
+      "size": 2,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name",
+        "Fraction_of_Radiant_Energy_to_Surface_(\\d+)"
       ],
-      [
-        "Fraction of Radiant Energy to Surface ",
-        ""
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Fraction of Radiant Energy to Surface ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:ventilatedslab": {
     "className": "ZoneHVAC:VentilatedSlab",
@@ -27546,38 +27854,49 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 7,
-    "extensibleFields": [
-      [
-        "Zone ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 7,
+      "keyRegExps": [
+        "Zone_(\\d+)_Name",
+        "Surface_(\\d+)_Name",
+        "Core_Diameter_for_Surface_(\\d+)",
+        "Core_Length_for_Surface_(\\d+)",
+        "Core_Numbers_for_Surface_(\\d+)",
+        "Slab_Inlet_Node_Name_for_Surface_(\\d+)",
+        "Slab_Outlet_Node_Name_for_Surface_(\\d+)"
       ],
-      [
-        "Surface ",
-        " Name"
-      ],
-      [
-        "Core Diameter for Surface ",
-        ""
-      ],
-      [
-        "Core Length for Surface ",
-        ""
-      ],
-      [
-        "Core Numbers for Surface ",
-        ""
-      ],
-      [
-        "Slab Inlet Node Name for Surface ",
-        ""
-      ],
-      [
-        "Slab Outlet Node Name for Surface ",
-        ""
+      "fieldNames": [
+        [
+          "Zone ",
+          " Name"
+        ],
+        [
+          "Surface ",
+          " Name"
+        ],
+        [
+          "Core Diameter for Surface ",
+          ""
+        ],
+        [
+          "Core Length for Surface ",
+          ""
+        ],
+        [
+          "Core Numbers for Surface ",
+          ""
+        ],
+        [
+          "Slab Inlet Node Name for Surface ",
+          ""
+        ],
+        [
+          "Slab Outlet Node Name for Surface ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "airterminal:singleduct:constantvolume:reheat": {
     "className": "AirTerminal:SingleDuct:ConstantVolume:Reheat",
@@ -28903,34 +29222,44 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 6,
-    "extensibleFields": [
-      [
-        "Zone Equipment ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 2,
+      "size": 6,
+      "keyRegExps": [
+        "Zone_Equipment_(\\d+)_Object_Type",
+        "Zone_Equipment_(\\d+)_Name",
+        "Zone_Equipment_(\\d+)_Cooling_Sequence",
+        "Zone_Equipment_(\\d+)_Heating_or_NoLoad_Sequence",
+        "Zone_Equipment_(\\d+)_Sequential_Cooling_Fraction_Schedule_Name",
+        "Zone_Equipment_(\\d+)_Sequential_Heating_Fraction_Schedule_Name"
       ],
-      [
-        "Zone Equipment ",
-        " Name"
-      ],
-      [
-        "Zone Equipment ",
-        " Cooling Sequence"
-      ],
-      [
-        "Zone Equipment ",
-        " Heating or No-Load Sequence"
-      ],
-      [
-        "Zone Equipment ",
-        " Sequential Cooling Fraction Schedule Name"
-      ],
-      [
-        "Zone Equipment ",
-        " Sequential Heating Fraction Schedule Name"
+      "fieldNames": [
+        [
+          "Zone Equipment ",
+          " Object Type"
+        ],
+        [
+          "Zone Equipment ",
+          " Name"
+        ],
+        [
+          "Zone Equipment ",
+          " Cooling Sequence"
+        ],
+        [
+          "Zone Equipment ",
+          " Heating or No-Load Sequence"
+        ],
+        [
+          "Zone Equipment ",
+          " Sequential Cooling Fraction Schedule Name"
+        ],
+        [
+          "Zone Equipment ",
+          " Sequential Heating Fraction Schedule Name"
+        ]
       ]
-    ]
+    }
   },
   "zonehvac:equipmentconnections": {
     "className": "ZoneHVAC:EquipmentConnections",
@@ -29076,22 +29405,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 8,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Space ",
-        " Name"
+    "extensible": {
+      "startIdx": 8,
+      "size": 3,
+      "keyRegExps": [
+        "Space_(\\d+)_Name",
+        "Space_(\\d+)_Fraction",
+        "Space_(\\d+)_Supply_Node_Name"
       ],
-      [
-        "Space ",
-        " Fraction"
-      ],
-      [
-        "Space ",
-        " Supply Node Name"
+      "fieldNames": [
+        [
+          "Space ",
+          " Name"
+        ],
+        [
+          "Space ",
+          " Fraction"
+        ],
+        [
+          "Space ",
+          " Supply Node Name"
+        ]
       ]
-    ]
+    }
   },
   "spacehvac:zoneequipmentmixer": {
     "className": "SpaceHVAC:ZoneEquipmentMixer",
@@ -29132,22 +29468,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Space ",
-        " Name"
+    "extensible": {
+      "startIdx": 4,
+      "size": 3,
+      "keyRegExps": [
+        "Space_(\\d+)_Name",
+        "Space_(\\d+)_Fraction",
+        "Space_(\\d+)_Node_Name"
       ],
-      [
-        "Space ",
-        " Fraction"
-      ],
-      [
-        "Space ",
-        " Node Name"
+      "fieldNames": [
+        [
+          "Space ",
+          " Name"
+        ],
+        [
+          "Space ",
+          " Fraction"
+        ],
+        [
+          "Space ",
+          " Node Name"
+        ]
       ]
-    ]
+    }
   },
   "fan:systemmodel": {
     "className": "Fan:SystemModel",
@@ -29273,18 +29616,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 22,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Speed ",
-        " Flow Fraction"
+    "extensible": {
+      "startIdx": 22,
+      "size": 2,
+      "keyRegExps": [
+        "Speed_(\\d+)_Flow_Fraction",
+        "Speed_(\\d+)_Electric_Power_Fraction"
       ],
-      [
-        "Speed ",
-        " Electric Power Fraction"
+      "fieldNames": [
+        [
+          "Speed ",
+          " Flow Fraction"
+        ],
+        [
+          "Speed ",
+          " Electric Power Fraction"
+        ]
       ]
-    ]
+    }
   },
   "fan:constantvolume": {
     "className": "Fan:ConstantVolume",
@@ -39465,18 +39814,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 5,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Heating Speed ",
-        " Supply Air Flow Ratio"
+    "extensible": {
+      "startIdx": 5,
+      "size": 2,
+      "keyRegExps": [
+        "Heating_Speed_(\\d+)_Supply_Air_Flow_Ratio",
+        "Cooling_Speed_(\\d+)_Supply_Air_Flow_Ratio"
       ],
-      [
-        "Cooling Speed ",
-        " Supply Air Flow Ratio"
+      "fieldNames": [
+        [
+          "Heating Speed ",
+          " Supply Air Flow Ratio"
+        ],
+        [
+          "Cooling Speed ",
+          " Supply Air Flow Ratio"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:unitary:furnace:heatonly": {
     "className": "AirLoopHVAC:Unitary:Furnace:HeatOnly",
@@ -41022,22 +41377,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 41,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Compressor Speed at Loading Index ",
-        ""
+    "extensible": {
+      "startIdx": 41,
+      "size": 3,
+      "keyRegExps": [
+        "Compressor_Speed_at_Loading_Index_(\\d+)",
+        "Loading_Index_(\\d+)_Evaporative_Capacity_Multiplier_Function_of_Temperature_Curve_Name",
+        "Loading_Index_(\\d+)_Compressor_Power_Multiplier_Function_of_Temperature_Curve_Name"
       ],
-      [
-        "Loading Index ",
-        " Evaporative Capacity Multiplier Function of Temperature Curve Name"
-      ],
-      [
-        "Loading Index ",
-        " Compressor Power Multiplier Function of Temperature Curve Name"
+      "fieldNames": [
+        [
+          "Compressor Speed at Loading Index ",
+          ""
+        ],
+        [
+          "Loading Index ",
+          " Evaporative Capacity Multiplier Function of Temperature Curve Name"
+        ],
+        [
+          "Loading Index ",
+          " Compressor Power Multiplier Function of Temperature Curve Name"
+        ]
       ]
-    ]
+    }
   },
   "airconditioner:variablerefrigerantflow:fluidtemperaturecontrol:hr": {
     "className": "AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR",
@@ -41348,22 +41710,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 58,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Compressor Speed at Loading Index ",
-        ""
+    "extensible": {
+      "startIdx": 58,
+      "size": 3,
+      "keyRegExps": [
+        "Compressor_Speed_at_Loading_Index_(\\d+)",
+        "Loading_Index_(\\d+)_Evaporative_Capacity_Multiplier_Function_of_Temperature_Curve_Name",
+        "Loading_Index_(\\d+)_Compressor_Power_Multiplier_Function_of_Temperature_Curve_Name"
       ],
-      [
-        "Loading Index ",
-        " Evaporative Capacity Multiplier Function of Temperature Curve Name"
-      ],
-      [
-        "Loading Index ",
-        " Compressor Power Multiplier Function of Temperature Curve Name"
+      "fieldNames": [
+        [
+          "Compressor Speed at Loading Index ",
+          ""
+        ],
+        [
+          "Loading Index ",
+          " Evaporative Capacity Multiplier Function of Temperature Curve Name"
+        ],
+        [
+          "Loading Index ",
+          " Compressor Power Multiplier Function of Temperature Curve Name"
+        ]
       ]
-    ]
+    }
   },
   "zoneterminalunitlist": {
     "className": "ZoneTerminalUnitList",
@@ -41379,14 +41748,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Zone Terminal Unit Name ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Zone_Terminal_Unit_Name_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Zone Terminal Unit Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "controller:watercoil": {
     "className": "Controller:WaterCoil",
@@ -41622,22 +41996,29 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 5,
-    "extensibleFieldSize": 3,
-    "extensibleFields": [
-      [
-        "Zone or ZoneList ",
-        " Name"
+    "extensible": {
+      "startIdx": 5,
+      "size": 3,
+      "keyRegExps": [
+        "Zone_or_ZoneList_(\\d+)_Name",
+        "Design_Specification_Outdoor_Air_Object_Name_(\\d+)",
+        "Design_Specification_Zone_Air_Distribution_Object_Name_(\\d+)"
       ],
-      [
-        "Design Specification Outdoor Air Object Name ",
-        ""
-      ],
-      [
-        "Design Specification Zone Air Distribution Object Name ",
-        ""
+      "fieldNames": [
+        [
+          "Zone or ZoneList ",
+          " Name"
+        ],
+        [
+          "Design Specification Outdoor Air Object Name ",
+          ""
+        ],
+        [
+          "Design Specification Zone Air Distribution Object Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:controllerlist": {
     "className": "AirLoopHVAC:ControllerList",
@@ -41958,14 +42339,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Outlet ",
-        " Node Name"
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Outlet_(\\d+)_Node_Name"
+      ],
+      "fieldNames": [
+        [
+          "Outlet ",
+          " Node Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:supplyplenum": {
     "className": "AirLoopHVAC:SupplyPlenum",
@@ -41996,14 +42382,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Outlet ",
-        " Node Name"
+    "extensible": {
+      "startIdx": 4,
+      "size": 1,
+      "keyRegExps": [
+        "Outlet_(\\d+)_Node_Name"
+      ],
+      "fieldNames": [
+        [
+          "Outlet ",
+          " Node Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:supplypath": {
     "className": "AirLoopHVAC:SupplyPath",
@@ -42029,18 +42420,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Component ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 2,
+      "size": 2,
+      "keyRegExps": [
+        "Component_(\\d+)_Object_Type",
+        "Component_(\\d+)_Name"
       ],
-      [
-        "Component ",
-        " Name"
+      "fieldNames": [
+        [
+          "Component ",
+          " Object Type"
+        ],
+        [
+          "Component ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:zonemixer": {
     "className": "AirLoopHVAC:ZoneMixer",
@@ -42061,14 +42458,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Inlet ",
-        " Node Name"
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Inlet_(\\d+)_Node_Name"
+      ],
+      "fieldNames": [
+        [
+          "Inlet ",
+          " Node Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:returnplenum": {
     "className": "AirLoopHVAC:ReturnPlenum",
@@ -42104,14 +42506,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 5,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Inlet ",
-        " Node Name"
+    "extensible": {
+      "startIdx": 5,
+      "size": 1,
+      "keyRegExps": [
+        "Inlet_(\\d+)_Node_Name"
+      ],
+      "fieldNames": [
+        [
+          "Inlet ",
+          " Node Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:returnpath": {
     "className": "AirLoopHVAC:ReturnPath",
@@ -42137,18 +42544,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Component ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 2,
+      "size": 2,
+      "keyRegExps": [
+        "Component_(\\d+)_Object_Type",
+        "Component_(\\d+)_Name"
       ],
-      [
-        "Component ",
-        " Name"
+      "fieldNames": [
+        [
+          "Component ",
+          " Object Type"
+        ],
+        [
+          "Component ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:exhaustsystem": {
     "className": "AirLoopHVAC:ExhaustSystem",
@@ -42234,14 +42647,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "AirLoopHVAC ",
-        " Name"
+    "extensible": {
+      "startIdx": 10,
+      "size": 1,
+      "keyRegExps": [
+        "AirLoopHVAC_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "AirLoopHVAC ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:mixer": {
     "className": "AirLoopHVAC:Mixer",
@@ -42262,14 +42680,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Inlet ",
-        " Node Name"
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Inlet_(\\d+)_Node_Name"
+      ],
+      "fieldNames": [
+        [
+          "Inlet ",
+          " Node Name"
+        ]
       ]
-    ]
+    }
   },
   "airloophvac:splitter": {
     "className": "AirLoopHVAC:Splitter",
@@ -42290,14 +42713,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Outlet ",
-        " Node Name"
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Outlet_(\\d+)_Node_Name"
+      ],
+      "fieldNames": [
+        [
+          "Outlet ",
+          " Node Name"
+        ]
       ]
-    ]
+    }
   },
   "branch": {
     "className": "Branch",
@@ -42333,26 +42761,34 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 4,
-    "extensibleFields": [
-      [
-        "Component ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 2,
+      "size": 4,
+      "keyRegExps": [
+        "Component_(\\d+)_Object_Type",
+        "Component_(\\d+)_Name",
+        "Component_(\\d+)_Inlet_Node_Name",
+        "Component_(\\d+)_Outlet_Node_Name"
       ],
-      [
-        "Component ",
-        " Name"
-      ],
-      [
-        "Component ",
-        " Inlet Node Name"
-      ],
-      [
-        "Component ",
-        " Outlet Node Name"
+      "fieldNames": [
+        [
+          "Component ",
+          " Object Type"
+        ],
+        [
+          "Component ",
+          " Name"
+        ],
+        [
+          "Component ",
+          " Inlet Node Name"
+        ],
+        [
+          "Component ",
+          " Outlet Node Name"
+        ]
       ]
-    ]
+    }
   },
   "branchlist": {
     "className": "BranchList",
@@ -42368,14 +42804,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Branch ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Branch_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Branch ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "connector:splitter": {
     "className": "Connector:Splitter",
@@ -42396,14 +42837,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Outlet Branch ",
-        " Name"
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Outlet_Branch_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Outlet Branch ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "connector:mixer": {
     "className": "Connector:Mixer",
@@ -42424,14 +42870,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Inlet Branch ",
-        " Name"
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Inlet_Branch_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Inlet Branch ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "connectorlist": {
     "className": "ConnectorList",
@@ -42477,14 +42928,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Node ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Node_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Node ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "outdoorair:node": {
     "className": "OutdoorAir:Node",
@@ -42545,14 +43001,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 0,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Node or NodeList Name ",
-        ""
+    "extensible": {
+      "startIdx": 0,
+      "size": 1,
+      "keyRegExps": [
+        "Node_or_NodeList_Name_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Node or NodeList Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "pipe:adiabatic": {
     "className": "Pipe:Adiabatic",
@@ -42903,14 +43364,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 30,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Pipe Circuit ",
-        ""
+    "extensible": {
+      "startIdx": 30,
+      "size": 1,
+      "keyRegExps": [
+        "Pipe_Circuit_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Pipe Circuit ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "pipingsystem:underground:pipecircuit": {
     "className": "PipingSystem:Underground:PipeCircuit",
@@ -42991,14 +43457,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 14,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Pipe Segment ",
-        ""
+    "extensible": {
+      "startIdx": 14,
+      "size": 1,
+      "keyRegExps": [
+        "Pipe_Segment_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Pipe Segment ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "pipingsystem:underground:pipesegment": {
     "className": "PipingSystem:Underground:PipeSegment",
@@ -44229,14 +44700,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 22,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 22,
+      "size": 1,
+      "keyRegExps": [
+        "Surface_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Surface ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "solarcollector:unglazedtranspired:multisystem": {
     "className": "SolarCollector:UnglazedTranspired:Multisystem",
@@ -44267,26 +44743,34 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 4,
-    "extensibleFields": [
-      [
-        "Outdoor Air System ",
-        " Collector Inlet Node"
+    "extensible": {
+      "startIdx": 1,
+      "size": 4,
+      "keyRegExps": [
+        "Outdoor_Air_System_(\\d+)_Collector_Inlet_Node",
+        "Outdoor_Air_System_(\\d+)_Collector_Outlet_Node",
+        "Outdoor_Air_System_(\\d+)_Mixed_Air_Node",
+        "Outdoor_Air_System_(\\d+)_Zone_Node"
       ],
-      [
-        "Outdoor Air System ",
-        " Collector Outlet Node"
-      ],
-      [
-        "Outdoor Air System ",
-        " Mixed Air Node"
-      ],
-      [
-        "Outdoor Air System ",
-        " Zone Node"
+      "fieldNames": [
+        [
+          "Outdoor Air System ",
+          " Collector Inlet Node"
+        ],
+        [
+          "Outdoor Air System ",
+          " Collector Outlet Node"
+        ],
+        [
+          "Outdoor Air System ",
+          " Mixed Air Node"
+        ],
+        [
+          "Outdoor Air System ",
+          " Zone Node"
+        ]
       ]
-    ]
+    }
   },
   "boiler:hotwater": {
     "className": "Boiler:HotWater",
@@ -49877,14 +50361,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 11,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "GHE:Vertical:Single Object Name ",
-        ""
+    "extensible": {
+      "startIdx": 11,
+      "size": 1,
+      "keyRegExps": [
+        "GHE:Vertical:Single_Object_Name_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "GHE:Vertical:Single Object Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "groundheatexchanger:vertical:properties": {
     "className": "GroundHeatExchanger:Vertical:Properties",
@@ -49980,18 +50469,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "g-Function Ln(T/Ts) Value ",
-        ""
+    "extensible": {
+      "startIdx": 4,
+      "size": 2,
+      "keyRegExps": [
+        "gFunction_LnTTs_Value_(\\d+)",
+        "gFunction_g_Value_(\\d+)"
       ],
-      [
-        "g-Function g Value ",
-        ""
+      "fieldNames": [
+        [
+          "g-Function Ln(T/Ts) Value ",
+          ""
+        ],
+        [
+          "g-Function g Value ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "groundheatexchanger:pond": {
     "className": "GroundHeatExchanger:Pond",
@@ -52172,18 +52667,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Equipment ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 1,
+      "size": 2,
+      "keyRegExps": [
+        "Equipment_(\\d+)_Object_Type",
+        "Equipment_(\\d+)_Name"
       ],
-      [
-        "Equipment ",
-        " Name"
+      "fieldNames": [
+        [
+          "Equipment ",
+          " Object Type"
+        ],
+        [
+          "Equipment ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "condenserequipmentlist": {
     "className": "CondenserEquipmentList",
@@ -52204,18 +52705,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Equipment ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 1,
+      "size": 2,
+      "keyRegExps": [
+        "Equipment_(\\d+)_Object_Type",
+        "Equipment_(\\d+)_Name"
       ],
-      [
-        "Equipment ",
-        " Name"
+      "fieldNames": [
+        [
+          "Equipment ",
+          " Object Type"
+        ],
+        [
+          "Equipment ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "plantequipmentoperation:uncontrolled": {
     "className": "PlantEquipmentOperation:Uncontrolled",
@@ -54746,14 +55253,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Program Name ",
-        ""
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Program_Name_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Program Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "energymanagementsystem:program": {
     "className": "EnergyManagementSystem:Program",
@@ -54769,14 +55281,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Program Line ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Program_Line_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Program Line ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "energymanagementsystem:subroutine": {
     "className": "EnergyManagementSystem:Subroutine",
@@ -54792,14 +55309,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Program Line ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Program_Line_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Program Line ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "energymanagementsystem:globalvariable": {
     "className": "EnergyManagementSystem:GlobalVariable",
@@ -54810,14 +55332,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 0,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Erl Variable ",
-        " Name"
+    "extensible": {
+      "startIdx": 0,
+      "size": 1,
+      "keyRegExps": [
+        "Erl_Variable_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Erl Variable ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "energymanagementsystem:outputvariable": {
     "className": "EnergyManagementSystem:OutputVariable",
@@ -56298,18 +56825,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Availability Manager ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 1,
+      "size": 2,
+      "keyRegExps": [
+        "Availability_Manager_(\\d+)_Object_Type",
+        "Availability_Manager_(\\d+)_Name"
       ],
-      [
-        "Availability Manager ",
-        " Name"
+      "fieldNames": [
+        [
+          "Availability Manager ",
+          " Object Type"
+        ],
+        [
+          "Availability Manager ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "setpointmanager:scheduled": {
     "className": "SetpointManager:Scheduled",
@@ -57830,14 +58363,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Case or WalkIn ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Case_or_WalkIn_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Case or WalkIn ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "refrigeration:condenser:aircooled": {
     "className": "Refrigeration:Condenser:AirCooled",
@@ -58243,14 +58781,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Cascade Condenser Name or Secondary System ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Cascade_Condenser_Name_or_Secondary_System_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Cascade Condenser Name or Secondary System ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "refrigeration:subcooler": {
     "className": "Refrigeration:Subcooler",
@@ -58366,14 +58909,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Refrigeration Compressor ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Refrigeration_Compressor_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Refrigeration Compressor ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "refrigeration:system": {
     "className": "Refrigeration:System",
@@ -58834,58 +59382,74 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 21,
-    "extensibleFieldSize": 12,
-    "extensibleFields": [
-      [
-        "Zone ",
-        " Name"
+    "extensible": {
+      "startIdx": 21,
+      "size": 12,
+      "keyRegExps": [
+        "Zone_(\\d+)_Name",
+        "Total_Insulated_Surface_Area_Facing_Zone_(\\d+)",
+        "Insulated_Surface_UValue_Facing_Zone_(\\d+)",
+        "Area_of_Glass_Reach_In_Doors_Facing_Zone_(\\d+)",
+        "Height_of_Glass_Reach_In_Doors_Facing_Zone_(\\d+)",
+        "Glass_Reach_In_Door_U_Value_Facing_Zone_(\\d+)",
+        "Glass_Reach_In_Door_Opening_Schedule_Name_Facing_Zone_(\\d+)",
+        "Area_of_Stocking_Doors_Facing_Zone_(\\d+)",
+        "Height_of_Stocking_Doors_Facing_Zone_(\\d+)",
+        "Stocking_Door_U_Value_Facing_Zone_(\\d+)",
+        "Stocking_Door_Opening_Schedule_Name_Facing_Zone_(\\d+)",
+        "Stocking_Door_Opening_Protection_Type_Facing_Zone_(\\d+)"
       ],
-      [
-        "Total Insulated Surface Area Facing Zone ",
-        ""
-      ],
-      [
-        "Insulated Surface U-Value Facing Zone ",
-        ""
-      ],
-      [
-        "Area of Glass Reach In Doors Facing Zone ",
-        ""
-      ],
-      [
-        "Height of Glass Reach In Doors Facing Zone ",
-        ""
-      ],
-      [
-        "Glass Reach In Door U Value Facing Zone ",
-        ""
-      ],
-      [
-        "Glass Reach In Door Opening Schedule Name Facing Zone ",
-        ""
-      ],
-      [
-        "Area of Stocking Doors Facing Zone ",
-        ""
-      ],
-      [
-        "Height of Stocking Doors Facing Zone ",
-        ""
-      ],
-      [
-        "Stocking Door U Value Facing Zone ",
-        ""
-      ],
-      [
-        "Stocking Door Opening Schedule Name Facing Zone ",
-        ""
-      ],
-      [
-        "Stocking Door Opening Protection Type Facing Zone ",
-        ""
+      "fieldNames": [
+        [
+          "Zone ",
+          " Name"
+        ],
+        [
+          "Total Insulated Surface Area Facing Zone ",
+          ""
+        ],
+        [
+          "Insulated Surface U-Value Facing Zone ",
+          ""
+        ],
+        [
+          "Area of Glass Reach In Doors Facing Zone ",
+          ""
+        ],
+        [
+          "Height of Glass Reach In Doors Facing Zone ",
+          ""
+        ],
+        [
+          "Glass Reach In Door U Value Facing Zone ",
+          ""
+        ],
+        [
+          "Glass Reach In Door Opening Schedule Name Facing Zone ",
+          ""
+        ],
+        [
+          "Area of Stocking Doors Facing Zone ",
+          ""
+        ],
+        [
+          "Height of Stocking Doors Facing Zone ",
+          ""
+        ],
+        [
+          "Stocking Door U Value Facing Zone ",
+          ""
+        ],
+        [
+          "Stocking Door Opening Schedule Name Facing Zone ",
+          ""
+        ],
+        [
+          "Stocking Door Opening Protection Type Facing Zone ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "refrigeration:airchiller": {
     "className": "Refrigeration:AirChiller",
@@ -59066,14 +59630,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 5,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Air Chiller ",
-        " Name"
+    "extensible": {
+      "startIdx": 5,
+      "size": 1,
+      "keyRegExps": [
+        "Air_Chiller_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Air Chiller ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "demandmanagerassignmentlist": {
     "className": "DemandManagerAssignmentList",
@@ -59129,18 +59698,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 8,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "DemandManager ",
-        " Object Type"
+    "extensible": {
+      "startIdx": 8,
+      "size": 2,
+      "keyRegExps": [
+        "DemandManager_(\\d+)_Object_Type",
+        "DemandManager_(\\d+)_Name"
       ],
-      [
-        "DemandManager ",
-        " Name"
+      "fieldNames": [
+        [
+          "DemandManager ",
+          " Object Type"
+        ],
+        [
+          "DemandManager ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "demandmanager:exteriorlights": {
     "className": "DemandManager:ExteriorLights",
@@ -59191,14 +59766,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 8,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Exterior Lights ",
-        " Name"
+    "extensible": {
+      "startIdx": 8,
+      "size": 1,
+      "keyRegExps": [
+        "Exterior_Lights_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Exterior Lights ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "demandmanager:lights": {
     "className": "DemandManager:Lights",
@@ -59249,14 +59829,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 8,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Lights ",
-        " Name"
+    "extensible": {
+      "startIdx": 8,
+      "size": 1,
+      "keyRegExps": [
+        "Lights_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Lights ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "demandmanager:electricequipment": {
     "className": "DemandManager:ElectricEquipment",
@@ -59307,14 +59892,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 8,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Electric Equipment ",
-        " Name"
+    "extensible": {
+      "startIdx": 8,
+      "size": 1,
+      "keyRegExps": [
+        "Electric_Equipment_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Electric Equipment ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "demandmanager:thermostats": {
     "className": "DemandManager:Thermostats",
@@ -59370,14 +59960,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 9,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Thermostat ",
-        " Name"
+    "extensible": {
+      "startIdx": 9,
+      "size": 1,
+      "keyRegExps": [
+        "Thermostat_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Thermostat ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "demandmanager:ventilation": {
     "className": "DemandManager:Ventilation",
@@ -59433,14 +60028,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 9,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Controller Outdoor Air ",
-        " Name"
+    "extensible": {
+      "startIdx": 9,
+      "size": 1,
+      "keyRegExps": [
+        "Controller_Outdoor_Air_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Controller Outdoor Air ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "generator:internalcombustionengine": {
     "className": "Generator:InternalCombustionEngine",
@@ -60636,18 +61236,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 12,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Constituent ",
-        " Name"
+    "extensible": {
+      "startIdx": 12,
+      "size": 2,
+      "keyRegExps": [
+        "Constituent_(\\d+)_Name",
+        "Molar_Fraction_(\\d+)"
       ],
-      [
-        "Molar Fraction ",
-        ""
+      "fieldNames": [
+        [
+          "Constituent ",
+          " Name"
+        ],
+        [
+          "Molar Fraction ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "generator:fuelcell:watersupply": {
     "className": "Generator:FuelCell:WaterSupply",
@@ -61311,6 +61917,126 @@ export const iddString = String.raw`{
         "name": "Number of Constituents in Gaseous Constituent Fuel Supply",
         "type": "string",
         "units": null
+      },
+      "Constituent_1_Name": {
+        "name": "Constituent 1 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_1_Molar_Fraction": {
+        "name": "Constituent 1 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_2_Name": {
+        "name": "Constituent 2 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_2_Molar_Fraction": {
+        "name": "Constituent 2 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_3_Name": {
+        "name": "Constituent 3 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_3_Molar_Fraction": {
+        "name": "Constituent 3 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_4_Name": {
+        "name": "Constituent 4 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_4_Molar_Fraction": {
+        "name": "Constituent 4 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_5_Name": {
+        "name": "Constituent 5 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_5_Molar_Fraction": {
+        "name": "Constituent 5 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_6_Name": {
+        "name": "Constituent 6 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_6_Molar_Fraction": {
+        "name": "Constituent 6 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_7_Name": {
+        "name": "Constituent 7 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_7_Molar_Fraction": {
+        "name": "Constituent 7 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_8_Name": {
+        "name": "Constituent 8 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_8_Molar_Fraction": {
+        "name": "Constituent 8 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_9_Name": {
+        "name": "Constituent 9 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_9_Molar_Fraction": {
+        "name": "Constituent 9 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_10_Name": {
+        "name": "Constituent 10 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_10_Molar_Fraction": {
+        "name": "Constituent 10 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_11_Name": {
+        "name": "Constituent 11 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_11_Molar_Fraction": {
+        "name": "Constituent 11 Molar Fraction",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_12_Name": {
+        "name": "Constituent 12 Name",
+        "type": "string",
+        "units": null
+      },
+      "Constituent_12_Molar_Fraction": {
+        "name": "Constituent 12 Molar Fraction",
+        "type": "string",
+        "units": null
       }
     }
   },
@@ -61483,30 +62209,39 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 5,
-    "extensibleFields": [
-      [
-        "Generator ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 5,
+      "keyRegExps": [
+        "Generator_(\\d+)_Name",
+        "Generator_(\\d+)_Object_Type",
+        "Generator_(\\d+)_Rated_Electric_Power_Output",
+        "Generator_(\\d+)_Availability_Schedule_Name",
+        "Generator_(\\d+)_Rated_Thermal_to_Electrical_Power_Ratio"
       ],
-      [
-        "Generator ",
-        " Object Type"
-      ],
-      [
-        "Generator ",
-        " Rated Electric Power Output"
-      ],
-      [
-        "Generator ",
-        " Availability Schedule Name"
-      ],
-      [
-        "Generator ",
-        " Rated Thermal to Electrical Power Ratio"
+      "fieldNames": [
+        [
+          "Generator ",
+          " Name"
+        ],
+        [
+          "Generator ",
+          " Object Type"
+        ],
+        [
+          "Generator ",
+          " Rated Electric Power Output"
+        ],
+        [
+          "Generator ",
+          " Availability Schedule Name"
+        ],
+        [
+          "Generator ",
+          " Rated Thermal to Electrical Power Ratio"
+        ]
       ]
-    ]
+    }
   },
   "electricloadcenter:inverter:simple": {
     "className": "ElectricLoadCenter:Inverter:Simple",
@@ -62047,14 +62782,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 18,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Meter ",
-        " Name"
+    "extensible": {
+      "startIdx": 18,
+      "size": 1,
+      "keyRegExps": [
+        "Meter_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Meter ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "electricloadcenter:distribution": {
     "className": "ElectricLoadCenter:Distribution",
@@ -62330,14 +63070,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Water Use Equipment ",
-        " Name"
+    "extensible": {
+      "startIdx": 10,
+      "size": 1,
+      "keyRegExps": [
+        "Water_Use_Equipment_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Water Use Equipment ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "wateruse:storage": {
     "className": "WaterUse:Storage",
@@ -62548,14 +63293,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 6,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Collection Surface ",
-        " Name"
+    "extensible": {
+      "startIdx": 6,
+      "size": 1,
+      "keyRegExps": [
+        "Collection_Surface_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Collection Surface ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "faultmodel:temperaturesensoroffset:outdoorair": {
     "className": "FaultModel:TemperatureSensorOffset:OutdoorAir",
@@ -63166,14 +63916,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 3,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Value ",
-        ""
+    "extensible": {
+      "startIdx": 3,
+      "size": 1,
+      "keyRegExps": [
+        "Value_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Value ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "hybridmodel:zone": {
     "className": "HybridModel:Zone",
@@ -64999,14 +65754,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Value ",
-        ""
+    "extensible": {
+      "startIdx": 10,
+      "size": 1,
+      "keyRegExps": [
+        "Value_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Value ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "table:independentvariablelist": {
     "className": "Table:IndependentVariableList",
@@ -65022,14 +65782,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Independent Variable ",
-        " Name"
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Independent_Variable_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Independent Variable ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "table:lookup": {
     "className": "Table:Lookup",
@@ -65090,14 +65855,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 10,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Output Value ",
-        ""
+    "extensible": {
+      "startIdx": 10,
+      "size": 1,
+      "keyRegExps": [
+        "Output_Value_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Output Value ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "fluidproperties:name": {
     "className": "FluidProperties:Name",
@@ -71213,14 +71983,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Year ",
-        " Escalation"
+    "extensible": {
+      "startIdx": 4,
+      "size": 1,
+      "keyRegExps": [
+        "Year_(\\d+)_Escalation"
+      ],
+      "fieldNames": [
+        [
+          "Year ",
+          " Escalation"
+        ]
       ]
-    ]
+    }
   },
   "lifecyclecost:useadjustment": {
     "className": "LifeCycleCost:UseAdjustment",
@@ -71241,14 +72016,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Year ",
-        " Multiplier"
+    "extensible": {
+      "startIdx": 2,
+      "size": 1,
+      "keyRegExps": [
+        "Year_(\\d+)_Multiplier"
+      ],
+      "fieldNames": [
+        [
+          "Year ",
+          " Multiplier"
+        ]
       ]
-    ]
+    }
   },
   "parametric:setvalueforrun": {
     "className": "Parametric:SetValueForRun",
@@ -71264,14 +72044,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Value for Run ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Value_for_Run_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Value for Run ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "parametric:logic": {
     "className": "Parametric:Logic",
@@ -71287,14 +72072,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Parametric Logic Line ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Parametric_Logic_Line_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Parametric Logic Line ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "parametric:runcontrol": {
     "className": "Parametric:RunControl",
@@ -71310,14 +72100,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Perform Run ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Perform_Run_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Perform Run ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "parametric:filenamesuffix": {
     "className": "Parametric:FileNameSuffix",
@@ -71333,14 +72128,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Suffix for File Name in Run ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Suffix_for_File_Name_in_Run_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Suffix for File Name in Run ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "output:variabledictionary": {
     "className": "Output:VariableDictionary",
@@ -71606,14 +72406,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 0,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Report ",
-        " Name"
+    "extensible": {
+      "startIdx": 0,
+      "size": 1,
+      "keyRegExps": [
+        "Report_(\\d+)_Name"
+      ],
+      "fieldNames": [
+        [
+          "Report ",
+          " Name"
+        ]
       ]
-    ]
+    }
   },
   "output:table:timebins": {
     "className": "Output:Table:TimeBins",
@@ -71667,11 +72472,36 @@ export const iddString = String.raw`{
         "name": "Digits After Decimal",
         "type": "int",
         "units": null
+      },
+      "Variable_or_Meter_1_Name": {
+        "name": "Variable or Meter 1 Name",
+        "type": "string",
+        "units": null
+      },
+      "Aggregation_Type_for_Variable_or_Meter_1": {
+        "name": "Aggregation Type for Variable or Meter 1",
+        "type": "string",
+        "units": null
       }
     },
-    "extensibleFieldStart": -1,
-    "extensibleFieldSize": 2,
-    "extensibleFields": []
+    "extensible": {
+      "startIdx": 2,
+      "size": 2,
+      "keyRegExps": [
+        "Variable_or_Meter_(\\d+)_Name",
+        "Aggregation_Type_for_Variable_or_Meter_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Variable or Meter ",
+          " Name"
+        ],
+        [
+          "Aggregation Type for Variable or Meter ",
+          ""
+        ]
+      ]
+    }
   },
   "output:table:annual": {
     "className": "Output:Table:Annual",
@@ -71690,11 +72520,46 @@ export const iddString = String.raw`{
         "name": "Schedule Name",
         "type": "string",
         "units": null
+      },
+      "Variable_or_Meter_or_EMS_Variable_or_Field_1_Name": {
+        "name": "Variable or Meter or EMS Variable or Field 1 Name",
+        "type": "string",
+        "units": null
+      },
+      "Aggregation_Type_for_Variable_or_Meter_1": {
+        "name": "Aggregation Type for Variable or Meter 1",
+        "type": "string",
+        "units": null
+      },
+      "Digits_After_Decimal_1": {
+        "name": "Digits After Decimal 1",
+        "type": "int",
+        "units": null
       }
     },
-    "extensibleFieldStart": -1,
-    "extensibleFieldSize": 3,
-    "extensibleFields": []
+    "extensible": {
+      "startIdx": 3,
+      "size": 3,
+      "keyRegExps": [
+        "Variable_or_Meter_or_EMS_Variable_or_Field_(\\d+)_Name",
+        "Aggregation_Type_for_Variable_or_Meter_(\\d+)",
+        "Digits_After_Decimal_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Variable or Meter or EMS Variable or Field ",
+          " Name"
+        ],
+        [
+          "Aggregation Type for Variable or Meter ",
+          ""
+        ],
+        [
+          "Digits After Decimal ",
+          ""
+        ]
+      ]
+    }
   },
   "output:table:reportperiod": {
     "className": "Output:Table:ReportPeriod",
@@ -71890,18 +72755,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 2,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Key Name ",
-        ""
+    "extensible": {
+      "startIdx": 2,
+      "size": 2,
+      "keyRegExps": [
+        "Key_Name_(\\d+)",
+        "Output_Variable_or_Meter_Name_(\\d+)"
       ],
-      [
-        "Output Variable or Meter Name ",
-        ""
+      "fieldNames": [
+        [
+          "Key Name ",
+          ""
+        ],
+        [
+          "Output Variable or Meter Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "meter:customdecrement": {
     "className": "Meter:CustomDecrement",
@@ -71932,18 +72803,24 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 3,
-    "extensibleFieldSize": 2,
-    "extensibleFields": [
-      [
-        "Key Name ",
-        ""
+    "extensible": {
+      "startIdx": 3,
+      "size": 2,
+      "keyRegExps": [
+        "Key_Name_(\\d+)",
+        "Output_Variable_or_Meter_Name_(\\d+)"
       ],
-      [
-        "Output Variable or Meter Name ",
-        ""
+      "fieldNames": [
+        [
+          "Key Name ",
+          ""
+        ],
+        [
+          "Output Variable or Meter Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "outputcontrol:files": {
     "className": "OutputControl:Files",
@@ -72394,14 +73271,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 0,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Key ",
-        ""
+    "extensible": {
+      "startIdx": 0,
+      "size": 1,
+      "keyRegExps": [
+        "Key_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Key ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "output:debuggingdata": {
     "className": "Output:DebuggingData",
@@ -72512,14 +73394,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 4,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Search Path ",
-        ""
+    "extensible": {
+      "startIdx": 4,
+      "size": 1,
+      "keyRegExps": [
+        "Search_Path_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Search Path ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "pythonplugin:instance": {
     "className": "PythonPlugin:Instance",
@@ -72560,14 +73447,19 @@ export const iddString = String.raw`{
         "units": null
       }
     },
-    "extensibleFieldStart": 1,
-    "extensibleFieldSize": 1,
-    "extensibleFields": [
-      [
-        "Variable Name ",
-        ""
+    "extensible": {
+      "startIdx": 1,
+      "size": 1,
+      "keyRegExps": [
+        "Variable_Name_(\\d+)"
+      ],
+      "fieldNames": [
+        [
+          "Variable Name ",
+          ""
+        ]
       ]
-    ]
+    }
   },
   "pythonplugin:trendvariable": {
     "className": "PythonPlugin:TrendVariable",
