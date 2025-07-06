@@ -1,5 +1,5 @@
 /*
-TODO account for extendable inputs
+TODO add units
 */
 import { IDDManager, IDD, classProps, fieldProps } from './idd';
 import * as utils from './utilities';
@@ -20,11 +20,13 @@ class IDFObject {
 
   constructor(className: string, fields: IDFFields) {
     this.className = className.toLowerCase();
-    this.fields = utils.renameFieldNamesToKeys(fields);
-    //TODO!!
-    // const newFields = Object.fromEntries(
-    //   Object.entries(fields).map(([fieldName, value]) => [utils.fieldNameToKey(fieldName), value]),
-    // );
+    // this.fields = utils.renameFieldNamesToKeys(fields);
+    //TODO add units
+    const newFields = Object.fromEntries(
+      Object.entries(fields).map(([fieldName, value]) => {
+        return [utils.fieldNameToKey(fieldName), value]
+      })
+    );
   }
 
   /**
