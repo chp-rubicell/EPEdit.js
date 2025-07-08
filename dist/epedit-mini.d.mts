@@ -1,8 +1,14 @@
+type IDFFieldType = 'string' | 'int' | 'float';
+type IDFFieldValueStrict = string | number;
+type IDFFieldValue = string | number | null;
+
 /** Generate IDD from schema.epJSON */
+
 interface fieldProps {
     name: string;
-    type: 'string' | 'int' | 'float';
+    type: IDFFieldType;
     units: string | null;
+    default?: IDFFieldValueStrict;
 }
 type extensibleFieldName = [string, string];
 interface classProps {
@@ -38,7 +44,6 @@ declare class IDDManager {
     static fromIDD(iddString: string): void;
 }
 
-type IDFFieldValue = string | number | null;
 type IDFFields = Record<string, IDFFieldValue>;
 declare class IDFObject {
     class: IDFClass;

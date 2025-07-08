@@ -1,14 +1,32 @@
 // src/utilities.ts
-function renameFieldNamesToKeys(obj) {
-  return Object.fromEntries(
-    Object.entries(obj).map(([fieldName, value]) => [fieldNameToKey(fieldName), value])
-  );
-}
 function fieldNameToKey(fieldName) {
   let fieldKey = fieldName;
   fieldKey = fieldKey.replace(/[-/*()]/g, "");
   fieldKey = fieldKey.replace(/ /g, "_");
   return fieldKey;
+}
+function renameFieldNamesToKeys(obj) {
+  return Object.fromEntries(
+    Object.entries(obj).map(([fieldName, value]) => [fieldNameToKey(fieldName), value])
+  );
+}
+function typeCastFieldValue(fieldType, value, className, fieldName) {
+  switch (fieldType) {
+    case "int":
+      if (typeof value === "string") value = parseInt(value);
+      else value = Math.trunc(value);
+      break;
+    case "float":
+      if (typeof value === "string") value = parseFloat(value);
+      break;
+    case "string":
+      value = String(value);
+      break;
+    default:
+      throw new RangeError(`Type '${fieldType}' not supported for ${className} - ${fieldName}`);
+      break;
+  }
+  return value;
 }
 
 // src/idd.ts
@@ -65,28 +83,21 @@ var IDFObject = class {
     const [lastFieldIdx, _] = idfClass.getLastFieldIdxAndKeyFromFields(fields);
     const fieldProps2 = idfClass.getFieldProps(lastFieldIdx + 1);
     this.fields = Object.fromEntries(
-      Object.entries(fields).map(([key, value]) => {
-        const fieldType = fieldProps2[key].type;
-        if (typeof value === "string" && (value.toLowerCase() == "autosize" || value.toLowerCase() == "autocalculate")) {
-          value = value.toLowerCase();
-        } else if (value !== null) {
-          switch (fieldType) {
-            case "int":
-              if (typeof value === "string") value = parseInt(value);
-              else value = Math.trunc(value);
-              break;
-            case "float":
-              if (typeof value === "string") value = parseFloat(value);
-              break;
-            case "string":
-              value = String(value);
-              break;
-            default:
-              throw new RangeError(`Type '${fieldType}' not supported for ${this.className} - ${this.name}`);
-              break;
+      Object.entries(fieldProps2).filter(([fieldKey, fieldProp]) => {
+        return fieldKey in fields || "default" in fieldProp;
+      }).map(([fieldKey, fieldProp]) => {
+        if (fieldKey in fields) {
+          let fieldVal = fields[fieldKey];
+          const fieldType = fieldProp.type;
+          if (typeof fieldVal === "string" && (fieldVal.toLowerCase() == "autosize" || fieldVal.toLowerCase() == "autocalculate")) {
+            fieldVal = fieldVal.toLowerCase();
+          } else if (fieldVal !== null) {
+            fieldVal = typeCastFieldValue(fieldType, fieldVal, this.className, fieldKey);
           }
+          return [fieldKey, fieldVal];
+        } else {
+          return [fieldKey, fieldProp.default ?? null];
         }
-        return [key, value];
       })
     );
   }
