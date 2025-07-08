@@ -2,16 +2,11 @@
 !TODO Add default values
 TODO toString support for formats (SingleLine, Vertices, CompactSchedule, FluidProperties, ViewFactors, and Spectral)
 */
+import { IDFFieldValue } from './types';
 import { IDDManager, IDD, classProps, fieldProps } from './idd';
 import * as utils from './utilities';
 
-// interface IDFObject {
-//   name: string;
-//   [key: string]: number | string;
-// }
-type IDFFieldValue = string | number | null;
 type IDFFields = Record<string, IDFFieldValue>;
-
 
 //? —— IDFObject ——————
 
@@ -45,21 +40,7 @@ class IDFObject {
           value = value.toLowerCase();
         }
         else if (value !== null) {
-          switch (fieldType) {
-            case 'int':
-              if (typeof value === 'string') value = parseInt(value);
-              else value = Math.trunc(value);
-              break;
-            case 'float':
-              if (typeof value === 'string') value = parseFloat(value);
-              break;
-            case 'string':
-              value = String(value);
-              break;
-            default:
-              throw new RangeError(`Type '${fieldType}' not supported for ${this.className} - ${this.name}`);
-              break;
-          }
+          value = utils.typeCastFieldValue(fieldType, value, this.className, key);
         }
         return [key, value];
       })

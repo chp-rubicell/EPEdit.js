@@ -1,4 +1,55 @@
-//? —— RegExp ——————
+import { IDFFieldType, IDFFieldValueStrict } from './types';
+
+//? —— Field Key and Name Related ——————
+
+export function fieldNameToKey(fieldName: string): string {
+  let fieldKey = fieldName;
+  fieldKey = fieldKey.replace(/[-/*()]/g, ''); // remove illegal characters
+  fieldKey = fieldKey.replace(/ /g, '_');
+  return fieldKey;
+}
+
+// const testName = 'U--Factor-tEst value {W/m2-K}';
+// const testName = 'Do-Zone Sizing Calculation';
+// console.log(`'${testName}'`);
+// console.log(`'${fieldNameToKey(testName)}'`);
+// console.log(`'${fieldNameToKey(fieldNameToKey(testName))}'`);
+
+/**
+ * Creates a new record with all keys converted to lowercase.
+ * @param obj The input record.
+ * @returns A new record with lowercase keys.
+ */
+export function renameFieldNamesToKeys<T>(obj: Record<string, T>): Record<string, T> {
+  return Object.fromEntries(
+    Object.entries(obj).map(([fieldName, value]) => [fieldNameToKey(fieldName), value]),
+  );
+}
+
+//? —— Field Value Related ——————
+
+export function typeCastFieldValue(fieldType: IDFFieldType, value: IDFFieldValueStrict, className: string, fieldName: string) {
+  switch (fieldType) {
+    case 'int':
+      if (typeof value === 'string') value = parseInt(value);
+      else value = Math.trunc(value);
+      break;
+    case 'float':
+      if (typeof value === 'string') value = parseFloat(value);
+      break;
+    case 'string':
+      value = String(value);
+      break;
+    default:
+      throw new RangeError(`Type '${fieldType}' not supported for ${className} - ${fieldName}`);
+      break;
+  }
+  return value
+}
+
+//? —— Deprecated ——————
+
+//? RegExp
 /**
  * Converts a regular expression into a "strict" version that must match the entire string.
  *
@@ -25,7 +76,7 @@ export function strictRegex(regex: RegExp): RegExp {
 // console.log(/name\d/.test('name1a'));
 // console.log(strictRegex(/name\d/).test('name1a'));
 
-//? —— Field Key and Name Related ——————
+//? Field Key and Name Related
 /**
  * Creates a new record with all keys converted to lowercase.
  * @param obj The input record.
@@ -34,16 +85,6 @@ export function strictRegex(regex: RegExp): RegExp {
 function lowerCaseKeys<T>(obj: Record<string, T>): Record<string, T> {
   return Object.fromEntries(
     Object.entries(obj).map(([key, value]) => [key.toLowerCase(), value]),
-  );
-}
-/**
- * Creates a new record with all keys converted to lowercase.
- * @param obj The input record.
- * @returns A new record with lowercase keys.
- */
-export function renameFieldNamesToKeys<T>(obj: Record<string, T>): Record<string, T> {
-  return Object.fromEntries(
-    Object.entries(obj).map(([fieldName, value]) => [fieldNameToKey(fieldName), value]),
   );
 }
 
@@ -98,27 +139,15 @@ function toTitleCase(str: string, re: RegExp = /[ ]/): string {
   return alternateMerge(words, separators).join('');
 }
 
-export function fieldNameToKey(fieldName: string): string {
-  let fieldKey = fieldName;
-  fieldKey = fieldKey.replace(/[-/*()]/g, ''); // remove illegal characters
-  fieldKey = fieldKey.replace(/ /g, '_');
-  return fieldKey;
-}
 
-// const testName = 'U--Factor-tEst value {W/m2-K}';
-// const testName = 'Do-Zone Sizing Calculation';
-// console.log(`'${testName}'`);
-// console.log(`'${fieldNameToKey(testName)}'`);
-// console.log(`'${fieldNameToKey(fieldNameToKey(testName))}'`);
-
-//? —— Field Index Related ——————
+//? Field Index Related
 /**
  * Finds the last index in a Record where the corresponding value is not null.
  *
  * @param record The Record to search through.
  * @returns The last index with a non-null value, or -1 if none is found.
  */
-export function findLastFieldIndex<T>(record: Record<string, T | null>): number {
+function findLastFieldIndex<T>(record: Record<string, T | null>): number {
   // Get an array of the record's keys.
   const keys = Object.keys(record);
 

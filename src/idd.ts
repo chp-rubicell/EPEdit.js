@@ -1,16 +1,15 @@
 /** Generate IDD from schema.epJSON */
 //TODO (maybe) add autosizable and autocalculatable tags
 
-// import { fieldNameToKey } from '../utilities';
-// import * as schema from './idds/v23-2-light.schema.json';
-// import { classPropsMini, classFieldsMini } from '../epjson-schema';
-import { fieldNameToKey, findLastFieldIndex } from './utilities';
+import { IDFFieldType, IDFFieldValueStrict } from './types';
+import { fieldNameToKey, typeCastFieldValue } from './utilities';
 
 
 export interface fieldProps {
   name: string;
-  type: 'string' | 'int' | 'float';
+  type: IDFFieldType;
   units: string | null;
+  default?: IDFFieldValueStrict;
 }
 
 type extensibleFieldName = [string, string]; // prefix, suffix -> (prefix)(n)(suffix)
@@ -131,6 +130,20 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     //? field units
     const fieldUnits = (fieldString.match(/\\units (.+)(?:\r\n|\r|\n)/) ?? [])[1] ?? null;
 
+    //? create fieldProps object
+    const fieldProp: fieldProps = {
+      name: fieldName,
+      type: fieldType,
+      units: fieldUnits
+    }
+
+    //? default value
+    const defaultValueMatch = fieldString.match(/\\default (.+)(?:\r\n|\r|\n)/);
+    if (defaultValueMatch) {
+      const defaultValue = typeCastFieldValue(fieldType, defaultValueMatch[1], className, fieldName);
+      fieldProp.default = defaultValue;
+    }
+
     //? extensible
     // start of extensible
     if (classProp.extensible && fieldString.match(/\\begin-extensible/) != null) {
@@ -157,12 +170,6 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
       }
       classProp.extensible.fieldNames?.push([prefix, suffix]);
       classProp.extensible.keyRegExps?.push(`${fieldNameToKey(prefix)}(\\d+)${fieldNameToKey(suffix)}`);
-    }
-
-    const fieldProp: fieldProps = {
-      name: fieldName,
-      type: fieldType,
-      units: fieldUnits
     }
 
     classProp.fields[fieldKey] = fieldProp;
