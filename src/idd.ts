@@ -114,7 +114,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     //? field type
     const fieldTypeRaw = (fieldString.match(/\\type ([^\s,]+)(?:\r\n|\r|\n)/) ?? [])[1];
     //* integer, real, alpha, choice, object-list, external-list, node
-    let fieldType: 'string' | 'int' | 'float';
+    let fieldType: IDFFieldType;
     switch (fieldTypeRaw) {
       case 'integer':
         fieldType = 'int';
@@ -140,7 +140,15 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     //? default value
     const defaultValueMatch = fieldString.match(/\\default (.+)(?:\r\n|\r|\n)/);
     if (defaultValueMatch) {
-      const defaultValue = typeCastFieldValue(fieldType, defaultValueMatch[1], className, fieldName);
+      let defaultValue = defaultValueMatch[1] as IDFFieldValueStrict;
+      if (typeof defaultValue === 'string'
+        && (defaultValue.toLowerCase() == 'autosize'
+          || defaultValue.toLowerCase() == 'autocalculate')) {
+        defaultValue = defaultValue.toLowerCase();
+      }
+      else {
+        defaultValue = typeCastFieldValue(fieldType, defaultValue, className, fieldName);
+      }
       fieldProp.default = defaultValue;
     }
 

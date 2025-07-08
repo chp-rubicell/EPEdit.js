@@ -31,18 +31,30 @@ class IDFObject {
     const [lastFieldIdx, _] = idfClass.getLastFieldIdxAndKeyFromFields(fields);
     const fieldProps = idfClass.getFieldProps(lastFieldIdx + 1);
     this.fields = Object.fromEntries(
-      Object.entries(fields).map(([key, value]) => {
-        const fieldType = fieldProps[key].type;
-        // autosize & autocalculate
-        if (typeof value === 'string'
-          && (value.toLowerCase() == 'autosize'
-            || value.toLowerCase() == 'autocalculate')) {
-          value = value.toLowerCase();
+      Object.entries(fieldProps)
+      .filter(([fieldKey, fieldProp]) => {
+        return fieldKey in fields || 'default' in fieldProp;
+      })
+      .map(([fieldKey, fieldProp]) => {
+        // was inputted
+        if (fieldKey in fields) {
+          let fieldVal = fields[fieldKey];
+          const fieldType = fieldProp.type;
+          // autosize & autocalculate
+          if (typeof fieldVal === 'string'
+            && (fieldVal.toLowerCase() == 'autosize'
+              || fieldVal.toLowerCase() == 'autocalculate')) {
+            fieldVal = fieldVal.toLowerCase();
+          }
+          else if (fieldVal !== null) {
+            fieldVal = utils.typeCastFieldValue(fieldType, fieldVal, this.className, fieldKey);
+          }
+          return [fieldKey, fieldVal];
         }
-        else if (value !== null) {
-          value = utils.typeCastFieldValue(fieldType, value, this.className, key);
+        else {
+          // has default value
+          return [fieldKey, fieldProp.default ?? null];
         }
-        return [key, value];
       })
     );
   }
