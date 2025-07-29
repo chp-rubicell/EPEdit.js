@@ -44,7 +44,7 @@ class IDFObject {
           if (typeof fieldVal === 'string'
             && (fieldVal.toLowerCase() == 'autosize'
               || fieldVal.toLowerCase() == 'autocalculate')) {
-            fieldVal = fieldVal.toLowerCase();
+            fieldVal = utils.toTitleCase(fieldVal);
           }
           else if (fieldVal !== null) {
             fieldVal = utils.typeCastFieldValue(fieldType, fieldVal, this.className, fieldKey);

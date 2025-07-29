@@ -2,7 +2,7 @@
 //TODO (maybe) add autosizable and autocalculatable tags
 
 import { IDFFieldType, IDFFieldValueStrict } from './types';
-import { fieldNameToKey, typeCastFieldValue } from './utilities';
+import { fieldNameToKey, typeCastFieldValue, toTitleCase } from './utilities';
 
 
 export interface fieldProps {
@@ -144,7 +144,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
       if (typeof defaultValue === 'string'
         && (defaultValue.toLowerCase() == 'autosize'
           || defaultValue.toLowerCase() == 'autocalculate')) {
-        defaultValue = defaultValue.toLowerCase();
+        defaultValue = toTitleCase(defaultValue);
       }
       else {
         defaultValue = typeCastFieldValue(fieldType, defaultValue, className, fieldName);

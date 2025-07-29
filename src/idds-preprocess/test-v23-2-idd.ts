@@ -4004,7 +4004,7 @@ export const iddString = String.raw`{
         "name": "Screen Beam-Beam Solar Transmittance",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Screen_BeamDiffuse_Solar_Transmittance": {
         "name": "Screen Beam-Diffuse Solar Transmittance",
@@ -4168,37 +4168,37 @@ export const iddString = String.raw`{
         "name": "Diffuse-Diffuse Solar Transmittance",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Front_Side_DiffuseDiffuse_Solar_Reflectance": {
         "name": "Front Side Diffuse-Diffuse Solar Reflectance",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Back_Side_DiffuseDiffuse_Solar_Reflectance": {
         "name": "Back Side Diffuse-Diffuse Solar Reflectance",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "DiffuseDiffuse_Visible_Solar_Transmittance": {
         "name": "Diffuse-Diffuse Visible Solar Transmittance",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Front_Side_DiffuseDiffuse_Visible_Solar_Reflectance": {
         "name": "Front Side Diffuse-Diffuse Visible Solar Reflectance",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Back_Side_DiffuseDiffuse_Visible_Solar_Reflectance": {
         "name": "Back Side Diffuse-Diffuse Visible Solar Reflectance",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Infrared_Transmittance_applies_to_front_and_back": {
         "name": "Infrared Transmittance (applies to front and back)",
@@ -4343,13 +4343,13 @@ export const iddString = String.raw`{
         "name": "Surface Layer Penetration Depth",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Deep_Layer_Penetration_Depth": {
         "name": "Deep Layer Penetration Depth",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coating_Layer_Thickness": {
         "name": "Coating Layer Thickness",
@@ -6781,19 +6781,19 @@ export const iddString = String.raw`{
         "name": "Ceiling Height",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Volume": {
         "name": "Volume",
         "type": "float",
         "units": "m3",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Floor_Area": {
         "name": "Floor Area",
         "type": "float",
         "units": "m2",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Space_Type": {
         "name": "Space Type",
@@ -6897,19 +6897,19 @@ export const iddString = String.raw`{
         "name": "Ceiling Height",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Volume": {
         "name": "Volume",
         "type": "float",
         "units": "m3",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Floor_Area": {
         "name": "Floor Area",
         "type": "float",
         "units": "m2",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Zone_Inside_Convection_Algorithm": {
         "name": "Zone Inside Convection Algorithm",
@@ -7032,13 +7032,13 @@ export const iddString = String.raw`{
         "name": "View Factor to Ground",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Number_of_Vertices": {
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -7129,13 +7129,13 @@ export const iddString = String.raw`{
         "name": "View Factor to Ground",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Number_of_Vertices": {
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -7226,13 +7226,13 @@ export const iddString = String.raw`{
         "name": "View Factor to Ground",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Number_of_Vertices": {
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -7323,13 +7323,13 @@ export const iddString = String.raw`{
         "name": "View Factor to Ground",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Number_of_Vertices": {
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -8028,7 +8028,7 @@ export const iddString = String.raw`{
         "name": "View Factor to Ground",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Frame_and_Divider_Name": {
         "name": "Frame and Divider Name",
@@ -8045,7 +8045,7 @@ export const iddString = String.raw`{
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -8907,7 +8907,7 @@ export const iddString = String.raw`{
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -8966,7 +8966,7 @@ export const iddString = String.raw`{
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -9246,7 +9246,7 @@ export const iddString = String.raw`{
         "name": "Number of Vertices",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Vertex_1_Xcoordinate": {
         "name": "Vertex 1 X-coordinate",
@@ -9781,7 +9781,7 @@ export const iddString = String.raw`{
         "name": "Deep-Ground Depth",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Minimum_Cell_Dimension": {
         "name": "Minimum Cell Dimension",
@@ -12389,25 +12389,25 @@ export const iddString = String.raw`{
         "name": "Number of Diffusers",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Power_per_Plume": {
         "name": "Power per Plume",
         "type": "float",
         "units": "W",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Design_Effective_Area_of_Diffuser": {
         "name": "Design Effective Area of Diffuser",
         "type": "float",
         "units": "m2",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Diffuser_Slot_Angle_from_Vertical": {
         "name": "Diffuser Slot Angle from Vertical",
         "type": "float",
         "units": "deg",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Thermostat_Height": {
         "name": "Thermostat Height",
@@ -12443,31 +12443,31 @@ export const iddString = String.raw`{
         "name": "Coefficient A",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_B": {
         "name": "Coefficient B",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_C": {
         "name": "Coefficient C",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_D": {
         "name": "Coefficient D",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_E": {
         "name": "Coefficient E",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       }
     }
   },
@@ -12483,25 +12483,25 @@ export const iddString = String.raw`{
         "name": "Number of Diffusers per Zone",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Power_per_Plume": {
         "name": "Power per Plume",
         "type": "float",
         "units": "W",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Design_Effective_Area_of_Diffuser": {
         "name": "Design Effective Area of Diffuser",
         "type": "float",
         "units": "m2",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Diffuser_Slot_Angle_from_Vertical": {
         "name": "Diffuser Slot Angle from Vertical",
         "type": "float",
         "units": "deg",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Thermostat_Height": {
         "name": "Thermostat Height",
@@ -12537,31 +12537,31 @@ export const iddString = String.raw`{
         "name": "Coefficient A in formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_B_in_formula_Kc_=_AGammaB_+_C_+_DGamma_+_EGamma2": {
         "name": "Coefficient B in formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_C_in_formula_Kc_=_AGammaB_+_C_+_DGamma_+_EGamma2": {
         "name": "Coefficient C in formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_D_in_formula_Kc_=_AGammaB_+_C_+_DGamma_+_EGamma2": {
         "name": "Coefficient D in formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Coefficient_E_in_formula_Kc_=_AGammaB_+_C_+_DGamma_+_EGamma2": {
         "name": "Coefficient E in formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       }
     }
   },
@@ -12821,7 +12821,7 @@ export const iddString = String.raw`{
         "name": "Sensible Heat Fraction",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Activity_Level_Schedule_Name": {
         "name": "Activity Level Schedule Name",
@@ -15673,7 +15673,7 @@ export const iddString = String.raw`{
         "name": "Opening Effectiveness",
         "type": "float",
         "units": "dimensionless",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Effective_Angle": {
         "name": "Effective Angle",
@@ -15691,7 +15691,7 @@ export const iddString = String.raw`{
         "name": "Discharge Coefficient for Opening",
         "type": "string",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Minimum_Indoor_Temperature": {
         "name": "Minimum Indoor Temperature",
@@ -18655,7 +18655,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Dedicated_Outdoor_Air_System_Name": {
         "name": "Dedicated Outdoor Air System Name",
@@ -18715,7 +18715,7 @@ export const iddString = String.raw`{
         "name": "Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Heating_Sizing_Factor": {
         "name": "Zone Heating Sizing Factor",
@@ -18890,7 +18890,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -18911,13 +18911,13 @@ export const iddString = String.raw`{
         "name": "Cooling Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Supply_Air_Flow_Rate": {
         "name": "Heating Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Load_Supply_Air_Flow_Rate": {
         "name": "No Load Supply Air Flow Rate",
@@ -19007,13 +19007,13 @@ export const iddString = String.raw`{
         "name": "Cooling Coil Gross Rated Total Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Cooling_COP": {
         "name": "Cooling Coil Gross Rated Cooling COP",
@@ -19036,7 +19036,7 @@ export const iddString = String.raw`{
         "name": "Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gas_Heating_Coil_Efficiency": {
         "name": "Gas Heating Coil Efficiency",
@@ -19116,7 +19116,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Capacity_Control_Method": {
         "name": "Capacity Control Method",
@@ -19143,13 +19143,13 @@ export const iddString = String.raw`{
         "name": "Cooling Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Supply_Air_Flow_Rate": {
         "name": "Heating Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Load_Supply_Air_Flow_Rate": {
         "name": "No Load Supply Air Flow Rate",
@@ -19239,13 +19239,13 @@ export const iddString = String.raw`{
         "name": "Cooling Coil Gross Rated Total Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_COP": {
         "name": "Cooling Coil Gross Rated COP",
@@ -19268,7 +19268,7 @@ export const iddString = String.raw`{
         "name": "Heat Pump Heating Coil Gross Rated Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heat_Pump_Heating_Coil_Gross_Rated_COP": {
         "name": "Heat Pump Heating Coil Gross Rated COP",
@@ -19321,7 +19321,7 @@ export const iddString = String.raw`{
         "name": "Supplemental Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supplemental_Heating_Coil_Maximum_Outdoor_DryBulb_Temperature": {
         "name": "Supplemental Heating Coil Maximum Outdoor Dry-Bulb Temperature",
@@ -19407,7 +19407,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Capacity_Control_Method": {
         "name": "Capacity Control Method",
@@ -19434,13 +19434,13 @@ export const iddString = String.raw`{
         "name": "Cooling Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Supply_Air_Flow_Rate": {
         "name": "Heating Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Load_Supply_Air_Flow_Rate": {
         "name": "No Load Supply Air Flow Rate",
@@ -19525,13 +19525,13 @@ export const iddString = String.raw`{
         "name": "Cooling Coil Gross Rated Total Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_COP": {
         "name": "Cooling Coil Gross Rated COP",
@@ -19549,7 +19549,7 @@ export const iddString = String.raw`{
         "name": "Heat Pump Heating Coil Gross Rated Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heat_Pump_Heating_Coil_Gross_Rated_COP": {
         "name": "Heat Pump Heating Coil Gross Rated COP",
@@ -19566,7 +19566,7 @@ export const iddString = String.raw`{
         "name": "Supplemental Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Cycling_Rate": {
         "name": "Maximum Cycling Rate",
@@ -19664,7 +19664,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -19706,43 +19706,43 @@ export const iddString = String.raw`{
         "name": "Cooling Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Cooling_Supply_Air_Flow_Rate": {
         "name": "No Cooling Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Supply_Air_Flow_Rate": {
         "name": "Heating Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Heating_Supply_Air_Flow_Rate": {
         "name": "No Heating Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Outdoor_Air_Flow_Rate": {
         "name": "Cooling Outdoor Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Outdoor_Air_Flow_Rate": {
         "name": "Heating Outdoor Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Load_Outdoor_Air_Flow_Rate": {
         "name": "No Load Outdoor Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Outdoor_Air_Method": {
         "name": "Outdoor Air Method",
@@ -19827,13 +19827,13 @@ export const iddString = String.raw`{
         "name": "Cooling Coil Gross Rated Total Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heat_Pump_Heating_Coil_Type": {
         "name": "Heat Pump Heating Coil Type",
@@ -19850,7 +19850,7 @@ export const iddString = String.raw`{
         "name": "Heat Pump Heating Coil Gross Rated Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Terminal_Unit_On_Parasitic_Electric_Energy_Use": {
         "name": "Zone Terminal Unit On Parasitic Electric Energy Use",
@@ -19920,7 +19920,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -19946,7 +19946,7 @@ export const iddString = String.raw`{
         "name": "Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Heating_Sizing_Factor": {
         "name": "Zone Heating Sizing Factor",
@@ -20007,7 +20007,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Cooling_Design_Supply_Air_Temperature_Input_Method": {
         "name": "Zone Cooling Design Supply Air Temperature Input Method",
@@ -20079,7 +20079,7 @@ export const iddString = String.raw`{
         "name": "Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Heating_Sizing_Factor": {
         "name": "Zone Heating Sizing Factor",
@@ -20199,7 +20199,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Cooling_Design_Supply_Air_Temperature_Input_Method": {
         "name": "Zone Cooling Design Supply Air Temperature Input Method",
@@ -20271,7 +20271,7 @@ export const iddString = String.raw`{
         "name": "Primary Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Heating_Sizing_Factor": {
         "name": "Zone Heating Sizing Factor",
@@ -20287,13 +20287,13 @@ export const iddString = String.raw`{
         "name": "Primary Supply Air Minimum Flow Fraction",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Secondary_Supply_Air_Maximum_Flow_Rate": {
         "name": "Secondary Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Flow_Type": {
         "name": "Flow Type",
@@ -20305,7 +20305,7 @@ export const iddString = String.raw`{
         "name": "Parallel Fan On Flow Fraction",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Outdoor_Air_Method": {
         "name": "Outdoor Air Method",
@@ -20385,7 +20385,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Cooling_Design_Supply_Air_Temperature_Input_Method": {
         "name": "Zone Cooling Design Supply Air Temperature Input Method",
@@ -20462,7 +20462,7 @@ export const iddString = String.raw`{
         "name": "Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Heating_Sizing_Factor": {
         "name": "Zone Heating Sizing Factor",
@@ -20555,7 +20555,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Cooling_Design_Supply_Air_Temperature_Input_Method": {
         "name": "Zone Cooling Design Supply Air Temperature Input Method",
@@ -20617,7 +20617,7 @@ export const iddString = String.raw`{
         "name": "Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Heating_Sizing_Factor": {
         "name": "Zone Heating Sizing Factor",
@@ -20704,7 +20704,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Cooling_Design_Supply_Air_Temperature_Input_Method": {
         "name": "Zone Cooling Design Supply Air Temperature Input Method",
@@ -20766,7 +20766,7 @@ export const iddString = String.raw`{
         "name": "Supply Air Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Heating_Sizing_Factor": {
         "name": "Zone Heating Sizing Factor",
@@ -20853,7 +20853,7 @@ export const iddString = String.raw`{
         "name": "Baseboard Heating Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Cooling_Design_Supply_Air_Temperature_Input_Method": {
         "name": "Zone Cooling Design Supply Air Temperature Input Method",
@@ -20910,7 +20910,7 @@ export const iddString = String.raw`{
         "name": "Gross Rated Total Cooling Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gross_Rated_Cooling_COP": {
         "name": "Gross Rated Cooling COP",
@@ -20934,7 +20934,7 @@ export const iddString = String.raw`{
         "name": "Gross Rated Heating Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Heating_Capacity_Sizing_Ratio": {
         "name": "Rated Heating Capacity Sizing Ratio",
@@ -21052,7 +21052,7 @@ export const iddString = String.raw`{
         "name": "Resistive Defrost Heater Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Outdoor_Drybulb_Temperature_for_Defrost_Operation": {
         "name": "Maximum Outdoor Dry-bulb Temperature for Defrost Operation",
@@ -21070,7 +21070,7 @@ export const iddString = String.raw`{
         "name": "Water Condenser Volume Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Evaporative_Condenser_Effectiveness": {
         "name": "Evaporative Condenser Effectiveness",
@@ -21082,7 +21082,7 @@ export const iddString = String.raw`{
         "name": "Evaporative Condenser Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Evaporative_Condenser_Pump_Rated_Power_Consumption": {
         "name": "Evaporative Condenser Pump Rated Power Consumption",
@@ -21149,7 +21149,7 @@ export const iddString = String.raw`{
         "name": "Supply Fan Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Operating_Mode_Schedule_Name": {
         "name": "Supply Fan Operating Mode Schedule Name",
@@ -21201,13 +21201,13 @@ export const iddString = String.raw`{
         "name": "Cooling Coil Gross Rated Total Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_COP": {
         "name": "Cooling Coil Gross Rated COP",
@@ -21235,7 +21235,7 @@ export const iddString = String.raw`{
         "name": "Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gas_Heating_Coil_Efficiency": {
         "name": "Gas Heating Coil Efficiency",
@@ -21253,13 +21253,13 @@ export const iddString = String.raw`{
         "name": "Maximum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Flow_Rate": {
         "name": "Minimum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Schedule_Name": {
         "name": "Minimum Outdoor Air Schedule Name",
@@ -21376,7 +21376,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Control_Zone_Name": {
         "name": "Humidifier Control Zone Name",
@@ -21443,19 +21443,19 @@ export const iddString = String.raw`{
         "name": "Cooling Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Supply_Air_Flow_Rate": {
         "name": "Heating Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Load_Supply_Air_Flow_Rate": {
         "name": "No Load Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Operating_Mode_Schedule_Name": {
         "name": "Supply Fan Operating Mode Schedule Name",
@@ -21513,13 +21513,13 @@ export const iddString = String.raw`{
         "name": "Cooling Coil Gross Rated Total Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_COP": {
         "name": "Cooling Coil Gross Rated COP",
@@ -21548,7 +21548,7 @@ export const iddString = String.raw`{
         "name": "Heat Pump Heating Coil Gross Rated Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heat_Pump_Heating_Coil_Rated_COP": {
         "name": "Heat Pump Heating Coil Rated COP",
@@ -21601,7 +21601,7 @@ export const iddString = String.raw`{
         "name": "Supplemental Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supplemental_Heating_Coil_Maximum_Outdoor_DryBulb_Temperature": {
         "name": "Supplemental Heating Coil Maximum Outdoor Dry-Bulb Temperature",
@@ -21625,13 +21625,13 @@ export const iddString = String.raw`{
         "name": "Maximum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Flow_Rate": {
         "name": "Minimum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Schedule_Name": {
         "name": "Minimum Outdoor Air Schedule Name",
@@ -21730,7 +21730,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Control_Zone_Name": {
         "name": "Humidifier Control Zone Name",
@@ -21803,19 +21803,19 @@ export const iddString = String.raw`{
         "name": "Cooling Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Supply_Air_Flow_Rate": {
         "name": "Heating Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "No_Load_Supply_Air_Flow_Rate": {
         "name": "No Load Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Operating_Mode_Schedule_Name": {
         "name": "Supply Fan Operating Mode Schedule Name",
@@ -21879,13 +21879,13 @@ export const iddString = String.raw`{
         "name": "DX Cooling Coil Gross Rated Total Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "DX_Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "DX Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "DX_Cooling_Coil_Gross_Rated_COP": {
         "name": "DX Cooling Coil Gross Rated COP",
@@ -21920,7 +21920,7 @@ export const iddString = String.raw`{
         "name": "Heating Coil Gross Rated Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gas_Heating_Coil_Efficiency": {
         "name": "Gas Heating Coil Efficiency",
@@ -21985,7 +21985,7 @@ export const iddString = String.raw`{
         "name": "Supplemental Heating or Reheat Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supplemental_Heating_or_Reheat_Coil_Maximum_Outdoor_DryBulb_Temperature": {
         "name": "Supplemental Heating or Reheat Coil Maximum Outdoor Dry-Bulb Temperature",
@@ -22009,13 +22009,13 @@ export const iddString = String.raw`{
         "name": "Maximum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Flow_Rate": {
         "name": "Minimum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Schedule_Name": {
         "name": "Minimum Outdoor Air Schedule Name",
@@ -22132,7 +22132,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Control_Zone_Name": {
         "name": "Humidifier Control Zone Name",
@@ -22205,13 +22205,13 @@ export const iddString = String.raw`{
         "name": "Supply Fan Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Minimum_Flow_Rate": {
         "name": "Supply Fan Minimum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Total_Efficiency": {
         "name": "Supply Fan Total Efficiency",
@@ -22331,13 +22331,13 @@ export const iddString = String.raw`{
         "name": "Maximum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Flow_Rate": {
         "name": "Minimum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Control_Type": {
         "name": "Minimum Outdoor Air Control Type",
@@ -22483,7 +22483,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Control_Zone_Name": {
         "name": "Humidifier Control Zone Name",
@@ -22557,13 +22557,13 @@ export const iddString = String.raw`{
         "name": "Supply Fan Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Minimum_Flow_Rate": {
         "name": "Supply Fan Minimum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Placement": {
         "name": "Supply Fan Placement",
@@ -22621,13 +22621,13 @@ export const iddString = String.raw`{
         "name": "Cooling Coil Gross Rated Total Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Coil_Gross_Rated_COP": {
         "name": "Cooling Coil Gross Rated COP",
@@ -22661,7 +22661,7 @@ export const iddString = String.raw`{
         "name": "Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gas_Heating_Coil_Efficiency": {
         "name": "Gas Heating Coil Efficiency",
@@ -22679,13 +22679,13 @@ export const iddString = String.raw`{
         "name": "Maximum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Flow_Rate": {
         "name": "Minimum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Control_Type": {
         "name": "Minimum Outdoor Air Control Type",
@@ -22825,7 +22825,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Control_Zone_Name": {
         "name": "Humidifier Control Zone Name",
@@ -22899,7 +22899,7 @@ export const iddString = String.raw`{
         "name": "Supply Fan Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Total_Efficiency": {
         "name": "Supply Fan Total Efficiency",
@@ -23049,7 +23049,7 @@ export const iddString = String.raw`{
         "name": "Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gas_Heating_Coil_Efficiency": {
         "name": "Gas Heating Coil Efficiency",
@@ -23101,13 +23101,13 @@ export const iddString = String.raw`{
         "name": "Maximum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Flow_Rate": {
         "name": "Minimum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Schedule_Name": {
         "name": "Minimum Outdoor Air Schedule Name",
@@ -23234,7 +23234,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Control_Zone_Name": {
         "name": "Humidifier Control Zone Name",
@@ -23307,7 +23307,7 @@ export const iddString = String.raw`{
         "name": "Main Supply Fan Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Main_Supply_Fan_Minimum_Flow_Fraction": {
         "name": "Main Supply Fan Minimum Flow Fraction",
@@ -23349,7 +23349,7 @@ export const iddString = String.raw`{
         "name": "Cold Duct Supply Fan Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cold_Duct_Supply_Fan_Minimum_Flow_Fraction": {
         "name": "Cold Duct Supply Fan Minimum Flow Fraction",
@@ -23397,7 +23397,7 @@ export const iddString = String.raw`{
         "name": "Hot Duct Supply Fan Maximum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Hot_Duct_Supply_Fan_Minimum_Flow_Fraction": {
         "name": "Hot Duct Supply Fan Minimum Flow Fraction",
@@ -23549,7 +23549,7 @@ export const iddString = String.raw`{
         "name": "Heating Coil Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gas_Heating_Coil_Efficiency": {
         "name": "Gas Heating Coil Efficiency",
@@ -23601,13 +23601,13 @@ export const iddString = String.raw`{
         "name": "Maximum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Flow_Rate": {
         "name": "Minimum Outdoor Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Outdoor_Air_Control_Type": {
         "name": "Minimum Outdoor Air Control Type",
@@ -23751,7 +23751,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Control_Zone_Name": {
         "name": "Humidifier Control Zone Name",
@@ -23836,7 +23836,7 @@ export const iddString = String.raw`{
         "name": "Supply Fan Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Supply_Fan_Total_Efficiency": {
         "name": "Supply Fan Total Efficiency",
@@ -23924,13 +23924,13 @@ export const iddString = String.raw`{
         "name": "DX Cooling Coil Gross Rated Total Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "DX_Cooling_Coil_Gross_Rated_Sensible_Heat_Ratio": {
         "name": "DX Cooling Coil Gross Rated Sensible Heat Ratio",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "DX_Cooling_Coil_Gross_Rated_COP": {
         "name": "DX Cooling Coil Gross Rated COP",
@@ -24065,7 +24065,7 @@ export const iddString = String.raw`{
         "name": "Humidifier Rated Electric Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Humidifier_Constant_Setpoint": {
         "name": "Humidifier Constant Setpoint",
@@ -24297,7 +24297,7 @@ export const iddString = String.raw`{
         "name": "Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Nominal_COP": {
         "name": "Nominal COP",
@@ -24396,31 +24396,31 @@ export const iddString = String.raw`{
         "name": "High Speed Nominal Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "High_Speed_Fan_Power": {
         "name": "High Speed Fan Power",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Low_Speed_Nominal_Capacity": {
         "name": "Low Speed Nominal Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Low_Speed_Fan_Power": {
         "name": "Low Speed Fan Power",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Free_Convection_Capacity": {
         "name": "Free Convection Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Priority": {
         "name": "Priority",
@@ -24614,7 +24614,7 @@ export const iddString = String.raw`{
         "name": "Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Efficiency": {
         "name": "Efficiency",
@@ -25097,13 +25097,13 @@ export const iddString = String.raw`{
         "name": "Dedicated Outdoor Air Low Setpoint Temperature for Design",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Dedicated_Outdoor_Air_High_Setpoint_Temperature_for_Design": {
         "name": "Dedicated Outdoor Air High Setpoint Temperature for Design",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Load_Sizing_Method": {
         "name": "Zone Load Sizing Method",
@@ -25345,13 +25345,13 @@ export const iddString = String.raw`{
         "name": "Design Outdoor Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Central_Heating_Maximum_System_Air_Flow_Ratio": {
         "name": "Central Heating Maximum System Air Flow Ratio",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Preheat_Design_Temperature": {
         "name": "Preheat Design Temperature",
@@ -25494,7 +25494,7 @@ export const iddString = String.raw`{
         "name": "Cooling Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Design_Capacity_Per_Floor_Area": {
         "name": "Cooling Design Capacity Per Floor Area",
@@ -25516,7 +25516,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Design_Capacity_Per_Floor_Area": {
         "name": "Heating Design Capacity Per Floor Area",
@@ -25538,7 +25538,7 @@ export const iddString = String.raw`{
         "name": "Occupant Diversity",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -26412,13 +26412,13 @@ export const iddString = String.raw`{
         "name": "Minimum Supply Air Temperature in Cooling Mode",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Supply_Air_Temperature_in_Heating_Mode": {
         "name": "Maximum Supply Air Temperature in Heating Mode",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -26637,13 +26637,13 @@ export const iddString = String.raw`{
         "name": "Minimum Supply Air Temperature in Cooling Mode",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Supply_Air_Temperature_in_Heating_Mode": {
         "name": "Maximum Supply Air Temperature in Heating Mode",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -26804,13 +26804,13 @@ export const iddString = String.raw`{
         "name": "Minimum Supply Air Temperature in Cooling Mode",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Supply_Air_Temperature_in_Heating_Mode": {
         "name": "Maximum Supply Air Temperature in Heating Mode",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -26921,7 +26921,7 @@ export const iddString = String.raw`{
         "name": "Maximum Supply Air Temperature from Supplemental Heater",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Outdoor_DryBulb_Temperature_for_Supplemental_Heater_Operation": {
         "name": "Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation",
@@ -28313,7 +28313,7 @@ export const iddString = String.raw`{
         "name": "Maximum Supply Air Temperature from Supplemental Heater",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Outdoor_DryBulb_Temperature_for_Supplemental_Heater_Operation": {
         "name": "Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation",
@@ -28425,7 +28425,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Water_Flow_Rate": {
         "name": "Maximum Water Flow Rate",
@@ -28537,7 +28537,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Degree_of_SubCooling": {
         "name": "Degree of SubCooling",
@@ -28603,7 +28603,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Design_Capacity_Per_Floor_Area": {
         "name": "Heating Design Capacity Per Floor Area",
@@ -28831,7 +28831,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Design_Capacity_Per_Floor_Area": {
         "name": "Heating Design Capacity Per Floor Area",
@@ -28885,7 +28885,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Design_Capacity_Per_Floor_Area": {
         "name": "Heating Design Capacity Per Floor Area",
@@ -28938,13 +28938,13 @@ export const iddString = String.raw`{
         "name": "Hydronic Tubing Length",
         "type": "string",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Design_Capacity": {
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Hot_Water_Flow": {
         "name": "Maximum Hot Water Flow",
@@ -29145,7 +29145,7 @@ export const iddString = String.raw`{
         "name": "Hydronic Tubing Length",
         "type": "string",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Flow_Rate": {
         "name": "Rated Flow Rate",
@@ -29350,7 +29350,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Design_Capacity_Per_Floor_Area": {
         "name": "Heating Design Capacity Per Floor Area",
@@ -29454,7 +29454,7 @@ export const iddString = String.raw`{
         "name": "Heating Design Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_Design_Capacity_Per_Floor_Area": {
         "name": "Heating Design Capacity Per Floor Area",
@@ -29985,13 +29985,13 @@ export const iddString = String.raw`{
         "name": "Constant Minimum Air Flow Fraction",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Fixed_Minimum_Air_Flow_Rate": {
         "name": "Fixed Minimum Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Air_Flow_Fraction_Schedule_Name": {
         "name": "Minimum Air Flow Fraction Schedule Name",
@@ -30048,13 +30048,13 @@ export const iddString = String.raw`{
         "name": "Constant Minimum Air Flow Fraction",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Fixed_Minimum_Air_Flow_Rate": {
         "name": "Fixed Minimum Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Air_Flow_Fraction_Schedule_Name": {
         "name": "Minimum Air Flow Fraction Schedule Name",
@@ -30103,13 +30103,13 @@ export const iddString = String.raw`{
         "name": "Maximum Flow per Zone Floor Area During Reheat",
         "type": "float",
         "units": "m3/s-m2",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Flow_Fraction_During_Reheat": {
         "name": "Maximum Flow Fraction During Reheat",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Reheat_Air_Temperature": {
         "name": "Maximum Reheat Air Temperature",
@@ -30663,25 +30663,25 @@ export const iddString = String.raw`{
         "name": "Design Primary Air Volume Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Chilled_Water_Volume_Flow_Rate": {
         "name": "Design Chilled Water Volume Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Hot_Water_Volume_Flow_Rate": {
         "name": "Design Hot Water Volume Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Zone_Total_Beam_Length": {
         "name": "Zone Total Beam Length",
         "type": "float",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Primary_Air_Flow_Rate_per_Beam_Length": {
         "name": "Rated Primary Air Flow Rate per Beam Length",
@@ -30799,25 +30799,25 @@ export const iddString = String.raw`{
         "name": "Supply Air Volumetric Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Total_Chilled_Water_Volumetric_Flow_Rate": {
         "name": "Maximum Total Chilled Water Volumetric Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Number_of_Beams": {
         "name": "Number of Beams",
         "type": "int",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Beam_Length": {
         "name": "Beam Length",
         "type": "float",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Inlet_Water_Temperature": {
         "name": "Design Inlet Water Temperature",
@@ -30883,7 +30883,7 @@ export const iddString = String.raw`{
         "name": "Coefficient of Induction Kin",
         "type": "float",
         "units": null,
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Leaving_Pipe_Inside_Diameter": {
         "name": "Leaving Pipe Inside Diameter",
@@ -31149,7 +31149,7 @@ export const iddString = String.raw`{
         "name": "Design Exhaust Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Flow_Control_Type": {
         "name": "Flow Control Type",
@@ -31407,7 +31407,7 @@ export const iddString = String.raw`{
         "name": "Space 1 Fraction",
         "type": "string",
         "units": "dimensionless",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Space_1_Supply_Node_Name": {
         "name": "Space 1 Supply Node Name",
@@ -31472,7 +31472,7 @@ export const iddString = String.raw`{
         "name": "Space 1 Fraction",
         "type": "string",
         "units": "dimensionless",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Space_1_Node_Name": {
         "name": "Space 1 Node Name",
@@ -31565,7 +31565,7 @@ export const iddString = String.raw`{
         "name": "Design Electric Power Consumption",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Power_Sizing_Method": {
         "name": "Design Power Sizing Method",
@@ -32205,43 +32205,43 @@ export const iddString = String.raw`{
         "name": "Design Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Air_Flow_Rate": {
         "name": "Design Air Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Inlet_Water_Temperature": {
         "name": "Design Inlet Water Temperature",
         "type": "string",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Inlet_Air_Temperature": {
         "name": "Design Inlet Air Temperature",
         "type": "string",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Outlet_Air_Temperature": {
         "name": "Design Outlet Air Temperature",
         "type": "string",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Inlet_Air_Humidity_Ratio": {
         "name": "Design Inlet Air Humidity Ratio",
         "type": "string",
         "units": "kgWater/kgDryAir",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Outlet_Air_Humidity_Ratio": {
         "name": "Design Outlet Air Humidity Ratio",
         "type": "string",
         "units": "kgWater/kgDryAir",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Water_Inlet_Node_Name": {
         "name": "Water Inlet Node Name",
@@ -32304,43 +32304,43 @@ export const iddString = String.raw`{
         "name": "Maximum Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Tube_Outside_Surface_Area": {
         "name": "Tube Outside Surface Area",
         "type": "string",
         "units": "m2",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Total_Tube_Inside_Area": {
         "name": "Total Tube Inside Area",
         "type": "string",
         "units": "m2",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Fin_Surface_Area": {
         "name": "Fin Surface Area",
         "type": "string",
         "units": "m2",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Airflow_Area": {
         "name": "Minimum Airflow Area",
         "type": "string",
         "units": "m2",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Coil_Depth": {
         "name": "Coil Depth",
         "type": "string",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Fin_Diameter": {
         "name": "Fin Diameter",
         "type": "string",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Fin_Thickness": {
         "name": "Fin Thickness",
@@ -32394,7 +32394,7 @@ export const iddString = String.raw`{
         "name": "Number of Tubes per Row",
         "type": "string",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Water_Inlet_Node_Name": {
         "name": "Water Inlet Node Name",
@@ -32430,7 +32430,7 @@ export const iddString = String.raw`{
         "name": "Design Inlet Water Temperature",
         "type": "float",
         "units": "C",
-        "default": "autosize"
+        "default": "Autosize"
       }
     }
   },
@@ -32659,7 +32659,7 @@ export const iddString = String.raw`{
         "name": "Rated Gross Total Cooling Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Evaporator_Air_Flow_Rate": {
         "name": "Rated Evaporator Air Flow Rate",
@@ -32797,7 +32797,7 @@ export const iddString = String.raw`{
         "name": "Gross Sensible Heat Ratio",
         "type": "float",
         "units": null,
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Gross_Cooling_COP": {
         "name": "Gross Cooling COP",
@@ -33904,13 +33904,13 @@ export const iddString = String.raw`{
         "name": "Gross Rated Total Cooling Capacity At Selected Nominal Speed Level",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Air_Flow_Rate_At_Selected_Nominal_Speed_Level": {
         "name": "Rated Air Flow Rate At Selected Nominal Speed Level",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Nominal_Time_for_Condensate_to_Begin_Leaving_the_Coil": {
         "name": "Nominal Time for Condensate to Begin Leaving the Coil",
@@ -35096,13 +35096,13 @@ export const iddString = String.raw`{
         "name": "U-Factor Times Area Value",
         "type": "string",
         "units": "W/K",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Water_Flow_Rate": {
         "name": "Maximum Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Water_Inlet_Node_Name": {
         "name": "Water Inlet Node Name",
@@ -35134,7 +35134,7 @@ export const iddString = String.raw`{
         "name": "Rated Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Inlet_Water_Temperature": {
         "name": "Rated Inlet Water Temperature",
@@ -36254,13 +36254,13 @@ export const iddString = String.raw`{
         "name": "Rated Heating Capacity At Selected Nominal Speed Level",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Air_Flow_Rate_At_Selected_Nominal_Speed_Level": {
         "name": "Rated Air Flow Rate At Selected Nominal Speed Level",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Energy_Part_Load_Fraction_Curve_Name": {
         "name": "Energy Part Load Fraction Curve Name",
@@ -37266,19 +37266,19 @@ export const iddString = String.raw`{
         "name": "Gross Rated Total Cooling Capacity At Selected Nominal Speed Level",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Air_Flow_Rate_At_Selected_Nominal_Speed_Level": {
         "name": "Rated Air Flow Rate At Selected Nominal Speed Level",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Water_Flow_Rate_At_Selected_Nominal_Speed_Level": {
         "name": "Rated Water Flow Rate At Selected Nominal Speed Level",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Nominal_Time_for_Condensate_to_Begin_Leaving_the_Coil": {
         "name": "Nominal Time for Condensate to Begin Leaving the Coil",
@@ -38100,19 +38100,19 @@ export const iddString = String.raw`{
         "name": "Rated Heating Capacity At Selected Nominal Speed Level",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Air_Flow_Rate_At_Selected_Nominal_Speed_Level": {
         "name": "Rated Air Flow Rate At Selected Nominal Speed Level",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Rated_Water_Flow_Rate_At_Selected_Nominal_Speed_Level": {
         "name": "Rated Water Flow Rate At Selected Nominal Speed Level",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Energy_Part_Load_Fraction_Curve_Name": {
         "name": "Energy Part Load Fraction Curve Name",
@@ -40701,13 +40701,13 @@ export const iddString = String.raw`{
         "name": "Direct Pad Area",
         "type": "string",
         "units": "m2",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Direct_Pad_Depth": {
         "name": "Direct Pad Depth",
         "type": "string",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Recirculating_Water_Pump_Power_Consumption": {
         "name": "Recirculating Water Pump Power Consumption",
@@ -40753,13 +40753,13 @@ export const iddString = String.raw`{
         "name": "Direct Pad Area",
         "type": "float",
         "units": "m2",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Direct_Pad_Depth": {
         "name": "Direct Pad Depth",
         "type": "float",
         "units": "m",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Recirculating_Water_Pump_Power_Consumption": {
         "name": "Recirculating Water Pump Power Consumption",
@@ -40920,7 +40920,7 @@ export const iddString = String.raw`{
         "name": "Recirculating Water Pump Design Power",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Water_Pump_Power_Sizing_Factor": {
         "name": "Water Pump Power Sizing Factor",
@@ -40937,7 +40937,7 @@ export const iddString = String.raw`{
         "name": "Secondary Air Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Secondary_Air_Flow_Scaling_Factor": {
         "name": "Secondary Air Flow Scaling Factor",
@@ -40949,7 +40949,7 @@ export const iddString = String.raw`{
         "name": "Secondary Air Fan Design Power",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Secondary_Air_Fan_Sizing_Specific_Power": {
         "name": "Secondary Air Fan Sizing Specific Power",
@@ -40976,7 +40976,7 @@ export const iddString = String.raw`{
         "name": "Primary Air Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Dewpoint_Effectiveness_Factor": {
         "name": "Dewpoint Effectiveness Factor",
@@ -41063,13 +41063,13 @@ export const iddString = String.raw`{
         "name": "Primary Air Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Recirculating_Water_Pump_Design_Power": {
         "name": "Recirculating Water Pump Design Power",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Water_Pump_Power_Sizing_Factor": {
         "name": "Water Pump Power Sizing Factor",
@@ -41509,7 +41509,7 @@ export const iddString = String.raw`{
         "name": "Nominal Supply Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Nominal_Supply_Air_Inlet_Temperature": {
         "name": "Nominal Supply Air Inlet Temperature",
@@ -44453,13 +44453,13 @@ export const iddString = String.raw`{
         "name": "Controller Convergence Tolerance",
         "type": "float",
         "units": "deltaC",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Maximum_Actuated_Flow": {
         "name": "Maximum Actuated Flow",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Actuated_Flow": {
         "name": "Minimum Actuated Flow",
@@ -46280,7 +46280,7 @@ export const iddString = String.raw`{
         "name": "Design Minimum Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Pump_Control_Type": {
         "name": "Pump Control Type",
@@ -47594,7 +47594,7 @@ export const iddString = String.raw`{
         "name": "Design Water Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Minimum_Part_Load_Ratio": {
         "name": "Minimum Part Load Ratio",
@@ -47774,7 +47774,7 @@ export const iddString = String.raw`{
         "name": "Rated Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Sizing_Factor": {
         "name": "Sizing Factor",
@@ -47816,7 +47816,7 @@ export const iddString = String.raw`{
         "name": "Chilled Water Maximum Requested Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Condenser_Inlet_Node_Name": {
         "name": "Condenser Inlet Node Name",
@@ -47832,7 +47832,7 @@ export const iddString = String.raw`{
         "name": "Condenser Maximum Requested Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Chiller_Flow_Mode": {
         "name": "Chiller Flow Mode",
@@ -48524,13 +48524,13 @@ export const iddString = String.raw`{
         "name": "Design Chilled Water Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Condenser_Water_Flow_Rate": {
         "name": "Design Condenser Water Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Chiller_Flow_Mode": {
         "name": "Chiller Flow Mode",
@@ -49432,7 +49432,7 @@ export const iddString = String.raw`{
         "name": "Nominal Cooling Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_to_Cooling_Capacity_Ratio": {
         "name": "Heating to Cooling Capacity Ratio",
@@ -49528,19 +49528,19 @@ export const iddString = String.raw`{
         "name": "Design Chilled Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Condenser_Water_Flow_Rate": {
         "name": "Design Condenser Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Hot_Water_Flow_Rate": {
         "name": "Design Hot Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Capacity_Function_of_Temperature_Curve_Name": {
         "name": "Cooling Capacity Function of Temperature Curve Name",
@@ -49627,7 +49627,7 @@ export const iddString = String.raw`{
         "name": "Nominal Cooling Capacity",
         "type": "string",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Heating_to_Cooling_Capacity_Ratio": {
         "name": "Heating to Cooling Capacity Ratio",
@@ -49723,19 +49723,19 @@ export const iddString = String.raw`{
         "name": "Design Chilled Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Condenser_Water_Flow_Rate": {
         "name": "Design Condenser Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Hot_Water_Flow_Rate": {
         "name": "Design Hot Water Flow Rate",
         "type": "string",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Cooling_Capacity_Function_of_Temperature_Curve_Name": {
         "name": "Cooling Capacity Function of Temperature Curve Name",
@@ -49851,19 +49851,19 @@ export const iddString = String.raw`{
         "name": "Load Side Reference Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Source_Side_Reference_Flow_Rate": {
         "name": "Source Side Reference Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Reference_Capacity": {
         "name": "Reference Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Reference_Coefficient_of_Performance": {
         "name": "Reference Coefficient of Performance",
@@ -49977,19 +49977,19 @@ export const iddString = String.raw`{
         "name": "Load Side Reference Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Source_Side_Reference_Flow_Rate": {
         "name": "Source Side Reference Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Reference_Capacity": {
         "name": "Reference Capacity",
         "type": "float",
         "units": "W",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Reference_Coefficient_of_Performance": {
         "name": "Reference Coefficient of Performance",
@@ -51706,13 +51706,13 @@ export const iddString = String.raw`{
         "name": "Design Approach Temperature",
         "type": "float",
         "units": "deltaC",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Range_Temperature": {
         "name": "Design Range Temperature",
         "type": "float",
         "units": "deltaC",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Basin_Heater_Capacity": {
         "name": "Basin Heater Capacity",
@@ -51970,13 +51970,13 @@ export const iddString = String.raw`{
         "name": "Design Approach Temperature",
         "type": "float",
         "units": "deltaC",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Range_Temperature": {
         "name": "Design Range Temperature",
         "type": "float",
         "units": "deltaC",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Basin_Heater_Capacity": {
         "name": "Basin Heater Capacity",
@@ -52228,13 +52228,13 @@ export const iddString = String.raw`{
         "name": "Design Approach Temperature",
         "type": "float",
         "units": "deltaC",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Design_Range_Temperature": {
         "name": "Design Range Temperature",
         "type": "float",
         "units": "deltaC",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Basin_Heater_Capacity": {
         "name": "Basin Heater Capacity",
@@ -54314,13 +54314,13 @@ export const iddString = String.raw`{
         "name": "Use Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Source_Side_Design_Flow_Rate": {
         "name": "Source Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Indirect_Water_Heating_Recovery_Time": {
         "name": "Indirect Water Heating Recovery Time",
@@ -54574,7 +54574,7 @@ export const iddString = String.raw`{
         "name": "Use Side Outlet Height",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Source_Side_Inlet_Node_Name": {
         "name": "Source Side Inlet Node Name",
@@ -54596,7 +54596,7 @@ export const iddString = String.raw`{
         "name": "Source Side Inlet Height",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Source_Side_Outlet_Height": {
         "name": "Source Side Outlet Height",
@@ -54614,13 +54614,13 @@ export const iddString = String.raw`{
         "name": "Use Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Source_Side_Design_Flow_Rate": {
         "name": "Source Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Indirect_Water_Heating_Recovery_Time": {
         "name": "Indirect Water Heating Recovery Time",
@@ -55427,7 +55427,7 @@ export const iddString = String.raw`{
         "name": "Use Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Source_Side_Inlet_Node_Name": {
         "name": "Source Side Inlet Node Name",
@@ -55454,7 +55454,7 @@ export const iddString = String.raw`{
         "name": "Source Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Tank_Recovery_Time": {
         "name": "Tank Recovery Time",
@@ -55569,7 +55569,7 @@ export const iddString = String.raw`{
         "name": "Use Side Inlet Height",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Use_Side_Outlet_Height": {
         "name": "Use Side Outlet Height",
@@ -55581,7 +55581,7 @@ export const iddString = String.raw`{
         "name": "Use Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Source_Side_Inlet_Node_Name": {
         "name": "Source Side Inlet Node Name",
@@ -55614,13 +55614,13 @@ export const iddString = String.raw`{
         "name": "Source Side Outlet Height",
         "type": "float",
         "units": "m",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Source_Side_Design_Flow_Rate": {
         "name": "Source Side Design Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autosize"
+        "default": "Autosize"
       },
       "Tank_Recovery_Time": {
         "name": "Tank Recovery Time",
@@ -55762,7 +55762,7 @@ export const iddString = String.raw`{
         "name": "Plant Loop Volume",
         "type": "float",
         "units": "m3",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Plant_Side_Inlet_Node_Name": {
         "name": "Plant Side Inlet Node Name",
@@ -55895,7 +55895,7 @@ export const iddString = String.raw`{
         "name": "Condenser Loop Volume",
         "type": "float",
         "units": "m3",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Condenser_Side_Inlet_Node_Name": {
         "name": "Condenser Side Inlet Node Name",
@@ -61732,7 +61732,7 @@ export const iddString = String.raw`{
         "name": "Evaporative Condenser Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Basin_Heater_Capacity": {
         "name": "Basin Heater Capacity",
@@ -61957,7 +61957,7 @@ export const iddString = String.raw`{
         "name": "Rated Air Flow Rate",
         "type": "float",
         "units": "m3/s",
-        "default": "autocalculate"
+        "default": "Autocalculate"
       },
       "Basin_Heater_Capacity": {
         "name": "Basin Heater Capacity",
