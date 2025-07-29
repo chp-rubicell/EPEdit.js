@@ -2,6 +2,7 @@ export const iddVersion = '23-2';
 export const iddString = String.raw`{
   "version": {
     "className": "Version",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Version_Identifier": {
         "name": "Version Identifier",
@@ -13,6 +14,7 @@ export const iddString = String.raw`{
   },
   "simulationcontrol": {
     "className": "SimulationControl",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Do_Zone_Sizing_Calculation": {
         "name": "Do Zone Sizing Calculation",
@@ -60,6 +62,7 @@ export const iddString = String.raw`{
   },
   "performanceprecisiontradeoffs": {
     "className": "PerformancePrecisionTradeoffs",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Use_Coil_Direct_Solutions": {
         "name": "Use Coil Direct Solutions",
@@ -101,6 +104,7 @@ export const iddString = String.raw`{
   },
   "building": {
     "className": "Building",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -154,6 +158,7 @@ export const iddString = String.raw`{
   },
   "shadowcalculation": {
     "className": "ShadowCalculation",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Shading_Calculation_Method": {
         "name": "Shading Calculation Method",
@@ -237,6 +242,7 @@ export const iddString = String.raw`{
   },
   "surfaceconvectionalgorithm:inside": {
     "className": "SurfaceConvectionAlgorithm:Inside",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Algorithm": {
         "name": "Algorithm",
@@ -248,6 +254,7 @@ export const iddString = String.raw`{
   },
   "surfaceconvectionalgorithm:outside": {
     "className": "SurfaceConvectionAlgorithm:Outside",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Algorithm": {
         "name": "Algorithm",
@@ -259,6 +266,7 @@ export const iddString = String.raw`{
   },
   "heatbalancealgorithm": {
     "className": "HeatBalanceAlgorithm",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Algorithm": {
         "name": "Algorithm",
@@ -288,6 +296,7 @@ export const iddString = String.raw`{
   },
   "heatbalancesettings:conductionfinitedifference": {
     "className": "HeatBalanceSettings:ConductionFiniteDifference",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Difference_Scheme": {
         "name": "Difference Scheme",
@@ -317,6 +326,7 @@ export const iddString = String.raw`{
   },
   "zoneairheatbalancealgorithm": {
     "className": "ZoneAirHeatBalanceAlgorithm",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Algorithm": {
         "name": "Algorithm",
@@ -340,6 +350,7 @@ export const iddString = String.raw`{
   },
   "zoneaircontaminantbalance": {
     "className": "ZoneAirContaminantBalance",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Carbon_Dioxide_Concentration": {
         "name": "Carbon Dioxide Concentration",
@@ -367,6 +378,7 @@ export const iddString = String.raw`{
   },
   "zoneairmassflowconservation": {
     "className": "ZoneAirMassFlowConservation",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Adjust_Zone_Mixing_and_Return_For_Air_Mass_Flow_Balance": {
         "name": "Adjust Zone Mixing and Return For Air Mass Flow Balance",
@@ -390,6 +402,7 @@ export const iddString = String.raw`{
   },
   "zonecapacitancemultiplier:researchspecial": {
     "className": "ZoneCapacitanceMultiplier:ResearchSpecial",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -429,6 +442,7 @@ export const iddString = String.raw`{
   },
   "timestep": {
     "className": "Timestep",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Number_of_Timesteps_per_Hour": {
         "name": "Number of Timesteps per Hour",
@@ -440,6 +454,7 @@ export const iddString = String.raw`{
   },
   "convergencelimits": {
     "className": "ConvergenceLimits",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Minimum_System_Timestep": {
         "name": "Minimum System Timestep",
@@ -468,6 +483,7 @@ export const iddString = String.raw`{
   },
   "hvacsystemrootfindingalgorithm": {
     "className": "HVACSystemRootFindingAlgorithm",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Algorithm": {
         "name": "Algorithm",
@@ -485,6 +501,7 @@ export const iddString = String.raw`{
   },
   "compliance:building": {
     "className": "Compliance:Building",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Building_Rotation_for_Appendix_G": {
         "name": "Building Rotation for Appendix G",
@@ -496,6 +513,7 @@ export const iddString = String.raw`{
   },
   "site:location": {
     "className": "Site:Location",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -555,6 +573,7 @@ export const iddString = String.raw`{
   },
   "sizingperiod:designday": {
     "className": "SizingPeriod:DesignDay",
+    "lastDefaultFieldIdx": 27,
     "fields": {
       "Name": {
         "name": "Name",
@@ -711,6 +730,7 @@ export const iddString = String.raw`{
   },
   "sizingperiod:weatherfiledays": {
     "className": "SizingPeriod:WeatherFileDays",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -759,6 +779,7 @@ export const iddString = String.raw`{
   },
   "sizingperiod:weatherfileconditiontype": {
     "className": "SizingPeriod:WeatherFileConditionType",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -792,6 +813,7 @@ export const iddString = String.raw`{
   },
   "runperiod": {
     "className": "RunPeriod",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -879,6 +901,7 @@ export const iddString = String.raw`{
   },
   "runperiodcontrol:specialdays": {
     "className": "RunPeriodControl:SpecialDays",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -921,6 +944,7 @@ export const iddString = String.raw`{
   },
   "weatherproperty:skytemperature": {
     "className": "WeatherProperty:SkyTemperature",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -948,6 +972,7 @@ export const iddString = String.raw`{
   },
   "site:weatherstation": {
     "className": "Site:WeatherStation",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Wind_Sensor_Height_Above_Ground": {
         "name": "Wind Sensor Height Above Ground",
@@ -977,6 +1002,7 @@ export const iddString = String.raw`{
   },
   "site:heightvariation": {
     "className": "Site:HeightVariation",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Wind_Speed_Profile_Exponent": {
         "name": "Wind Speed Profile Exponent",
@@ -1000,6 +1026,7 @@ export const iddString = String.raw`{
   },
   "site:groundtemperature:buildingsurface": {
     "className": "Site:GroundTemperature:BuildingSurface",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "January_Ground_Temperature": {
         "name": "January Ground Temperature",
@@ -1077,6 +1104,7 @@ export const iddString = String.raw`{
   },
   "site:groundtemperature:fcfactormethod": {
     "className": "Site:GroundTemperature:FCfactorMethod",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "January_Ground_Temperature": {
         "name": "January Ground Temperature",
@@ -1154,6 +1182,7 @@ export const iddString = String.raw`{
   },
   "site:groundtemperature:shallow": {
     "className": "Site:GroundTemperature:Shallow",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "January_Surface_Ground_Temperature": {
         "name": "January Surface Ground Temperature",
@@ -1231,6 +1260,7 @@ export const iddString = String.raw`{
   },
   "site:groundtemperature:deep": {
     "className": "Site:GroundTemperature:Deep",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "January_Deep_Ground_Temperature": {
         "name": "January Deep Ground Temperature",
@@ -1308,6 +1338,7 @@ export const iddString = String.raw`{
   },
   "site:groundtemperature:undisturbed:finitedifference": {
     "className": "Site:GroundTemperature:Undisturbed:FiniteDifference",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -1441,6 +1472,7 @@ export const iddString = String.raw`{
   },
   "site:grounddomain:slab": {
     "className": "Site:GroundDomain:Slab",
+    "lastDefaultFieldIdx": 24,
     "fields": {
       "Name": {
         "name": "Name",
@@ -1586,6 +1618,7 @@ export const iddString = String.raw`{
   },
   "site:grounddomain:basement": {
     "className": "Site:GroundDomain:Basement",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -1725,6 +1758,7 @@ export const iddString = String.raw`{
   },
   "site:groundreflectance": {
     "className": "Site:GroundReflectance",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "January_Ground_Reflectance": {
         "name": "January Ground Reflectance",
@@ -1802,6 +1836,7 @@ export const iddString = String.raw`{
   },
   "site:groundreflectance:snowmodifier": {
     "className": "Site:GroundReflectance:SnowModifier",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Ground_Reflected_Solar_Modifier": {
         "name": "Ground Reflected Solar Modifier",
@@ -1819,6 +1854,7 @@ export const iddString = String.raw`{
   },
   "site:watermainstemperature": {
     "className": "Site:WaterMainsTemperature",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Calculation_Method": {
         "name": "Calculation Method",
@@ -1870,6 +1906,7 @@ export const iddString = String.raw`{
   },
   "roofirrigation": {
     "className": "RoofIrrigation",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Irrigation_Model_Type": {
         "name": "Irrigation Model Type",
@@ -1891,6 +1928,7 @@ export const iddString = String.raw`{
   },
   "site:solarandvisiblespectrum": {
     "className": "Site:SolarAndVisibleSpectrum",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -1968,6 +2006,7 @@ export const iddString = String.raw`{
   },
   "scheduletypelimits": {
     "className": "ScheduleTypeLimits",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -1999,6 +2038,7 @@ export const iddString = String.raw`{
   },
   "schedule:day:hourly": {
     "className": "Schedule:Day:Hourly",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2158,6 +2198,7 @@ export const iddString = String.raw`{
   },
   "schedule:day:interval": {
     "className": "Schedule:Day:Interval",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2207,6 +2248,7 @@ export const iddString = String.raw`{
   },
   "schedule:day:list": {
     "className": "Schedule:Day:List",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2466,6 +2508,7 @@ export const iddString = String.raw`{
   },
   "schedule:constant": {
     "className": "Schedule:Constant",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2497,6 +2540,7 @@ export const iddString = String.raw`{
   },
   "schedule:file": {
     "className": "Schedule:File",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2557,6 +2601,7 @@ export const iddString = String.raw`{
   },
   "material": {
     "className": "Material",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2610,6 +2655,7 @@ export const iddString = String.raw`{
   },
   "material:nomass": {
     "className": "Material:NoMass",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2673,6 +2719,7 @@ export const iddString = String.raw`{
   },
   "material:roofvegetation": {
     "className": "Material:RoofVegetation",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2816,6 +2863,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:glazing": {
     "className": "WindowMaterial:Glazing",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -2972,6 +3020,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:glazing:refractionextinctionmethod": {
     "className": "WindowMaterial:Glazing:RefractionExtinctionMethod",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3112,6 +3161,7 @@ export const iddString = String.raw`{
   },
   "windowgap:supportpillar": {
     "className": "WindowGap:SupportPillar",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3134,6 +3184,7 @@ export const iddString = String.raw`{
   },
   "windowgap:deflectionstate": {
     "className": "WindowGap:DeflectionState",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3222,6 +3273,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:gap": {
     "className": "WindowMaterial:Gap",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3258,6 +3310,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:shade": {
     "className": "WindowMaterial:Shade",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3344,6 +3397,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:complexshade": {
     "className": "WindowMaterial:ComplexShade",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3456,6 +3510,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:blind": {
     "className": "WindowMaterial:Blind",
+    "lastDefaultFieldIdx": 28,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3623,6 +3678,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:screen": {
     "className": "WindowMaterial:Screen",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3707,6 +3763,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:shade:equivalentlayer": {
     "className": "WindowMaterial:Shade:EquivalentLayer",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3776,6 +3833,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:drape:equivalentlayer": {
     "className": "WindowMaterial:Drape:EquivalentLayer",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3857,6 +3915,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:blind:equivalentlayer": {
     "className": "WindowMaterial:Blind:EquivalentLayer",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -3994,6 +4053,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:screen:equivalentlayer": {
     "className": "WindowMaterial:Screen:EquivalentLayer",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -4059,6 +4119,7 @@ export const iddString = String.raw`{
   },
   "windowmaterial:glazing:equivalentlayer": {
     "className": "WindowMaterial:Glazing:EquivalentLayer",
+    "lastDefaultFieldIdx": 28,
     "fields": {
       "Name": {
         "name": "Name",
@@ -4308,6 +4369,7 @@ export const iddString = String.raw`{
   },
   "materialproperty:moisturepenetrationdepth:settings": {
     "className": "MaterialProperty:MoisturePenetrationDepth:Settings",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -4365,6 +4427,7 @@ export const iddString = String.raw`{
   },
   "materialproperty:phasechange": {
     "className": "MaterialProperty:PhaseChange",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -4726,6 +4789,7 @@ export const iddString = String.raw`{
   },
   "materialproperty:heatandmoisturetransfer:settings": {
     "className": "MaterialProperty:HeatAndMoistureTransfer:Settings",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Material_Name": {
         "name": "Material Name",
@@ -6315,6 +6379,7 @@ export const iddString = String.raw`{
   },
   "constructionproperty:internalheatsource": {
     "className": "ConstructionProperty:InternalHeatSource",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -6356,6 +6421,7 @@ export const iddString = String.raw`{
   },
   "construction:airboundary": {
     "className": "Construction:AirBoundary",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -6383,6 +6449,7 @@ export const iddString = String.raw`{
   },
   "windowthermalmodel:params": {
     "className": "WindowThermalModel:Params",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -6435,6 +6502,7 @@ export const iddString = String.raw`{
   },
   "windowscalculationengine": {
     "className": "WindowsCalculationEngine",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Windows_engine": {
         "name": "Windows engine",
@@ -6446,6 +6514,7 @@ export const iddString = String.raw`{
   },
   "construction:complexfenestrationstate": {
     "className": "Construction:ComplexFenestrationState",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -6713,6 +6782,7 @@ export const iddString = String.raw`{
   },
   "globalgeometryrules": {
     "className": "GlobalGeometryRules",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Starting_Vertex_Position": {
         "name": "Starting Vertex Position",
@@ -6745,6 +6815,7 @@ export const iddString = String.raw`{
   },
   "geometrytransform": {
     "className": "GeometryTransform",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Plane_of_Transform": {
         "name": "Plane of Transform",
@@ -6766,6 +6837,7 @@ export const iddString = String.raw`{
   },
   "space": {
     "className": "Space",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -6851,6 +6923,7 @@ export const iddString = String.raw`{
   },
   "zone": {
     "className": "Zone",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -6959,6 +7032,7 @@ export const iddString = String.raw`{
   },
   "zonegroup": {
     "className": "ZoneGroup",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -6980,6 +7054,7 @@ export const iddString = String.raw`{
   },
   "buildingsurface:detailed": {
     "className": "BuildingSurface:Detailed",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7082,6 +7157,7 @@ export const iddString = String.raw`{
   },
   "wall:detailed": {
     "className": "Wall:Detailed",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7179,6 +7255,7 @@ export const iddString = String.raw`{
   },
   "roofceiling:detailed": {
     "className": "RoofCeiling:Detailed",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7276,6 +7353,7 @@ export const iddString = String.raw`{
   },
   "floor:detailed": {
     "className": "Floor:Detailed",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7373,6 +7451,7 @@ export const iddString = String.raw`{
   },
   "wall:exterior": {
     "className": "Wall:Exterior",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7434,6 +7513,7 @@ export const iddString = String.raw`{
   },
   "wall:adiabatic": {
     "className": "Wall:Adiabatic",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7495,6 +7575,7 @@ export const iddString = String.raw`{
   },
   "wall:underground": {
     "className": "Wall:Underground",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7556,6 +7637,7 @@ export const iddString = String.raw`{
   },
   "wall:interzone": {
     "className": "Wall:Interzone",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7622,6 +7704,7 @@ export const iddString = String.raw`{
   },
   "roof": {
     "className": "Roof",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7683,6 +7766,7 @@ export const iddString = String.raw`{
   },
   "ceiling:adiabatic": {
     "className": "Ceiling:Adiabatic",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7744,6 +7828,7 @@ export const iddString = String.raw`{
   },
   "ceiling:interzone": {
     "className": "Ceiling:Interzone",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7810,6 +7895,7 @@ export const iddString = String.raw`{
   },
   "floor:groundcontact": {
     "className": "Floor:GroundContact",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7871,6 +7957,7 @@ export const iddString = String.raw`{
   },
   "floor:adiabatic": {
     "className": "Floor:Adiabatic",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7932,6 +8019,7 @@ export const iddString = String.raw`{
   },
   "floor:interzone": {
     "className": "Floor:Interzone",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -7998,6 +8086,7 @@ export const iddString = String.raw`{
   },
   "fenestrationsurface:detailed": {
     "className": "FenestrationSurface:Detailed",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8111,6 +8200,7 @@ export const iddString = String.raw`{
   },
   "window": {
     "className": "Window",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8162,6 +8252,7 @@ export const iddString = String.raw`{
   },
   "door": {
     "className": "Door",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8208,6 +8299,7 @@ export const iddString = String.raw`{
   },
   "glazeddoor": {
     "className": "GlazedDoor",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8259,6 +8351,7 @@ export const iddString = String.raw`{
   },
   "window:interzone": {
     "className": "Window:Interzone",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8310,6 +8403,7 @@ export const iddString = String.raw`{
   },
   "door:interzone": {
     "className": "Door:Interzone",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8361,6 +8455,7 @@ export const iddString = String.raw`{
   },
   "glazeddoor:interzone": {
     "className": "GlazedDoor:Interzone",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8412,6 +8507,7 @@ export const iddString = String.raw`{
   },
   "windowshadingcontrol": {
     "className": "WindowShadingControl",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8520,6 +8616,7 @@ export const iddString = String.raw`{
   },
   "windowproperty:frameanddivider": {
     "className": "WindowProperty:FrameAndDivider",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8679,6 +8776,7 @@ export const iddString = String.raw`{
   },
   "windowproperty:airflowcontrol": {
     "className": "WindowProperty:AirflowControl",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8729,6 +8827,7 @@ export const iddString = String.raw`{
   },
   "windowproperty:stormwindow": {
     "className": "WindowProperty:StormWindow",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Window_Name": {
         "name": "Window Name",
@@ -8800,6 +8899,7 @@ export const iddString = String.raw`{
   },
   "shading:site": {
     "className": "Shading:Site",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8846,6 +8946,7 @@ export const iddString = String.raw`{
   },
   "shading:building": {
     "className": "Shading:Building",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8892,6 +8993,7 @@ export const iddString = String.raw`{
   },
   "shading:site:detailed": {
     "className": "Shading:Site:Detailed",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -8951,6 +9053,7 @@ export const iddString = String.raw`{
   },
   "shading:building:detailed": {
     "className": "Shading:Building:Detailed",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9010,6 +9113,7 @@ export const iddString = String.raw`{
   },
   "shading:overhang": {
     "className": "Shading:Overhang",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9051,6 +9155,7 @@ export const iddString = String.raw`{
   },
   "shading:overhang:projection": {
     "className": "Shading:Overhang:Projection",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9092,6 +9197,7 @@ export const iddString = String.raw`{
   },
   "shading:fin": {
     "className": "Shading:Fin",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9159,6 +9265,7 @@ export const iddString = String.raw`{
   },
   "shading:fin:projection": {
     "className": "Shading:Fin:Projection",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9226,6 +9333,7 @@ export const iddString = String.raw`{
   },
   "shading:zone:detailed": {
     "className": "Shading:Zone:Detailed",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9290,6 +9398,7 @@ export const iddString = String.raw`{
   },
   "shadingproperty:reflectance": {
     "className": "ShadingProperty:Reflectance",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Shading_Surface_Name": {
         "name": "Shading Surface Name",
@@ -9323,6 +9432,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:heattransferalgorithm": {
     "className": "SurfaceProperty:HeatTransferAlgorithm",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Surface_Name": {
         "name": "Surface Name",
@@ -9339,6 +9449,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:heattransferalgorithm:multiplesurface": {
     "className": "SurfaceProperty:HeatTransferAlgorithm:MultipleSurface",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9360,6 +9471,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:heattransferalgorithm:surfacelist": {
     "className": "SurfaceProperty:HeatTransferAlgorithm:SurfaceList",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9394,6 +9506,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:heattransferalgorithm:construction": {
     "className": "SurfaceProperty:HeatTransferAlgorithm:Construction",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9460,6 +9573,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:othersidecoefficients": {
     "className": "SurfaceProperty:OtherSideCoefficients",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9544,6 +9658,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:othersideconditionsmodel": {
     "className": "SurfaceProperty:OtherSideConditionsModel",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9585,6 +9700,7 @@ export const iddString = String.raw`{
   },
   "foundation:kiva": {
     "className": "Foundation:Kiva",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "Name": {
         "name": "Name",
@@ -9728,6 +9844,7 @@ export const iddString = String.raw`{
   },
   "foundation:kiva:settings": {
     "className": "Foundation:Kiva:Settings",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Soil_Conductivity": {
         "name": "Soil Conductivity",
@@ -9805,6 +9922,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:exposedfoundationperimeter": {
     "className": "SurfaceProperty:ExposedFoundationPerimeter",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Surface_Name": {
         "name": "Surface Name",
@@ -9850,6 +9968,7 @@ export const iddString = String.raw`{
   },
   "surfaceconvectionalgorithm:inside:adaptivemodelselections": {
     "className": "SurfaceConvectionAlgorithm:Inside:AdaptiveModelSelections",
+    "lastDefaultFieldIdx": 89,
     "fields": {
       "Name": {
         "name": "Name",
@@ -10355,6 +10474,7 @@ export const iddString = String.raw`{
   },
   "surfaceconvectionalgorithm:outside:adaptivemodelselections": {
     "className": "SurfaceConvectionAlgorithm:Outside:AdaptiveModelSelections",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -10466,6 +10586,7 @@ export const iddString = String.raw`{
   },
   "surfaceconvectionalgorithm:outside:usercurve": {
     "className": "SurfaceConvectionAlgorithm:Outside:UserCurve",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -10497,6 +10618,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:convectioncoefficients": {
     "className": "SurfaceProperty:ConvectionCoefficients",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Surface_Name": {
         "name": "Surface Name",
@@ -10558,6 +10680,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:convectioncoefficients:multiplesurface": {
     "className": "SurfaceProperty:ConvectionCoefficients:MultipleSurface",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Surface_Type": {
         "name": "Surface Type",
@@ -10619,6 +10742,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperties:vaporcoefficients": {
     "className": "SurfaceProperties:VaporCoefficients",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Surface_Name": {
         "name": "Surface Name",
@@ -10653,6 +10777,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:exteriornaturalventedcavity": {
     "className": "SurfaceProperty:ExteriorNaturalVentedCavity",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -10759,6 +10884,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:incidentsolarmultiplier": {
     "className": "SurfaceProperty:IncidentSolarMultiplier",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Surface_Name": {
         "name": "Surface Name",
@@ -10835,6 +10961,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:surroundingsurfaces": {
     "className": "SurfaceProperty:SurroundingSurfaces",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -10906,6 +11033,7 @@ export const iddString = String.raw`{
   },
   "surfaceproperty:groundsurfaces": {
     "className": "SurfaceProperty:GroundSurfaces",
+    "lastDefaultFieldIdx": -1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -11057,6 +11185,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:control": {
     "className": "GroundHeatTransfer:Control",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -11079,6 +11208,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:slab:materials": {
     "className": "GroundHeatTransfer:Slab:Materials",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "NMAT:_Number_of_materials": {
         "name": "NMAT: Number of materials",
@@ -11137,6 +11267,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:slab:matlprops": {
     "className": "GroundHeatTransfer:Slab:MatlProps",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "RHO:_Slab_Material_density": {
         "name": "RHO: Slab Material density",
@@ -11208,6 +11339,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:slab:bldgprops": {
     "className": "GroundHeatTransfer:Slab:BldgProps",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "IYRS:_Number_of_years_to_iterate": {
         "name": "IYRS: Number of years to iterate",
@@ -11313,6 +11445,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:slab:insulation": {
     "className": "GroundHeatTransfer:Slab:Insulation",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "RINS:_R_value_of_under_slab_insulation": {
         "name": "RINS: R value of under slab insulation",
@@ -11348,6 +11481,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:slab:equivalentslab": {
     "className": "GroundHeatTransfer:Slab:EquivalentSlab",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "APRatio:_The_area_to_perimeter_ratio_for_this_slab": {
         "name": "APRatio: The area to perimeter ratio for this slab",
@@ -11376,6 +11510,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:slab:autogrid": {
     "className": "GroundHeatTransfer:Slab:AutoGrid",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "SLABX:_X_dimension_of_the_building_slab": {
         "name": "SLABX: X dimension of the building slab",
@@ -11439,6 +11574,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:simparameters": {
     "className": "GroundHeatTransfer:Basement:SimParameters",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "F:_Multiplier_for_the_ADI_solution": {
         "name": "F: Multiplier for the ADI solution",
@@ -11455,6 +11591,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:matlprops": {
     "className": "GroundHeatTransfer:Basement:MatlProps",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "NMAT:_Number_of_materials_in_this_domain": {
         "name": "NMAT: Number of materials in this domain",
@@ -11588,6 +11725,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:surfaceprops": {
     "className": "GroundHeatTransfer:Basement:SurfaceProps",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "ALBEDO:_Surface_albedo_for_No_snow_conditions": {
         "name": "ALBEDO: Surface albedo for No snow conditions",
@@ -11635,6 +11773,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:bldgdata": {
     "className": "GroundHeatTransfer:Basement:BldgData",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "DWALL:_Wall_thickness": {
         "name": "DWALL: Wall thickness",
@@ -11670,6 +11809,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:interior": {
     "className": "GroundHeatTransfer:Basement:Interior",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "COND:_Flag:_Is_the_basement_conditioned?": {
         "name": "COND: Flag: Is the basement conditioned?",
@@ -11717,6 +11857,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:combldg": {
     "className": "GroundHeatTransfer:Basement:ComBldg",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "January_average_temperature": {
         "name": "January average temperature",
@@ -11800,6 +11941,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:equivautogrid": {
     "className": "GroundHeatTransfer:Basement:EquivAutoGrid",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "CLEARANCE:_Distance_from_outside_of_wall_to_edge_of_3D_ground_domain": {
         "name": "CLEARANCE: Distance from outside of wall to edge of 3-D ground domain",
@@ -11823,6 +11965,7 @@ export const iddString = String.raw`{
   },
   "groundheattransfer:basement:autogrid": {
     "className": "GroundHeatTransfer:Basement:AutoGrid",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "CLEARANCE:_Distance_from_outside_of_wall_to_edge,": {
         "name": "CLEARANCE: Distance from outside of wall to edge,",
@@ -11902,6 +12045,7 @@ export const iddString = String.raw`{
   },
   "roomairmodeltype": {
     "className": "RoomAirModelType",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -12320,6 +12464,7 @@ export const iddString = String.raw`{
   },
   "roomairsettings:threenodedisplacementventilation": {
     "className": "RoomAirSettings:ThreeNodeDisplacementVentilation",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -12379,6 +12524,7 @@ export const iddString = String.raw`{
   },
   "roomairsettings:underfloorairdistributioninterior": {
     "className": "RoomAirSettings:UnderFloorAirDistributionInterior",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -12473,6 +12619,7 @@ export const iddString = String.raw`{
   },
   "roomairsettings:underfloorairdistributionexterior": {
     "className": "RoomAirSettings:UnderFloorAirDistributionExterior",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -12774,6 +12921,7 @@ export const iddString = String.raw`{
   },
   "people": {
     "className": "People",
+    "lastDefaultFieldIdx": 28,
     "fields": {
       "Name": {
         "name": "Name",
@@ -13954,6 +14102,7 @@ export const iddString = String.raw`{
   },
   "lights": {
     "className": "Lights",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14053,6 +14202,7 @@ export const iddString = String.raw`{
   },
   "electricequipment": {
     "className": "ElectricEquipment",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14118,6 +14268,7 @@ export const iddString = String.raw`{
   },
   "gasequipment": {
     "className": "GasEquipment",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14189,6 +14340,7 @@ export const iddString = String.raw`{
   },
   "hotwaterequipment": {
     "className": "HotWaterEquipment",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14254,6 +14406,7 @@ export const iddString = String.raw`{
   },
   "steamequipment": {
     "className": "SteamEquipment",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14319,6 +14472,7 @@ export const iddString = String.raw`{
   },
   "otherequipment": {
     "className": "OtherEquipment",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14396,6 +14550,7 @@ export const iddString = String.raw`{
   },
   "electricequipment:ite:aircooled": {
     "className": "ElectricEquipment:ITE:AirCooled",
+    "lastDefaultFieldIdx": 27,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14574,6 +14729,7 @@ export const iddString = String.raw`{
   },
   "zonebaseboard:outdoortemperaturecontrolled": {
     "className": "ZoneBaseboard:OutdoorTemperatureControlled",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14626,6 +14782,7 @@ export const iddString = String.raw`{
   },
   "swimmingpool:indoor": {
     "className": "SwimmingPool:Indoor",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -14955,6 +15112,7 @@ export const iddString = String.raw`{
   },
   "daylighting:controls": {
     "className": "Daylighting:Controls",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15073,6 +15231,7 @@ export const iddString = String.raw`{
   },
   "daylighting:referencepoint": {
     "className": "Daylighting:ReferencePoint",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15104,6 +15263,7 @@ export const iddString = String.raw`{
   },
   "daylighting:delight:complexfenestration": {
     "className": "Daylighting:DELight:ComplexFenestration",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15135,6 +15295,7 @@ export const iddString = String.raw`{
   },
   "daylightingdevice:tubular": {
     "className": "DaylightingDevice:Tubular",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15279,6 +15440,7 @@ export const iddString = String.raw`{
   },
   "output:illuminancemap": {
     "className": "Output:IlluminanceMap",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15336,6 +15498,7 @@ export const iddString = String.raw`{
   },
   "outputcontrol:illuminancemap:style": {
     "className": "OutputControl:IlluminanceMap:Style",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Column_Separator": {
         "name": "Column Separator",
@@ -15347,6 +15510,7 @@ export const iddString = String.raw`{
   },
   "zoneinfiltration:designflowrate": {
     "className": "ZoneInfiltration:DesignFlowRate",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15452,6 +15616,7 @@ export const iddString = String.raw`{
   },
   "zoneinfiltration:flowcoefficient": {
     "className": "ZoneInfiltration:FlowCoefficient",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15498,6 +15663,7 @@ export const iddString = String.raw`{
   },
   "zoneventilation:designflowrate": {
     "className": "ZoneVentilation:DesignFlowRate",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15647,6 +15813,7 @@ export const iddString = String.raw`{
   },
   "zoneventilation:windandstackopenarea": {
     "className": "ZoneVentilation:WindandStackOpenArea",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15758,6 +15925,7 @@ export const iddString = String.raw`{
   },
   "zoneairbalance:outdoorair": {
     "className": "ZoneAirBalance:OutdoorAir",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15790,6 +15958,7 @@ export const iddString = String.raw`{
   },
   "zonemixing": {
     "className": "ZoneMixing",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15882,6 +16051,7 @@ export const iddString = String.raw`{
   },
   "zonecrossmixing": {
     "className": "ZoneCrossMixing",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -15974,6 +16144,7 @@ export const iddString = String.raw`{
   },
   "zonerefrigerationdoormixing": {
     "className": "ZoneRefrigerationDoorMixing",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -16017,6 +16188,7 @@ export const iddString = String.raw`{
   },
   "zoneearthtube": {
     "className": "ZoneEarthtube",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -16156,6 +16328,7 @@ export const iddString = String.raw`{
   },
   "zoneearthtube:parameters": {
     "className": "ZoneEarthtube:Parameters",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Earth_Tube_Model_Parameters_Name": {
         "name": "Earth Tube Model Parameters Name",
@@ -16196,6 +16369,7 @@ export const iddString = String.raw`{
   },
   "zonecooltower:shower": {
     "className": "ZoneCoolTower:Shower",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -16272,6 +16446,7 @@ export const iddString = String.raw`{
   },
   "zonethermalchimney": {
     "className": "ZoneThermalChimney",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -16709,6 +16884,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:simulationcontrol": {
     "className": "AirflowNetwork:SimulationControl",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -16809,6 +16985,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:zone": {
     "className": "AirflowNetwork:MultiZone:Zone",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -16882,6 +17059,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:surface": {
     "className": "AirflowNetwork:MultiZone:Surface",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Surface_Name": {
         "name": "Surface Name",
@@ -16971,6 +17149,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:referencecrackconditions": {
     "className": "AirflowNetwork:MultiZone:ReferenceCrackConditions",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -16998,6 +17177,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:surface:crack": {
     "className": "AirflowNetwork:MultiZone:Surface:Crack",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17024,6 +17204,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:surface:effectiveleakagearea": {
     "className": "AirflowNetwork:MultiZone:Surface:EffectiveLeakageArea",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17057,6 +17238,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:specifiedflowrate": {
     "className": "AirflowNetwork:MultiZone:SpecifiedFlowRate",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17078,6 +17260,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:component:detailedopening": {
     "className": "AirflowNetwork:MultiZone:Component:DetailedOpening",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17233,6 +17416,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:component:simpleopening": {
     "className": "AirflowNetwork:MultiZone:Component:SimpleOpening",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17264,6 +17448,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:component:horizontalopening": {
     "className": "AirflowNetwork:MultiZone:Component:HorizontalOpening",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17296,6 +17481,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:component:zoneexhaustfan": {
     "className": "AirflowNetwork:MultiZone:Component:ZoneExhaustFan",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17322,6 +17508,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:multizone:externalnode": {
     "className": "AirflowNetwork:MultiZone:ExternalNode",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17775,6 +17962,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:node": {
     "className": "AirflowNetwork:Distribution:Node",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17802,6 +17990,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:component:leak": {
     "className": "AirflowNetwork:Distribution:Component:Leak",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17823,6 +18012,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:component:leakageratio": {
     "className": "AirflowNetwork:Distribution:Component:LeakageRatio",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17854,6 +18044,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:component:duct": {
     "className": "AirflowNetwork:Distribution:Component:Duct",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -17913,6 +18104,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:component:fan": {
     "className": "AirflowNetwork:Distribution:Component:Fan",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Fan_Name": {
         "name": "Fan Name",
@@ -18019,6 +18211,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:component:outdoorairflow": {
     "className": "AirflowNetwork:Distribution:Component:OutdoorAirFlow",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18050,6 +18243,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:component:reliefairflow": {
     "className": "AirflowNetwork:Distribution:Component:ReliefAirFlow",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18111,6 +18305,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:ductviewfactors": {
     "className": "AirflowNetwork:Distribution:DuctViewFactors",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Linkage_Name": {
         "name": "Linkage Name",
@@ -18161,6 +18356,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:distribution:ductsizing": {
     "className": "AirflowNetwork:Distribution:DuctSizing",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18209,6 +18405,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:occupantventilationcontrol": {
     "className": "AirflowNetwork:OccupantVentilationControl",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18269,6 +18466,7 @@ export const iddString = String.raw`{
   },
   "airflownetwork:intrazone:node": {
     "className": "AirflowNetwork:IntraZone:Node",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18325,6 +18523,7 @@ export const iddString = String.raw`{
   },
   "exterior:lights": {
     "className": "Exterior:Lights",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18356,6 +18555,7 @@ export const iddString = String.raw`{
   },
   "exterior:fuelequipment": {
     "className": "Exterior:FuelEquipment",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18387,6 +18587,7 @@ export const iddString = String.raw`{
   },
   "exterior:waterequipment": {
     "className": "Exterior:WaterEquipment",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -18449,6 +18650,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:idealloadsairsystem": {
     "className": "HVACTemplate:Zone:IdealLoadsAirSystem",
+    "lastDefaultFieldIdx": 29,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -18624,6 +18826,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:baseboardheat": {
     "className": "HVACTemplate:Zone:BaseboardHeat",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -18700,6 +18903,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:fancoil": {
     "className": "HVACTemplate:Zone:FanCoil",
+    "lastDefaultFieldIdx": 33,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -18896,6 +19100,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:ptac": {
     "className": "HVACTemplate:Zone:PTAC",
+    "lastDefaultFieldIdx": 39,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -19128,6 +19333,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:pthp": {
     "className": "HVACTemplate:Zone:PTHP",
+    "lastDefaultFieldIdx": 49,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -19419,6 +19625,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:watertoairheatpump": {
     "className": "HVACTemplate:Zone:WaterToAirHeatPump",
+    "lastDefaultFieldIdx": 42,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -19670,6 +19877,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:vrf": {
     "className": "HVACTemplate:Zone:VRF",
+    "lastDefaultFieldIdx": 43,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -19926,6 +20134,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:unitary": {
     "className": "HVACTemplate:Zone:Unitary",
+    "lastDefaultFieldIdx": 20,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -20059,6 +20268,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:vav": {
     "className": "HVACTemplate:Zone:VAV",
+    "lastDefaultFieldIdx": 31,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -20251,6 +20461,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:vav:fanpowered": {
     "className": "HVACTemplate:Zone:VAV:FanPowered",
+    "lastDefaultFieldIdx": 29,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -20442,6 +20653,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:vav:heatandcool": {
     "className": "HVACTemplate:Zone:VAV:HeatAndCool",
+    "lastDefaultFieldIdx": 26,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -20597,6 +20809,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:constantvolume": {
     "className": "HVACTemplate:Zone:ConstantVolume",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -20746,6 +20959,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:zone:dualduct": {
     "className": "HVACTemplate:Zone:DualDuct",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Zone_Name": {
         "name": "Zone Name",
@@ -20895,6 +21109,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:vrf": {
     "className": "HVACTemplate:System:VRF",
+    "lastDefaultFieldIdx": 38,
     "fields": {
       "Name": {
         "name": "Name",
@@ -21129,6 +21344,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:unitary": {
     "className": "HVACTemplate:System:Unitary",
+    "lastDefaultFieldIdx": 50,
     "fields": {
       "Name": {
         "name": "Name",
@@ -21423,6 +21639,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:unitaryheatpump:airtoair": {
     "className": "HVACTemplate:System:UnitaryHeatPump:AirToAir",
+    "lastDefaultFieldIdx": 60,
     "fields": {
       "Name": {
         "name": "Name",
@@ -21777,6 +21994,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:unitarysystem": {
     "className": "HVACTemplate:System:UnitarySystem",
+    "lastDefaultFieldIdx": 70,
     "fields": {
       "Name": {
         "name": "Name",
@@ -22190,6 +22408,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:vav": {
     "className": "HVACTemplate:System:VAV",
+    "lastDefaultFieldIdx": 60,
     "fields": {
       "Name": {
         "name": "Name",
@@ -22542,6 +22761,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:packagedvav": {
     "className": "HVACTemplate:System:PackagedVAV",
+    "lastDefaultFieldIdx": 58,
     "fields": {
       "Name": {
         "name": "Name",
@@ -22884,6 +23104,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:constantvolume": {
     "className": "HVACTemplate:System:ConstantVolume",
+    "lastDefaultFieldIdx": 69,
     "fields": {
       "Name": {
         "name": "Name",
@@ -23286,6 +23507,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:dualduct": {
     "className": "HVACTemplate:System:DualDuct",
+    "lastDefaultFieldIdx": 90,
     "fields": {
       "Name": {
         "name": "Name",
@@ -23815,6 +24037,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:system:dedicatedoutdoorair": {
     "className": "HVACTemplate:System:DedicatedOutdoorAir",
+    "lastDefaultFieldIdx": 43,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24087,6 +24310,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:chilledwaterloop": {
     "className": "HVACTemplate:Plant:ChilledWaterLoop",
+    "lastDefaultFieldIdx": 32,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24282,6 +24506,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:chiller": {
     "className": "HVACTemplate:Plant:Chiller",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24355,6 +24580,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:chiller:objectreference": {
     "className": "HVACTemplate:Plant:Chiller:ObjectReference",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24381,6 +24607,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:tower": {
     "className": "HVACTemplate:Plant:Tower",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24442,6 +24669,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:tower:objectreference": {
     "className": "HVACTemplate:Plant:Tower:ObjectReference",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24473,6 +24701,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:hotwaterloop": {
     "className": "HVACTemplate:Plant:HotWaterLoop",
+    "lastDefaultFieldIdx": 20,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24599,6 +24828,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:boiler": {
     "className": "HVACTemplate:Plant:Boiler",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24671,6 +24901,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:boiler:objectreference": {
     "className": "HVACTemplate:Plant:Boiler:ObjectReference",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24702,6 +24933,7 @@ export const iddString = String.raw`{
   },
   "hvactemplate:plant:mixedwaterloop": {
     "className": "HVACTemplate:Plant:MixedWaterLoop",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24804,6 +25036,7 @@ export const iddString = String.raw`{
   },
   "designspecification:outdoorair": {
     "className": "DesignSpecification:OutdoorAir",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24892,6 +25125,7 @@ export const iddString = String.raw`{
   },
   "designspecification:zoneairdistribution": {
     "className": "DesignSpecification:ZoneAirDistribution",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -24931,6 +25165,7 @@ export const iddString = String.raw`{
   },
   "sizing:parameters": {
     "className": "Sizing:Parameters",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Heating_Sizing_Factor": {
         "name": "Heating Sizing Factor",
@@ -24953,6 +25188,7 @@ export const iddString = String.raw`{
   },
   "sizing:zone": {
     "className": "Sizing:Zone",
+    "lastDefaultFieldIdx": 33,
     "fields": {
       "Zone_or_ZoneList_Name": {
         "name": "Zone or ZoneList Name",
@@ -25159,6 +25395,7 @@ export const iddString = String.raw`{
   },
   "designspecification:zonehvac:sizing": {
     "className": "DesignSpecification:ZoneHVAC:Sizing",
+    "lastDefaultFieldIdx": 20,
     "fields": {
       "Name": {
         "name": "Name",
@@ -25289,6 +25526,7 @@ export const iddString = String.raw`{
   },
   "designspecification:airterminal:sizing": {
     "className": "DesignSpecification:AirTerminal:Sizing",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -25329,6 +25567,7 @@ export const iddString = String.raw`{
   },
   "sizing:system": {
     "className": "Sizing:System",
+    "lastDefaultFieldIdx": 37,
     "fields": {
       "AirLoop_Name": {
         "name": "AirLoop Name",
@@ -25544,6 +25783,7 @@ export const iddString = String.raw`{
   },
   "sizing:plant": {
     "className": "Sizing:Plant",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Plant_or_Condenser_Loop_Name": {
         "name": "Plant or Condenser Loop Name",
@@ -25621,6 +25861,7 @@ export const iddString = String.raw`{
   },
   "zonecontrol:thermostat": {
     "className": "ZoneControl:Thermostat",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -25687,6 +25928,7 @@ export const iddString = String.raw`{
   },
   "zonecontrol:thermostat:operativetemperature": {
     "className": "ZoneControl:Thermostat:OperativeTemperature",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Thermostat_Name": {
         "name": "Thermostat Name",
@@ -25718,6 +25960,7 @@ export const iddString = String.raw`{
   },
   "zonecontrol:thermostat:thermalcomfort": {
     "className": "ZoneControl:Thermostat:ThermalComfort",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -25801,6 +26044,7 @@ export const iddString = String.raw`{
   },
   "zonecontrol:thermostat:temperatureandhumidity": {
     "className": "ZoneControl:Thermostat:TemperatureAndHumidity",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Thermostat_Name": {
         "name": "Thermostat Name",
@@ -25975,6 +26219,7 @@ export const iddString = String.raw`{
   },
   "zonecontrol:thermostat:stageddualsetpoint": {
     "className": "ZoneControl:Thermostat:StagedDualSetpoint",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -26107,6 +26352,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:idealloadsairsystem": {
     "className": "ZoneHVAC:IdealLoadsAirSystem",
+    "lastDefaultFieldIdx": 26,
     "fields": {
       "Name": {
         "name": "Name",
@@ -26266,6 +26512,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:fourpipefancoil": {
     "className": "ZoneHVAC:FourPipeFanCoil",
+    "lastDefaultFieldIdx": 28,
     "fields": {
       "Name": {
         "name": "Name",
@@ -26424,6 +26671,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:windowairconditioner": {
     "className": "ZoneHVAC:WindowAirConditioner",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -26515,6 +26763,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:packagedterminalairconditioner": {
     "className": "ZoneHVAC:PackagedTerminalAirConditioner",
+    "lastDefaultFieldIdx": 24,
     "fields": {
       "Name": {
         "name": "Name",
@@ -26649,6 +26898,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:packagedterminalheatpump": {
     "className": "ZoneHVAC:PackagedTerminalHeatPump",
+    "lastDefaultFieldIdx": 30,
     "fields": {
       "Name": {
         "name": "Name",
@@ -26816,6 +27066,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:watertoairheatpump": {
     "className": "ZoneHVAC:WaterToAirHeatPump",
+    "lastDefaultFieldIdx": 26,
     "fields": {
       "Name": {
         "name": "Name",
@@ -26975,6 +27226,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:dehumidifier:dx": {
     "className": "ZoneHVAC:Dehumidifier:DX",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -27113,6 +27365,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:energyrecoveryventilator:controller": {
     "className": "ZoneHVAC:EnergyRecoveryVentilator:Controller",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -27188,6 +27441,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:unitventilator": {
     "className": "ZoneHVAC:UnitVentilator",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -27320,6 +27574,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:unitheater": {
     "className": "ZoneHVAC:UnitHeater",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -27407,6 +27662,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:evaporativecoolerunit": {
     "className": "ZoneHVAC:EvaporativeCoolerUnit",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -27509,6 +27765,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:hybridunitaryhvac": {
     "className": "ZoneHVAC:HybridUnitaryHVAC",
+    "lastDefaultFieldIdx": 59,
     "fields": {
       "Name": {
         "name": "Name",
@@ -27971,6 +28228,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:outdoorairunit": {
     "className": "ZoneHVAC:OutdoorAirUnit",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28163,6 +28421,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:terminalunit:variablerefrigerantflow": {
     "className": "ZoneHVAC:TerminalUnit:VariableRefrigerantFlow",
+    "lastDefaultFieldIdx": 29,
     "fields": {
       "Zone_Terminal_Unit_Name": {
         "name": "Zone Terminal Unit Name",
@@ -28340,6 +28599,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:baseboard:radiantconvective:water:design": {
     "className": "ZoneHVAC:Baseboard:RadiantConvective:Water:Design",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28383,6 +28643,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:baseboard:radiantconvective:water": {
     "className": "ZoneHVAC:Baseboard:RadiantConvective:Water",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28464,6 +28725,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:baseboard:radiantconvective:steam:design": {
     "className": "ZoneHVAC:Baseboard:RadiantConvective:Steam:Design",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28507,6 +28769,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:baseboard:radiantconvective:steam": {
     "className": "ZoneHVAC:Baseboard:RadiantConvective:Steam",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28582,6 +28845,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:baseboard:radiantconvective:electric": {
     "className": "ZoneHVAC:Baseboard:RadiantConvective:Electric",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28664,6 +28928,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:coolingpanel:radiantconvective:water": {
     "className": "ZoneHVAC:CoolingPanel:RadiantConvective:Water",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28800,6 +29065,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:baseboard:convective:water": {
     "className": "ZoneHVAC:Baseboard:Convective:Water",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28864,6 +29130,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:baseboard:convective:electric": {
     "className": "ZoneHVAC:Baseboard:Convective:Electric",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28908,6 +29175,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:lowtemperatureradiant:variableflow": {
     "className": "ZoneHVAC:LowTemperatureRadiant:VariableFlow",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -28997,6 +29265,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:lowtemperatureradiant:variableflow:design": {
     "className": "ZoneHVAC:LowTemperatureRadiant:VariableFlow:Design",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29115,6 +29384,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:lowtemperatureradiant:constantflow": {
     "className": "ZoneHVAC:LowTemperatureRadiant:ConstantFlow",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29244,6 +29514,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:lowtemperatureradiant:constantflow:design": {
     "className": "ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29319,6 +29590,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:lowtemperatureradiant:electric": {
     "className": "ZoneHVAC:LowTemperatureRadiant:Electric",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29428,6 +29700,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:hightemperatureradiant": {
     "className": "ZoneHVAC:HighTemperatureRadiant",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29550,6 +29823,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:ventilatedslab": {
     "className": "ZoneHVAC:VentilatedSlab",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29846,6 +30120,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:constantvolume:reheat": {
     "className": "AirTerminal:SingleDuct:ConstantVolume:Reheat",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29908,6 +30183,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:constantvolume:noreheat": {
     "className": "AirTerminal:SingleDuct:ConstantVolume:NoReheat",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -29949,6 +30225,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:vav:noreheat": {
     "className": "AirTerminal:SingleDuct:VAV:NoReheat",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30012,6 +30289,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:vav:reheat": {
     "className": "AirTerminal:SingleDuct:VAV:Reheat",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30130,6 +30408,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:vav:reheat:variablespeedfan": {
     "className": "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30252,6 +30531,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:vav:heatandcool:reheat": {
     "className": "AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30329,6 +30609,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:seriespiu:reheat": {
     "className": "AirTerminal:SingleDuct:SeriesPIU:Reheat",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30416,6 +30697,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:parallelpiu:reheat": {
     "className": "AirTerminal:SingleDuct:ParallelPIU:Reheat",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30508,6 +30790,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:constantvolume:fourpipeinduction": {
     "className": "AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30608,6 +30891,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:constantvolume:fourpipebeam": {
     "className": "AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30759,6 +31043,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:constantvolume:cooledbeam": {
     "className": "AirTerminal:SingleDuct:ConstantVolume:CooledBeam",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30895,6 +31180,7 @@ export const iddString = String.raw`{
   },
   "airterminal:singleduct:mixer": {
     "className": "AirTerminal:SingleDuct:Mixer",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -30981,6 +31267,7 @@ export const iddString = String.raw`{
   },
   "airterminal:dualduct:vav": {
     "className": "AirTerminal:DualDuct:VAV",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31077,6 +31364,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:airdistributionunit": {
     "className": "ZoneHVAC:AirDistributionUnit",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31119,6 +31407,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:exhaustcontrol": {
     "className": "ZoneHVAC:ExhaustControl",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31186,6 +31475,7 @@ export const iddString = String.raw`{
   },
   "zonehvac:equipmentlist": {
     "className": "ZoneHVAC:EquipmentList",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31355,6 +31645,7 @@ export const iddString = String.raw`{
   },
   "spacehvac:zoneequipmentsplitter": {
     "className": "SpaceHVAC:ZoneEquipmentSplitter",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31441,6 +31732,7 @@ export const iddString = String.raw`{
   },
   "spacehvac:zoneequipmentmixer": {
     "className": "SpaceHVAC:ZoneEquipmentMixer",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31506,6 +31798,7 @@ export const iddString = String.raw`{
   },
   "fan:systemmodel": {
     "className": "Fan:SystemModel",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31659,6 +31952,7 @@ export const iddString = String.raw`{
   },
   "fan:constantvolume": {
     "className": "Fan:ConstantVolume",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31718,6 +32012,7 @@ export const iddString = String.raw`{
   },
   "fan:variablevolume": {
     "className": "Fan:VariableVolume",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31819,6 +32114,7 @@ export const iddString = String.raw`{
   },
   "fan:onoff": {
     "className": "Fan:OnOff",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31888,6 +32184,7 @@ export const iddString = String.raw`{
   },
   "fan:zoneexhaust": {
     "className": "Fan:ZoneExhaust",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -31956,6 +32253,7 @@ export const iddString = String.raw`{
   },
   "fanperformance:nightventilation": {
     "className": "FanPerformance:NightVentilation",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Fan_Name": {
         "name": "Fan Name",
@@ -31992,6 +32290,7 @@ export const iddString = String.raw`{
   },
   "fan:componentmodel": {
     "className": "Fan:ComponentModel",
+    "lastDefaultFieldIdx": 36,
     "fields": {
       "Name": {
         "name": "Name",
@@ -32190,6 +32489,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:water": {
     "className": "Coil:Cooling:Water",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -32289,6 +32589,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:water:detailedgeometry": {
     "className": "Coil:Cooling:Water:DetailedGeometry",
+    "lastDefaultFieldIdx": 24,
     "fields": {
       "Name": {
         "name": "Name",
@@ -32436,6 +32737,7 @@ export const iddString = String.raw`{
   },
   "coilsystem:cooling:water": {
     "className": "CoilSystem:Cooling:Water",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -32567,6 +32869,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:curvefit:performance": {
     "className": "Coil:Cooling:DX:CurveFit:Performance",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -32649,6 +32952,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:curvefit:operatingmode": {
     "className": "Coil:Cooling:DX:CurveFit:OperatingMode",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -32772,6 +33076,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:curvefit:speed": {
     "className": "Coil:Cooling:DX:CurveFit:Speed",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "Name": {
         "name": "Name",
@@ -32885,6 +33190,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:singlespeed": {
     "className": "Coil:Cooling:DX:SingleSpeed",
+    "lastDefaultFieldIdx": 35,
     "fields": {
       "Name": {
         "name": "Name",
@@ -33091,6 +33397,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:twospeed": {
     "className": "Coil:Cooling:DX:TwoSpeed",
+    "lastDefaultFieldIdx": 36,
     "fields": {
       "Name": {
         "name": "Name",
@@ -33323,6 +33630,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:multispeed": {
     "className": "Coil:Cooling:DX:MultiSpeed",
+    "lastDefaultFieldIdx": 96,
     "fields": {
       "Name": {
         "name": "Name",
@@ -33872,6 +34180,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:variablespeed": {
     "className": "Coil:Cooling:DX:VariableSpeed",
+    "lastDefaultFieldIdx": 138,
     "fields": {
       "Name": {
         "name": "Name",
@@ -34638,6 +34947,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:twostagewithhumiditycontrolmode": {
     "className": "Coil:Cooling:DX:TwoStageWithHumidityControlMode",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -34765,6 +35075,7 @@ export const iddString = String.raw`{
   },
   "coilperformance:dx:cooling": {
     "className": "CoilPerformance:DX:Cooling",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -34989,6 +35300,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:variablerefrigerantflow:fluidtemperaturecontrol": {
     "className": "Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -35040,6 +35352,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:dx:variablerefrigerantflow:fluidtemperaturecontrol": {
     "className": "Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -35081,6 +35394,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:water": {
     "className": "Coil:Heating:Water",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -35175,6 +35489,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:steam": {
     "className": "Coil:Heating:Steam",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -35236,6 +35551,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:electric": {
     "className": "Coil:Heating:Electric",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -35352,6 +35668,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:fuel": {
     "className": "Coil:Heating:Fuel",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -35569,6 +35886,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:dx:singlespeed": {
     "className": "Coil:Heating:DX:SingleSpeed",
+    "lastDefaultFieldIdx": 29,
     "fields": {
       "Name": {
         "name": "Name",
@@ -35751,6 +36069,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:dx:multispeed": {
     "className": "Coil:Heating:DX:MultiSpeed",
+    "lastDefaultFieldIdx": 84,
     "fields": {
       "Name": {
         "name": "Name",
@@ -36222,6 +36541,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:dx:variablespeed": {
     "className": "Coil:Heating:DX:VariableSpeed",
+    "lastDefaultFieldIdx": 104,
     "fields": {
       "Name": {
         "name": "Name",
@@ -36804,6 +37124,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:watertoairheatpump:parameterestimation": {
     "className": "Coil:Cooling:WaterToAirHeatPump:ParameterEstimation",
+    "lastDefaultFieldIdx": 30,
     "fields": {
       "Name": {
         "name": "Name",
@@ -36970,6 +37291,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:watertoairheatpump:parameterestimation": {
     "className": "Coil:Heating:WaterToAirHeatPump:ParameterEstimation",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -37101,6 +37423,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:watertoairheatpump:equationfit": {
     "className": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -37224,6 +37547,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:watertoairheatpump:variablespeedequationfit": {
     "className": "Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -37975,6 +38299,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:watertoairheatpump:equationfit": {
     "className": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -38058,6 +38383,7 @@ export const iddString = String.raw`{
   },
   "coil:heating:watertoairheatpump:variablespeedequationfit": {
     "className": "Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -38723,6 +39049,7 @@ export const iddString = String.raw`{
   },
   "coil:waterheating:airtowaterheatpump:pumped": {
     "className": "Coil:WaterHeating:AirToWaterHeatPump:Pumped",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -38886,6 +39213,7 @@ export const iddString = String.raw`{
   },
   "coil:waterheating:airtowaterheatpump:wrapped": {
     "className": "Coil:WaterHeating:AirToWaterHeatPump:Wrapped",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -39000,6 +39328,7 @@ export const iddString = String.raw`{
   },
   "coil:waterheating:airtowaterheatpump:variablespeed": {
     "className": "Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed",
+    "lastDefaultFieldIdx": 132,
     "fields": {
       "Name": {
         "name": "Name",
@@ -39747,6 +40076,7 @@ export const iddString = String.raw`{
   },
   "coil:waterheating:desuperheater": {
     "className": "Coil:WaterHeating:Desuperheater",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -39858,6 +40188,7 @@ export const iddString = String.raw`{
   },
   "coilsystem:cooling:dx": {
     "className": "CoilSystem:Cooling:DX",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -40013,6 +40344,7 @@ export const iddString = String.raw`{
   },
   "coilsystem:integratedheatpump:airsource": {
     "className": "CoilSystem:IntegratedHeatPump:AirSource",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -40128,6 +40460,7 @@ export const iddString = String.raw`{
   },
   "coil:cooling:dx:singlespeed:thermalstorage": {
     "className": "Coil:Cooling:DX:SingleSpeed:ThermalStorage",
+    "lastDefaultFieldIdx": 103,
     "fields": {
       "Name": {
         "name": "Name",
@@ -40686,6 +41019,7 @@ export const iddString = String.raw`{
   },
   "evaporativecooler:direct:celdekpad": {
     "className": "EvaporativeCooler:Direct:CelDekPad",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -40738,6 +41072,7 @@ export const iddString = String.raw`{
   },
   "evaporativecooler:indirect:celdekpad": {
     "className": "EvaporativeCooler:Indirect:CelDekPad",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -40885,6 +41220,7 @@ export const iddString = String.raw`{
   },
   "evaporativecooler:indirect:researchspecial": {
     "className": "EvaporativeCooler:Indirect:ResearchSpecial",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -41038,6 +41374,7 @@ export const iddString = String.raw`{
   },
   "evaporativecooler:direct:researchspecial": {
     "className": "EvaporativeCooler:Direct:ResearchSpecial",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -41181,6 +41518,7 @@ export const iddString = String.raw`{
   },
   "humidifier:steam:gas": {
     "className": "Humidifier:Steam:Gas",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -41379,6 +41717,7 @@ export const iddString = String.raw`{
   },
   "dehumidifier:desiccant:system": {
     "className": "Dehumidifier:Desiccant:System",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -41478,6 +41817,7 @@ export const iddString = String.raw`{
   },
   "heatexchanger:airtoair:flatplate": {
     "className": "HeatExchanger:AirToAir:FlatPlate",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -41560,6 +41900,7 @@ export const iddString = String.raw`{
   },
   "heatexchanger:airtoair:sensibleandlatent": {
     "className": "HeatExchanger:AirToAir:SensibleAndLatent",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -41696,6 +42037,7 @@ export const iddString = String.raw`{
   },
   "heatexchanger:desiccant:balancedflow": {
     "className": "HeatExchanger:Desiccant:BalancedFlow",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -41748,6 +42090,7 @@ export const iddString = String.raw`{
   },
   "heatexchanger:desiccant:balancedflow:performancedatatype1": {
     "className": "HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42014,6 +42357,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitarysystem": {
     "className": "AirLoopHVAC:UnitarySystem",
+    "lastDefaultFieldIdx": 44,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42276,6 +42620,7 @@ export const iddString = String.raw`{
   },
   "unitarysystemperformance:multispeed": {
     "className": "UnitarySystemPerformance:Multispeed",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42336,6 +42681,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitary:furnace:heatonly": {
     "className": "AirLoopHVAC:Unitary:Furnace:HeatOnly",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42408,6 +42754,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitary:furnace:heatcool": {
     "className": "AirLoopHVAC:Unitary:Furnace:HeatCool",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42516,6 +42863,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitaryheatonly": {
     "className": "AirLoopHVAC:UnitaryHeatOnly",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42588,6 +42936,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitaryheatcool": {
     "className": "AirLoopHVAC:UnitaryHeatCool",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42696,6 +43045,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitaryheatpump:airtoair": {
     "className": "AirLoopHVAC:UnitaryHeatPump:AirToAir",
+    "lastDefaultFieldIdx": 20,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42809,6 +43159,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitaryheatpump:watertoair": {
     "className": "AirLoopHVAC:UnitaryHeatPump:WaterToAir",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -42935,6 +43286,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitaryheatcool:vavchangeoverbypass": {
     "className": "AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass",
+    "lastDefaultFieldIdx": 28,
     "fields": {
       "Name": {
         "name": "Name",
@@ -43090,6 +43442,7 @@ export const iddString = String.raw`{
   },
   "airloophvac:unitaryheatpump:airtoair:multispeed": {
     "className": "AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -43276,6 +43629,7 @@ export const iddString = String.raw`{
   },
   "airconditioner:variablerefrigerantflow": {
     "className": "AirConditioner:VariableRefrigerantFlow",
+    "lastDefaultFieldIdx": 80,
     "fields": {
       "Heat_Pump_Name": {
         "name": "Heat Pump Name",
@@ -43722,6 +44076,7 @@ export const iddString = String.raw`{
   },
   "airconditioner:variablerefrigerantflow:fluidtemperaturecontrol": {
     "className": "AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl",
+    "lastDefaultFieldIdx": 40,
     "fields": {
       "Heat_Pump_Name": {
         "name": "Heat Pump Name",
@@ -44005,6 +44360,7 @@ export const iddString = String.raw`{
   },
   "airconditioner:variablerefrigerantflow:fluidtemperaturecontrol:hr": {
     "className": "AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR",
+    "lastDefaultFieldIdx": 57,
     "fields": {
       "Name": {
         "name": "Name",
@@ -44418,6 +44774,7 @@ export const iddString = String.raw`{
   },
   "controller:watercoil": {
     "className": "Controller:WaterCoil",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -44471,6 +44828,7 @@ export const iddString = String.raw`{
   },
   "controller:outdoorair": {
     "className": "Controller:OutdoorAir",
+    "lastDefaultFieldIdx": 26,
     "fields": {
       "Name": {
         "name": "Name",
@@ -44620,6 +44978,7 @@ export const iddString = String.raw`{
   },
   "controller:mechanicalventilation": {
     "className": "Controller:MechanicalVentilation",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -44781,6 +45140,7 @@ export const iddString = String.raw`{
   },
   "airloophvac": {
     "className": "AirLoopHVAC",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -45615,6 +45975,7 @@ export const iddString = String.raw`{
   },
   "outdoorair:node": {
     "className": "OutdoorAir:Node",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -45731,6 +46092,7 @@ export const iddString = String.raw`{
   },
   "pipe:indoor": {
     "className": "Pipe:Indoor",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -45882,6 +46244,7 @@ export const iddString = String.raw`{
   },
   "pipingsystem:underground:domain": {
     "className": "PipingSystem:Underground:Domain",
+    "lastDefaultFieldIdx": 28,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46067,6 +46430,7 @@ export const iddString = String.raw`{
   },
   "pipingsystem:underground:pipecircuit": {
     "className": "PipingSystem:Underground:PipeCircuit",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46208,6 +46572,7 @@ export const iddString = String.raw`{
   },
   "pump:variablespeed": {
     "className": "Pump:VariableSpeed",
+    "lastDefaultFieldIdx": 29,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46377,6 +46742,7 @@ export const iddString = String.raw`{
   },
   "pump:constantspeed": {
     "className": "Pump:ConstantSpeed",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46485,6 +46851,7 @@ export const iddString = String.raw`{
   },
   "pump:variablespeed:condensate": {
     "className": "Pump:VariableSpeed:Condensate",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46596,6 +46963,7 @@ export const iddString = String.raw`{
   },
   "headeredpumps:constantspeed": {
     "className": "HeaderedPumps:ConstantSpeed",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46700,6 +47068,7 @@ export const iddString = String.raw`{
   },
   "headeredpumps:variablespeed": {
     "className": "HeaderedPumps:VariableSpeed",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46869,6 +47238,7 @@ export const iddString = String.raw`{
   },
   "loadprofile:plant": {
     "className": "LoadProfile:Plant",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -46922,6 +47292,7 @@ export const iddString = String.raw`{
   },
   "solarcollectorperformance:flatplate": {
     "className": "SolarCollectorPerformance:FlatPlate",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47068,6 +47439,7 @@ export const iddString = String.raw`{
   },
   "solarcollectorperformance:photovoltaicthermal:simple": {
     "className": "SolarCollectorPerformance:PhotovoltaicThermal:Simple",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47104,6 +47476,7 @@ export const iddString = String.raw`{
   },
   "solarcollectorperformance:photovoltaicthermal:bipvt": {
     "className": "SolarCollectorPerformance:PhotovoltaicThermal:BIPVT",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47201,6 +47574,7 @@ export const iddString = String.raw`{
   },
   "solarcollector:integralcollectorstorage": {
     "className": "SolarCollector:IntegralCollectorStorage",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47247,6 +47621,7 @@ export const iddString = String.raw`{
   },
   "solarcollectorperformance:integralcollectorstorage": {
     "className": "SolarCollectorPerformance:IntegralCollectorStorage",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47363,6 +47738,7 @@ export const iddString = String.raw`{
   },
   "solarcollector:unglazedtranspired": {
     "className": "SolarCollector:UnglazedTranspired",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47559,6 +47935,7 @@ export const iddString = String.raw`{
   },
   "boiler:hotwater": {
     "className": "Boiler:HotWater",
+    "lastDefaultFieldIdx": 16,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47663,6 +48040,7 @@ export const iddString = String.raw`{
   },
   "boiler:steam": {
     "className": "Boiler:Steam",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47753,6 +48131,7 @@ export const iddString = String.raw`{
   },
   "chiller:electric:ashrae205": {
     "className": "Chiller:Electric:ASHRAE205",
+    "lastDefaultFieldIdx": 24,
     "fields": {
       "Name": {
         "name": "Name",
@@ -47890,6 +48269,7 @@ export const iddString = String.raw`{
   },
   "chiller:electric:eir": {
     "className": "Chiller:Electric:EIR",
+    "lastDefaultFieldIdx": 33,
     "fields": {
       "Name": {
         "name": "Name",
@@ -48081,6 +48461,7 @@ export const iddString = String.raw`{
   },
   "chiller:electric:reformulatedeir": {
     "className": "Chiller:Electric:ReformulatedEIR",
+    "lastDefaultFieldIdx": 29,
     "fields": {
       "Name": {
         "name": "Name",
@@ -48249,6 +48630,7 @@ export const iddString = String.raw`{
   },
   "chiller:electric": {
     "className": "Chiller:Electric",
+    "lastDefaultFieldIdx": 37,
     "fields": {
       "Name": {
         "name": "Name",
@@ -48451,6 +48833,7 @@ export const iddString = String.raw`{
   },
   "chiller:absorption:indirect": {
     "className": "Chiller:Absorption:Indirect",
+    "lastDefaultFieldIdx": 30,
     "fields": {
       "Name": {
         "name": "Name",
@@ -48622,6 +49005,7 @@ export const iddString = String.raw`{
   },
   "chiller:absorption": {
     "className": "Chiller:Absorption",
+    "lastDefaultFieldIdx": 26,
     "fields": {
       "Name": {
         "name": "Name",
@@ -48766,6 +49150,7 @@ export const iddString = String.raw`{
   },
   "chiller:constantcop": {
     "className": "Chiller:ConstantCOP",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -48851,6 +49236,7 @@ export const iddString = String.raw`{
   },
   "chiller:enginedriven": {
     "className": "Chiller:EngineDriven",
+    "lastDefaultFieldIdx": 44,
     "fields": {
       "Name": {
         "name": "Name",
@@ -49098,6 +49484,7 @@ export const iddString = String.raw`{
   },
   "chiller:combustionturbine": {
     "className": "Chiller:CombustionTurbine",
+    "lastDefaultFieldIdx": 61,
     "fields": {
       "Name": {
         "name": "Name",
@@ -49422,6 +49809,7 @@ export const iddString = String.raw`{
   },
   "chillerheater:absorption:directfired": {
     "className": "ChillerHeater:Absorption:DirectFired",
+    "lastDefaultFieldIdx": 33,
     "fields": {
       "Name": {
         "name": "Name",
@@ -49617,6 +50005,7 @@ export const iddString = String.raw`{
   },
   "chillerheater:absorption:doubleeffect": {
     "className": "ChillerHeater:Absorption:DoubleEffect",
+    "lastDefaultFieldIdx": 33,
     "fields": {
       "Name": {
         "name": "Name",
@@ -49810,6 +50199,7 @@ export const iddString = String.raw`{
   },
   "heatpump:plantloop:eir:cooling": {
     "className": "HeatPump:PlantLoop:EIR:Cooling",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -49936,6 +50326,7 @@ export const iddString = String.raw`{
   },
   "heatpump:plantloop:eir:heating": {
     "className": "HeatPump:PlantLoop:EIR:Heating",
+    "lastDefaultFieldIdx": 27,
     "fields": {
       "Name": {
         "name": "Name",
@@ -50116,6 +50507,7 @@ export const iddString = String.raw`{
   },
   "heatpump:airtowater:fuelfired:heating": {
     "className": "HeatPump:AirToWater:FuelFired:Heating",
+    "lastDefaultFieldIdx": 30,
     "fields": {
       "Name": {
         "name": "Name",
@@ -50292,6 +50684,7 @@ export const iddString = String.raw`{
   },
   "heatpump:airtowater:fuelfired:cooling": {
     "className": "HeatPump:AirToWater:FuelFired:Cooling",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Name": {
         "name": "Name",
@@ -50439,6 +50832,7 @@ export const iddString = String.raw`{
   },
   "heatpump:watertowater:equationfit:heating": {
     "className": "HeatPump:WaterToWater:EquationFit:Heating",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -50516,6 +50910,7 @@ export const iddString = String.raw`{
   },
   "heatpump:watertowater:equationfit:cooling": {
     "className": "HeatPump:WaterToWater:EquationFit:Cooling",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -50593,6 +50988,7 @@ export const iddString = String.raw`{
   },
   "heatpump:watertowater:parameterestimation:cooling": {
     "className": "HeatPump:WaterToWater:ParameterEstimation:Cooling",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -50710,6 +51106,7 @@ export const iddString = String.raw`{
   },
   "heatpump:watertowater:parameterestimation:heating": {
     "className": "HeatPump:WaterToWater:ParameterEstimation:Heating",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -50957,6 +51354,7 @@ export const iddString = String.raw`{
   },
   "centralheatpumpsystem": {
     "className": "CentralHeatPumpSystem",
+    "lastDefaultFieldIdx": 89,
     "fields": {
       "Name": {
         "name": "Name",
@@ -51434,6 +51832,7 @@ export const iddString = String.raw`{
   },
   "chillerheaterperformance:electric:eir": {
     "className": "ChillerHeaterPerformance:Electric:EIR",
+    "lastDefaultFieldIdx": 28,
     "fields": {
       "Name": {
         "name": "Name",
@@ -51602,6 +52001,7 @@ export const iddString = String.raw`{
   },
   "coolingtower:singlespeed": {
     "className": "CoolingTower:SingleSpeed",
+    "lastDefaultFieldIdx": 37,
     "fields": {
       "Name": {
         "name": "Name",
@@ -51822,6 +52222,7 @@ export const iddString = String.raw`{
   },
   "coolingtower:twospeed": {
     "className": "CoolingTower:TwoSpeed",
+    "lastDefaultFieldIdx": 44,
     "fields": {
       "Name": {
         "name": "Name",
@@ -52080,6 +52481,7 @@ export const iddString = String.raw`{
   },
   "coolingtower:variablespeed:merkel": {
     "className": "CoolingTower:VariableSpeed:Merkel",
+    "lastDefaultFieldIdx": 44,
     "fields": {
       "Name": {
         "name": "Name",
@@ -52338,6 +52740,7 @@ export const iddString = String.raw`{
   },
   "coolingtower:variablespeed": {
     "className": "CoolingTower:VariableSpeed",
+    "lastDefaultFieldIdx": 30,
     "fields": {
       "Name": {
         "name": "Name",
@@ -52932,6 +53335,7 @@ export const iddString = String.raw`{
   },
   "evaporativefluidcooler:singlespeed": {
     "className": "EvaporativeFluidCooler:SingleSpeed",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53069,6 +53473,7 @@ export const iddString = String.raw`{
   },
   "evaporativefluidcooler:twospeed": {
     "className": "EvaporativeFluidCooler:TwoSpeed",
+    "lastDefaultFieldIdx": 31,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53255,6 +53660,7 @@ export const iddString = String.raw`{
   },
   "fluidcooler:singlespeed": {
     "className": "FluidCooler:SingleSpeed",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53326,6 +53732,7 @@ export const iddString = String.raw`{
   },
   "fluidcooler:twospeed": {
     "className": "FluidCooler:TwoSpeed",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53441,6 +53848,7 @@ export const iddString = String.raw`{
   },
   "groundheatexchanger:system": {
     "className": "GroundHeatExchanger:System",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53580,6 +53988,7 @@ export const iddString = String.raw`{
   },
   "groundheatexchanger:responsefactors": {
     "className": "GroundHeatExchanger:ResponseFactors",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53694,6 +54103,7 @@ export const iddString = String.raw`{
   },
   "groundheatexchanger:surface": {
     "className": "GroundHeatExchanger:Surface",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53750,6 +54160,7 @@ export const iddString = String.raw`{
   },
   "groundheatexchanger:horizontaltrench": {
     "className": "GroundHeatExchanger:HorizontalTrench",
+    "lastDefaultFieldIdx": 20,
     "fields": {
       "Name": {
         "name": "Name",
@@ -53875,6 +54286,7 @@ export const iddString = String.raw`{
   },
   "groundheatexchanger:slinky": {
     "className": "GroundHeatExchanger:Slinky",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -54005,6 +54417,7 @@ export const iddString = String.raw`{
   },
   "heatexchanger:fluidtofluid": {
     "className": "HeatExchanger:FluidToFluid",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -54116,6 +54529,7 @@ export const iddString = String.raw`{
   },
   "waterheater:mixed": {
     "className": "WaterHeater:Mixed",
+    "lastDefaultFieldIdx": 41,
     "fields": {
       "Name": {
         "name": "Name",
@@ -54349,6 +54763,7 @@ export const iddString = String.raw`{
   },
   "waterheater:stratified": {
     "className": "WaterHeater:Stratified",
+    "lastDefaultFieldIdx": 65,
     "fields": {
       "Name": {
         "name": "Name",
@@ -54812,6 +55227,7 @@ export const iddString = String.raw`{
   },
   "waterheater:heatpump:pumpedcondenser": {
     "className": "WaterHeater:HeatPump:PumpedCondenser",
+    "lastDefaultFieldIdx": 37,
     "fields": {
       "Name": {
         "name": "Name",
@@ -55024,6 +55440,7 @@ export const iddString = String.raw`{
   },
   "waterheater:heatpump:wrappedcondenser": {
     "className": "WaterHeater:HeatPump:WrappedCondenser",
+    "lastDefaultFieldIdx": 36,
     "fields": {
       "Name": {
         "name": "Name",
@@ -55262,6 +55679,7 @@ export const iddString = String.raw`{
   },
   "thermalstorage:ice:detailed": {
     "className": "ThermalStorage:Ice:Detailed",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -55344,6 +55762,7 @@ export const iddString = String.raw`{
   },
   "thermalstorage:chilledwater:mixed": {
     "className": "ThermalStorage:ChilledWater:Mixed",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -55466,6 +55885,7 @@ export const iddString = String.raw`{
   },
   "thermalstorage:chilledwater:stratified": {
     "className": "ThermalStorage:ChilledWater:Stratified",
+    "lastDefaultFieldIdx": 42,
     "fields": {
       "Name": {
         "name": "Name",
@@ -55710,6 +56130,7 @@ export const iddString = String.raw`{
   },
   "plantloop": {
     "className": "PlantLoop",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -55843,6 +56264,7 @@ export const iddString = String.raw`{
   },
   "condenserloop": {
     "className": "CondenserLoop",
+    "lastDefaultFieldIdx": 20,
     "fields": {
       "Name": {
         "name": "Name",
@@ -58145,6 +58567,7 @@ export const iddString = String.raw`{
   },
   "plantequipmentoperation:chillerheaterchangeover": {
     "className": "PlantEquipmentOperation:ChillerHeaterChangeover",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -58888,6 +59311,7 @@ export const iddString = String.raw`{
   },
   "externalinterface:functionalmockupunitimport": {
     "className": "ExternalInterface:FunctionalMockupUnitImport",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "FMU_File_Name": {
         "name": "FMU File Name",
@@ -59725,6 +60149,7 @@ export const iddString = String.raw`{
   },
   "availabilitymanager:optimumstart": {
     "className": "AvailabilityManager:OptimumStart",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -59804,6 +60229,7 @@ export const iddString = String.raw`{
   },
   "availabilitymanager:nightcycle": {
     "className": "AvailabilityManager:NightCycle",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -59983,6 +60409,7 @@ export const iddString = String.raw`{
   },
   "availabilitymanager:nightventilation": {
     "className": "AvailabilityManager:NightVentilation",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60031,6 +60458,7 @@ export const iddString = String.raw`{
   },
   "availabilitymanager:hybridventilation": {
     "className": "AvailabilityManager:HybridVentilation",
+    "lastDefaultFieldIdx": 18,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60202,6 +60630,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:scheduled:dualsetpoint": {
     "className": "SetpointManager:Scheduled:DualSetpoint",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60233,6 +60662,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:outdoorairreset": {
     "className": "SetpointManager:OutdoorAirReset",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60299,6 +60729,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:singlezone:reheat": {
     "className": "SetpointManager:SingleZone:Reheat",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60347,6 +60778,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:singlezone:heating": {
     "className": "SetpointManager:SingleZone:Heating",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60395,6 +60827,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:singlezone:cooling": {
     "className": "SetpointManager:SingleZone:Cooling",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60483,6 +60916,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:mixedair": {
     "className": "SetpointManager:MixedAir",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60535,6 +60969,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:outdoorairpretreat": {
     "className": "SetpointManager:OutdoorAirPretreat",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60599,6 +61034,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:warmest": {
     "className": "SetpointManager:Warmest",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60643,6 +61079,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:coldest": {
     "className": "SetpointManager:Coldest",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60687,6 +61124,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:returnairbypassflow": {
     "className": "SetpointManager:ReturnAirBypassFlow",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60713,6 +61151,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:warmesttemperatureflow": {
     "className": "SetpointManager:WarmestTemperatureFlow",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60762,6 +61201,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:multizone:heating:average": {
     "className": "SetpointManager:MultiZone:Heating:Average",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60794,6 +61234,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:multizone:cooling:average": {
     "className": "SetpointManager:MultiZone:Cooling:Average",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60826,6 +61267,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:multizone:minimumhumidity:average": {
     "className": "SetpointManager:MultiZone:MinimumHumidity:Average",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60858,6 +61300,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:multizone:maximumhumidity:average": {
     "className": "SetpointManager:MultiZone:MaximumHumidity:Average",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60890,6 +61333,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:multizone:humidity:minimum": {
     "className": "SetpointManager:MultiZone:Humidity:Minimum",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60922,6 +61366,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:multizone:humidity:maximum": {
     "className": "SetpointManager:MultiZone:Humidity:Maximum",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60954,6 +61399,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:followoutdoorairtemperature": {
     "className": "SetpointManager:FollowOutdoorAirTemperature",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -60996,6 +61442,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:followsystemnodetemperature": {
     "className": "SetpointManager:FollowSystemNodeTemperature",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61043,6 +61490,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:followgroundtemperature": {
     "className": "SetpointManager:FollowGroundTemperature",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61084,6 +61532,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:condenserenteringreset": {
     "className": "SetpointManager:CondenserEnteringReset",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61143,6 +61592,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:condenserenteringreset:ideal": {
     "className": "SetpointManager:CondenserEnteringReset:Ideal",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61176,6 +61626,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:singlezone:onestagecooling": {
     "className": "SetpointManager:SingleZone:OneStageCooling",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61208,6 +61659,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:singlezone:onestageheating": {
     "className": "SetpointManager:SingleZone:OneStageHeating",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61240,6 +61692,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:returntemperature:chilledwater": {
     "className": "SetpointManager:ReturnTemperature:ChilledWater",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61288,6 +61741,7 @@ export const iddString = String.raw`{
   },
   "setpointmanager:returntemperature:hotwater": {
     "className": "SetpointManager:ReturnTemperature:HotWater",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61426,6 +61880,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:case": {
     "className": "Refrigeration:Case",
+    "lastDefaultFieldIdx": 34,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61634,6 +62089,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:compressorrack": {
     "className": "Refrigeration:CompressorRack",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61810,6 +62266,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:condenser:aircooled": {
     "className": "Refrigeration:Condenser:AirCooled",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -61878,6 +62335,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:condenser:evaporativecooled": {
     "className": "Refrigeration:Condenser:EvaporativeCooled",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62015,6 +62473,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:condenser:watercooled": {
     "className": "Refrigeration:Condenser:WaterCooled",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62110,6 +62569,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:condenser:cascade": {
     "className": "Refrigeration:Condenser:Cascade",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62157,6 +62617,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:gascooler:aircooled": {
     "className": "Refrigeration:GasCooler:AirCooled",
+    "lastDefaultFieldIdx": 13,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62271,6 +62732,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:subcooler": {
     "className": "Refrigeration:Subcooler",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62312,6 +62774,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:compressor": {
     "className": "Refrigeration:Compressor",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62402,6 +62865,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:system": {
     "className": "Refrigeration:System",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62498,6 +62962,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:transcriticalsystem": {
     "className": "Refrigeration:TranscriticalSystem",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62583,6 +63048,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:secondarysystem": {
     "className": "Refrigeration:SecondarySystem",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62711,6 +63177,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:walkin": {
     "className": "Refrigeration:WalkIn",
+    "lastDefaultFieldIdx": 32,
     "fields": {
       "Name": {
         "name": "Name",
@@ -62963,6 +63430,7 @@ export const iddString = String.raw`{
   },
   "refrigeration:airchiller": {
     "className": "Refrigeration:AirChiller",
+    "lastDefaultFieldIdx": 27,
     "fields": {
       "Name": {
         "name": "Name",
@@ -63497,6 +63965,7 @@ export const iddString = String.raw`{
   },
   "demandmanager:ventilation": {
     "className": "DemandManager:Ventilation",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -63566,6 +64035,7 @@ export const iddString = String.raw`{
   },
   "generator:internalcombustionengine": {
     "className": "Generator:InternalCombustionEngine",
+    "lastDefaultFieldIdx": 20,
     "fields": {
       "Name": {
         "name": "Name",
@@ -63679,6 +64149,7 @@ export const iddString = String.raw`{
   },
   "generator:combustionturbine": {
     "className": "Generator:CombustionTurbine",
+    "lastDefaultFieldIdx": 22,
     "fields": {
       "Name": {
         "name": "Name",
@@ -63807,6 +64278,7 @@ export const iddString = String.raw`{
   },
   "generator:microturbine": {
     "className": "Generator:MicroTurbine",
+    "lastDefaultFieldIdx": 29,
     "fields": {
       "Name": {
         "name": "Name",
@@ -64020,6 +64492,7 @@ export const iddString = String.raw`{
   },
   "generator:photovoltaic": {
     "className": "Generator:Photovoltaic",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -64093,6 +64566,7 @@ export const iddString = String.raw`{
   },
   "photovoltaicperformance:equivalentone-diode": {
     "className": "PhotovoltaicPerformance:EquivalentOne-Diode",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -64216,6 +64690,7 @@ export const iddString = String.raw`{
   },
   "photovoltaicperformance:sandia": {
     "className": "PhotovoltaicPerformance:Sandia",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -64424,6 +64899,7 @@ export const iddString = String.raw`{
   },
   "generator:pvwatts": {
     "className": "Generator:PVWatts",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -64489,6 +64965,7 @@ export const iddString = String.raw`{
   },
   "electricloadcenter:inverter:pvwatts": {
     "className": "ElectricLoadCenter:Inverter:PVWatts",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -65614,6 +66091,7 @@ export const iddString = String.raw`{
   },
   "generator:windturbine": {
     "className": "Generator:WindTurbine",
+    "lastDefaultFieldIdx": 25,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66047,6 +66525,7 @@ export const iddString = String.raw`{
   },
   "electricloadcenter:storage:battery": {
     "className": "ElectricLoadCenter:Storage:Battery",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66164,6 +66643,7 @@ export const iddString = String.raw`{
   },
   "electricloadcenter:storage:liionnmcbattery": {
     "className": "ElectricLoadCenter:Storage:LiIonNMCBattery",
+    "lastDefaultFieldIdx": 21,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66294,6 +66774,7 @@ export const iddString = String.raw`{
   },
   "electricloadcenter:transformer": {
     "className": "ElectricLoadCenter:Transformer",
+    "lastDefaultFieldIdx": 17,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66418,6 +66899,7 @@ export const iddString = String.raw`{
   },
   "electricloadcenter:distribution": {
     "className": "ElectricLoadCenter:Distribution",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66532,6 +67014,7 @@ export const iddString = String.raw`{
   },
   "electricloadcenter:storage:converter": {
     "className": "ElectricLoadCenter:Storage:Converter",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66584,6 +67067,7 @@ export const iddString = String.raw`{
   },
   "wateruse:equipment": {
     "className": "WaterUse:Equipment",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66640,6 +67124,7 @@ export const iddString = String.raw`{
   },
   "wateruse:connections": {
     "className": "WaterUse:Connections",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66938,6 +67423,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:temperaturesensoroffset:outdoorair": {
     "className": "FaultModel:TemperatureSensorOffset:OutdoorAir",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -66974,6 +67460,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:humiditysensoroffset:outdoorair": {
     "className": "FaultModel:HumiditySensorOffset:OutdoorAir",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67010,6 +67497,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:enthalpysensoroffset:outdoorair": {
     "className": "FaultModel:EnthalpySensorOffset:OutdoorAir",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67046,6 +67534,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:temperaturesensoroffset:returnair": {
     "className": "FaultModel:TemperatureSensorOffset:ReturnAir",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67082,6 +67571,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:enthalpysensoroffset:returnair": {
     "className": "FaultModel:EnthalpySensorOffset:ReturnAir",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67118,6 +67608,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:temperaturesensoroffset:chillersupplywater": {
     "className": "FaultModel:TemperatureSensorOffset:ChillerSupplyWater",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67154,6 +67645,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:temperaturesensoroffset:coilsupplyair": {
     "className": "FaultModel:TemperatureSensorOffset:CoilSupplyAir",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67195,6 +67687,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:temperaturesensoroffset:condensersupplywater": {
     "className": "FaultModel:TemperatureSensorOffset:CondenserSupplyWater",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67231,6 +67724,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:thermostatoffset": {
     "className": "FaultModel:ThermostatOffset",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67262,6 +67756,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:humidistatoffset": {
     "className": "FaultModel:HumidistatOffset",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67339,6 +67834,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:fouling:boiler": {
     "className": "FaultModel:Fouling:Boiler",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67375,6 +67871,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:fouling:evaporativecooler": {
     "className": "FaultModel:Fouling:EvaporativeCooler",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67411,6 +67908,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:fouling:chiller": {
     "className": "FaultModel:Fouling:Chiller",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67482,6 +67980,7 @@ export const iddString = String.raw`{
   },
   "faultmodel:fouling:coil": {
     "className": "FaultModel:Fouling:Coil",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67579,6 +68078,7 @@ export const iddString = String.raw`{
   },
   "hybridmodel:zone": {
     "className": "HybridModel:Zone",
+    "lastDefaultFieldIdx": 4,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67687,6 +68187,7 @@ export const iddString = String.raw`{
   },
   "curve:linear": {
     "className": "Curve:Linear",
+    "lastDefaultFieldIdx": 8,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67739,6 +68240,7 @@ export const iddString = String.raw`{
   },
   "curve:quadlinear": {
     "className": "Curve:QuadLinear",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67848,6 +68350,7 @@ export const iddString = String.raw`{
   },
   "curve:quintlinear": {
     "className": "Curve:QuintLinear",
+    "lastDefaultFieldIdx": 23,
     "fields": {
       "Name": {
         "name": "Name",
@@ -67978,6 +68481,7 @@ export const iddString = String.raw`{
   },
   "curve:quadratic": {
     "className": "Curve:Quadratic",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68035,6 +68539,7 @@ export const iddString = String.raw`{
   },
   "curve:cubic": {
     "className": "Curve:Cubic",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68097,6 +68602,7 @@ export const iddString = String.raw`{
   },
   "curve:quartic": {
     "className": "Curve:Quartic",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68164,6 +68670,7 @@ export const iddString = String.raw`{
   },
   "curve:exponent": {
     "className": "Curve:Exponent",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68221,6 +68728,7 @@ export const iddString = String.raw`{
   },
   "curve:bicubic": {
     "className": "Curve:Bicubic",
+    "lastDefaultFieldIdx": 19,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68329,6 +68837,7 @@ export const iddString = String.raw`{
   },
   "curve:biquadratic": {
     "className": "Curve:Biquadratic",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68417,6 +68926,7 @@ export const iddString = String.raw`{
   },
   "curve:quadraticlinear": {
     "className": "Curve:QuadraticLinear",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68505,6 +69015,7 @@ export const iddString = String.raw`{
   },
   "curve:cubiclinear": {
     "className": "Curve:CubicLinear",
+    "lastDefaultFieldIdx": 15,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68593,6 +69104,7 @@ export const iddString = String.raw`{
   },
   "curve:triquadratic": {
     "className": "Curve:Triquadratic",
+    "lastDefaultFieldIdx": 39,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68897,6 +69409,7 @@ export const iddString = String.raw`{
   },
   "curve:exponentialskewnormal": {
     "className": "Curve:ExponentialSkewNormal",
+    "lastDefaultFieldIdx": 10,
     "fields": {
       "Name": {
         "name": "Name",
@@ -68959,6 +69472,7 @@ export const iddString = String.raw`{
   },
   "curve:sigmoid": {
     "className": "Curve:Sigmoid",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -69026,6 +69540,7 @@ export const iddString = String.raw`{
   },
   "curve:rectangularhyperbola1": {
     "className": "Curve:RectangularHyperbola1",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -69083,6 +69598,7 @@ export const iddString = String.raw`{
   },
   "curve:rectangularhyperbola2": {
     "className": "Curve:RectangularHyperbola2",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -69140,6 +69656,7 @@ export const iddString = String.raw`{
   },
   "curve:exponentialdecay": {
     "className": "Curve:ExponentialDecay",
+    "lastDefaultFieldIdx": 9,
     "fields": {
       "Name": {
         "name": "Name",
@@ -69197,6 +69714,7 @@ export const iddString = String.raw`{
   },
   "curve:doubleexponentialdecay": {
     "className": "Curve:DoubleExponentialDecay",
+    "lastDefaultFieldIdx": 11,
     "fields": {
       "Name": {
         "name": "Name",
@@ -69264,6 +69782,7 @@ export const iddString = String.raw`{
   },
   "curve:chillerpartloadwithlift": {
     "className": "Curve:ChillerPartLoadWithLift",
+    "lastDefaultFieldIdx": 24,
     "fields": {
       "Name": {
         "name": "Name",
@@ -69398,6 +69917,7 @@ export const iddString = String.raw`{
   },
   "table:independentvariable": {
     "className": "Table:IndependentVariable",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -69502,6 +70022,7 @@ export const iddString = String.raw`{
   },
   "table:lookup": {
     "className": "Table:Lookup",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Name": {
         "name": "Name",
@@ -74868,6 +75389,7 @@ export const iddString = String.raw`{
   },
   "utilitycost:tariff": {
     "className": "UtilityCost:Tariff",
+    "lastDefaultFieldIdx": 14,
     "fields": {
       "Name": {
         "name": "Name",
@@ -74949,6 +75471,7 @@ export const iddString = String.raw`{
   },
   "utilitycost:qualify": {
     "className": "UtilityCost:Qualify",
+    "lastDefaultFieldIdx": 6,
     "fields": {
       "Utility_Cost_Qualify_Name": {
         "name": "Utility Cost Qualify Name",
@@ -75031,6 +75554,7 @@ export const iddString = String.raw`{
   },
   "utilitycost:charge:block": {
     "className": "UtilityCost:Charge:Block",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Utility_Cost_Charge_Block_Name": {
         "name": "Utility Cost Charge Block Name",
@@ -75267,6 +75791,7 @@ export const iddString = String.raw`{
   },
   "utilitycost:variable": {
     "className": "UtilityCost:Variable",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Name": {
         "name": "Name",
@@ -75513,6 +76038,7 @@ export const iddString = String.raw`{
   },
   "lifecyclecost:parameters": {
     "className": "LifeCycleCost:Parameters",
+    "lastDefaultFieldIdx": 12,
     "fields": {
       "Name": {
         "name": "Name",
@@ -75588,6 +76114,7 @@ export const iddString = String.raw`{
   },
   "lifecyclecost:recurringcosts": {
     "className": "LifeCycleCost:RecurringCosts",
+    "lastDefaultFieldIdx": 7,
     "fields": {
       "Name": {
         "name": "Name",
@@ -75642,6 +76169,7 @@ export const iddString = String.raw`{
   },
   "lifecyclecost:nonrecurringcost": {
     "className": "LifeCycleCost:NonrecurringCost",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -75679,6 +76207,7 @@ export const iddString = String.raw`{
   },
   "lifecyclecost:usepriceescalation": {
     "className": "LifeCycleCost:UsePriceEscalation",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "LCC_Price_Escalation_Name": {
         "name": "LCC Price Escalation Name",
@@ -75812,6 +76341,7 @@ export const iddString = String.raw`{
   },
   "parametric:runcontrol": {
     "className": "Parametric:RunControl",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -75869,6 +76399,7 @@ export const iddString = String.raw`{
   },
   "output:variabledictionary": {
     "className": "Output:VariableDictionary",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Key_Field": {
         "name": "Key Field",
@@ -75900,6 +76431,7 @@ export const iddString = String.raw`{
   },
   "output:surfaces:drawing": {
     "className": "Output:Surfaces:Drawing",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Report_Type": {
         "name": "Report Type",
@@ -75946,6 +76478,7 @@ export const iddString = String.raw`{
   },
   "output:energymanagementsystem": {
     "className": "Output:EnergyManagementSystem",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Actuator_Availability_Dictionary_Reporting": {
         "name": "Actuator Availability Dictionary Reporting",
@@ -76152,6 +76685,7 @@ export const iddString = String.raw`{
   },
   "output:table:timebins": {
     "className": "Output:Table:TimeBins",
+    "lastDefaultFieldIdx": 0,
     "fields": {
       "Key_Value": {
         "name": "Key Value",
@@ -76193,6 +76727,7 @@ export const iddString = String.raw`{
   },
   "output:table:monthly": {
     "className": "Output:Table:Monthly",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",
@@ -76237,6 +76772,7 @@ export const iddString = String.raw`{
   },
   "output:table:annual": {
     "className": "Output:Table:Annual",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "Name": {
         "name": "Name",
@@ -76351,6 +76887,7 @@ export const iddString = String.raw`{
   },
   "outputcontrol:table:style": {
     "className": "OutputControl:Table:Style",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Column_Separator": {
         "name": "Column Separator",
@@ -76368,6 +76905,7 @@ export const iddString = String.raw`{
   },
   "outputcontrol:reportingtolerances": {
     "className": "OutputControl:ReportingTolerances",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Tolerance_for_Time_Heating_Setpoint_Not_Met": {
         "name": "Tolerance for Time Heating Setpoint Not Met",
@@ -76385,6 +76923,7 @@ export const iddString = String.raw`{
   },
   "output:variable": {
     "className": "Output:Variable",
+    "lastDefaultFieldIdx": 2,
     "fields": {
       "Key_Value": {
         "name": "Key Value",
@@ -76412,6 +76951,7 @@ export const iddString = String.raw`{
   },
   "output:meter": {
     "className": "Output:Meter",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Key_Name": {
         "name": "Key Name",
@@ -76428,6 +76968,7 @@ export const iddString = String.raw`{
   },
   "output:meter:meterfileonly": {
     "className": "Output:Meter:MeterFileOnly",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Key_Name": {
         "name": "Key Name",
@@ -76444,6 +76985,7 @@ export const iddString = String.raw`{
   },
   "output:meter:cumulative": {
     "className": "Output:Meter:Cumulative",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Key_Name": {
         "name": "Key Name",
@@ -76460,6 +77002,7 @@ export const iddString = String.raw`{
   },
   "output:meter:cumulative:meterfileonly": {
     "className": "Output:Meter:Cumulative:MeterFileOnly",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Key_Name": {
         "name": "Key Name",
@@ -76567,6 +77110,7 @@ export const iddString = String.raw`{
   },
   "outputcontrol:files": {
     "className": "OutputControl:Files",
+    "lastDefaultFieldIdx": 30,
     "fields": {
       "Output_CSV": {
         "name": "Output CSV",
@@ -76758,6 +77302,7 @@ export const iddString = String.raw`{
   },
   "outputcontrol:timestamp": {
     "className": "OutputControl:Timestamp",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "ISO_8601_Format": {
         "name": "ISO 8601 Format",
@@ -76775,6 +77320,7 @@ export const iddString = String.raw`{
   },
   "output:json": {
     "className": "Output:JSON",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Option_Type": {
         "name": "Option Type",
@@ -76803,6 +77349,7 @@ export const iddString = String.raw`{
   },
   "output:sqlite": {
     "className": "Output:SQLite",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Option_Type": {
         "name": "Option Type",
@@ -76829,6 +77376,7 @@ export const iddString = String.raw`{
   },
   "environmentalimpactfactors": {
     "className": "EnvironmentalImpactFactors",
+    "lastDefaultFieldIdx": 5,
     "fields": {
       "District_Heating_Water_Efficiency": {
         "name": "District Heating Water Efficiency",
@@ -77073,6 +77621,7 @@ export const iddString = String.raw`{
   },
   "output:debuggingdata": {
     "className": "Output:DebuggingData",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Report_Debugging_Data": {
         "name": "Report Debugging Data",
@@ -77155,6 +77704,7 @@ export const iddString = String.raw`{
   },
   "pythonplugin:searchpaths": {
     "className": "PythonPlugin:SearchPaths",
+    "lastDefaultFieldIdx": 3,
     "fields": {
       "Name": {
         "name": "Name",
@@ -77201,6 +77751,7 @@ export const iddString = String.raw`{
   },
   "pythonplugin:instance": {
     "className": "PythonPlugin:Instance",
+    "lastDefaultFieldIdx": 1,
     "fields": {
       "Name": {
         "name": "Name",

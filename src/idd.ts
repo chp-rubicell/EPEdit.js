@@ -17,6 +17,7 @@ type extensibleFieldName = [string, string]; // prefix, suffix -> (prefix)(n)(su
 export interface classProps {
   className: string;
   fields: Record<string, fieldProps>; // fieldKey: fieldProps (excluding extensibles)
+  lastDefaultFieldIdx?: number; // index of the last default field
   extensible?: {
     startIdx: number; // start index of the extensible fields
     size: number; // size of the extensible fields
@@ -66,6 +67,8 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
   //? create classProps instance for this class
   let classProp: classProps = {
     className: className,
+    // only add lastDefaultFieldIdx if the class have a field with a default value
+    ...(classString.match(/\\default /) && {lastDefaultFieldIdx: -1}),
     fields: {}
   };
 
@@ -89,8 +92,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     if (
       classProp.extensible
       && classProp.extensible.startIdx >= 0
-      && fieldIdx >= (classProp.extensible.startIdx
-        + classProp.extensible.size)
+      && fieldIdx >= classProp.extensible.startIdx + classProp.extensible.size
     ) break;
     const fieldString: string = fieldMatch[0];
 
@@ -140,6 +142,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     //? default value
     const defaultValueMatch = fieldString.match(/\\default (.+)(?:\r\n|\r|\n)/);
     if (defaultValueMatch) {
+      classProp.lastDefaultFieldIdx = fieldIdx;
       let defaultValue = defaultValueMatch[1] as IDFFieldValueStrict;
       if (typeof defaultValue === 'string'
         && (defaultValue.toLowerCase() == 'autosize'
