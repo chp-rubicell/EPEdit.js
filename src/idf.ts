@@ -53,7 +53,10 @@ class IDFObject {
         }
         else {
           // has default value
-          return [fieldKey, fieldProp.default ?? null];
+          return [
+            fieldKey,
+            ignoreDefaults ? null : fieldProp.default ?? null // use null when defaults are ignored
+          ];
         }
       })
     );
