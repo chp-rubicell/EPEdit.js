@@ -4,16 +4,17 @@ type IDFFieldValue = string | number | null;
 
 /** Generate IDD from schema.epJSON */
 
-interface fieldProps {
+interface FieldProps {
     name: string;
     type: IDFFieldType;
     units: string | null;
     default?: IDFFieldValueStrict;
 }
 type extensibleFieldName = [string, string];
-interface classProps {
+interface ClassProps {
     className: string;
-    fields: Record<string, fieldProps>;
+    fields: Record<string, FieldProps>;
+    lastDefaultFieldIdx?: number;
     extensible?: {
         startIdx: number;
         size: number;
@@ -21,7 +22,7 @@ interface classProps {
         fieldNames: extensibleFieldName[];
     };
 }
-type IDD = Record<string, classProps>;
+type IDD = Record<string, ClassProps>;
 declare class IDDManager {
     private iddCache;
     iddDir: string;
@@ -50,7 +51,7 @@ declare class IDFObject {
     className: string;
     name: string | null;
     fields: IDFFields;
-    constructor(idfClass: IDFClass, fields: IDFFields);
+    constructor(idfClass: IDFClass, fields: IDFFields, ignoreDefaults?: boolean);
     /**
      * Get the value of a field in an IDFObject.
      * @param fieldName Name of the field to edit (case insensitive).
@@ -66,7 +67,7 @@ declare class IDFObject {
     toString(classIndentSize?: number, fieldIndentSize?: number, fieldSize?: number): string;
 }
 declare class IDFClass {
-    readonly classIDD: classProps;
+    readonly classIDD: ClassProps;
     readonly name: string;
     idfObjects: IDFObject[];
     readonly fieldKeys: string[];
@@ -75,7 +76,7 @@ declare class IDFClass {
     readonly hasExtensible: boolean;
     readonly extensibleStartIdx: number;
     readonly extensibleSize: number;
-    constructor(classIDD: classProps);
+    constructor(classIDD: ClassProps);
     getFieldIdxByKey(fieldKey: string): number;
     /**
      * Get the biggest index in an array of fieldKeys
@@ -86,9 +87,10 @@ declare class IDFClass {
     /**
      * Get the biggest index in IDFFields
      * @param fields IDFFields of fieldKey: fieldVal
+     * @param ignoreDefaults whether to ignore default values
      * @returns [lastFieldIdx, lastFieldKey]
      */
-    getLastFieldIdxAndKeyFromFields(fields: IDFFields): [number, string];
+    getLastFieldIdxAndKeyFromFields(fields: IDFFields, ignoreDefaults?: boolean): [number, string];
     getFieldNameByIdx(fieldIdx: number): string;
     /**
      * Create an array of field key in one loop.
@@ -101,8 +103,8 @@ declare class IDFClass {
      * @param length Desired length of the field key array.
      * @returns
      */
-    getFieldProps(length: number): Record<string, fieldProps>;
-    getFieldPropByIdx(fieldIdx: number): fieldProps;
+    getFieldProps(length: number): Record<string, FieldProps>;
+    getFieldPropByIdx(fieldIdx: number): FieldProps;
     getFieldNameByKey(fieldKey: string): void;
     getObjectsFields(re?: RegExp | undefined): IDFFields[];
 }
@@ -122,8 +124,9 @@ declare class IDF {
      * Adds a new IDF object for the given IDF class based on the given fields.
      * @param className IDF class name (case insensitive).
      * @param fields fieldKeys and values for creating IDF objects
+     * @param ignoreDefaults whether to ignore default values
      */
-    newObject(className: string, fields: IDFFields): void;
+    newObject(className: string, fields: IDFFields, ignoreDefaults?: boolean): void;
     getObjects(className: string, re?: RegExp | undefined): IDFFields[];
     toString(classIndentSize?: number, fieldIndentSize?: number, fieldSize?: number): string;
 }

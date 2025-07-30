@@ -28,6 +28,28 @@ function typeCastFieldValue(fieldType, value, className, fieldName) {
   }
   return value;
 }
+function alternateMerge(arr1, arr2) {
+  const result = [];
+  const maxLength = Math.max(arr1.length, arr2.length);
+  for (let i = 0; i < maxLength; i++) {
+    if (i < arr1.length) {
+      result.push(arr1[i]);
+    }
+    if (i < arr2.length) {
+      result.push(arr2[i]);
+    }
+  }
+  return result;
+}
+function toTitleCase(str, re = /[ ]/) {
+  if (!str) {
+    return "";
+  }
+  re = new RegExp(re.source, "g");
+  const separators = str.match(re) ?? [];
+  const words = str.toLowerCase().split(re).map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+  return alternateMerge(words, separators).join("");
+}
 
 // src/idd.ts
 var IDDManager = class {
@@ -71,7 +93,7 @@ var IDDManager = class {
 
 // src/idf.ts
 var IDFObject = class {
-  constructor(idfClass, fields) {
+  constructor(idfClass, fields, ignoreDefaults = false) {
     this.class = idfClass;
     this.className = idfClass.name;
     if (idfClass.hasNameField) {
@@ -80,23 +102,27 @@ var IDFObject = class {
       this.name = null;
     }
     fields = renameFieldNamesToKeys(fields);
-    const [lastFieldIdx, _] = idfClass.getLastFieldIdxAndKeyFromFields(fields);
-    const fieldProps2 = idfClass.getFieldProps(lastFieldIdx + 1);
+    const [lastFieldIdx, _] = idfClass.getLastFieldIdxAndKeyFromFields(fields, ignoreDefaults);
+    const fieldProps = idfClass.getFieldProps(lastFieldIdx + 1);
     this.fields = Object.fromEntries(
-      Object.entries(fieldProps2).filter(([fieldKey, fieldProp]) => {
+      Object.entries(fieldProps).filter(([fieldKey, fieldProp]) => {
         return fieldKey in fields || "default" in fieldProp;
       }).map(([fieldKey, fieldProp]) => {
         if (fieldKey in fields) {
           let fieldVal = fields[fieldKey];
           const fieldType = fieldProp.type;
           if (typeof fieldVal === "string" && (fieldVal.toLowerCase() == "autosize" || fieldVal.toLowerCase() == "autocalculate")) {
-            fieldVal = fieldVal.toLowerCase();
+            fieldVal = toTitleCase(fieldVal);
           } else if (fieldVal !== null) {
             fieldVal = typeCastFieldValue(fieldType, fieldVal, this.className, fieldKey);
           }
           return [fieldKey, fieldVal];
         } else {
-          return [fieldKey, fieldProp.default ?? null];
+          return [
+            fieldKey,
+            ignoreDefaults ? null : fieldProp.default ?? null
+            // use null when defaults are ignored
+          ];
         }
       })
     );
@@ -121,13 +147,13 @@ var IDFObject = class {
     const classIndent = " ".repeat(Math.floor(classIndentSize));
     const fieldIndent = " ".repeat(Math.floor(fieldIndentSize));
     let outputString = "";
-    const [lastFieldIndex, lastFieldKey] = this.class.getLastFieldIdxAndKeyFromFields(this.fields);
+    const [lastFieldIndex, lastFieldKey] = this.class.getLastFieldIdxAndKeyFromFields(this.fields, true);
     if (lastFieldIndex < 0) return "";
     outputString += `
 ${classIndent}${this.className}
 `;
-    const fieldProps2 = this.class.getFieldProps(lastFieldIndex + 1);
-    for (const [fieldKey, fieldProp] of Object.entries(fieldProps2)) {
+    const fieldProps = this.class.getFieldProps(lastFieldIndex + 1);
+    for (const [fieldKey, fieldProp] of Object.entries(fieldProps)) {
       const fieldName = fieldProp.name;
       const fieldVal = String(this.fields[fieldKey] ?? "");
       const fieldPaddingLength = fieldSize - String(fieldVal).length;
@@ -200,9 +226,10 @@ var IDFClass = class {
   /**
    * Get the biggest index in IDFFields
    * @param fields IDFFields of fieldKey: fieldVal
+   * @param ignoreDefaults whether to ignore default values
    * @returns [lastFieldIdx, lastFieldKey]
    */
-  getLastFieldIdxAndKeyFromFields(fields) {
+  getLastFieldIdxAndKeyFromFields(fields, ignoreDefaults = false) {
     let lastFieldIdx = -1;
     let lastFieldKey = "";
     for (const [key, val] of Object.entries(fields)) {
@@ -212,6 +239,10 @@ var IDFClass = class {
         lastFieldIdx = fieldIdx;
         lastFieldKey = key;
       }
+    }
+    if (!ignoreDefaults && this.classIDD.lastDefaultFieldIdx && lastFieldIdx < this.classIDD.lastDefaultFieldIdx) {
+      lastFieldIdx = this.classIDD.lastDefaultFieldIdx;
+      lastFieldKey = this.getFieldNameByIdx(lastFieldIdx);
     }
     return [lastFieldIdx, lastFieldKey];
   }
@@ -364,10 +395,11 @@ var IDF = class _IDF {
    * Adds a new IDF object for the given IDF class based on the given fields.
    * @param className IDF class name (case insensitive).
    * @param fields fieldKeys and values for creating IDF objects
+   * @param ignoreDefaults whether to ignore default values
    */
-  newObject(className, fields) {
+  newObject(className, fields, ignoreDefaults = false) {
     const idfClass = this.getIDFClass(className);
-    idfClass.idfObjects.push(new IDFObject(idfClass, fields));
+    idfClass.idfObjects.push(new IDFObject(idfClass, fields, ignoreDefaults));
   }
   getObjects(className, re) {
     const classNameLower = className.toLowerCase();
@@ -387,6 +419,16 @@ var IDF = class _IDF {
     return outputString;
   }
 };
+async function main() {
+  const idd = await new IDDManager().getVersion("23.2", true);
+  let idf = new IDF(idd);
+  idf.newObject("buildingsurface:detailed", { Wind_Exposure: "NoWind" });
+  console.log(idf.toString());
+  idf = new IDF(idd);
+  idf.newObject("buildingsurface:detailed", { Wind_Exposure: "NoWind" }, true);
+  console.log(idf.toString());
+}
+main();
 export {
   IDDManager,
   IDF

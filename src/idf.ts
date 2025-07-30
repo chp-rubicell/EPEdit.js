@@ -1,5 +1,4 @@
 /*
-!TODO Add default values
 TODO toString support for formats (SingleLine, Vertices, CompactSchedule, FluidProperties, ViewFactors, and Spectral)
 */
 import { IDFFieldValue } from './types';
