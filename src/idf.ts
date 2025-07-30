@@ -3,7 +3,7 @@
 TODO toString support for formats (SingleLine, Vertices, CompactSchedule, FluidProperties, ViewFactors, and Spectral)
 */
 import { IDFFieldValue } from './types';
-import { IDDManager, IDD, classProps, fieldProps } from './idd';
+import { IDDManager, IDD, ClassProps, FieldProps } from './idd';
 import * as utils from './utilities';
 
 type IDFFields = Record<string, IDFFieldValue>;
@@ -120,7 +120,7 @@ class IDFObject {
 //? —— IDF Class ——————
 
 class IDFClass {
-  readonly classIDD: classProps; // class dataDictionary
+  readonly classIDD: ClassProps; // class dataDictionary
   readonly name: string; // class name
   idfObjects: IDFObject[];
   readonly fieldKeys: string[]; // field keys excluding extensible fields
@@ -130,7 +130,7 @@ class IDFClass {
   readonly extensibleStartIdx: number;
   readonly extensibleSize: number;
 
-  constructor(classIDD: classProps) {
+  constructor(classIDD: ClassProps) {
     this.classIDD = classIDD;
     this.name = classIDD.className;
     this.idfObjects = [];
@@ -269,7 +269,7 @@ class IDFClass {
    * @param length Desired length of the field key array.
    * @returns 
    */
-  getFieldProps(length: number): Record<string, fieldProps> {
+  getFieldProps(length: number): Record<string, FieldProps> {
     const fieldLength = Object.values(this.classIDD.fields).length;
     if (length <= fieldLength) {
       return Object.fromEntries(
@@ -279,7 +279,7 @@ class IDFClass {
     else if (this.hasExtensible) {
       const extensibleProps = Object.values(this.classIDD.fields).slice(-this.extensibleSize); // get fieldProp objects for extensibles
 
-      let fields: Record<string, fieldProps> = { ...this.classIDD.fields };
+      let fields: Record<string, FieldProps> = { ...this.classIDD.fields };
 
       for (let i = 0; i < length - fieldLength; i++) {
         const extensibleIdx = i % this.extensibleSize;
@@ -306,7 +306,7 @@ class IDFClass {
     }
   }
 
-  getFieldPropByIdx(fieldIdx: number): fieldProps {
+  getFieldPropByIdx(fieldIdx: number): FieldProps {
     if (fieldIdx < this.fieldSize) {
       return Object.values(this.classIDD.fields)[fieldIdx];
     }
@@ -320,7 +320,7 @@ class IDFClass {
         name: fieldName,
         type: templateFieldProp.type,
         units: templateFieldProp.units
-      } as fieldProps;
+      } as FieldProps;
     }
     else {
       throw new RangeError(`Index ${fieldIdx} is out of bound for '${this.name}'!`);

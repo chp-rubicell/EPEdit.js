@@ -5,7 +5,7 @@ import { IDFFieldType, IDFFieldValueStrict } from './types';
 import { fieldNameToKey, typeCastFieldValue, toTitleCase } from './utilities';
 
 
-export interface fieldProps {
+export interface FieldProps {
   name: string;
   type: IDFFieldType;
   units: string | null;
@@ -14,9 +14,9 @@ export interface fieldProps {
 
 type extensibleFieldName = [string, string]; // prefix, suffix -> (prefix)(n)(suffix)
 
-export interface classProps {
+export interface ClassProps {
   className: string;
-  fields: Record<string, fieldProps>; // fieldKey: fieldProps (excluding extensibles)
+  fields: Record<string, FieldProps>; // fieldKey: fieldProps (excluding extensibles)
   lastDefaultFieldIdx?: number; // index of the last default field
   extensible?: {
     startIdx: number; // start index of the extensible fields
@@ -26,7 +26,7 @@ export interface classProps {
   };
 }
 
-export type IDD = Record<string, classProps>; // classKey: classProps
+export type IDD = Record<string, ClassProps>; // classKey: classProps
 
 //? —— RegExp Pattern ——————
 /*
@@ -58,14 +58,14 @@ Version,
  * @param classString Class idd string.
  * @returns classProps object.
  */
-export function parseIDDClassString(classString: string, verbose: boolean = false): classProps {
+export function parseIDDClassString(classString: string, verbose: boolean = false): ClassProps {
 
   //? get top-level class info
   const classInfoString = (classString.match(/[^\s,]+,(?:\r\n|\r|\n)(?: *\\.*(?:\r\n|\r|\n))+/) ?? [''])[0]; // Version, \~~, \~~
   const className = (classInfoString.match(/([^\s,]+),/) ?? [])[1]; // e.g., Version
 
   //? create classProps instance for this class
-  let classProp: classProps = {
+  let classProp: ClassProps = {
     className: className,
     // only add lastDefaultFieldIdx if the class have a field with a default value
     ...(classString.match(/\\default /) && {lastDefaultFieldIdx: -1}),
@@ -133,7 +133,7 @@ export function parseIDDClassString(classString: string, verbose: boolean = fals
     const fieldUnits = (fieldString.match(/\\units (.+)(?:\r\n|\r|\n)/) ?? [])[1] ?? null;
 
     //? create fieldProps object
-    const fieldProp: fieldProps = {
+    const fieldProp: FieldProps = {
       name: fieldName,
       type: fieldType,
       units: fieldUnits
