@@ -554,7 +554,7 @@ async function main() {
 main();
 */
 
-
+/*
 async function main() {
 
   const idd = await new IDDManager().getVersion('23.2', true);
@@ -568,4 +568,4 @@ async function main() {
   console.log(idf.toString());
 }
 main();
-
+*/

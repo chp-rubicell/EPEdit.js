@@ -32,6 +32,6 @@ async function main() {
   console.log();
 
   console.log();
-  console.log(idf.toString().slice(0, 100));
+  console.log(idf.toString().slice(0, 61));
 }
 main();

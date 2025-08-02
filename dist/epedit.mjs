@@ -419,16 +419,6 @@ var IDF = class _IDF {
     return outputString;
   }
 };
-async function main() {
-  const idd = await new IDDManager().getVersion("23.2", true);
-  let idf = new IDF(idd);
-  idf.newObject("buildingsurface:detailed", { Wind_Exposure: "NoWind" });
-  console.log(idf.toString());
-  idf = new IDF(idd);
-  idf.newObject("buildingsurface:detailed", { Wind_Exposure: "NoWind" }, true);
-  console.log(idf.toString());
-}
-main();
 export {
   IDDManager,
   IDF
