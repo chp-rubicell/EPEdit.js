@@ -16,9 +16,9 @@ export default defineConfig([
   // minified
   {
     outDir: 'dist',
-    entry: { 'epedit-mini': 'src/index.ts' },
-    // format: ['cjs', 'esm'],
-    format: ['esm'],
+    entry: { 'epedit.mini': 'src/index.ts' },
+    format: ['cjs', 'esm'],
+    // format: ['esm'],
     dts: true,
     splitting: true,
     sourcemap: false,
