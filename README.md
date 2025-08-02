@@ -3,7 +3,8 @@
         <img src="https://github.com/chp-rubicell/EPEdit.js/blob/main/doc/epedit.svg" width="256" alt="EPEdit.js"><br/>
     </a>
     <!-- <img src="doc/epedit.svg" width="256" alt="EPEdit.js"><br/> -->
-    <a href="https://github.com/chp-rubicell/EPEdit.js/releases/latest"><img src="https://img.shields.io/github/release/chp-rubicell/EPEdit.js.svg?style=flat-square&maxAge=600" alt="Downloads"></a>
+    <a href="https://github.com/chp-rubicell/EPEdit.js/releases/latest"><img src="https://img.shields.io/github/release/chp-rubicell/EPEdit.js.svg?style=for-the-badge&maxAge=600" alt="Downloads"></a>&nbsp;
+    <a href="https://www.npmjs.com/package/epedit.js"><img src="https://img.shields.io/npm/v/epedit.js?style=for-the-badge&maxAge=600" alt="npm"></a>
 </p>
 
 **EPEdit.js** is a JavaScript library for parsing, editing, and writing EnergyPlus Input Data Files (`.idf`).
