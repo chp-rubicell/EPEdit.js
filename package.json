@@ -1,12 +1,13 @@
 {
   "name": "epedit.js",
-  "version": "1.0.0",
-  "description": "JavaScript library for editing EnergyPlus idf files.",
-  "main": "./dist/epedit-mini.js",
-  "module": "./dist/epedit-mini.mjs",
-  "types": "./dist/epedit-mini.d.ts",
+  "version": "1.0.1",
+  "description": "JavaScript library for parsing, editing, and writing EnergyPlus Input Data Files (.idf).",
+  "main": "./dist/epedit.mini.js",
+  "module": "./dist/epedit.mini.mjs",
+  "types": "./dist/epedit.mini.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "idds"
   ],
   "directories": {
     "test": "test"
@@ -27,7 +28,7 @@
     "eplus"
   ],
   "author": "Chul-Hong Park",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chp-rubicell/EPEdit.js/issues"
   },
