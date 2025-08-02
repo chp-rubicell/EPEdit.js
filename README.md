@@ -1,5 +1,7 @@
 <p align="center">
-    <img src="https://github.com/chp-rubicell/EPEdit.js/blob/main/doc/epedit.svg" width="256" alt="EPEdit.js"><br/>
+    <a href="https://github.com/chp-rubicell/EPEdit.js">
+        <img src="https://github.com/chp-rubicell/EPEdit.js/blob/main/doc/epedit.svg" width="256" alt="EPEdit.js"><br/>
+    </a>
     <!-- <img src="doc/epedit.svg" width="256" alt="EPEdit.js"><br/> -->
     <a href="https://github.com/chp-rubicell/EPEdit.js/releases/latest"><img src="https://img.shields.io/github/release/chp-rubicell/EPEdit.js.svg?style=flat-square&maxAge=3600" alt="Downloads"></a>
 </p>
