@@ -5,8 +5,8 @@ export default defineConfig([
   {
     outDir: 'dist',
     entry: { 'epedit': 'src/index.ts' },
-    // format: ['cjs', 'esm'],
-    format: ['esm'],
+    format: ['cjs', 'esm'],
+    // format: ['esm'],
     dts: true,
     splitting: true,
     sourcemap: false,

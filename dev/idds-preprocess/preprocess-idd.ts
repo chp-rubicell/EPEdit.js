@@ -1,4 +1,4 @@
-import { IDD, parseIDDClassString } from '../idd';
+import { IDD, parseIDDClassString } from '../../src/idd';
 import { readFileSync, writeFileSync } from 'fs';
 
 //? —— Export ——————

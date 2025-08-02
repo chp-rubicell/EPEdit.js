@@ -1,4 +1,4 @@
-// src/utilities.ts
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { newObj[key] = obj[key]; } } } newObj.default = obj; return newObj; } } function _nullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } } function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }// src/utilities.ts
 function fieldNameToKey(fieldName) {
   let fieldKey = fieldName;
   fieldKey = fieldKey.replace(/[-/*()]/g, "");
@@ -46,7 +46,7 @@ function toTitleCase(str, re = /[ ]/) {
     return "";
   }
   re = new RegExp(re.source, "g");
-  const separators = str.match(re) ?? [];
+  const separators = _nullishCoalesce(str.match(re), () => ( []));
   const words = str.toLowerCase().split(re).map((word) => word.charAt(0).toUpperCase() + word.slice(1));
   return alternateMerge(words, separators).join("");
 }
@@ -83,7 +83,7 @@ var IDDManager = class {
    */
   async loadPreprocessedIDD(iddPath) {
     try {
-      const { iddVersion, iddString } = await import(iddPath);
+      const { iddVersion, iddString } = await Promise.resolve().then(() => _interopRequireWildcard(require(iddPath)));
       const idd = JSON.parse(iddString);
       this.iddCache[iddVersion] = idd;
     } catch (error) {
@@ -128,7 +128,7 @@ var IDFObject = class {
         } else {
           return [
             fieldKey,
-            ignoreDefaults ? null : fieldProp.default ?? null
+            ignoreDefaults ? null : _nullishCoalesce(fieldProp.default, () => ( null))
             // use null when defaults are ignored
           ];
         }
@@ -163,7 +163,7 @@ ${classIndent}${this.className}
     const fieldProps = this.class.getFieldProps(lastFieldIndex + 1);
     for (const [fieldKey, fieldProp] of Object.entries(fieldProps)) {
       const fieldName = fieldProp.name;
-      const fieldVal = String(this.fields[fieldKey] ?? "");
+      const fieldVal = String(_nullishCoalesce(this.fields[fieldKey], () => ( "")));
       const fieldPaddingLength = fieldSize - String(fieldVal).length;
       const fieldPadding = " ".repeat(fieldPaddingLength >= 0 ? fieldPaddingLength : 0);
       const closingSymbol = fieldKey == lastFieldKey ? ";" : ",";
@@ -201,8 +201,8 @@ var IDFClass = class {
     } else if (this.hasExtensible) {
       let extensibleIdx = -1;
       let extensibleGroupIdx = -1;
-      for (let regexpIdx = 0; regexpIdx < (this.classIDD.extensible?.keyRegExps ?? []).length; regexpIdx++) {
-        const regexp = new RegExp((this.classIDD.extensible?.keyRegExps ?? [])[regexpIdx]);
+      for (let regexpIdx = 0; regexpIdx < (_nullishCoalesce(_optionalChain([this, 'access', _2 => _2.classIDD, 'access', _3 => _3.extensible, 'optionalAccess', _4 => _4.keyRegExps]), () => ( []))).length; regexpIdx++) {
+        const regexp = new RegExp((_nullishCoalesce(_optionalChain([this, 'access', _5 => _5.classIDD, 'access', _6 => _6.extensible, 'optionalAccess', _7 => _7.keyRegExps]), () => ( [])))[regexpIdx]);
         const regexpMatch = fieldKey.match(regexp);
         if (regexpMatch) {
           extensibleIdx = regexpIdx;
@@ -260,7 +260,7 @@ var IDFClass = class {
     } else if (this.hasExtensible) {
       const extensibleIdx = (fieldIdx - this.fieldSize) % this.extensibleSize;
       const extensibleGroupIdx = Math.floor((fieldIdx - this.fieldSize) / this.extensibleSize);
-      const [prefix, suffix] = this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ["", ""];
+      const [prefix, suffix] = _nullishCoalesce(_optionalChain([this, 'access', _8 => _8.classIDD, 'access', _9 => _9.extensible, 'optionalAccess', _10 => _10.fieldNames, 'access', _11 => _11[extensibleIdx]]), () => ( ["", ""]));
       return `${prefix}${extensibleGroupIdx + 1}${suffix}`;
     } else {
       throw new RangeError(`Index ${fieldIdx} is out of bound for '${this.name}'!`);
@@ -279,7 +279,7 @@ var IDFClass = class {
       for (let i = 0; i < length - this.fieldSize; i++) {
         const extensibleIdx = i % this.extensibleSize;
         const extensibleGroupIdx = Math.floor(i / this.extensibleSize);
-        const [prefix, suffix] = this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ["", ""];
+        const [prefix, suffix] = _nullishCoalesce(_optionalChain([this, 'access', _12 => _12.classIDD, 'access', _13 => _13.extensible, 'optionalAccess', _14 => _14.fieldNames, 'access', _15 => _15[extensibleIdx]]), () => ( ["", ""]));
         keys.push(fieldNameToKey(`${prefix}${extensibleGroupIdx + 1}${suffix}`));
       }
       return keys;
@@ -305,7 +305,7 @@ var IDFClass = class {
         const extensibleIdx = i % this.extensibleSize;
         const extensibleGroupIdx = Math.floor(i / this.extensibleSize) + 1;
         const templateFieldProp = extensibleProps[extensibleIdx];
-        const [prefix, suffix] = this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ["", ""];
+        const [prefix, suffix] = _nullishCoalesce(_optionalChain([this, 'access', _16 => _16.classIDD, 'access', _17 => _17.extensible, 'optionalAccess', _18 => _18.fieldNames, 'access', _19 => _19[extensibleIdx]]), () => ( ["", ""]));
         const fieldName = `${prefix}${extensibleGroupIdx + 1}${suffix}`;
         const fieldKey = fieldNameToKey(fieldName);
         fields[fieldKey] = {
@@ -325,7 +325,7 @@ var IDFClass = class {
     } else if (this.hasExtensible) {
       const extensibleIdx = (fieldIdx - this.fieldSize) % this.extensibleSize;
       const extensibleGroupIdx = Math.floor((fieldIdx - this.fieldSize) / this.extensibleSize);
-      const [prefix, suffix] = this.classIDD.extensible?.fieldNames[extensibleIdx] ?? ["", ""];
+      const [prefix, suffix] = _nullishCoalesce(_optionalChain([this, 'access', _20 => _20.classIDD, 'access', _21 => _21.extensible, 'optionalAccess', _22 => _22.fieldNames, 'access', _23 => _23[extensibleIdx]]), () => ( ["", ""]));
       const fieldName = `${prefix}${extensibleGroupIdx + 1}${suffix}`;
       const templateFieldProp = Object.values(this.classIDD.fields)[this.extensibleStartIdx + extensibleIdx];
       return {
@@ -341,7 +341,7 @@ var IDFClass = class {
   }
   getObjectsFields(re) {
     if (this.hasNameField && re !== void 0) {
-      return this.idfObjects.filter((item) => re.test(String(item.fields.Name ?? ""))).map((item) => item.fields);
+      return this.idfObjects.filter((item) => re.test(String(_nullishCoalesce(item.fields.Name, () => ( ""))))).map((item) => item.fields);
     } else {
       return this.idfObjects.map((item) => item.fields);
     }
@@ -375,7 +375,7 @@ var IDF = class _IDF {
       const obj = objectList[i];
       if (obj.length <= 0) continue;
       const fieldList = obj.split(",");
-      const className = fieldList.shift() ?? "";
+      const className = _nullishCoalesce(fieldList.shift(), () => ( ""));
       const keys = idf.getIDFClass(className).getFieldKeys(fieldList.length);
       const entries = fieldList.map((value, index) => [keys[index], value]);
       const fields = Object.fromEntries(entries);
@@ -443,7 +443,7 @@ var IDF = class _IDF {
     return outputString;
   }
 };
-export {
-  IDDManager,
-  IDF
-};
+
+
+
+exports.IDDManager = IDDManager; exports.IDF = IDF;
