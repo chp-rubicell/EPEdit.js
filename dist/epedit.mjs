@@ -50,6 +50,9 @@ function toTitleCase(str, re = /[ ]/) {
   const words = str.toLowerCase().split(re).map((word) => word.charAt(0).toUpperCase() + word.slice(1));
   return alternateMerge(words, separators).join("");
 }
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
 
 // src/idd.ts
 var IDDManager = class {
@@ -173,7 +176,7 @@ var IDFClass = class {
     this.name = classIDD.className;
     this.idfObjects = [];
     this.fieldKeys = Object.keys(classIDD.fields);
-    this.hasNameField = Object.keys(this.fieldKeys)[0] == "Name";
+    this.hasNameField = this.fieldKeys[0] == "Name";
     if (classIDD.extensible) {
       this.fieldKeys = this.fieldKeys.slice(0, classIDD.extensible.startIdx);
       this.hasExtensible = true;
@@ -407,6 +410,22 @@ var IDF = class _IDF {
       throw new RangeError(`'${className}' not in this idf!`);
     }
     return this.getIDFClass(className).getObjectsFields(re);
+  }
+  getObject(className, name) {
+    const idfClass = this.getIDFClass(className);
+    if (!idfClass.hasNameField) {
+      throw TypeError(`'${className}' does not have a Name field!`);
+    }
+    const escapedPattern = escapeRegExp(name);
+    const re = new RegExp(escapedPattern);
+    const objects = this.getObjects(className, re);
+    if (objects.length == 0) {
+      throw RangeError(`There are no '${className}' named '${name}'!`);
+    } else if (objects.length > 1) {
+      throw RangeError(`There are more than one '${className}' named '${name}'!`);
+    } else {
+      return objects[0];
+    }
   }
   //? —— Export as String ——————
   toString(classIndentSize = 2, fieldIndentSize = 4, fieldSize = 22) {

@@ -31,33 +31,33 @@ class IDFObject {
     const fieldProps = idfClass.getFieldProps(lastFieldIdx + 1);
     this.fields = Object.fromEntries(
       Object.entries(fieldProps)
-      .filter(([fieldKey, fieldProp]) => {
-        return fieldKey in fields || 'default' in fieldProp;
-      })
-      .map(([fieldKey, fieldProp]) => {
-        // was inputted
-        if (fieldKey in fields) {
-          let fieldVal = fields[fieldKey];
-          const fieldType = fieldProp.type;
-          // autosize & autocalculate
-          if (typeof fieldVal === 'string'
-            && (fieldVal.toLowerCase() == 'autosize'
-              || fieldVal.toLowerCase() == 'autocalculate')) {
-            fieldVal = utils.toTitleCase(fieldVal);
+        .filter(([fieldKey, fieldProp]) => {
+          return fieldKey in fields || 'default' in fieldProp;
+        })
+        .map(([fieldKey, fieldProp]) => {
+          // was inputted
+          if (fieldKey in fields) {
+            let fieldVal = fields[fieldKey];
+            const fieldType = fieldProp.type;
+            // autosize & autocalculate
+            if (typeof fieldVal === 'string'
+              && (fieldVal.toLowerCase() == 'autosize'
+                || fieldVal.toLowerCase() == 'autocalculate')) {
+              fieldVal = utils.toTitleCase(fieldVal);
+            }
+            else if (fieldVal !== null) {
+              fieldVal = utils.typeCastFieldValue(fieldType, fieldVal, this.className, fieldKey);
+            }
+            return [fieldKey, fieldVal];
           }
-          else if (fieldVal !== null) {
-            fieldVal = utils.typeCastFieldValue(fieldType, fieldVal, this.className, fieldKey);
+          else {
+            // has default value
+            return [
+              fieldKey,
+              ignoreDefaults ? null : fieldProp.default ?? null // use null when defaults are ignored
+            ];
           }
-          return [fieldKey, fieldVal];
-        }
-        else {
-          // has default value
-          return [
-            fieldKey,
-            ignoreDefaults ? null : fieldProp.default ?? null // use null when defaults are ignored
-          ];
-        }
-      })
+        })
     );
   }
 
@@ -135,7 +135,7 @@ class IDFClass {
     this.idfObjects = [];
     this.fieldKeys = Object.keys(classIDD.fields);
     // whether the class have a 'Name' field
-    this.hasNameField = Object.keys(this.fieldKeys)[0] == 'Name';
+    this.hasNameField = this.fieldKeys[0] == 'Name';
     if (classIDD.extensible) {
       // exclude extensible fields
       this.fieldKeys = this.fieldKeys.slice(0, classIDD.extensible.startIdx);
@@ -212,8 +212,8 @@ class IDFClass {
       }
     }
     if (!ignoreDefaults
-        && this.classIDD.lastDefaultFieldIdx
-        && lastFieldIdx < this.classIDD.lastDefaultFieldIdx) {
+      && this.classIDD.lastDefaultFieldIdx
+      && lastFieldIdx < this.classIDD.lastDefaultFieldIdx) {
       lastFieldIdx = this.classIDD.lastDefaultFieldIdx;
       lastFieldKey = this.getFieldNameByIdx(lastFieldIdx);
     }
@@ -330,7 +330,7 @@ class IDFClass {
   }
 
 
-  getObjectsFields(re?: RegExp | undefined) {
+  getObjectsFields(re?: RegExp | undefined): IDFFields[] {
     //TODO add try-catch
     if (this.hasNameField && re !== undefined) {
       return this.idfObjects
@@ -441,7 +441,7 @@ export class IDF {
     idfClass.idfObjects.push(new IDFObject(idfClass, fields, ignoreDefaults));
   }
 
-  getObjects(className: string, re?: RegExp | undefined) {
+  getObjects(className: string, re?: RegExp | undefined): IDFFields[] {
     /*
     TODO add optional filter variable
     */
@@ -450,6 +450,25 @@ export class IDF {
       throw new RangeError(`'${className}' not in this idf!`);
     }
     return this.getIDFClass(className).getObjectsFields(re);
+  }
+
+  getObject(className: string, name: string): IDFFields {
+    const idfClass = this.getIDFClass(className);
+    if (!idfClass.hasNameField) {
+      throw TypeError(`'${className}' does not have a Name field!`);
+    }
+    const escapedPattern = utils.escapeRegExp(name);
+    const re = new RegExp(escapedPattern);
+    const objects = this.getObjects(className, re);
+    if (objects.length == 0) {
+      throw RangeError(`There are no '${className}' named '${name}'!`);
+    }
+    else if (objects.length > 1) {
+      throw RangeError(`There are more than one '${className}' named '${name}'!`);
+    }
+    else {
+      return objects[0];
+    }
   }
 
   //? —— Export as String ——————

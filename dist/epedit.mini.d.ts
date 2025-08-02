@@ -128,6 +128,7 @@ declare class IDF {
      */
     newObject(className: string, fields: IDFFields, ignoreDefaults?: boolean): void;
     getObjects(className: string, re?: RegExp | undefined): IDFFields[];
+    getObject(className: string, name: string): IDFFields;
     toString(classIndentSize?: number, fieldIndentSize?: number, fieldSize?: number): string;
 }
 

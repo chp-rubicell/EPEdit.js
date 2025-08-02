@@ -97,3 +97,9 @@ export function toTitleCase(str: string, re: RegExp = /[ ]/): string {
 
   return alternateMerge(words, separators).join('');
 }
+
+//? —— RegExp Related ——————
+
+export function escapeRegExp(str: string) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}

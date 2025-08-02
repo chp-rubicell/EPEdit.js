@@ -34,4 +34,11 @@ async function main() {
   console.log();
   console.log(idf.toString().slice(0, 61));
 }
-main();
+// main();
+async function getObjectTest() {
+  const idf = await IDF.fromString(idfString, '../idds');
+  // console.log(idf.getObject('Version', ''));
+  console.log(idf.getObjects('BuildingSurface:Detailed').map((item) => item.Name));
+  console.log(idf.getObject('BuildingSurface:Detailed', 'Core_mid_ZN_5_Wall_South'));
+}
+getObjectTest();
