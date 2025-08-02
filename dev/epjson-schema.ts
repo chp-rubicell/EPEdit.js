@@ -1,4 +1,4 @@
-import { fieldNameToKey } from './utilities';
+import { fieldNameToKey } from '../src/utilities';
 
 // for export
 export interface classPropsMini {

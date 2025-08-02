@@ -7,11 +7,9 @@
   "types": "./dist/epedit.mini.d.ts",
   "files": [
     "dist",
-    "idds"
+    "idds",
+    "src"
   ],
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup"

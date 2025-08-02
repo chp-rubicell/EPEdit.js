@@ -231,9 +231,15 @@ export class IDDManager {
    * @param iddPath e.g., `${this.iddDir}/v${version}-idd`
    */
   async loadPreprocessedIDD(iddPath: string) {
-    const { iddVersion, iddString } = await import(iddPath) as IDDModule;
-    const idd: IDD = JSON.parse(iddString) as IDD;
-    this.iddCache[iddVersion] = idd;
+    try {
+      const { iddVersion, iddString } = await import(iddPath) as IDDModule;
+      const idd: IDD = JSON.parse(iddString) as IDD;
+      this.iddCache[iddVersion] = idd;
+    }
+    catch (error) {
+      console.error(`Failed to load '${iddPath}'`);
+      throw error;
+    }
   }
 
   /**

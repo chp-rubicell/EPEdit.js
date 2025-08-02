@@ -92,7 +92,7 @@ function preprocessIDD(versionCode: string, test: boolean = false) {
 
   if (!test) {
     // .ts
-    exportIDDToTsJs(versionCode, idd, `./src/idds/v${versionCode}-idd.ts`, true);
+    // exportIDDToTsJs(versionCode, idd, `./src/idds/v${versionCode}-idd.ts`, true);
     // .js
     exportIDDToTsJs(versionCode, idd, `./idds/v${versionCode}-idd.js`, true);
   }
