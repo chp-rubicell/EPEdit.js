@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/chp-rubicell/EPEdit.js">
+    <a href="https://github.com/chp-rubicell/EPEdit.js/releases/latest">
         <img src="https://github.com/chp-rubicell/EPEdit.js/blob/main/doc/epedit.svg" width="256" alt="EPEdit.js"><br/>
     </a>
     <!-- <img src="doc/epedit.svg" width="256" alt="EPEdit.js"><br/> -->

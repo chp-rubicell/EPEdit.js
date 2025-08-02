@@ -61,9 +61,8 @@ async function speedTest() {
 
 async function getObjectTest() {
   const idf = await IDF.fromString(idfString, '../idds');
-  console.log(idf.getIDFClass('buildingsurface:detailed').fieldKeys[0])
-  console.log(idf.getIDFClass('buildingsurface:detailed').hasNameField);
-  console.log(idf.getObjects('BuildingSurface:Detailed', /Core_mid_ZN_5_Wall_South/))
+  console.log(idf.getObjects('BuildingSurface:Detailed', /Core_mid_ZN_5_Wall_South/));
+  console.log(idf.getObject('BuildingSurface:Detailed', 'Core_mid_ZN_5_Wall_South'));
 }
 
 // addObjectTest();
