@@ -1,7 +1,14 @@
 import { IDF, IDDManager } from '../dist/epedit.mjs';
 import { idfString } from './idfs/RefBldgMediumOfficeNew2004_Chicago.js';
 
-async function test1() {
+async function addObjectTest() {
+    const idd = await new IDDManager('../../idds').getVersion('23.2');
+    let idf = new IDF(idd);
+    idf.newObject('Zone', {Name: 'Test Zone'});
+    console.log(idf.toString());
+}
+
+async function surfaceTest() {
     const idd = await new IDDManager('../../idds').getVersion('23.2');
     // const iddManager = new IDDManager();
     // await iddManager.loadPreprocessedIDD('../dist/idds/v23-2-idd.js');
@@ -20,7 +27,7 @@ async function test1() {
     console.log(idf.toString());
 }
 
-async function test2() {
+async function speedTest() {
   console.log();
   console.log('< RefBldgMediumOfficeNew2004_Chicago.idf >')
   console.log();
@@ -52,5 +59,6 @@ async function test2() {
   console.log(idf.toString().slice(0, 200));
 }
 
-// test1();
-test2();
+// addObjectTest();
+// surfaceTest();
+speedTest();
