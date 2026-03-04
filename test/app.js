@@ -1,6 +1,11 @@
 import { IDF, IDDManager } from '../dist/epedit.mjs';
 import { idfString } from './idfs/RefBldgMediumOfficeNew2004_Chicago.js';
 
+async function iddTest() {
+    const idd = await new IDDManager('../../idds').getVersion('23.2');
+    console.log(idd['buildingsurface:detailed']);
+}
+
 async function addObjectTest() {
     const idd = await new IDDManager('../../idds').getVersion('23.2');
     let idf = new IDF(idd);
@@ -21,7 +26,7 @@ async function surfaceTest() {
     console.log(surfClass.getFieldKeys(20));
     console.log(surfClass.getFieldProps(20));
     console.log(surfClass.getLastFieldIdxAndKeyFromFields({'Vertex_3_Ycoordinate':1, 'Vertex_3_Zcoordinate':null, 'Name':''}));
-    
+
     console.log()
     idf.newObject('buildingsurface:detailed', {Vertex_3_Ycoordinate: 0});
     console.log(idf.toString());
@@ -36,7 +41,7 @@ async function speedTest() {
   const idf = await IDF.fromString(idfString, '../idds');
   console.timeEnd('read IDF');
   console.log();
-  
+
   console.time('iterate objects');
   const _ = idf.getObjects('BuildingSurface:Detailed');
   for (const surf of _) {
@@ -65,7 +70,8 @@ async function getObjectTest() {
   console.log(idf.getObject('BuildingSurface:Detailed', 'Core_mid_ZN_5_Wall_South'));
 }
 
+iddTest();
 // addObjectTest();
 // surfaceTest();
 // speedTest();
-getObjectTest();
+// getObjectTest();
