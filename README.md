@@ -65,7 +65,7 @@ async function main() {
     console.time('read IDF');
     const idf = await IDF.fromString(idfString, '../idds');
     console.timeEnd('read IDF');
-    
+
     console.time('iterate objects');
     const surfaces = idf.getObjects('BuildingSurface:Detailed');
     for (const surf of surfaces) {
@@ -80,7 +80,7 @@ async function main() {
     console.timeEnd('write IDF')
 
     console.log(idf.getObjects('BuildingSurface:Detailed')[10]);
-    
+
     console.log(idf.toString().slice(0, 61));
 }
 
@@ -143,6 +143,10 @@ write IDF: 9.212ms
 - **`getObjects(className: string, re?: RegExp | undefined)`**: Get IDF objects with the matching pattern.
 - **`getObject(className: string, name: string): IDFFields`**: Get an IDF object with the matching name.
 - **`toString(classIndentSize: number = 2, fieldIndentSize: number = 4, fieldSize: number = 22)`**: Serialize the modified model back into a valid `.idf` file string.
+
+## Related projects
+
+- [EPEdit.go](https://github.com/chp-rubicell/EPEdit.go)
 
 ## License
 
