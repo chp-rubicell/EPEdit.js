@@ -1,7 +1,6 @@
 <p align="center">
-    <a href="https://github.com/chp-rubicell/EPEdit.js/releases/latest">
-        <img src="https://github.com/chp-rubicell/EPEdit.js/blob/main/doc/epedit.svg" width="256" alt="EPEdit.js"><br/>
-    </a>
+    <a href="https://github.com/chp-rubicell/EPEdit.js/releases/latest"><img src="https://github.com/chp-rubicell/EPEdit.js/raw/main/doc/epedit.svg" width="300" alt="EPEdit.js"></a>
+    <br/>
     <!-- <img src="doc/epedit.svg" width="256" alt="EPEdit.js"><br/> -->
     <a href="https://github.com/chp-rubicell/EPEdit.js/releases/latest"><img src="https://img.shields.io/github/release/chp-rubicell/EPEdit.js.svg?style=flat-square&maxAge=600" alt="Downloads"></a>&nbsp;
     <a href="https://www.npmjs.com/package/epedit.js"><img src="https://img.shields.io/npm/v/epedit.js?style=flat-square&maxAge=600" alt="npm"></a>
@@ -146,7 +145,11 @@ write IDF: 9.212ms
 
 ## Related projects
 
-- [EPEdit.go](https://github.com/chp-rubicell/EPEdit.go)
+<p align="center">
+    <a href="https://github.com/chp-rubicell/EPEdit.py"><img src="https://github.com/chp-rubicell/EPEdit.py/raw/main/docs/assets/epeditpy.svg" width="200" alt="EPEdit.py" /></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/chp-rubicell/EPEdit.go"><img src="https://github.com/chp-rubicell/EPEdit.go/raw/main/_assets/epeditgo.svg" width="200" alt="EPEdit.go" /></a>
+</p>
 
 ## License
 
